@@ -12,8 +12,11 @@ public class product  implements Serializable {
     private String tinhtrang;
     private String mota;
     private String idnhanxet;
+    private int isnew;
+    private int giamgia;
 public product(){}
-    public product(String masp, String maloai, String tensp, String hinhanh, Integer giamoi, Integer giacu, String tinhtrang, String mota, String idnhanxet) {
+
+    public product(String masp, String maloai, String tensp, String hinhanh, Integer giamoi, Integer giacu, String tinhtrang, String mota, String idnhanxet, int isnew, int giamgia) {
         this.masp = masp;
         this.maloai = maloai;
         this.tensp = tensp;
@@ -23,6 +26,24 @@ public product(){}
         this.tinhtrang = tinhtrang;
         this.mota = mota;
         this.idnhanxet = idnhanxet;
+        this.isnew = isnew;
+        this.giamgia = giamgia;
+    }
+
+    public int getIsnew() {
+        return isnew;
+    }
+
+    public void setIsnew(int isnew) {
+        this.isnew = isnew;
+    }
+
+    public int getGiamgia() {
+        return giamgia;
+    }
+
+    public void setGiamgia(int giamgia) {
+        this.giamgia = giamgia;
     }
 
     public String getMasp() {

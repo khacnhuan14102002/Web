@@ -1,3 +1,6 @@
+<%@ page import="vn.edu.hcmuaf.fit.service.LoaiService" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.Loai" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="en">
@@ -182,11 +185,14 @@
 					<!-- NAV -->
 					<ul class="main-nav nav navbar-nav">
 						<li class="active"><a href="#">Trang chủ</a></li>
-						<li><a href="storeop.html">Ốp lưng</a></li>
-						<li><a href="storedream.jsp">Dreamcatcher</a></li>
-						<li><a href="storethiep.html">Thiệp</a></li>
-						<li><a href="storemockhoa.html">Móc khóa</a></li>
-						<li><a href="storesp.html">Sản phẩm khác</a></li>
+
+
+						<% for(Loai loai :LoaiService.getLoai()){%>
+
+						<li ><a href="index.jsp?maloai=<%=loai.getMaloai()%>"><%=loai.getTenloai()%></a></li>
+							<%}%>
+
+
 					</ul>
 					<!-- /NAV -->
 				</div>
@@ -224,7 +230,7 @@
 							</div>
 							<div class="shop-body">
 								<h3>Dreamcatcher<br>Bộ sưu tập</h3>
-								<a href="storedream.jsp" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
+								<a href="store.jsp" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
 							</div>
 						</div>
 					</div>
@@ -747,10 +753,12 @@
 								<h3 class="footer-title">Thể loại</h3>
 								<ul class="footer-links">
 									<li><a href="#">Giảm giá sốc</a></li>
-									<li><a href="#">Ốp lưng</a></li>
-									<li><a href="#">Móc khóa</a></li>
-									<li><a href="#">Thiệp</a></li>
-									<li><a href="#">Dreamcatcher</a></li>
+
+									<% for(Loai loai :LoaiService.getLoai()){%>
+
+									<li ><a href="index.jsp?maloai=<%=loai.getMaloai()%>"><%=loai.getTenloai()%></a></li>
+									<%}%>
+
 								</ul>
 							</div>
 						</div>

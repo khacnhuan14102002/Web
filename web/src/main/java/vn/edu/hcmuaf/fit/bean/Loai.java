@@ -1,12 +1,17 @@
 package vn.edu.hcmuaf.fit.bean;
 
-public class Loai {
-    String maloai;
+import java.io.Serializable;
+
+public class Loai implements Serializable {
+     String maloai;
     String tenloai;
 
     public Loai(String maloai, String tenloai) {
         this.maloai = maloai;
         this.tenloai = tenloai;
+    }
+
+    public Loai() {
     }
 
     public String getMaloai() {
