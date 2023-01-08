@@ -4,6 +4,7 @@
 <!------ Include the above in your HEAD tag ---------->
 
 <!DOCTYPE html>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -19,11 +20,11 @@
 <body>
 <div id="logreg-forms">
 
-  <form class="form-signin">
+  <form class="form-signin" action="LoginControl" method="post">
     <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Đăng nhập</h1>
 
-    <input type="email" id="inputEmail" class="form-control" placeholder="Nhập email" required="" autofocus="">
-    <input type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu" required="">
+    <input name="email" type="email" id="inputEmail" class="form-control" placeholder="Nhập email" required="" autofocus="">
+    <input name="pass" type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu" required="">
 
     <button class=" bt btn btn-success btn-block" type="submit"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
     <a href="#" id="forgot_pswd">Quên mật khẩu?</a>

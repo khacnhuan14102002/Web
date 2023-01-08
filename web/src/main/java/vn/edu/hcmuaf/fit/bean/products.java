@@ -2,7 +2,7 @@ package vn.edu.hcmuaf.fit.bean;
 
 import java.io.Serializable;
 
-public class product  implements Serializable {
+public class products implements Serializable,Comparable<products> {
     private String masp;
     private String maloai;
     private String tensp;
@@ -14,9 +14,9 @@ public class product  implements Serializable {
     private String idnhanxet;
     private int isnew;
     private int giamgia;
-public product(){}
+public products(){}
 
-    public product(String masp, String maloai, String tensp, String hinhanh, Integer giamoi, Integer giacu, String tinhtrang, String mota, String idnhanxet, int isnew, int giamgia) {
+    public products(String masp, String maloai, String tensp, String hinhanh, Integer giamoi, Integer giacu, String tinhtrang, String mota, String idnhanxet, int isnew, int giamgia) {
         this.masp = masp;
         this.maloai = maloai;
         this.tensp = tensp;
@@ -131,5 +131,12 @@ public product(){}
                 ", mota='" + mota + '\'' +
                 ", idnhanxet='" + idnhanxet + '\'' +
                 '}';
+    }
+
+
+    @Override
+    public int compareTo(products o) {
+
+    return Integer.parseInt(this.masp)-Integer.parseInt(o.masp);
     }
 }
