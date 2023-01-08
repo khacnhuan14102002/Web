@@ -1,7 +1,7 @@
 package vn.edu.hcmuaf.fit.db;
 import com.mysql.cj.jdbc.MysqlDataSource;
 import org.jdbi.v3.core.Jdbi;
-import vn.edu.hcmuaf.fit.bean.product;
+import vn.edu.hcmuaf.fit.bean.products;
 
 
 import java.sql.SQLException;
@@ -31,8 +31,8 @@ public class JDBiConnector {
     }
 
     public static void main(String[] args) {
-        List<product> products = JDBiConnector.me().withHandle(handle -> {
-            return handle.createQuery("select * from sanpham").mapToBean(product.class).stream().collect(Collectors.toList());
+        List<products> products = JDBiConnector.me().withHandle(handle -> {
+            return handle.createQuery("select * from sanpham").mapToBean(vn.edu.hcmuaf.fit.bean.products.class).stream().collect(Collectors.toList());
         });
         System.out.println(products);
     }
