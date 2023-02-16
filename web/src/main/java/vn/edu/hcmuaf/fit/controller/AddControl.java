@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.controller;
 
-import vn.edu.hcmuaf.fit.bean.product;
+import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.service.ManagerService;
 
 import javax.servlet.*;
@@ -28,7 +28,7 @@ public class AddControl extends HttpServlet {
         String pcategory = request.getParameter("category");
 
 
-        product product = new product();
+        products product = new products();
         product.setMasp(pid);
         product.setTensp(pname);
         product.setHinhanh(pimage);

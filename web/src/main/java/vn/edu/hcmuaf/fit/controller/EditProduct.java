@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.controller;
 
-import vn.edu.hcmuaf.fit.bean.product;
+import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.service.ManagerService;
 
 import javax.servlet.*;
@@ -27,7 +27,7 @@ public class EditProduct extends HttpServlet {
         String pprice_2 = request.getParameter("price_2");
         String pdescription = request.getParameter("description");
 
-        product product = new product();
+        products product = new products();
         product.setMasp(pid);
         product.setTensp(pname);
         product.setHinhanh(pimage);
