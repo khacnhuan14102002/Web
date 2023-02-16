@@ -1,7 +1,7 @@
 package vn.edu.hcmuaf.fit.controller;
 
 import vn.edu.hcmuaf.fit.bean.Loai;
-import vn.edu.hcmuaf.fit.bean.product;
+import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.service.ManagerService;
 
 import javax.servlet.ServletException;
@@ -19,7 +19,7 @@ public class ManageControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         ManagerService mana = new ManagerService();
-        List<product> list = mana.getAllProduct();
+        List<products> list = mana.getAllProduct();
         List<Loai> listC = mana.getAllCategory();
 
         request.setAttribute("listC", listC);
