@@ -2,6 +2,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.bean.product" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ManagerService" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.Loai" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -69,8 +70,8 @@
             </thead>
             <tbody>
             <%
-                List<product> listP = ManagerService.getAllProduct();
-                for (product pr : listP) {
+                List<products> listP = ManagerService.getAllProduct();
+                for (products pr : listP) {
             %>
             <tr>
                 <td>

@@ -1,7 +1,7 @@
 package vn.edu.hcmuaf.fit.service;
 
 import vn.edu.hcmuaf.fit.bean.Loai;
-import vn.edu.hcmuaf.fit.bean.product;
+import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.db.connect;
 
 import java.sql.Connection;
@@ -15,15 +15,15 @@ public class ManagerService {
     static PreparedStatement ps = null;
     static ResultSet rs = null;
 
-    public static List<product> getAllProduct() {
-        List<product> list = new ArrayList<>();
+    public static List<products> getAllProduct() {
+        List<products> list = new ArrayList<>();
         String query = "select * from sanpham where stt not like 1";
         try {
             conn = new connect().getconConnection(); //mo ket noi voi sql
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                product pro = new product(rs.getString(1),
+                products pro = new products(rs.getString(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -88,7 +88,7 @@ public class ManagerService {
         }
     }
 
-    public static void addProduct(product pro) {
+    public static void addProduct(products pro) {
         String query = "INSERT INTO sanpham (masp, maloai, tensp, hinhanh, giamoi, giacu, tinhtrang, mota,stt)\n" +
                 "VALUES (?,?,?,?,?,?,?,?,?);";
         try {
@@ -110,7 +110,7 @@ public class ManagerService {
         }
     }
 
-    public static void updateProduct(product pro) {
+    public static void updateProduct(products pro) {
         String query = "update sanpham set tensp=?, hinhanh=?, giamoi=?, giacu=?, mota =? WHERE MASP = ?";
         try {
             conn = new connect().getconConnection();
