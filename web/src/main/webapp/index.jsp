@@ -50,18 +50,18 @@
 				<li><a href="#"><i class="fa fa-phone"></i> +8423658910</a></li>
 				<li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
 				<li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
-				<li><a href="#">XIN CHÀO ,<%User u=(User) session.getAttribute("dn");
-					if(u!=null){
-						u.getTen();
-					}%></a></li>
+<%--				<li><a href="#">XIN CHÀO ,<%User u=(User) session.getAttribute("dn");--%>
+<%--					if(u!=null){--%>
+<%--						u.getTen();--%>
+<%--					}%></a></li>--%>
 			</ul>
 			<ul class="header-links pull-right">
 
-				<li><a href="Login.jsp"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
+				<li><a href="login.jsp"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
 			</ul>
 			<ul class="header-links pull-right">
 
-				<li><a href="admin.html"><i class="fa fa-cog"></i>Quản lý</a></li>
+				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
 			</ul><ul class="header-links pull-right">
 
 
