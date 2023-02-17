@@ -14,6 +14,7 @@
             crossorigin="anonymous"
     />
 </head>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <body>
 <div class="contact-wrap">
     <div class="contact-in">
