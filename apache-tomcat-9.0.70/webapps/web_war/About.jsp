@@ -228,7 +228,7 @@
 
           </p>
         </div>
-      
+
       Chất liệu của đồ handmade
       Ngày nay ta có thể bắt gặp những món đồ handmade từ đủ mọi chất liệu khác nhau: từ đơn giản thông dụng như giấy, bìa, vải, len, sợi, gỗ cho đến những chất liệu chuyên biệt dành riêng cho các tín đồ handmade như: hạt cườm, lông vũ,… Cùng với sự thịnh hành của xu hướng đồ handmade, nguyên liệu dành cho việc thiết kế các sản phẩm thủ công ngày càng đa dạng, phong phú và dễ dàng tiếp cận. Sau đây là một số chất liệu không thể không kể đến khi nói về handmade.
 
