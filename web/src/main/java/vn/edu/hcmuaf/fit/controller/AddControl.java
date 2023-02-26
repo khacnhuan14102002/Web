@@ -39,7 +39,7 @@ public class AddControl extends HttpServlet {
         product.setMaloai(pcategory);
         ManagerService.addProduct(product);
         System.out.println(product);
-        response.sendRedirect("/web_war/ManageControl");
+        response.sendRedirect("/manageControl");
 
     }
 }

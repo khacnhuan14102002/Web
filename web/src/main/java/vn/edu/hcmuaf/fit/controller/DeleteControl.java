@@ -16,7 +16,7 @@ public class DeleteControl extends HttpServlet {
         ManagerService mana = new ManagerService();
         mana.removeProduct(pid);
         System.out.println(pid);
-        response.sendRedirect("/web_war/ManageControl");
+        response.sendRedirect("/manageControl");
 
 
     }

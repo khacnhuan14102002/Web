@@ -36,6 +36,6 @@ public class EditProduct extends HttpServlet {
         product.setMota(pdescription);
         System.out.println(product);
         ManagerService.updateProduct(product);
-        response.sendRedirect("/web_war/ManageControl");
+        response.sendRedirect("/manageControl");
     }
 }
