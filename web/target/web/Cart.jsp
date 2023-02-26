@@ -1,3 +1,6 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
+<%@ page import="vn.edu.hcmuaf.fit.service.Cart" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -125,6 +128,8 @@
                     <table class="table table-bordered tbl-cart">
                         <thead>
                         <tr>
+                        <%ArrayList<products> giohang = new Cart().getGiohang();%>
+
 
                             <td class="hidden-xs mn"   > ẢNH</td>
                             <td class="mn" >TÊN</td>
@@ -138,40 +143,14 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td class="hidden-xs ">
-                                <a href="#">
-                                    <img src="/image/dc6.jpg" alt="MỊ" title="" width="47" height="47">
-                                </a>
-                            </td>
-                            <td class="npr"><a href="#">MỊ</a>
-                            </td>
-
-
-                            <td>
-                                <div class="input-number">
-                                    <input type="number" value="1">
-                                    <span class="qty-up">+</span>
-                                    <span class="qty-down">-</span>
-                                </div>
-<!--                                <div class="input-group bootstrap-touchspin"><span class="input-group-btn"></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"></span></div>-->
-                            </td>
-                            <td class="price">240.000</td>
-                            <td>240.000</td>
-                            <td class="text-center">
-                                <a href="#" class="remove_cart" rel="1">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                </a>
-                            </td>
-                            <td></td>
-                        </tr>
+                        <% for(int i =0;i <giohang.size();i++){%>
                         <tr>
                             <td class="hidden-xs">
                                 <a href="#">
-                                    <img src="/image/dc2.jpg" alt="ĐẠI DƯƠNG" title="" width="47" height="47">
+                                    <img src="<%=giohang.get(i).getHinhanh()%>" alt="ĐẠI DƯƠNG" title="" width="47" height="47">
                                 </a>
                             </td>
-                            <td class="npr"><a href="#">ĐẠI DƯƠNG</a>
+                            <td class="npr"><a href="#"><%=giohang.get(i).getTensp()%></a>
                             </td>
 
 
@@ -183,7 +162,7 @@
                                     </div>
 <!--                                <div class="input-group bootstrap-touchspin"><span class="input-group-btn"></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"></span></div>-->
                             </td>
-                            <td class="price">150.000</td>
+                            <td class="price"><%=giohang.get(i).getGiamoi()%></td>
                             <td>150.000</td>
                             <td class="text-center">
                                 <a href="#" class="remove_cart" rel="1">
@@ -198,6 +177,7 @@
                             <td class="total" colspan="1"><b>390.000</b>
                             </td>
                         </tr>
+                        <%}%>
                         </tbody>
                     </table>
                 </div>

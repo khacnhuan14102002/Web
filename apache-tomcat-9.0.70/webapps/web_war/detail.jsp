@@ -190,11 +190,8 @@
 <!-- BREADCRUMB -->
 <% ProductService pro = new ProductService();
 	products pd = pro.getchitiet(request.getParameter("masp"));
-	Giohang cart = (Giohang) session.getAttribute("cart");
-	if(cart==null){
-		cart = new Giohang();
-		session.setAttribute("cart",cart);
-	}
+
+
 
 %>
 <div id="breadcrumb" class="section">
@@ -282,7 +279,7 @@
 						</div>
 
 					<ul class="product-btns">
-						<li><a href="Giohangcontrol?command=insert&masp=<%=pd.getMasp()%>&cartid=<%=System.currentTimeMillis()%>"><i class="fa-solid fa-cart-shopping"></i>Thêm vào gio hàng</a></li>
+						<li><a href="Addcart?masp=<%=pd.getMasp()%>"><i class="fa-solid fa-cart-shopping"></i>Thêm vào gio hàng</a></li>
 						<li><a href="#"><i class="fa fa-heart-o"></i>Thêm vào yêu thích</a></li>
 						<li><a href="#"><i class="fa fa-exchange"></i>Thêm để so sánh</a></li>
 					</ul>

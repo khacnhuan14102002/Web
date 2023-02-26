@@ -50,10 +50,7 @@
 				<li><a href="#"><i class="fa fa-phone"></i> +8423658910</a></li>
 				<li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
 				<li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
-				<li><a href="#">XIN CHÀO ,<%User u=(User) session.getAttribute("dn");
-					if(u!=null){
-						u.getTen();
-					}%></a></li>
+
 			</ul>
 			<ul class="header-links pull-right">
 
