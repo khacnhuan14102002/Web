@@ -23,7 +23,7 @@
         <p>+8423658910</p>
         <h2><i class="fa fa-envelope" aria-hidden="true"></i> Email</h2>
         <p>shopntt@email.com</p>
-        <h2><i class="fa fa-map-marker" aria-hidden="true"></i> Địa chỉ</h2>
+        <h2><i class="fa fa-map-marker" aria-hidden="true"></i> Địagit  chỉ</h2>
         <p>Linh Trung, Thủ Đức</p>
         <ul>
             <li>

@@ -2,6 +2,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.bean.Loai" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="project" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html lang="en">
@@ -191,7 +192,7 @@
 			<!-- NAV -->
 			<ul class="main-nav nav navbar-nav">
 				<li class="active"><a href="#">Trang chủ</a></li>
-				<li ><a href="store.jsp">Sản phẩm</a></li>
+				<li ><a href="${project}/store">Sản phẩm</a></li>
 				<li><a href="#">Về chúng tôi</a> </li>
 				<li><a href="#">Liên hệ</a></li>
 
