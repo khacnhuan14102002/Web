@@ -1,5 +1,5 @@
 <%@ page import="java.util.List" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.product" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ManagerService" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.Loai" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
@@ -70,7 +70,7 @@
             </thead>
             <tbody>
             <%
-                List<products> listP = ManagerService.getAllProduct();
+                List<products> listP = (List<products>) request.getAttribute("listP");
                 for (products pr : listP) {
             %>
             <tr>
@@ -101,7 +101,7 @@
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal">
                         <button value="<%=pr.getMasp()%>" style="display: none"></button>
                         <i class="material-icons" data-toggle="tooltip" title="Sửa">&#xE254;</i></a>
-                    <a href="http://localhost:8080/web_war/delete?pid=<%=pr.getMasp()%>" class="delete"
+                    <a href="http://localhost:8080/delete?pid=<%=pr.getMasp()%>" class="delete"
                        data-toggle="modal">
                         <i class="material-icons" data-toggle="tooltip" title="Xóa">&#xE872;</i></a>
                 </td>
@@ -161,7 +161,7 @@
                         <label>Loại</label>
                         <select name="category" class="form-select" aria-label="Default select example">
                             <%
-                                List<Loai> listC = ManagerService.getAllCategory();
+                                List<Loai> listC = (List<Loai>) request.getAttribute("listC");
                                 for (Loai loai : listC) {
                             %>
                             <option value="<%=loai.getMaloai()%>"><%=loai.getTenloai()%>
