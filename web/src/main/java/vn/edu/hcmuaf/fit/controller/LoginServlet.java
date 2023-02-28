@@ -45,7 +45,7 @@ public class LoginServlet extends HttpServlet{
 		User u = userDao.login(email, pass);
 		if(u != null) {
 			HttpSession session = req.getSession();
-			User user = userDao.findUserByMaUser(u.getMaUser());
+			User user = userDao.findUserByMaUser(u.getIdUser());
 			session.setAttribute("user", user);
 			resp.sendRedirect(req.getContextPath() + "/user");
 		}

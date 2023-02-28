@@ -18,6 +18,13 @@ public class Connects {
 		}
 		return null;
 	}
-	
+
+	public static void main(String[] args) {
+		try{
+			System.out.println(new connect().getconConnection());
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
+	}
 
 }

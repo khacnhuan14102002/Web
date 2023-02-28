@@ -35,15 +35,15 @@ public class UserController extends HttpServlet{
 		String sdt = req.getParameter("sdt");
 		String pass = req.getParameter("pass");
 		User u = new User();
-		u.setTenUs(ten);
-		u.setEmail(email);
+		u.setNameUser(ten);
+		u.setEmailUs(email);
 		u.setPhone(sdt);
 		u.setPass(pass);
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
-		u.setMaUser(user.getMaUser());
+		u.setIdUser(user.getIdUser());
 		userDao.updateUser(u);
-		User us = userDao.findUserByMaUser(user.getMaUser());
+		User us = userDao.findUserByMaUser(user.getIdUser());
 		session.setAttribute("user", us);
 		resp.sendRedirect(req.getContextPath() + "/user");
 	}

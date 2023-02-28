@@ -4,19 +4,19 @@ import java.sql.Date;
 
 public class User {
 
-	private Integer maUser;
+	private Integer IdUser;
 	
-	private String tenUs;
+	private String NameUser;
 	
-	private String email;
+	private String EmailUs;
 	
-	private String pass;
+	private String Pass;
 	
 	private String phone;
 	
-	private Date ngayDk;
+	private Date RegistrationDate;
 	
-	private Integer loai;
+	private Integer RoleUs;
 	
 	private Integer active;
 	
@@ -28,36 +28,36 @@ public class User {
 		
 	}
 
-	public Integer getMaUser() {
-		return maUser;
+	public Integer getIdUser() {
+		return IdUser;
 	}
 
-	public void setMaUser(Integer maUser) {
-		this.maUser = maUser;
+	public void setIdUser(Integer IdUser) {
+		this.IdUser = IdUser;
 	}
 
-	public String getTenUs() {
-		return tenUs;
+	public String getNameUser() {
+		return NameUser;
 	}
 
-	public void setTenUs(String tenUs) {
-		this.tenUs = tenUs;
+	public void setNameUser(String NameUser) {
+		this.NameUser = NameUser;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getEmailUs() {
+		return EmailUs;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setEmailUs(String EmailUs) {
+		this.EmailUs = EmailUs;
 	}
 
 	public String getPass() {
-		return pass;
+		return Pass;
 	}
 
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPass(String Pass) {
+		this.Pass = Pass;
 	}
 
 	public String getPhone() {
@@ -68,20 +68,20 @@ public class User {
 		this.phone = phone;
 	}
 
-	public Date getNgayDk() {
-		return ngayDk;
+	public Date getRegistrationDate() {
+		return RegistrationDate;
 	}
 
-	public void setNgayDk(Date ngayDk) {
-		this.ngayDk = ngayDk;
+	public void setRegistrationDate(Date RegistrationDate) {
+		this.RegistrationDate = RegistrationDate;
 	}
 
-	public Integer getLoai() {
-		return loai;
+	public Integer getRoleUs() {
+		return RoleUs;
 	}
 
-	public void setLoai(Integer loai) {
-		this.loai = loai;
+	public void setRoleUs(Integer RoleUs) {
+		this.RoleUs = RoleUs;
 	}
 
 	public Integer getActive() {
@@ -110,8 +110,8 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [maUser=" + maUser + ", tenUs=" + tenUs + ", email=" + email + ", pass=" + pass + ", phone="
-				+ phone + ", ngayDk=" + ngayDk + ", loai=" + loai + ", active=" + active + ", activationKey="
+		return "User [IdUser=" + IdUser + ", NameUser=" + NameUser + ", EmailUs=" + EmailUs + ", Pass=" + Pass + ", phone="
+				+ phone + ", RegistrationDate=" + RegistrationDate + ", RoleUs=" + RoleUs + ", active=" + active + ", activationKey="
 				+ activationKey + ", rememberKey=" + rememberKey + "]";
 	}
 	
