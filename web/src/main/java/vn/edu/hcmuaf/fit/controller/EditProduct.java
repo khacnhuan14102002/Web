@@ -23,17 +23,17 @@ public class EditProduct extends HttpServlet {
         String pid = request.getParameter("id");
         String pname = request.getParameter("name");
         String pimage = request.getParameter("image");
-        String pprice_1 = request.getParameter("price_1");
-        String pprice_2 = request.getParameter("price_2");
+        String pprice_new = request.getParameter("price_new");
+        String pprice_old = request.getParameter("price_old");
         String pdescription = request.getParameter("description");
 
         products product = new products();
-        product.setMasp(pid);
-        product.setTensp(pname);
-        product.setHinhanh(pimage);
-        product.setGiamoi(Integer.parseInt(pprice_1));
-        product.setGiacu(Integer.parseInt(pprice_2));
-        product.setMota(pdescription);
+        product.setIdProduct(pid);
+        product.setNameProduct(pname);
+        product.setImage(pimage);
+        product.setPriceNew(Integer.parseInt(pprice_new));
+        product.setPriceOld(Integer.parseInt(pprice_old));
+        product.setDescription(pdescription);
         System.out.println(product);
         ManagerService.updateProduct(product);
         response.sendRedirect("/manageControl");

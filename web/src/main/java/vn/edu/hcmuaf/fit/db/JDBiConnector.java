@@ -32,7 +32,7 @@ public class JDBiConnector {
 
     public static void main(String[] args) {
         List<products> products = JDBiConnector.me().withHandle(handle -> {
-            return handle.createQuery("select * from sanpham").mapToBean(vn.edu.hcmuaf.fit.bean.products.class).stream().collect(Collectors.toList());
+            return handle.createQuery("select * from products").mapToBean(vn.edu.hcmuaf.fit.bean.products.class).stream().collect(Collectors.toList());
         });
         System.out.println(products);
     }

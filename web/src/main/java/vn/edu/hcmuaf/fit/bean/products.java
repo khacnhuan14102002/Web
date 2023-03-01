@@ -2,32 +2,99 @@ package vn.edu.hcmuaf.fit.bean;
 
 import java.io.Serializable;
 
-public class products implements Serializable,Comparable<products> {
-    private String masp;
-    private String maloai;
-    private String tensp;
-    private String hinhanh;
-    private Integer giamoi;
-    private Integer giacu;
-    private String tinhtrang;
-    private String mota;
-    private String idnhanxet;
+public class products implements Serializable, Comparable<products> {
+    private String idProduct;
+    private String idCategory;
+    private String nameProduct;
+    private String image;
+    private Integer priceNew;
+    private Integer priceOld;
+    private Integer quantityStock;
+    private String description;
+    private String idReview;
     private int isnew;
-    private int giamgia;
-public products(){}
+    private int discount;
 
-    public products(String masp, String maloai, String tensp, String hinhanh, Integer giamoi, Integer giacu, String tinhtrang, String mota, String idnhanxet, int isnew, int giamgia) {
-        this.masp = masp;
-        this.maloai = maloai;
-        this.tensp = tensp;
-        this.hinhanh = hinhanh;
-        this.giamoi = giamoi;
-        this.giacu = giacu;
-        this.tinhtrang = tinhtrang;
-        this.mota = mota;
-        this.idnhanxet = idnhanxet;
+    public products(){
+
+    }
+
+    public products(String idProduct, String idCategory, String nameProduct, String image, Integer priceNew, Integer priceOld, Integer quantityStock, String description, String idReview, int isnew, int discount) {
+        this.idProduct = idProduct;
+        this.idCategory = idCategory;
+        this.nameProduct = nameProduct;
+        this.image = image;
+        this.priceNew = priceNew;
+        this.priceOld = priceOld;
+        this.quantityStock = quantityStock;
+        this.description = description;
+        this.idReview = idReview;
         this.isnew = isnew;
-        this.giamgia = giamgia;
+        this.discount = discount;
+    }
+
+    public String getIdProduct() {
+        return idProduct;
+    }
+
+    public void setIdProduct(String idProduct) {
+        this.idProduct = idProduct;
+    }
+
+    public String getIdCategory() {
+        return idCategory;
+    }
+
+    public void setIdCategory(String idCategory) {
+        this.idCategory = idCategory;
+    }
+
+    public String getNameProduct() {
+        return nameProduct;
+    }
+
+    public void setNameProduct(String nameProduct) {
+        this.nameProduct = nameProduct;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public Integer getPriceNew() {
+        return priceNew;
+    }
+
+    public void setPriceNew(Integer priceNew) {
+        this.priceNew = priceNew;
+    }
+
+    public Integer getPriceOld() {
+        return priceOld;
+    }
+
+    public void setPriceOld(Integer priceOld) {
+        this.priceOld = priceOld;
+    }
+
+    public Integer getQuantityStock() {
+        return quantityStock;
+    }
+
+    public void setQuantityStock(Integer quantityStock) {
+        this.quantityStock = quantityStock;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getIsnew() {
@@ -38,105 +105,44 @@ public products(){}
         this.isnew = isnew;
     }
 
-    public int getGiamgia() {
-        return giamgia;
+    public int getDiscount() {
+        return discount;
     }
 
-    public void setGiamgia(int giamgia) {
-        this.giamgia = giamgia;
+    public void setDiscount(int discount) {
+        this.discount = discount;
     }
 
-    public String getMasp() {
-        return masp;
+    public String getIdReview() {
+        return idReview;
     }
 
-    public void setMasp(String masp) {
-        this.masp = masp;
-    }
-
-    public String getMaloai() {
-        return maloai;
-    }
-
-    public void setMaloai(String maloai) {
-        this.maloai = maloai;
-    }
-
-    public String getTensp() {
-        return tensp;
-    }
-
-    public void setTensp(String tensp) {
-        this.tensp = tensp;
-    }
-
-    public String getHinhanh() {
-        return hinhanh;
-    }
-
-    public void setHinhanh(String hinhanh) {
-        this.hinhanh = hinhanh;
-    }
-
-    public Integer getGiamoi() {
-        return giamoi;
-    }
-
-    public void setGiamoi(Integer giamoi) {
-        this.giamoi = giamoi;
-    }
-
-    public Integer getGiacu() {
-        return giacu;
-    }
-
-    public void setGiacu(Integer giacu) {
-        this.giacu = giacu;
-    }
-
-    public String getTinhtrang() {
-        return tinhtrang;
-    }
-
-    public void setTinhtrang(String tinhtrang) {
-        this.tinhtrang = tinhtrang;
-    }
-
-    public String getMota() {
-        return mota;
-    }
-
-    public void setMota(String mota) {
-        this.mota = mota;
-    }
-
-    public String getIdnhanxet() {
-        return idnhanxet;
-    }
-
-    public void setIdnhanxet(String idnhanxet) {
-        this.idnhanxet = idnhanxet;
+    public void setIdReview(String idReview) {
+        this.idReview = idReview;
     }
 
     @Override
     public String toString() {
-        return "product{" +
-                "masp='" + masp + '\'' +
-                ", maloai='" + maloai + '\'' +
-                ", tensp='" + tensp + '\'' +
-                ", hinhanh='" + hinhanh + '\'' +
-                ", giamoi=" + giamoi +
-                ", giacu=" + giacu +
-                ", tinhtrang='" + tinhtrang + '\'' +
-                ", mota='" + mota + '\'' +
-                ", idnhanxet='" + idnhanxet + '\'' +
+        return "products{" +
+                "idProduct='" + idProduct + '\'' +
+                ", idCategory='" + idCategory + '\'' +
+                ", nameProduct='" + nameProduct + '\'' +
+                ", image='" + image + '\'' +
+                ", priceNew=" + priceNew +
+                ", priceOld=" + priceOld +
+                ", quantityStock=" + quantityStock +
+                ", description='" + description + '\'' +
+                ", idReview='" + idReview + '\'' +
+                ", isnew=" + isnew +
+                ", discount=" + discount +
                 '}';
     }
-
 
     @Override
     public int compareTo(products o) {
 
-    return Integer.parseInt(this.masp)-Integer.parseInt(o.masp);
+        return Integer.parseInt(this.idProduct) - Integer.parseInt(o.idProduct);
     }
+
+
 }

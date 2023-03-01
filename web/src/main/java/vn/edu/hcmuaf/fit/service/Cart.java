@@ -10,7 +10,7 @@ public class Cart {
 
     public boolean addCart(String masp){
         for(int i =0; i <dssanpham.size();i++){
-            if(dssanpham.get(i).getMasp().equals(masp)){
+            if(dssanpham.get(i).getIdProduct().equals(masp)){
                 giohang.add(dssanpham.get(i));
                 return true;
             }

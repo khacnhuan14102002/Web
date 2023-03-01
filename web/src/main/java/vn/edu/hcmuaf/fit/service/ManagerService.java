@@ -1,6 +1,6 @@
 package vn.edu.hcmuaf.fit.service;
 
-import vn.edu.hcmuaf.fit.bean.Loai;
+import vn.edu.hcmuaf.fit.bean.category;
 import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.db.connect;
 
@@ -17,7 +17,7 @@ public class ManagerService {
 
     public static List<products> getAllProduct() {
         List<products> list = new ArrayList<>();
-        String query = "select * from sanpham where stt not like 1";
+        String query = "select * from products where HideProduct = 0";
         try {
             conn = new connect().getconConnection(); //mo ket noi voi sql
             ps = conn.prepareStatement(query);
@@ -29,7 +29,7 @@ public class ManagerService {
                         rs.getString(4),
                         rs.getInt(5),
                         rs.getInt(6),
-                        rs.getString(7),
+                        rs.getInt(7),
                         rs.getString(8),
                         rs.getString(9),
                         rs.getInt(10),
@@ -42,17 +42,17 @@ public class ManagerService {
         return list;
     }
 
-    public static List<Loai> getAllCategory() {
-        List<Loai> list = new ArrayList<>();
-        String query = "select * from loai";
+    public static List<category> getAllCategory() {
+        List<category> list = new ArrayList<>();
+        String query = "select * from category";
         try {
             conn = new connect().getconConnection(); //mo ket noi voi sql
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                Loai loai = new Loai(rs.getString(1),
+                category cat = new category(rs.getString(1),
                         rs.getString(2));
-                list.add(loai);
+                list.add(cat);
             }
         } catch (Exception e) {
             System.out.println("fail");
@@ -60,24 +60,24 @@ public class ManagerService {
         return list;
     }
 
-    public void deleteProduct(String pid) {
-        String query = "UPDATE sanpham\n" +
-                "SET stt = 1\n" +
-                "WHERE MASP = ?";
-        try {
-            conn = new connect().getconConnection();
-            ps = conn.prepareStatement(query);
-            ps.setString(1, pid);
-            ps.executeUpdate();
-        } catch (Exception e) {
-            System.out.println("fail");
-        }
-    }
+//    public void deleteProduct(String pid) {
+//        String query = "UPDATE products\n" +
+//                "SET HideProduct = 1\n" +
+//                "WHERE IdProduct = ?";
+//        try {
+//            conn = new connect().getconConnection();
+//            ps = conn.prepareStatement(query);
+//            ps.setString(1, pid);
+//            ps.executeUpdate();
+//        } catch (Exception e) {
+//            System.out.println("fail");
+//        }
+//    }
 
     public void removeProduct(String pid) {
-        String query = "UPDATE sanpham\n" +
-                "SET stt = 1\n" +
-                "WHERE MASP = ?";
+        String query = "UPDATE products\n" +
+                "SET HideProduct = 1\n" +
+                "WHERE IdProduct = ?";
         try {
             conn = new connect().getconConnection();
             ps = conn.prepareStatement(query);
@@ -89,19 +89,19 @@ public class ManagerService {
     }
 
     public static void addProduct(products pro) {
-        String query = "INSERT INTO sanpham (masp, maloai, tensp, hinhanh, giamoi, giacu, tinhtrang, mota,stt)\n" +
+        String query = "INSERT INTO products (IdProduct, IdCategory, NameProduct, Image, PriceNew, PriceOld, QuantityStock, Description,HideProduct)\n" +
                 "VALUES (?,?,?,?,?,?,?,?,?);";
         try {
             conn = new connect().getconConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(1, pro.getMasp());
-            ps.setString(2, pro.getMaloai());
-            ps.setString(3, pro.getTensp());
-            ps.setString(4, pro.getHinhanh());
-            ps.setInt(5, pro.getGiamoi());
-            ps.setInt(6, pro.getGiacu());
-            ps.setString(7, pro.getTinhtrang());
-            ps.setString(8, pro.getMota());
+            ps.setString(1, pro.getIdProduct());
+            ps.setString(2, pro.getIdCategory());
+            ps.setString(3, pro.getNameProduct());
+            ps.setString(4, pro.getImage());
+            ps.setInt(5, pro.getPriceNew());
+            ps.setInt(6, pro.getPriceOld());
+            ps.setInt(7, pro.getQuantityStock());
+            ps.setString(8, pro.getDescription());
             ps.setInt(9, 0);
             ps.executeUpdate();
         } catch (Exception e) {
@@ -111,17 +111,17 @@ public class ManagerService {
     }
 
     public static void updateProduct(products pro) {
-        String query = "update sanpham set tensp=?, hinhanh=?, giamoi=?, giacu=?, mota =? WHERE MASP = ?";
+        String query = "update products set NameProduct=?, Image=?, PriceNew=?, PriceOld=?, Description =? WHERE IdProduct = ?";
         try {
             conn = new connect().getconConnection();
             ps = conn.prepareStatement(query);
 
-            ps.setString(1, pro.getTensp());
-            ps.setString(2, pro.getHinhanh());
-            ps.setInt(3, pro.getGiamoi());
-            ps.setInt(4, pro.getGiacu());
-            ps.setString(5, pro.getMota());
-            ps.setString(6, pro.getMasp());
+            ps.setString(1, pro.getNameProduct());
+            ps.setString(2, pro.getImage());
+            ps.setInt(3, pro.getPriceNew());
+            ps.setInt(4, pro.getPriceOld());
+            ps.setString(5, pro.getDescription());
+            ps.setString(6, pro.getIdProduct());
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -131,7 +131,7 @@ public class ManagerService {
 
     public static void main(String[] args) {
         ManagerService mana = new ManagerService();
-//        mana.removeProduct("DC01");
+        mana.removeProduct("DC01");
 //        System.out.println(getAllProduct());
 //        List<Loai> listC = mana.getAllCategory();
 //        List<product> list = getAllProduct();
