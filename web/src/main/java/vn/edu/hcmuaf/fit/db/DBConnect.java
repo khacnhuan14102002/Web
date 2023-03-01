@@ -38,7 +38,7 @@ public class DBConnect {
         Statement statement = DBConnect.getInstall().get();
         if(statement != null)
             try {
-                ResultSet rs= statement.executeQuery("select * from Loai");
+                ResultSet rs= statement.executeQuery("select * from category");
                 rs.last();
                 System.out.println(rs.getRow());
                 rs.beforeFirst();

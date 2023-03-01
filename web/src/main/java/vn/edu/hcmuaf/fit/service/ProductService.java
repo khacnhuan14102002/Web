@@ -1,6 +1,5 @@
 package vn.edu.hcmuaf.fit.service;
 
-import vn.edu.hcmuaf.fit.bean.Loai;
 import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.db.JDBiConnector;
 import vn.edu.hcmuaf.fit.db.connect;
@@ -17,16 +16,16 @@ public class ProductService {
     static Connection conn = null;
     static PreparedStatement ps = null;
     static ResultSet rs = null;
-    public static List<products> getListProductByLoai(String maloai) {
+    public static List<products> getListProductByCategory(String IdCategory) {
 //        ArrayList<products> list = new ArrayList<>();
-//        String query = "select * from sanpham where maloai='" +maloai+ "'";
+//        String query = "select * from products where IdCategory='" +IdCategory+ "'";
 //        try{
 //            conn = new connect().getconConnection();
 //            ps = conn.prepareStatement(query);
 //            rs=ps.executeQuery();
 //            while(rs.next()){
 //                products pro= new products(rs.getString(1),
-//                        rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getInt(10),rs.getInt(11));
+//                        rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getString(8),rs.getInt(9),rs.getInt(10),rs.getInt(11));
 //                list.add(pro);
 //
 //            }
@@ -36,20 +35,20 @@ public class ProductService {
 //        }
 //        return null;
         return JDBiConnector.me().withHandle(handle -> {
-            return handle.createQuery("select * from sanpham where maloai='" +maloai+ "'").mapToBean(vn.edu.hcmuaf.fit.bean.products.class).stream().collect(Collectors.toList());
+            return handle.createQuery("select * from products where IdCategory='" +IdCategory+ "'").mapToBean(vn.edu.hcmuaf.fit.bean.products.class).stream().collect(Collectors.toList());
         });
     }
 
     public static List<products> getListProductALL() {
 //        ArrayList<products> list = new ArrayList<>();
-////        String query = "select * from sanpham";
+////        String query = "select * from products";
 ////        try {
 ////            conn = new connect().getconConnection();
 ////            ps = conn.prepareStatement(query);
 ////            rs = ps.executeQuery();
 ////            while (rs.next()) {
 ////                products pro = new products(rs.getString(1),
-////                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getInt(10), rs.getInt(11));
+////                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getInt(11));
 ////                list.add(pro);
 ////
 ////            }
@@ -59,30 +58,30 @@ public class ProductService {
 ////        }
 ////        return list;
         return JDBiConnector.me().withHandle(handle -> {
-            return handle.createQuery("select * from sanpham").mapToBean(products.class).stream().collect(Collectors.toList());
+            return handle.createQuery("select * from products").mapToBean(products.class).stream().collect(Collectors.toList());
         });
     }
 
-    public static products getchitiet(String masp){
+    public static products getchitiet(String idProduct){
         products pro = new products();
-        String query = "select * from sanpham where masp='" +masp+ "'";
+        String query = "select * from products where IdProduct='" +idProduct+ "'";
         try {
             conn = new connect().getconConnection();
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
 
-                pro.setMasp(rs.getString(1));
-                pro.setMaloai(rs.getString(2));
-                pro.setTensp(rs.getString(3));
-                pro.setHinhanh(rs.getString(4));
-                pro.setGiamoi(rs.getInt(5));
-                pro.setGiacu(rs.getInt(6));
-                pro.setTinhtrang(rs.getString(7));
-                pro.setMota(rs.getString(8));
-                pro.setIdnhanxet(rs.getString(9));
+                pro.setIdProduct(rs.getString(1));
+                pro.setIdCategory(rs.getString(2));
+                pro.setNameProduct(rs.getString(3));
+                pro.setImage(rs.getString(4));
+                pro.setPriceNew(rs.getInt(5));
+                pro.setPriceOld(rs.getInt(6));
+                pro.setQuantityStock(rs.getInt(7));
+                pro.setDescription(rs.getString(8));
+                pro.setIdReview(rs.getString(9));
                 pro.setIsnew(rs.getInt(10));
-                pro.setGiamgia(rs.getInt(11));
+                pro.setDiscount(rs.getInt(11));
 
 
             }
@@ -104,7 +103,7 @@ public class ProductService {
     public  List<products> searchbyName(String txtsearch){
         List<products> lpro = new ArrayList<>();
         products pro = new products();
-        String query = "select * from sanpham where tensp like ?";
+        String query = "select * from products where nameProduct like ?";
         try {
             conn = new connect().getconConnection();
             ps = conn.prepareStatement(query);
@@ -112,17 +111,17 @@ public class ProductService {
             rs = ps.executeQuery();
             while (rs.next()) {
 
-                pro.setMasp(rs.getString(1));
-                pro.setMaloai(rs.getString(2));
-                pro.setTensp(rs.getString(3));
-                pro.setHinhanh(rs.getString(4));
-                pro.setGiamoi(rs.getInt(5));
-                pro.setGiacu(rs.getInt(6));
-                pro.setTinhtrang(rs.getString(7));
-                pro.setMota(rs.getString(8));
-                pro.setIdnhanxet(rs.getString(9));
+                pro.setIdProduct(rs.getString(1));
+                pro.setIdCategory(rs.getString(2));
+                pro.setNameProduct(rs.getString(3));
+                pro.setImage(rs.getString(4));
+                pro.setPriceNew(rs.getInt(5));
+                pro.setPriceOld(rs.getInt(6));
+                pro.setQuantityStock(rs.getInt(7));
+                pro.setDescription(rs.getString(8));
+                pro.setIdReview(rs.getString(9));
                 pro.setIsnew(rs.getInt(10));
-                pro.setGiamgia(rs.getInt(11));
+                pro.setDiscount(rs.getInt(11));
 
                 lpro.add(pro);
             }
@@ -136,7 +135,7 @@ public class ProductService {
     public static void main(String[] args) {
         ProductService pro = new ProductService();
 
-        System.out.println(pro.getListProductByLoai("DC").size());
+        System.out.println(pro.getListProductByCategory("DC").size());
         System.out.println(pro.getListProductALL().size());
         System.out.println(pro.getchitiet("DC01"));
         System.out.println(pro.searchbyName("Đ"));

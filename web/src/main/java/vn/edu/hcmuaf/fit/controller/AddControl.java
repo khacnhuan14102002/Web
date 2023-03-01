@@ -21,22 +21,22 @@ public class AddControl extends HttpServlet {
         String pid = request.getParameter("id");
         String pname = request.getParameter("name");
         String pimage = request.getParameter("image");
-        String pprice_1 = request.getParameter("price_1");
-        String pprice_2 = request.getParameter("price_2");
-        String ptitle = request.getParameter("title");
+        String pprice_new = request.getParameter("price_new");
+        String pprice_old = request.getParameter("price_old");
+        String pquantityStock = request.getParameter("quantityStock");
         String pdescription = request.getParameter("description");
         String pcategory = request.getParameter("category");
 
 
         products product = new products();
-        product.setMasp(pid);
-        product.setTensp(pname);
-        product.setHinhanh(pimage);
-        product.setGiamoi(Integer.parseInt(pprice_1));
-        product.setGiacu(Integer.parseInt(pprice_2));
-        product.setTinhtrang(ptitle);
-        product.setMota(pdescription);
-        product.setMaloai(pcategory);
+        product.setIdProduct(pid);
+        product.setNameProduct(pname);
+        product.setImage(pimage);
+        product.setPriceNew(Integer.parseInt(pprice_new));
+        product.setPriceOld(Integer.parseInt(pprice_old));
+        product.setQuantityStock(Integer.parseInt(pquantityStock));
+        product.setDescription(pdescription);
+        product.setIdCategory(pcategory);
         ManagerService.addProduct(product);
         System.out.println(product);
         response.sendRedirect("/manageControl");
