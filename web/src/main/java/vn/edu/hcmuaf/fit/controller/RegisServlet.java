@@ -28,20 +28,20 @@ public class RegisServlet extends HttpServlet {
 		System.out.println("=== path: " + path);
 		RequestDispatcher rd = null;
 		switch (path) {
-		case "/regis":
-			rd = req.getRequestDispatcher("/regis.jsp");
-			break;
-		case "/successRegis":
-			String key = req.getParameter("key");
-			if (key != null) {
-				userDao.activeByActivationKey(key);
-				req.setAttribute("mess", "dang ky thanh cong, hay dang nhap");
+			case "/regis":
+				rd = req.getRequestDispatcher("/regis.jsp");
+				break;
+			case "/successRegis":
+				String key = req.getParameter("key");
+				if (key != null) {
+					userDao.activeByActivationKey(key);
+					req.setAttribute("mess", "dang ky thanh cong, hay dang nhap");
+					rd = req.getRequestDispatcher("/login.jsp");
+				}
 				rd = req.getRequestDispatcher("/login.jsp");
-			}
-			rd = req.getRequestDispatcher("/login.jsp");
-			break;
-		default:
-			break;
+				break;
+			default:
+				break;
 		}
 		rd.forward(req, resp);
 	}
@@ -64,14 +64,14 @@ public class RegisServlet extends HttpServlet {
 		run.start();
 
 		User u = new User();
-		u.setActivationKey(activationKey);
+		u.setKeyactive(activationKey);
 		u.setActive(0);
-		u.setEmail(email);
-		u.setLoai(0);
-		u.setNgayDk(new Date(System.currentTimeMillis()));
+		u.setEmailUs(email);
+		u.setRoleUs(0);
+		u.setRegistrationDate(new Date(System.currentTimeMillis()));
 		u.setPass(pass);
 		u.setPhone(sdt);
-		u.setTenUs(ten);
+		u.setNameUser(ten);
 		userDao.saveUser(u);
 		resp.sendRedirect(req.getContextPath() + "/login");
 	}

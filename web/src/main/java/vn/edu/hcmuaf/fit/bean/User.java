@@ -12,15 +12,15 @@ public class User {
 	
 	private String Pass;
 	
-	private String phone;
+	private String Phone;
 	
 	private Date RegistrationDate;
 	
 	private Integer RoleUs;
 	
-	private Integer active;
+	private Integer Active;
 	
-	private String activationKey;
+	private String Keyactive;
 	
 	private String rememberKey;
 
@@ -61,11 +61,11 @@ public class User {
 	}
 
 	public String getPhone() {
-		return phone;
+		return Phone;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
+	public void setPhone(String Phone) {
+		this.Phone = Phone;
 	}
 
 	public Date getRegistrationDate() {
@@ -85,19 +85,19 @@ public class User {
 	}
 
 	public Integer getActive() {
-		return active;
+		return Active;
 	}
 
-	public void setActive(Integer active) {
-		this.active = active;
+	public void setActive(Integer Active) {
+		this.Active = Active;
 	}
 
-	public String getActivationKey() {
-		return activationKey;
+	public String getKeyactive() {
+		return Keyactive;
 	}
 
-	public void setActivationKey(String activationKey) {
-		this.activationKey = activationKey;
+	public void setKeyactive(String Keyactive) {
+		this.Keyactive = Keyactive;
 	}
 
 	public String getRememberKey() {
@@ -110,9 +110,9 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [IdUser=" + IdUser + ", NameUser=" + NameUser + ", EmailUs=" + EmailUs + ", Pass=" + Pass + ", phone="
-				+ phone + ", RegistrationDate=" + RegistrationDate + ", RoleUs=" + RoleUs + ", active=" + active + ", activationKey="
-				+ activationKey + ", rememberKey=" + rememberKey + "]";
+		return "User [IdUser=" + IdUser + ", NameUser=" + NameUser + ", EmailUs=" + EmailUs + ", Pass=" + Pass + ", Phone="
+				+ Phone + ", RegistrationDate=" + RegistrationDate + ", RoleUs=" + RoleUs + ", Active=" + Active + ", Keyactive="
+				+ Keyactive + ", rememberKey=" + rememberKey + "]";
 	}
 	
 	

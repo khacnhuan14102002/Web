@@ -5,7 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Connects {
-
+	public Connects() {
+	}
 	public static Connection getConnect() {
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");
@@ -21,10 +22,9 @@ public class Connects {
 
 	public static void main(String[] args) {
 		try{
-			System.out.println(new connect().getconConnection());
+			System.out.println(new Connects().getConnect());
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
-
 }

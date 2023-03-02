@@ -47,6 +47,4 @@ public class UserController extends HttpServlet{
 		session.setAttribute("user", us);
 		resp.sendRedirect(req.getContextPath() + "/user");
 	}
-
-	
 }

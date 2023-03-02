@@ -18,7 +18,7 @@ public class UserDao {
 
 	public void saveUser(User u) {
 		con = Connects.getConnect();
-		String sql = "insert into users(NameUser, EmailUs, Pass , Phone , RegistrationDate, RoleUs, Active, activation_key) values (?,?,?,?,?,?,?,?)";
+		String sql = "insert into users(NameUser, EmailUs, Pass , Phone , RegistrationDate, RoleUs, Active, Keyactive) values (?,?,?,?,?,?,?,?)";
 		try {
 			pre = con.prepareStatement(sql);
 			pre.setString(1, u.getNameUser());
@@ -28,21 +28,21 @@ public class UserDao {
 			pre.setDate(5, u.getRegistrationDate());
 			pre.setInt(6, u.getRoleUs());
 			pre.setInt(7, u.getActive());
-			pre.setString(8, u.getActivationKey());
+			pre.setString(8, u.getKeyactive());
 			pre.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	 
-	public boolean activeByActivationKey(String activation_key) {
+	public boolean activeByActivationKey(String Keyactive) {
 		con = Connects.getConnect();
-		String sql = "update users set active = ?, activation_key = ? where activation_key =?";
+		String sql = "update users set Active = ?, Keyactive = ? where Keyactive =?";
 		try {
 			pre = con.prepareStatement(sql);
 			pre.setInt(1, 1);
 			pre.setString(2, "");
-			pre.setString(3, activation_key);
+			pre.setString(3, Keyactive);
 			return pre.executeUpdate() > 0;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -53,16 +53,20 @@ public class UserDao {
 	public User login(String EmailUs, String Pass) {
 		con = Connects.getConnect();
 		User user = null;
-		String sql = "select * from users where EmailUs = ? and Pass = ? and active = ?";
+		System.out.println(EmailUs + "  " + Pass);
+
+		String sql = "select * from users where EmailUs = ? and Pass = ? and Active = ?";
 		try {
 			pre = con.prepareStatement(sql);
 			pre.setString(1, EmailUs);
 			pre.setString(2, Pass);
-			pre.setInt(3, 1);
+			pre.setInt(3, 0);
 			res = pre.executeQuery();
+			//System.out.println(res);
 			if(res.next()) {
+				//System.out.println(res.getString("EmailUs"));
 				user = new User();
-				user.setActive(res.getInt("active"));
+				user.setActive(res.getInt("Active"));
 				user.setEmailUs(res.getString("EmailUs"));
 				user.setRoleUs(res.getInt("RoleUs"));
 				user.setNameUser(res.getString("NameUser"));
@@ -106,6 +110,7 @@ public class UserDao {
 	}
 	
 	public User findUserByMaUser(Integer IdUser) {
+		con = Connects.getConnect();
 		User user = null;
 		String sql = "select * from users where IdUser = ?";
 		try {
@@ -114,10 +119,10 @@ public class UserDao {
 			res = pre.executeQuery();
 			if(res.next()) {
 				user = new User();
-				user.setActive(res.getInt("active"));
+				user.setActive(res.getInt("Active"));
 				user.setEmailUs(res.getString("EmailUs"));
 				user.setRoleUs(res.getInt("RoleUs"));
-				user.setNameUser(res.getString("NameUserF"));
+				user.setNameUser(res.getString("NameUser"));
 				user.setIdUser(res.getInt("IdUser"));
 				user.setRegistrationDate(res.getDate("RegistrationDate"));
 				user.setPhone(res.getString("Phone"));
