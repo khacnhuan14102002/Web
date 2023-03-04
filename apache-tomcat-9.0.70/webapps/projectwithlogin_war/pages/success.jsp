@@ -20,13 +20,13 @@
 <form action="user" method="post">
 	<h4>Cập nhật thông tin</h4>
 	<label>Họ tên</label>
-	<input name="fullname" type="text" class="form-control" value="${user.tenUs}">
+	<input name="fullname" type="text" class="form-control" value="${user.getNameUser}">
 	<label>email</label>
-	<input name="email" type="text" class="form-control" value="${user.email}">
+	<input name="email" type="text" class="form-control" value="${user.getEmailUs}">
 	<label>Password</label>
-	<input name="pass" type="text" class="form-control" value="${user.pass}">
+	<input name="pass" type="text" class="form-control" value="${user.getPass}">
 	<label>Số điện thoại</label>
-	<input name="sdt" type="text" class="form-control" value="${user.phone}">
+	<input name="sdt" type="text" class="form-control" value="${user.getPhone}">
 	<button class="btn btn-success">Cập nhật</button>
 </form>
 </div>
