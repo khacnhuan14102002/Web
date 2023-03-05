@@ -21,7 +21,7 @@ public class UserController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = null;
-		rd = req.getRequestDispatcher("/success.jsp");
+		rd = req.getRequestDispatcher("/index.jsp");
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		req.setAttribute("user", user);
@@ -35,18 +35,17 @@ public class UserController extends HttpServlet{
 		String sdt = req.getParameter("sdt");
 		String pass = req.getParameter("pass");
 		User u = new User();
-		u.setTenUs(ten);
-		u.setEmail(email);
+		u.setNameUser(ten);
+		u.setEmailUs(email);
 		u.setPhone(sdt);
 		u.setPass(pass);
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
-		u.setMaUser(user.getMaUser());
+		u.setIdUser(user.getIdUser());
 		userDao.updateUser(u);
-		User us = userDao.findUserByMaUser(user.getMaUser());
+		User us = userDao.findUserByMaUser(user.getIdUser());
 		session.setAttribute("user", us);
 		resp.sendRedirect(req.getContextPath() + "/user");
 	}
-
 	
 }

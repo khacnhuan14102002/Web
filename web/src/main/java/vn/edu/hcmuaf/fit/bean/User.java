@@ -1,119 +1,79 @@
 package vn.edu.hcmuaf.fit.bean;
 
+
+//import java.util.Date;
 import java.sql.Date;
 
 public class User {
 
-	private Integer maUser;
-	
-	private String tenUs;
-	
-	private String email;
-	
-	private String pass;
-	
-	private String phone;
-	
-	private Date ngayDk;
-	
-	private Integer loai;
-	
-	private Integer active;
-	
-	private String activationKey;
-	
-	private String rememberKey;
-
-	public User() {
-		
+	private int IdUser;
+	private String NameUser;
+	private String EmailUs;
+	private String Pass;
+	private String Phone;
+	private Date RegistrationDate;
+	private int RoleUs;
+	private int Active;
+	private String Keyactive;
+	public int getIdUser() {
+		return IdUser;
 	}
-
-	public Integer getMaUser() {
-		return maUser;
+	public void setIdUser(int idUser) {
+		IdUser = idUser;
 	}
-
-	public void setMaUser(Integer maUser) {
-		this.maUser = maUser;
+	public String getNameUser() {
+		return NameUser;
 	}
-
-	public String getTenUs() {
-		return tenUs;
+	public void setNameUser(String nameUser) {
+		NameUser = nameUser;
 	}
-
-	public void setTenUs(String tenUs) {
-		this.tenUs = tenUs;
+	public String getEmailUs() {
+		return EmailUs;
 	}
-
-	public String getEmail() {
-		return email;
+	public void setEmailUs(String emailUs) {
+		EmailUs = emailUs;
 	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
 	public String getPass() {
-		return pass;
+		return Pass;
 	}
-
 	public void setPass(String pass) {
-		this.pass = pass;
+		Pass = pass;
 	}
-
 	public String getPhone() {
-		return phone;
+		return Phone;
 	}
-
 	public void setPhone(String phone) {
-		this.phone = phone;
+		Phone = phone;
 	}
-
-	public Date getNgayDk() {
-		return ngayDk;
+	public Date getRegistrationDate() {
+		return RegistrationDate;
 	}
-
-	public void setNgayDk(Date ngayDk) {
-		this.ngayDk = ngayDk;
+	public void setRegistrationDate(Date registrationDate) {
+		RegistrationDate = registrationDate;
 	}
-
-	public Integer getLoai() {
-		return loai;
+	public int getRoleUs() {
+		return RoleUs;
 	}
-
-	public void setLoai(Integer loai) {
-		this.loai = loai;
+	public void setRoleUs(int roleUs) {
+		RoleUs = roleUs;
 	}
-
-	public Integer getActive() {
-		return active;
+	public int getActive() {
+		return Active;
 	}
-
-	public void setActive(Integer active) {
-		this.active = active;
+	public void setActive(int active) {
+		Active = active;
 	}
-
-	public String getActivationKey() {
-		return activationKey;
+	public String getKeyactive() {
+		return Keyactive;
 	}
-
-	public void setActivationKey(String activationKey) {
-		this.activationKey = activationKey;
+	public void setKeyactive(String keyactive) {
+		Keyactive = keyactive;
 	}
-
-	public String getRememberKey() {
-		return rememberKey;
-	}
-
-	public void setRememberKey(String rememberKey) {
-		this.rememberKey = rememberKey;
-	}
-
 	@Override
 	public String toString() {
-		return "User [maUser=" + maUser + ", tenUs=" + tenUs + ", email=" + email + ", pass=" + pass + ", phone="
-				+ phone + ", ngayDk=" + ngayDk + ", loai=" + loai + ", active=" + active + ", activationKey="
-				+ activationKey + ", rememberKey=" + rememberKey + "]";
+		return "User [IdUser=" + IdUser + ", NameUser=" + NameUser + ", EmailUs=" + EmailUs + ", Pass=" + Pass
+				+ ", Phone=" + Phone + ", RoleUs=" + RoleUs + ", Active=" + Active + ", Keyactive=" + Keyactive + "]";
 	}
-	
-	
+
+
 }

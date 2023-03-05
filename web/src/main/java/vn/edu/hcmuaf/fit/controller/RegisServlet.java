@@ -33,7 +33,8 @@ public class RegisServlet extends HttpServlet {
 			break;
 		case "/successRegis":
 			String key = req.getParameter("key");
-			if (key != null) {
+			if (key != null || key.equals("")) {
+				System.out.println(key);
 				userDao.activeByActivationKey(key);
 				req.setAttribute("mess", "dang ky thanh cong, hay dang nhap");
 				rd = req.getRequestDispatcher("/login.jsp");
@@ -57,21 +58,24 @@ public class RegisServlet extends HttpServlet {
 		Thread run = new Thread(new Runnable() {
 			public void run() {
 				new MailService().sendMail(email,
-						"nhap vao link sau de kich hoat tai khoan: http://localhost:8080/project/successRegis?key="
+						"nhap vao link sau de kich hoat tai khoan: http://localhost:8080/successRegis?key="
 								+ activationKey);
 			}
 		});
 		run.start();
 
 		User u = new User();
-		u.setActivationKey(activationKey);
+		//u.setIdUser(null);
+		u.setKeyactive(activationKey);
 		u.setActive(0);
-		u.setEmail(email);
-		u.setLoai(0);
-		u.setNgayDk(new Date(System.currentTimeMillis()));
+		u.setEmailUs(email);
+		u.setRoleUs(0);
+		u.setRegistrationDate(new Date(System.currentTimeMillis()));
 		u.setPass(pass);
 		u.setPhone(sdt);
-		u.setTenUs(ten);
+		u.setNameUser(ten);
+
+		//System.out.println(activationKey);
 		userDao.saveUser(u);
 		resp.sendRedirect(req.getContextPath() + "/login");
 	}

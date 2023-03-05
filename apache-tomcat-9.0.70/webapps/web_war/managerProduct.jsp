@@ -1,8 +1,7 @@
 <%@ page import="java.util.List" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.product" %>
-<%@ page import="vn.edu.hcmuaf.fit.service.ManagerService" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.Loai" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
@@ -63,14 +62,14 @@
                 <th>Hình ảnh</th>
                 <th>Giá mới</th>
                 <th>Giá cũ</th>
-                <th>Tình trạng</th>
+                <th>Số lượng</th>
                 <th>Mô tả</th>
                 <th>Tùy chỉnh</th>
             </tr>
             </thead>
             <tbody>
             <%
-                List<products> listP = ManagerService.getAllProduct();
+                List<products> listP = (List<products>) request.getAttribute("listP");
                 for (products pr : listP) {
             %>
             <tr>
@@ -80,28 +79,28 @@
                             <label for="checkbox1"></label>
                         </span>
                 </td>
-                <td class="product-ma-<%=pr.getMasp()%>"><%=pr.getMasp()%>
+                <td class="product-ma-<%=pr.getIdProduct()%>"><%=pr.getIdProduct()%>
                 </td>
-                <td class="product-loai-<%=pr.getMasp()%>"><%=pr.getMaloai()%>
+                <td class="product-loai-<%=pr.getIdProduct()%>"><%=pr.getIdCategory()%>
                 </td>
-                <td class="product-ten-<%=pr.getMasp()%>"><%=pr.getTensp()%>
+                <td class="product-ten-<%=pr.getIdProduct()%>"><%=pr.getNameProduct()%>
                 </td>
-                <td class="product-img-<%=pr.getMasp()%>">
-                    <img src="<%=pr.getHinhanh()%>">
+                <td class="product-img-<%=pr.getIdProduct()%>">
+                    <img src="<%=pr.getImage()%>">
                 </td>
-                <td class="product-gia-moi-<%=pr.getMasp()%>"><%=pr.getGiamoi()%>
+                <td class="product-gia-moi-<%=pr.getIdProduct()%>"><%=pr.getPriceNew()%>
                 </td>
-                <td class="product-gia-cu-<%=pr.getMasp()%>"><%=pr.getGiacu()%>
+                <td class="product-gia-cu-<%=pr.getIdProduct()%>"><%=pr.getPriceOld()%>
                 </td>
-                <td class="product-tt-<%=pr.getMasp()%>"><%=pr.getTinhtrang()%>
+                <td class="product-so-luong-<%=pr.getIdProduct()%>"><%=pr.getQuantityStock()%>
                 </td>
-                <td class="product-mo-ta-<%=pr.getMasp()%>"><%=pr.getMota()%>
+                <td class="product-mo-ta-<%=pr.getIdProduct()%>"><%=pr.getDescription()%>
                 </td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal">
-                        <button value="<%=pr.getMasp()%>" style="display: none"></button>
+                        <button value="<%=pr.getIdProduct()%>" style="display: none"></button>
                         <i class="material-icons" data-toggle="tooltip" title="Sửa">&#xE254;</i></a>
-                    <a href="http://localhost:8080/web_war/delete?pid=<%=pr.getMasp()%>" class="delete"
+                    <a href="http://localhost:8080/delete?pid=<%=pr.getIdProduct()%>" class="delete"
                        data-toggle="modal">
                         <i class="material-icons" data-toggle="tooltip" title="Xóa">&#xE872;</i></a>
                 </td>
@@ -143,15 +142,15 @@
                     </div>
                     <div class="form-group">
                         <label>Giá mới</label>
-                        <input name="price_1" type="text" class="form-control" required>
+                        <input name="price_new" type="text" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Giá cũ</label>
-                        <input name="price_2" type="text" class="form-control" required>
+                        <input name="price_old" type="text" class="form-control" required>
                     </div>
                     <div class="form-group">
-                        <label>Tình trạng</label>
-                        <textarea name="title" class="form-control" required></textarea>
+                        <label>Số lượng</label>
+                        <input name="quantityStock" type="text" class="form-control" required>
                     </div>
                     <div class="form-group">
                         <label>Mô tả</label>
@@ -161,10 +160,10 @@
                         <label>Loại</label>
                         <select name="category" class="form-select" aria-label="Default select example">
                             <%
-                                List<Loai> listC = ManagerService.getAllCategory();
-                                for (Loai loai : listC) {
+                                List<category> listC = (List<category>) request.getAttribute("listC");
+                                for (category cat : listC) {
                             %>
-                            <option value="<%=loai.getMaloai()%>"><%=loai.getTenloai()%>
+                            <option value="<%=cat.getIdCat()%>"><%=cat.getNameCat()%>
                             </option>
                             <%}%>
                         </select>
@@ -202,11 +201,11 @@
                     </div>
                     <div class="form-group">
                         <label>Giá mới</label>
-                        <input name="price_1" type="text" class="form-control pro-price-1" required>
+                        <input name="price_new" type="text" class="form-control pro-price-1" required>
                     </div>
                     <div class="form-group">
                         <label>Giá cũ</label>
-                        <input name="price_2" type="text" class="form-control pro-price-2" required>
+                        <input name="price_old" type="text" class="form-control pro-price-2" required>
                     </div>
                     <div class="form-group">
                         <label>Mô tả</label>
