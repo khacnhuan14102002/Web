@@ -132,9 +132,9 @@ public class ManagerService {
     public static void main(String[] args) {
         ManagerService mana = new ManagerService();
         mana.removeProduct("DC01");
-//        System.out.println(getAllProduct());
-//        List<Loai> listC = mana.getAllCategory();
-//        List<product> list = getAllProduct();
+        System.out.println(mana.getAllCategory());
+
+    // List<product> list = getAllProduct();
 //        for (Loai o : listC){
 //            System.out.println(o);
 //        }

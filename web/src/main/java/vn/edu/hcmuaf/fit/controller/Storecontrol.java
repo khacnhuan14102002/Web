@@ -1,8 +1,10 @@
 package vn.edu.hcmuaf.fit.controller;
 
 import com.google.protobuf.Internal;
+import vn.edu.hcmuaf.fit.bean.category;
 import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.service.ProductService;
+import vn.edu.hcmuaf.fit.service.StoreService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,11 +19,17 @@ public class Storecontrol extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        StoreService pro = new StoreService();
 
-        List<products> listp = new ProductService().getListProductALL();
-            request.setAttribute("list",listp);
-        System.out.println(listp);
-            request.getRequestDispatcher("store.jsp").forward(request,response);
+        List<products> listP = pro.getListProductALL();
+
+        List<category> listC = pro.getListCat();
+        request.setAttribute("listCC",listC);
+        request.setAttribute("listP",listP);
+
+
+
+        request.getRequestDispatcher("store.jsp").forward(request,response);
     }
 
     @Override

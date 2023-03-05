@@ -59,7 +59,7 @@
 			</ul>
 			<ul class="header-links pull-right">
 
-				<li><a href="admin.html"><i class="fa fa-cog"></i>Quản lý</a></li>
+				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
 			</ul><ul class="header-links pull-right">
 
 
