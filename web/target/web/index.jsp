@@ -1,5 +1,5 @@
 <%@ page import="vn.edu.hcmuaf.fit.service.LoaiService" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.Loai" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="project" value="${pageContext.request.contextPath}" />
@@ -55,7 +55,7 @@
 			</ul>
 			<ul class="header-links pull-right">
 
-				<li><a href="Login.jsp"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
+				<li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
 			</ul>
 			<ul class="header-links pull-right">
 
@@ -470,18 +470,6 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="Contact_us">
-
-
-
-
-
-
-
-
-
-
-
-
 
 					<h1 style="margin-top: -24px;
 						color: #e1efea;

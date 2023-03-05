@@ -16,31 +16,30 @@ public class UserDao {
 
 	public void saveUser(User u) {
 		con = Connects.getConnect();
-		String sql = "insert into users(TENUS, EMAIL, PASS, SODT, NGAYDK, LOAI, active, activation_key) values (?,?,?,?,?,?,?,?)";
+		String sql = "insert into users(NameUser, EmailUs, Pass, Phone, RegistrationDate, RoleUs, Active, Keyactive) values (?,?,?,?,?,?,?,?)";
 		try {
 			pre = con.prepareStatement(sql);
-			pre.setString(1, u.getTenUs());
-			pre.setString(2, u.getEmail());
+			pre.setString(1, u.getNameUser());
+			pre.setString(2, u.getEmailUs());
 			pre.setString(3, u.getPass());
 			pre.setString(4, u.getPhone());
-			pre.setDate(5, u.getNgayDk());
-			pre.setInt(6, u.getLoai());
+			pre.setDate(5, u.getRegistrationDate());
+			pre.setInt(6, u.getRoleUs());
 			pre.setInt(7, u.getActive());
-			pre.setString(8, u.getActivationKey());
-			pre.executeUpdate();
+			pre.setString(8, u.getKeyactive());
+			pre.execute();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public boolean activeByActivationKey(String activation_key) {
+	public boolean activeByActivationKey(String Keyactive) {
 		con = Connects.getConnect();
-		String sql = "update users set active = ?, activation_key = ? where activation_key =?";
+		String sql = "update users set Active = ? where Keyactive =?";
 		try {
 			pre = con.prepareStatement(sql);
 			pre.setInt(1, 1);
-			pre.setString(2, "");
-			pre.setString(3, activation_key);
+			pre.setString(2, Keyactive);
 			return pre.executeUpdate() > 0;
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -51,7 +50,7 @@ public class UserDao {
 	public User login(String email, String pass) {
 		con = Connects.getConnect();
 		User user = null;
-		String sql = "select * from users where EMAIL = ? and PASS = ? and active = ?";
+		String sql = "select * from users where EmailUs = ? and Pass= ? and Active = ?";
 		try {
 			pre = con.prepareStatement(sql);
 			pre.setString(1, email);
@@ -60,13 +59,13 @@ public class UserDao {
 			res = pre.executeQuery();
 			if(res.next()) {
 				user = new User();
-				user.setActive(res.getInt("active"));
-				user.setEmail(email);
-				user.setLoai(res.getInt("LOAI"));
-				user.setTenUs(res.getString("TENUS"));
-				user.setMaUser(res.getInt("MAUSER"));
-				user.setNgayDk(res.getDate("NGAYDK"));
-				user.setPhone(res.getString("SODT"));
+				user.setActive(res.getInt("Active"));
+				user.setEmailUs(email);
+				user.setRoleUs(res.getInt("RoleUs"));
+				user.setNameUser(res.getString("NameUser"));
+				user.setIdUser(res.getInt("IdUser"));
+				user.setRegistrationDate(res.getDate("RegistrationDate"));
+				user.setPhone(res.getString("Phone"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -76,7 +75,7 @@ public class UserDao {
 
 	public void updatePassword(String newpass, String email) {
 		con = Connects.getConnect();
-		String sql = "update users set PASS = ? where EMAIL = ?";
+		String sql = "update users set Pass = ? where EmailUs = ?";
 		try {
 			pre = con.prepareStatement(sql);
 			pre.setString(1, newpass);
@@ -89,37 +88,37 @@ public class UserDao {
 	
 	public void updateUser(User u) {
 		con = Connects.getConnect();
-		String sql = "update users set TENUS=?, EMAIL=?, PASS=?, SODT=? where MAUSER = ?";
+		String sql = "update users set NameUser=?, EmailUs=?, Pass=?, Phone=? where IdUser = ?";
 		try {
 			pre = con.prepareStatement(sql);
-			pre.setString(1, u.getTenUs());
-			pre.setString(2, u.getEmail());
+			pre.setString(1, u.getNameUser());
+			pre.setString(2, u.getEmailUs());
 			pre.setString(3, u.getPass());
 			pre.setString(4, u.getPhone());
-			pre.setInt(5, u.getMaUser());
+			pre.setInt(5, u.getIdUser());
 			pre.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 	
-	public User findUserByMaUser(Integer maUser) {
+	public User findUserByMaUser(Integer IdUser) {
 		User user = null;
-		String sql = "select * from users where MAUSER = ?";
+		String sql = "select * from users where IdUser = ?";
 		try {
 			pre = con.prepareStatement(sql);
-			pre.setInt(1, maUser);
+			pre.setInt(1, IdUser);
 			res = pre.executeQuery();
 			if(res.next()) {
 				user = new User();
-				user.setActive(res.getInt("active"));
-				user.setEmail(res.getString("EMAIL"));
-				user.setLoai(res.getInt("LOAI"));
-				user.setTenUs(res.getString("TENUS"));
-				user.setMaUser(res.getInt("MAUSER"));
-				user.setNgayDk(res.getDate("NGAYDK"));
-				user.setPhone(res.getString("SODT"));
-				user.setPass(res.getString("PASS"));
+				user.setActive(res.getInt("Active"));
+				user.setEmailUs(res.getString("EmailUs"));
+				user.setRoleUs(res.getInt("RoleUs"));
+				user.setNameUser(res.getString("NameUser"));
+				user.setIdUser(res.getInt("IdUser"));
+				user.setRegistrationDate(res.getDate("RegistrationDate"));
+				user.setPhone(res.getString("Phone"));
+				user.setPass(res.getString("Pass"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -20,6 +20,7 @@ public class LoginServlet extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/login.jsp").forward(req,resp);
 		req.setCharacterEncoding("utf-8");
 		resp.setCharacterEncoding("utf-8");
 		String path = req.getServletPath();
@@ -27,10 +28,10 @@ public class LoginServlet extends HttpServlet{
 		RequestDispatcher rd = null;
 		switch (path) {
 		case "":
-			rd = req.getRequestDispatcher("/login.jsp");
+			rd = req.getRequestDispatcher("/index.jsp");
 			break;
 		case "/login":
-			rd = req.getRequestDispatcher("/login.jsp");
+			rd = req.getRequestDispatcher("/index.jsp");
 			break;
 		default:
 			break;
@@ -45,7 +46,7 @@ public class LoginServlet extends HttpServlet{
 		User u = userDao.login(email, pass);
 		if(u != null) {
 			HttpSession session = req.getSession();
-			User user = userDao.findUserByMaUser(u.getMaUser());
+			User user = userDao.findUserByMaUser(u.getIdUser());
 			session.setAttribute("user", user);
 			resp.sendRedirect(req.getContextPath() + "/user");
 		}
