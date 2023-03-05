@@ -188,12 +188,7 @@
 <!-- /NAVIGATION -->
 
 <!-- BREADCRUMB -->
-<% ProductService pro = new ProductService();
-	products pd = pro.getchitiet(request.getParameter("masp"));
 
-
-
-%>
 <div id="breadcrumb" class="section">
 	<!-- container -->
 	<div class="container">
@@ -203,7 +198,7 @@
 				<ul class="breadcrumb-tree">
 					<li><a href="index.jsp">Trang chủ</a></li>
 					<li><a href="store.jsp">Sản phẩm</a></li>
-					<li class="active"><%=pd.getTensp()%></li>
+					<li class="active">${detail.nameProduct}</li>
 				</ul>
 			</div>
 		</div>
@@ -225,7 +220,7 @@
 
 
 					<div class="product-preview">
-						<img src="<%=pd.getHinhanh()%>" alt="">
+						<img src="${detail.image}" alt="">
 					</div>
 				</div>
 			</div>
@@ -237,7 +232,7 @@
 
 
 					<div class="product-preview">
-						<img src="<%=pd.getHinhanh()%>" alt="">
+						<img src="${detail.image}" alt="">
 					</div>
 				</div>
 			</div>
@@ -246,7 +241,7 @@
 			<!-- Product details -->
 			<div class="col-md-5">
 				<div class="product-details">
-					<h2 class="product-name">ÁNH SÁNG</h2>
+					<h2 class="product-name">${detail.nameProduct}</h2>
 					<div>
 						<div class="product-rating">
 							<i class="fa fa-star"></i>
@@ -258,10 +253,10 @@
 						<a class="review-link" href="#">10 đánh giá | Thêm đánh giá của bạn</a>
 					</div>
 					<div>
-						<h4 class="product-price"><%=pd.getGiamoi()%>><del class="product-old-price"><%=pd.getGiacu()%></del></h4>
-						<span class="product-available"><%=pd.getTinhtrang()%></span>
+						<h4 class="product-price">${detail.priceNew}<del class="product-old-price">${detail.priceOld}</del></h4>
+						<span class="product-available">${detail.quantityStock}</span>
 					</div>
-					<p><%=pd.getMota()%></p>
+					<p>${detail.description}</p>
 
 
 
@@ -279,7 +274,7 @@
 						</div>
 
 					<ul class="product-btns">
-						<li><a href="Addcart?masp=<%=pd.getMasp()%>"><i class="fa-solid fa-cart-shopping"></i>Thêm vào gio hàng</a></li>
+						<li><a href="#"><i class="fa-solid fa-cart-shopping"></i>Thêm vào gio hàng</a></li>
 						<li><a href="#"><i class="fa fa-heart-o"></i>Thêm vào yêu thích</a></li>
 						<li><a href="#"><i class="fa fa-exchange"></i>Thêm để so sánh</a></li>
 					</ul>
@@ -314,7 +309,7 @@
 						<div id="tab1" class="tab-pane fade in active">
 							<div class="row">
 								<div class="col-md-12">
-									<p><%=pd.getMota()%></p>
+									<p>${detail.description}</p>
 								</div>
 							</div>
 						</div>

@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.service;
 
+import vn.edu.hcmuaf.fit.bean.category;
 import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.db.JDBiConnector;
 import vn.edu.hcmuaf.fit.db.connect;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class ProductService {
+public class    ProductService {
 
     static Connection conn = null;
     static PreparedStatement ps = null;
@@ -132,13 +133,36 @@ public class ProductService {
         return lpro;
 
     }
+    public static List<category> listCate() {
+//        ArrayList<products> list = new ArrayList<>();
+////        String query = "select * from products";
+////        try {
+////            conn = new connect().getconConnection();
+////            ps = conn.prepareStatement(query);
+////            rs = ps.executeQuery();
+////            while (rs.next()) {
+////                products pro = new products(rs.getString(1),
+////                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getInt(11));
+////                list.add(pro);
+////
+////            }
+////
+////        } catch (Exception e) {
+////            System.out.println("fail");
+////        }
+////        return list;
+        return JDBiConnector.me().withHandle(handle -> {
+            return handle.createQuery("select * from category").mapToBean(category.class).stream().collect(Collectors.toList());
+        });
+    }
     public static void main(String[] args) {
         ProductService pro = new ProductService();
 
-        System.out.println(pro.getListProductByCategory("DC").size());
+        System.out.println(pro.getListProductByCategory("DC"));
         System.out.println(pro.getListProductALL().size());
         System.out.println(pro.getchitiet("DC01"));
         System.out.println(pro.searchbyName("Đ"));
+        System.out.println(pro.listCate());
     }
 
 }
