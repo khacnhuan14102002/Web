@@ -254,7 +254,7 @@
 					</div>
 					<div>
 						<h4 class="product-price">${detail.priceNew}<del class="product-old-price">${detail.priceOld}</del></h4>
-						<span class="product-available">${detail.quantityStock}</span>
+						<span class="product-available">số lượng còn lại : ${detail.quantityStock}</span>
 					</div>
 					<p>${detail.description}</p>
 
@@ -316,7 +316,7 @@
 						<!-- /tab1  -->
 
 
-					
+
 						<!-- tab3  -->
 						<div id="tab3" class="tab-pane fade in">
 							<div class="row">

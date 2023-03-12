@@ -85,7 +85,7 @@
 				<!-- SEARCH BAR -->
 				<div class="col-md-6">
 					<div class="header-search">
-						<form action="SearchControl" >
+						<form action="search" meathod="get">
 
 							<input name="txt" type="text" class="input" placeholder="Tìm kiếm tại đây">
 							<button type="submit" class="search-btn">Tìm kiếm</button>

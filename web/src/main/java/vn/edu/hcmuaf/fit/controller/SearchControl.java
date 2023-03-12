@@ -1,51 +1,32 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vn.edu.hcmuaf.fit.controller;
 
+import vn.edu.hcmuaf.fit.bean.category;
 import vn.edu.hcmuaf.fit.bean.products;
-import vn.edu.hcmuaf.fit.service.ProductService;
+import vn.edu.hcmuaf.fit.service.StoreService;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-/**
- *
- * @author trinh
- */
-@WebServlet(name = "SearchControl", urlPatterns = {"/search"})
+@WebServlet(name = "search", value = "/search")
 public class SearchControl extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String search = request.getParameter("txt");//giay chay bo
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        request.setCharacterEncoding("UTF-8");
-        String txtSearch = request.getParameter("txt");//giay chay bo
-        ProductService dao = new ProductService();
-        List<products> list = dao.searchbyName(txtSearch);
+        StoreService store = new StoreService();
+        List<products> list = store.searchbyName(search);
+        List<category> listC = store.getListCat();
+        request.setAttribute("listCC",listC);
+        request.setAttribute("listP",list);
 
-        request.setAttribute("listP", list);
-//        request.setAttribute("listCC", listC);
-//        request.setAttribute("p", last);
-        request.setAttribute("txtS", txtSearch);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        request.getRequestDispatcher("store.jsp").forward(request, response);
     }
 
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    }
 }
