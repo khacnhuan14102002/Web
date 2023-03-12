@@ -180,7 +180,7 @@ public class StoreService {
         System.out.println(pro.getListProductByCategory("TH"));
 //        System.out.println(pro.getListProductALL().size());
        System.out.println(pro.getchitiet("DC01"));
-//        System.out.println(pro.searchbyName("Đ"));
+        System.out.println(pro.searchbyName("Đại"));
         System.out.println(pro.getListCat());
     }
 
