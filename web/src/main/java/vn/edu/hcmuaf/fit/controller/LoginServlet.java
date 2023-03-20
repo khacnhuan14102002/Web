@@ -48,7 +48,7 @@ public class LoginServlet extends HttpServlet{
 			HttpSession session = req.getSession();
 			User user = userDao.findUserByMaUser(u.getIdUser());
 			session.setAttribute("user", user);
-			resp.sendRedirect(req.getContextPath() + "/user");
+			resp.sendRedirect(req.getContextPath() + "/index.jsp");
 		}
 		else {
 			req.setAttribute("errorlogin", "tai khoan hoac mat khau khong dung");

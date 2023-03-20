@@ -1,0 +1,67 @@
+.form-them{
+    background-color: rgba(236, 194, 133, 0.65);
+    height: 650px;
+    width: 800px;
+    margin-left: 350px;
+}
+.form-them p{
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 25px;
+margin-bottom: 25px;
+}
+label{
+    width: 30%;
+    margin-left: 40px;
+    margin-bottom: 25px;
+}
+input[type=text] {
+ width: 60%;
+}
+main-nav>li+li {
+    margin-left: 30px
+}
+
+.main-nav>li>a {
+    padding: 20px 20px;
+}
+
+.main-nav>li>a:hover, .main-nav>li>a:focus, .main-nav>li.active>a {
+    color: black;
+    background-color: transparent;
+}
+
+.main-nav>li>a:after {
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    background-color: #e1a560;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.main-nav>li>a:hover:after, .main-nav>li>a:focus:after, .main-nav>li.active>a:after {
+    width: 100%;
+}
+
+.header-ctn li.nav-toggle {
+    display: none;
+}
+
+#name_mota{
+    height: 90px;
+    margin-bottom: 25px;
+}
+#name_anh{
+    height: 150px;
+    margin-bottom: 25px;
+}
+.button{
+    margin-top: 15px;
+   margin-left: 450px;
+   font-weight: bold;
+    height: 45px;
+    width: 150px;
+}

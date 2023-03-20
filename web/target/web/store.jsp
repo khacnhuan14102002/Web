@@ -7,6 +7,7 @@
 <%@ page import="java.lang.reflect.Array" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.Giohang" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -58,10 +59,27 @@
 				<li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
 				<li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
 			</ul>
+			<%--			Đăng nhập thành công thay thế dòng chữ TÀI KHOẢN--%>
 			<ul class="header-links pull-right">
 
-				<li><a href="Login.html"><i class="fa fa-user-o"></i> Tài khoản</a></li>
+				<%
+					User user = (User) session.getAttribute("user");
+					if (user != null) {
+				%>
+				<li><a href="#"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+				<%
+				} else {
+				%>
+				<li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
+				<%
+					}
+				%>
 			</ul>
+			<ul class="header-links pull-right">
+
+				<li><a href="admin.html"><i class="fa fa-cog"></i>Quản lý</a></li>
+			</ul><ul class="header-links pull-right">
+		</ul>
 		</div>
 	</div>
 	<!-- /TOP HEADER -->
@@ -233,13 +251,12 @@
 						<ul >
 
 
-
-							<%--		<c:forEach items="listL" var="l">--%>
-							<%--			<li><a href="#">${l.tenloai}</a></li>--%>
-							<%--		</c:forEach>--%>
-							<% for(Loai loai : Objects.requireNonNull(LoaiService.getLoai())){%>
-							<li><a href="store.jsp?maloai=<%=loai.getMaloai()%>"><%=loai.getTenloai()%></a></li>
-							<%}%>
+									<c:forEach items="listL" var="l">
+										<li><a href="#">${l.tenloai}</a></li>
+									</c:forEach>
+<%--							<% for(Loai loai : Objects.requireNonNull(LoaiService.getLoai())){%>--%>
+<%--							<li><a href="store.jsp?maloai=<%=loai.getMaloai()%>"><%=loai.getTenloai()%></a></li>--%>
+<%--							<%}%>--%>
 						</ul>
 
 						<div class="input-checkbox">
