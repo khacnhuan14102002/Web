@@ -55,13 +55,28 @@
 			</ul>
 			<ul class="header-links pull-right">
 
-				<li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
-			</ul>
+				<%--			Đăng nhập thành công thay thế dòng chữ TÀI KHOẢN--%>
+				<ul class="header-links pull-right">
+					<%
+						User user = (User) session.getAttribute("user");
+						if (user != null) {
+					%>
+					<li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+
+					<li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+
+					<%
+					} else {
+					%>
+					<li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
+					<%
+						}
+					%>
+				</ul>
 			<ul class="header-links pull-right">
 
 				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
 			</ul><ul class="header-links pull-right">
-
 
 		</ul>
 
