@@ -77,10 +77,7 @@
 
 				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
 			</ul><ul class="header-links pull-right">
-
-
 		</ul>
-
 		</div>
 	</div>
 	<!-- /TOP HEADER -->
