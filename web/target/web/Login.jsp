@@ -49,7 +49,7 @@
   </form>
 
   <form action="/reset/password/" class="form-reset">
-    <input type="email" id="resetEmail" class="form-control" placeholder="Nhập email" required="" autofocus="">
+<%--    <input type="email" id="resetEmail" class="form-control" placeholder="Nhập email" required="" autofocus="">--%>
     <a class="btn btn-primary btn-block" href="forget">quên mật khẩu</a>
     <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Trở về</a>
   </form>
