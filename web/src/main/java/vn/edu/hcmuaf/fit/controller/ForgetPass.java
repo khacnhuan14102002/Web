@@ -16,26 +16,26 @@ import vn.edu.hcmuaf.fit.service.MailService;
 public class ForgetPass extends HttpServlet{
 
 	private UserDao userDao = new UserDao();
-	
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RequestDispatcher rd = req.getRequestDispatcher("/quenmatkhau.jsp");
-		rd.forward(req, resp);
-	}
 
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String email = req.getParameter("email");
-		String pass = MailService.randomPassword();
-		userDao.updatePassword(pass, email);
-		Thread run = new Thread(new Runnable() {
-			public void run() {
-				new MailService().sendMail(email,
-						"mật khẩu mới của bạn: "+pass);
-			}
-		});
-		run.start();
-		resp.sendRedirect(req.getContextPath() + "/login");
-	}
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        RequestDispatcher rd = req.getRequestDispatcher("/quenmatkhau.jsp");
+        rd.forward(req, resp);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String email = req.getParameter("email");
+        String pass = MailService.randomPassword();
+        userDao.updatePassword(pass, email);
+        Thread run = new Thread(new Runnable() {
+            public void run() {
+                new MailService().sendMail(email,
+                        "mật khẩu mới của bạn: "+pass);
+            }
+        });
+        run.start();
+        resp.sendRedirect(req.getContextPath() + "/login");
+    }
 
 }

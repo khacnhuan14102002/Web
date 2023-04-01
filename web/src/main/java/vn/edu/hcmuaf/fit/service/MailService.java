@@ -1,14 +1,14 @@
 package vn.edu.hcmuaf.fit.service;
 
 import java.util.Properties;
-
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
-import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
+
+import static javax.mail.Transport.send;
 
 
 public class MailService {
@@ -43,7 +43,7 @@ public class MailService {
             message.setSubject("xac nhan tai khoan");
             message.setText(content);
            
-            Transport.send(message);
+            send(message);
         } catch (MessagingException e) {
             e.printStackTrace();
         }
