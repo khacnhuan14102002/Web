@@ -53,7 +53,6 @@
 				<li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
 
 			</ul>
-			<ul class="header-links pull-right">
 
 				<%--			Đăng nhập thành công thay thế dòng chữ TÀI KHOẢN--%>
 				<ul class="header-links pull-right">
@@ -62,7 +61,15 @@
 						if (user != null) {
 					%>
 					<li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
-
+<%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
+					<%
+						if (user.getRoleUs() == 1) {
+					%>
+					<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
+					<%
+						}
+					%>
+<%--					--%>
 					<li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 
 					<%
@@ -73,11 +80,6 @@
 						}
 					%>
 				</ul>
-			<ul class="header-links pull-right">
-
-				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
-			</ul><ul class="header-links pull-right">
-		</ul>
 		</div>
 	</div>
 	<!-- /TOP HEADER -->
