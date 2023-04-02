@@ -57,7 +57,7 @@
                             </li>
                             <li><a><i class="fa fa-edit"></i>Quản lý<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="general_elements.html">Quản lý nhân viên</a></li>
+                                    <li><a href="QuanLyUser.jsp">Quản lý User</a></li>
                                     <li><a href="http://localhost:8080/manageControl">Quản lý sản phẩm</a></li>
                                     <li><a href="typography.html">Quản lý hóa đơn</a></li>
                                     <li><a href="icons.html">Quản lý khách hàng</a></li>
