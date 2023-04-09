@@ -130,7 +130,7 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 								<i class="fa fa-shopping-cart"></i>
 								<span>Giỏ hàng</span>
-								<div class="qty">2</div>
+								<div class="qty">${cart.size() > 0 ? cart.size() : 0}</div>
 							</a>
 							<div class="cart-dropdown">
 								<div class="cart-list">

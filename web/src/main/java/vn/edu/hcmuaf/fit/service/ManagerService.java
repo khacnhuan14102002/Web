@@ -23,7 +23,7 @@ public class ManagerService {
             ps = conn.prepareStatement(query);
             rs = ps.executeQuery();
             while (rs.next()) {
-                products pro = new products(rs.getString(1),
+                products pro = new products(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
@@ -74,14 +74,14 @@ public class ManagerService {
 //        }
 //    }
 
-    public void removeProduct(String pid) {
+    public void removeProduct(int pid) {
         String query = "UPDATE products\n" +
                 "SET HideProduct = 1\n" +
                 "WHERE IdProduct = ?";
         try {
             conn = new connect().getconConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(1, pid);
+            ps.setInt(1, pid);
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println("fail");
@@ -94,7 +94,7 @@ public class ManagerService {
         try {
             conn = new connect().getconConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(1, pro.getIdProduct());
+            ps.setInt(1, pro.getIdProduct());
             ps.setString(2, pro.getIdCategory());
             ps.setString(3, pro.getNameProduct());
             ps.setString(4, pro.getImage());
@@ -121,7 +121,7 @@ public class ManagerService {
             ps.setInt(3, pro.getPriceNew());
             ps.setInt(4, pro.getPriceOld());
             ps.setString(5, pro.getDescription());
-            ps.setString(6, pro.getIdProduct());
+            ps.setInt(6, pro.getIdProduct());
             ps.executeUpdate();
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -131,7 +131,7 @@ public class ManagerService {
 
     public static void main(String[] args) {
         ManagerService mana = new ManagerService();
-        mana.removeProduct("DC01");
+
         System.out.println(mana.getAllCategory());
 
     // List<product> list = getAllProduct();
