@@ -1,6 +1,6 @@
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.Giohang" %>
+
 <%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -126,7 +126,7 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 								<i class="fa fa-shopping-cart"></i>
 								<span>Giỏ hàng</span>
-								<div class="qty">2</div>
+								<div class="qty">${cart.size() > 0 ? cart.size() : 0}</div>
 							</a>
 							<div class="cart-dropdown">
 								<div class="cart-list">
@@ -296,7 +296,7 @@
 						</div>
 
 					<ul class="product-btns">
-						<li><a href="#"><i class="fa-solid fa-cart-shopping"></i>Thêm vào gio hàng</a></li>
+						<li><a href="addcart?proid=${detail.idProduct}"><i class="fa-solid fa-cart-shopping"></i>Thêm vào gio hàng</a></li>
 						<li><a href="#"><i class="fa fa-heart-o"></i>Thêm vào yêu thích</a></li>
 						<li><a href="#"><i class="fa fa-exchange"></i>Thêm để so sánh</a></li>
 					</ul>

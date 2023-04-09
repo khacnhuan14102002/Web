@@ -1,10 +1,14 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
-<%@ page import="vn.edu.hcmuaf.fit.service.Cart" %>
+
 <%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
+<%@ page import="java.util.HashMap" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.ProductCart" %>
+<%@ page import="java.util.Map" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
 <head>
@@ -150,7 +154,6 @@
                     <table class="table table-bordered tbl-cart">
                         <thead>
                         <tr>
-                        <%ArrayList<products> giohang = new Cart().getGiohang();%>
 
 
                             <td class="hidden-xs mn"   > ẢNH</td>
@@ -165,26 +168,31 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <% for(int i =0;i <giohang.size();i++){%>
-                        <tr>
+                        <c:if test="${cart != null} ">
+                        <% HashMap<Integer, ProductCart> cart = (HashMap<Integer, ProductCart>) request.getAttribute("cart");
+                        for(Map.Entry<Integer,ProductCart> entry: cart.entrySet()){
+                            Integer key = entry.getKey();
+                            ProductCart pro = entry.getValue();
+                            %>
+                                <tr>
                             <td class="hidden-xs">
                                 <a href="#">
-                                    <img src="<%=giohang.get(i).getHinhanh()%>" alt="ĐẠI DƯƠNG" title="" width="47" height="47">
+                                    <img src="<%=pro.pro.getImage()%>" alt="ĐẠI DƯƠNG" title="" width="47" height="47">
                                 </a>
                             </td>
-                            <td class="npr"><a href="#"><%=giohang.get(i).getTensp()%></a>
+                            <td class="npr"><a href="#"><%=pro.pro.getNameProduct()%></a>
                             </td>
 
 
                                 <td>
                                     <div class="input-number">
-                                        <input type="number" value="1">
+                                        <input type="number" value="<%=pro.quantity%>">
                                         <span class="qty-up">+</span>
                                         <span class="qty-down">-</span>
                                     </div>
 <!--                                <div class="input-group bootstrap-touchspin"><span class="input-group-btn"></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"></span></div>-->
                             </td>
-                            <td class="price"><%=giohang.get(i).getGiamoi()%></td>
+                            <td class="price"><%=pro.pro.getPriceNew()%></td>
                             <td>150.000</td>
                             <td class="text-center">
                                 <a href="#" class="remove_cart" rel="1">
@@ -192,14 +200,15 @@
                                 </a>
                             </td>
                             <td></td>
-
+                                    <%}%>
+                                </c:if>
                         </tr>
                         <tr>
                             <td colspan="6" align="right">Tổng tiền</td>
                             <td class="total" colspan="1"><b>390.000</b>
                             </td>
                         </tr>
-                        <%}%>
+
                         </tbody>
                     </table>
                 </div>

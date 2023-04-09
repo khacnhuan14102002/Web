@@ -11,7 +11,7 @@ import java.io.IOException;
 public class DeleteControl extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String pid = request.getParameter("pid");
+        int pid = Integer.parseInt(request.getParameter("pid"));
         ManagerService mana = new ManagerService();
         mana.removeProduct(pid);
         response.sendRedirect("/manageControl");
