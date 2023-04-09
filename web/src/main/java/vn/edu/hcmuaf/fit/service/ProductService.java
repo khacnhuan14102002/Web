@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class    ProductService {
+public class ProductService {
 
     static Connection conn = null;
     static PreparedStatement ps = null;

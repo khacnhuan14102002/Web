@@ -57,11 +57,10 @@
                             </li>
                             <li><a><i class="fa fa-edit"></i>Quản lý<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="general_elements.html">Quản lý nhân viên</a></li>
                                     <li><a href="http://localhost:8080/manageControl">Quản lý sản phẩm</a></li>
                                     <li><a href="typography.html">Quản lý hóa đơn</a></li>
                                     <li><a href="icons.html">Quản lý khách hàng</a></li>
-                                    <li><a href="glyphicons.html">Quản lý nguyên liệu</a></li>
+                                    <li><a href="http://localhost:8080/managerCatalogControl">Quản lý danh mục</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i>Báo cáo<span class="fa fa-chevron-down"></span></a>

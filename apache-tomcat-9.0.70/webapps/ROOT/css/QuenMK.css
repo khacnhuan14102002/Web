@@ -28,6 +28,9 @@ h4 {
     background-color: #007bff;
     height: 35px;
     border-radius: 5px;
+    width: 70%;
+    margin-left: 30px;
+    margin-top: 20px;
 }
 .form-control {
     width: 90%;

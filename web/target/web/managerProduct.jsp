@@ -16,7 +16,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ShopHandMade</title>
+    <title>Quản lý sản phẩm</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="css/font-awesome.min.css">
@@ -118,7 +118,7 @@
         <button type="button" class="btn btn-primary">Trở về</button>
     </a>
 </div>
-<!-- Edit Modal HTML -->
+<!-- Add Modal HTML -->
 <div id="addEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -241,7 +241,6 @@
         </div>
     </div>
 </div>
-</a>
 <script src="build/js/manager.js" type="text/javascript"></script>
 </body>
 </html>
