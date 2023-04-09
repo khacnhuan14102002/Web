@@ -53,7 +53,6 @@
 				<li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
 
 			</ul>
-			<ul class="header-links pull-right">
 
 				<%--			Đăng nhập thành công thay thế dòng chữ TÀI KHOẢN--%>
 				<ul class="header-links pull-right">
@@ -81,14 +80,6 @@
 						}
 					%>
 				</ul>
-
-
-<%--			<ul class="header-links pull-right">--%>
-
-<%--				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>--%>
-
-<%--			</ul><ul class="header-links pull-right">--%>
-<%--		</ul>--%>
 		</div>
 	</div>
 	<!-- /TOP HEADER -->
