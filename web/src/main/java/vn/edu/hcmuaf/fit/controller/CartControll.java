@@ -8,16 +8,18 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.HashMap;
 
-@WebServlet(name = "cart", value = "/cart")
+@WebServlet(name = "Cart", value = "/cart")
 public class CartControll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session =  request.getSession();
+        HttpSession session = request.getSession();
         HashMap<Integer, ProductCart> cart = (HashMap<Integer, ProductCart>) session.getAttribute("cart");
-        RequestDispatcher requestDispatcher=request.getRequestDispatcher("/Cart.jsp");
+
         request.setAttribute("cart",cart);
-        requestDispatcher.forward(request,response);
-        return;
+        request.getRequestDispatcher("Cart.jsp").forward(request,response);
+
+
+
     }
 
     @Override
