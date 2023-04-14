@@ -11,4 +11,8 @@ public class ProductCart {
     public void incre(){
         this.quantity++;
     }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }

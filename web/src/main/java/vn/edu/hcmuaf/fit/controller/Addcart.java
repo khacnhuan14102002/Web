@@ -21,42 +21,34 @@ public class Addcart extends HttpServlet {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        if(user == null){
-            response.sendRedirect("/login");
-        }
+//        if (user == null) {
+//            response.sendRedirect("/login");
+//            return;
+//       }
         ProductCart carts;
-        HashMap<Integer,ProductCart> cart = (HashMap<Integer, ProductCart>) session.getAttribute("cart");
-        if(cart == null){
-            cart = new HashMap<Integer,ProductCart>();
-            carts= new ProductCart(1,pro);
-            cart.put(id,carts);
-        }else{
-            if(cart.containsKey(id)){
+        HashMap<Integer, ProductCart> cart = (HashMap<Integer, ProductCart>) session.getAttribute("cart");
+        if (cart == null) {
+            cart = new HashMap<Integer, ProductCart>();
+            carts = new ProductCart(1, pro);
+            cart.put(id, carts);
+        } else {
+            if (cart.containsKey(id)) {
                 carts = cart.get(id);
                 carts.incre();
-            }else{
-                carts = new ProductCart(1,pro);
-                cart.put(id,carts);
+            } else {
+                carts = new ProductCart(1, pro);
+                cart.put(id, carts);
             }
         }
-
-//        String masp= request.getParameter("masp");
-//        HttpSession session = request.getSession();
-//        User us = (User) session.getAttribute("user");
-//        if(us==null){
-//            new Cart().addCart(masp);
-//            response.sendRedirect("Cart.jsp");
-//        }else{
-//            response.sendRedirect("login.jsp");
-        //}
-        session.setAttribute("cart",cart);
-        for(Map.Entry<Integer,ProductCart> entry : cart.entrySet()){
-            System.out.println(entry.getValue().pro.getNameProduct() + " : Số lượng" + entry.getValue().quantity);
-
-        }
-        response.sendRedirect("/cart");
+        session.setAttribute("cart", cart);
+       for (Map.Entry<Integer, ProductCart> entry : cart.entrySet()) {
+           System.out.println(entry.getValue().pro.getNameProduct() + " : Số lượng" + entry.getValue().quantity);
+       }
+          response.sendRedirect("/cart");
         return;
     }
+
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
