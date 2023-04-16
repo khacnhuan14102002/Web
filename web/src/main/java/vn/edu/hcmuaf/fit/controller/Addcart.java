@@ -21,10 +21,10 @@ public class Addcart extends HttpServlet {
 
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-//        if (user == null) {
-//            response.sendRedirect("/login");
-//            return;
-//       }
+        if (user == null) {
+            response.sendRedirect("/login");
+            return;
+       }
         ProductCart carts;
         HashMap<Integer, ProductCart> cart = (HashMap<Integer, ProductCart>) session.getAttribute("cart");
         if (cart == null) {
