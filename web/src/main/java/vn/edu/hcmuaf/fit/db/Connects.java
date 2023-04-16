@@ -26,6 +26,5 @@ public class Connects {
 			throw new RuntimeException(e);
 		}
 	}
-	
 
 }

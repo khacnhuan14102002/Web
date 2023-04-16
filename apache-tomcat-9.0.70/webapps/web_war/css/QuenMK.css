@@ -1,0 +1,41 @@
+body{
+    background-image: url("/image/nenlogin.jpg");
+}
+.logreg-forms{
+    width:412px;
+    margin:25vh auto;
+    background-color: rgba(231, 173, 108, 0.5);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    height: 170px;
+}
+.logreg-forms form {
+    width: 100%;
+    max-width: 410px;
+    padding: 15px;
+    margin: auto;
+
+}
+h4 {
+    font-size: 28px;
+    color: white;
+    text-align: center;
+    margin: 0px;
+    padding-top: 15px;
+}
+.btn {
+    border: 1px;
+    background-color: #007bff;
+    height: 35px;
+    border-radius: 5px;
+    width: 70%;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+.form-control {
+    width: 90%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px;
+    text-align: center;
+}

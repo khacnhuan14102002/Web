@@ -8,6 +8,8 @@ import java.sql.SQLException;
 import vn.edu.hcmuaf.fit.db.Connects;
 import vn.edu.hcmuaf.fit.bean.User;
 
+import static vn.edu.hcmuaf.fit.db.Connects.getConnect;
+
 public class UserDao {
 
 	private Connection con = null;
@@ -15,7 +17,7 @@ public class UserDao {
 	private ResultSet res = null;
 
 	public void saveUser(User u) {
-		con = Connects.getConnect();
+		con = getConnect();
 		String sql = "insert into users(NameUser, EmailUs, Pass, Phone, RegistrationDate, RoleUs, Active, Keyactive) values (?,?,?,?,?,?,?,?)";
 		try {
 			pre = con.prepareStatement(sql);
@@ -34,7 +36,7 @@ public class UserDao {
 	}
 	
 	public boolean activeByActivationKey(String Keyactive) {
-		con = Connects.getConnect();
+		con = getConnect();
 		String sql = "update users set Active = ? where Keyactive =?";
 		try {
 			pre = con.prepareStatement(sql);
@@ -48,7 +50,7 @@ public class UserDao {
 	}
 	
 	public User login(String email, String pass) {
-		con = Connects.getConnect();
+		con = getConnect();
 		User user = null;
 		String sql = "select * from users where EmailUs = ? and Pass= ? and Active = ?";
 		try {
@@ -74,7 +76,7 @@ public class UserDao {
 	}
 
 	public void updatePassword(String newpass, String email) {
-		con = Connects.getConnect();
+		con = getConnect();
 		String sql = "update users set Pass = ? where EmailUs = ?";
 		try {
 			pre = con.prepareStatement(sql);
@@ -87,7 +89,7 @@ public class UserDao {
 	}
 	
 	public void updateUser(User u) {
-		con = Connects.getConnect();
+		con = getConnect();
 		String sql = "update users set NameUser=?, EmailUs=?, Pass=?, Phone=? where IdUser = ?";
 		try {
 			pre = con.prepareStatement(sql);
@@ -125,4 +127,34 @@ public class UserDao {
 		}
 		return user;		
 	}
+
+//	xoa nguoi dung
+public void deleteUser(int id) {
+	Connection conn = null;
+	PreparedStatement stmt = null;
+	try {
+		conn = getConnect();
+		String sql = "DELETE FROM users WHERE IdUser=?";
+		stmt = conn.prepareStatement(sql);
+		stmt.setInt(1, id);
+		stmt.executeUpdate();
+	} catch (SQLException ex) {
+		ex.printStackTrace();
+	} finally {
+		try {
+			if (stmt != null) {
+				stmt.close();
+			}
+			if (conn != null && !conn.isClosed()) {
+				conn.close();
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
 }
+
+
+}
+
+

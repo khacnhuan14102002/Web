@@ -1,5 +1,5 @@
 <%@ page import="vn.edu.hcmuaf.fit.service.LoaiService" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.Loai" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="project" value="${pageContext.request.contextPath}" />
@@ -53,18 +53,33 @@
 				<li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
 
 			</ul>
-			<ul class="header-links pull-right">
 
-				<li><a href="Login.jsp"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
-			</ul>
-			<ul class="header-links pull-right">
+				<%--			Đăng nhập thành công thay thế dòng chữ TÀI KHOẢN--%>
+				<ul class="header-links pull-right">
+					<%
+						User user = (User) session.getAttribute("user");
+						if (user != null) {
+					%>
+					<li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+<%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
+					<%
+						if (user.getRoleUs() == 1) {
+					%>
+					<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
+					<%
+						}
+					%>
+<%--					--%>
+					<li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 
-				<li><a href="admin.html"><i class="fa fa-cog"></i>Quản lý</a></li>
-			</ul><ul class="header-links pull-right">
-
-
-		</ul>
-
+					<%
+					} else {
+					%>
+					<li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
+					<%
+						}
+					%>
+				</ul>
 		</div>
 	</div>
 	<!-- /TOP HEADER -->
@@ -470,18 +485,6 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="Contact_us">
-
-
-
-
-
-
-
-
-
-
-
-
 
 					<h1 style="margin-top: -24px;
 						color: #e1efea;
