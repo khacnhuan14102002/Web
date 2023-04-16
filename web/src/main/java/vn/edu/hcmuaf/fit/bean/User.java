@@ -15,6 +15,9 @@ public class User {
 	private int RoleUs;
 	private int Active;
 	private String Keyactive;
+//	public User(){
+//	}
+
 	public int getIdUser() {
 		return IdUser;
 	}
@@ -74,6 +77,4 @@ public class User {
 		return "User [IdUser=" + IdUser + ", NameUser=" + NameUser + ", EmailUs=" + EmailUs + ", Pass=" + Pass
 				+ ", Phone=" + Phone + ", RoleUs=" + RoleUs + ", Active=" + Active + ", Keyactive=" + Keyactive + "]";
 	}
-
-
 }

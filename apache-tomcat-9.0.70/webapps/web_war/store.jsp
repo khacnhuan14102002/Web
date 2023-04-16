@@ -1,4 +1,4 @@
-<%@ page import="vn.edu.hcmuaf.fit.bean.Loai" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.LoaiService" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
@@ -7,6 +7,7 @@
 <%@ page import="java.lang.reflect.Array" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.Giohang" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -59,8 +60,29 @@
 				<li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
 			</ul>
 			<ul class="header-links pull-right">
+				<%
+					User user = (User) session.getAttribute("user");
+					if (user != null) {
+				%>
+				<li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+				<%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
+				<%
+					if (user.getRoleUs() == 1) {
+				%>
+				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
+				<%
+					}
+				%>
+				<%--					--%>
+				<li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 
-				<li><a href="Login.html"><i class="fa fa-user-o"></i> Tài khoản</a></li>
+				<%
+				} else {
+				%>
+				<li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
+				<%
+					}
+				%>
 			</ul>
 		</div>
 	</div>
@@ -85,7 +107,7 @@
 				<!-- SEARCH BAR -->
 				<div class="col-md-6">
 					<div class="header-search">
-						<form action="SearchControl" >
+						<form action="search" meathod="get">
 
 							<input name="txt" type="text" class="input" placeholder="Tìm kiếm tại đây">
 							<button type="submit" class="search-btn">Tìm kiếm</button>
@@ -204,8 +226,10 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
+<
 					<li><a href="index.jsp">Trang chủ</a></li>
 					<li><a href="#">Sản phẩm</a></li>
+
 
 				</ul>
 			</div>
@@ -234,12 +258,19 @@
 
 
 
-							<%--		<c:forEach items="listL" var="l">--%>
-							<%--			<li><a href="#">${l.tenloai}</a></li>--%>
-							<%--		</c:forEach>--%>
-							<% for(Loai loai : Objects.requireNonNull(LoaiService.getLoai())){%>
-							<li><a href="store.jsp?maloai=<%=loai.getMaloai()%>"><%=loai.getTenloai()%></a></li>
-							<%}%>
+									<c:forEach items="${requestScope.listCC}" var="c">
+										<li><a href="category?cid=${c.idCat}">${c.nameCat}</a></li>
+									</c:forEach>
+
+<%--									<%--%>
+<%--										List<category> listCC = (List<category>) request.getAttribute("listCC");--%>
+<%--										for (category cat : listCC) {--%>
+<%--									%>--%>
+
+<%--									<li><a href="<%=cat.getIdCat()%>"><%=cat.getNameCat()%></a></li>--%>
+<%--									<%}%>--%>
+
+
 						</ul>
 
 						<div class="input-checkbox">
@@ -393,40 +424,40 @@
 				<div class="row">
 
 
-				<%ProductService pro = new ProductService();
 
-
-
-				String catid= request.getParameter("maloai");
-
-				%>
 				<div class="row">
-		<c:forEach var="p" items="${requestScope.list}">
-					<div class="col-md-4 col-xs-6">
-						<div class="product">
-							<div class="product-img">
-								<img src="${p.hinhanh}" alt="">
-								<div class="product-label">
-									<span class="sale">-40%</span>
-									<span class="new">Mới</span>
+					<c:forEach var="p" items="${requestScope.listP}">
+						<div class="col-md-4 col-xs-6">
+							<div class="product">
+								<div class="product-img">
+									<img src="${p.image}" alt="">
+									<div class="product-label">
+										<c:if test="${p.discount != 0}">
+											<span class="sale">-${p.discount}%</span>
+										</c:if>
+										<c:if test="${p.isnew != 0}">
+											<span class="new">Mới</span>
+										</c:if>
+
+									</div>
 								</div>
-							</div>
-							<div class="product-body">
+								<div class="product-body">
 
-								<h3 class="product-name"><a href="detail.jsp?masp=${p.getMasp()}">${p.tensp}</a></h3>
-								<h4 class="product-price"> <del class="product-old-price"></del></h4>
+									<h3 class="product-name"><a href="detail?pid=${p.idProduct}">${p.nameProduct}</a></h3>
+									<h4 class="product-price"> <del class="product-old-price"></del></h4>
 
-								<div class="product-btns"><button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
-									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
+									<div class="product-btns"><button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
+										<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
+									</div>
 								</div>
-							</div>
-							<div class="add-to-cart">
+								<div class="add-to-cart">
 
-								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a herf="#">Thêm vào giỏ hàng</a></button>
+									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a herf="#">Thêm vào giỏ hàng</a></button>
+								</div>
 							</div>
 						</div>
-					</div>
-		</c:forEach>
+						<%--					<%}%>--%>
+					</c:forEach>
 <%--					<!-- product -->--%>
 <%--					<% if(catid==null){--%>
 <%--						for(products listpro : pro.getListProductALL()){%>--%>
@@ -491,7 +522,7 @@
 
 <%--					}%>--%>
 		</div>
-				</>
+				</div>
 				<!-- /store products -->
 
 				<!-- store bottom filter -->

@@ -51,7 +51,13 @@
       <artifactId>mail</artifactId>
       <version>1.4.7</version>
     </dependency>
-
+<!--mơi them vào thưc hien đăng nhập gg-->
+    <dependency>
+      <groupId>com.google.api-client</groupId>
+      <artifactId>google-api-client-servlet</artifactId>
+      <version>2.0.0</version>
+    </dependency>
+<!---->
   </dependencies>
   <build>
     <finalName>web</finalName>

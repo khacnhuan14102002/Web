@@ -1,14 +1,9 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
-
-<%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
-<%@ page import="java.util.HashMap" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.ProductCart" %>
-<%@ page import="java.util.Map" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="vn.edu.hcmuaf.fit.service.Cart" %>
 <!DOCTYPE html>
 <html lang="en">
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 
 
 <head>
@@ -58,29 +53,8 @@
                 <li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
             </ul>
             <ul class="header-links pull-right">
-                <%
-                    User user = (User) session.getAttribute("user");
-                    if (user != null) {
-                %>
-                <li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
-                <%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
-                <%
-                    if (user.getRoleUs() == 1) {
-                %>
-                <li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
-                <%
-                    }
-                %>
-                <%--					--%>
-                <li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 
-                <%
-                } else {
-                %>
-                <li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
-                <%
-                    }
-                %>
+                <li><a href="Login.html"><i class="fa fa-user-o"></i> Tài khoản</a></li>
             </ul>
         </div>
     </div>
@@ -154,6 +128,7 @@
                     <table class="table table-bordered tbl-cart">
                         <thead>
                         <tr>
+                        <%ArrayList<products> giohang = new Cart().getGiohang();%>
 
 
                             <td class="hidden-xs mn"   > ẢNH</td>
@@ -161,65 +136,54 @@
 
                             <td class="td-qty mn" >SỐ LƯỢNG</td>
                             <td class="mn">GIÁ</td>
-
+                            <td class="mn">TỔNG</td>
                             <td class="mn">XÓA HÀNG</td>
 
 
                         </tr>
                         </thead>
-                        <c:if test="${cart != null}">
-                        <% HashMap<Integer,ProductCart> cart = (HashMap<Integer, ProductCart>) request.getAttribute("cart");
-                        for(Map.Entry<Integer,ProductCart> entry : cart.entrySet()){
-                            Integer key = entry.getKey();
-                            ProductCart productcart = entry.getValue();%>
-
                         <tbody>
-                                <tr>
+                        <% for(int i =0;i <giohang.size();i++){%>
+                        <tr>
                             <td class="hidden-xs">
                                 <a href="#">
-                                    <img src="<%=productcart.pro.getImage()%>" alt="ĐẠI DƯƠNG" title="" width="47" height="47">
+                                    <img src="<%=giohang.get(i).getHinhanh()%>" alt="ĐẠI DƯƠNG" title="" width="47" height="47">
                                 </a>
                             </td>
-                            <td class="npr"><%=productcart.pro.getNameProduct()%><a href="#"></a>
+                            <td class="npr"><a href="#"><%=giohang.get(i).getTensp()%></a>
                             </td>
 
 
                                 <td>
                                     <div class="input-number">
-                                        <form action="/updateCart" method=POST">
-                                        <input type="number" value="<%=productcart.quantity%>" name="quantity">
-                                            <input value="<%=productcart.pro.getIdProduct()%>" type="hidden" name="idprocart"/>
+                                        <input type="number" value="1">
                                         <span class="qty-up">+</span>
                                         <span class="qty-down">-</span>
-                                            <button type="submit" class="bt btn btn-primary"><i class="fa fa-pencil"></i>Cập nhật giỏ hàng</button>
-<%--                                            <button type="button" class="bt btn btn-primary"><i class="fa fa-pencil"></i><a href="/updateCart"> Cập nhật giỏ hàng</a></button>--%>
-                                        </form>
                                     </div>
 <!--                                <div class="input-group bootstrap-touchspin"><span class="input-group-btn"></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"></span></div>-->
                             </td>
-                            <td class="price"><%=productcart.pro.getPriceNew()%></td>
+                            <td class="price"><%=giohang.get(i).getGiamoi()%></td>
+                            <td>150.000</td>
                             <td class="text-center">
                                 <a href="#" class="remove_cart" rel="1">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </td>
-
+                            <td></td>
 
                         </tr>
-                                <%}%>
-                            </c:if>
-<%--                        <tr>--%>
-<%--                            <td colspan="6" align="right">Tổng tiền</td>--%>
-<%--                            <td class="total" colspan="1"><b>390.000</b>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
-
+                        <tr>
+                            <td colspan="6" align="right">Tổng tiền</td>
+                            <td class="total" colspan="1"><b>390.000</b>
+                            </td>
+                        </tr>
+                        <%}%>
                         </tbody>
                     </table>
                 </div>
                 <div class="btn-group btns-cart">
-                    <button type="button" class="bt btn btn-primary"><i class="fa fa-arrow-circle-left"></i><a href="/store"> Tiếp tục mua sắm</a></button>
-
+                    <button type="button" class="bt btn btn-primary"><i class="fa fa-arrow-circle-left"></i><a href="index.jsp"> Tiếp tục mua sắm</a></button>
+                    <button type="button" class=" bt btn btn-primary">Cập nhật giỏ hảng</button>
                     <button type="button" class="bt btn btn-primary"><a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a></button>
                 </div>
             </div>
