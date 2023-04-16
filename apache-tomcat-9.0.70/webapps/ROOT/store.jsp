@@ -6,7 +6,8 @@
 <%@ page import="java.util.Objects" %>
 <%@ page import="java.lang.reflect.Array" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.Giohang" %>
+
+<%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -59,8 +60,29 @@
 				<li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
 			</ul>
 			<ul class="header-links pull-right">
+				<%
+					User user = (User) session.getAttribute("user");
+					if (user != null) {
+				%>
+				<li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+				<%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
+				<%
+					if (user.getRoleUs() == 1) {
+				%>
+				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
+				<%
+					}
+				%>
+				<%--					--%>
+				<li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 
-				<li><a href="Login.html"><i class="fa fa-user-o"></i> Tài khoản</a></li>
+				<%
+				} else {
+				%>
+				<li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
+				<%
+					}
+				%>
 			</ul>
 		</div>
 	</div>
@@ -112,7 +134,7 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 								<i class="fa fa-shopping-cart"></i>
 								<span>Giỏ hàng</span>
-								<div class="qty">2</div>
+								<div class="qty">${cart.size() > 0 ? cart.size() : 0}</div>
 							</a>
 							<div class="cart-dropdown">
 								<div class="cart-list">
@@ -144,7 +166,7 @@
 									<h5>Giá tiền: 390.000</h5>
 								</div>
 								<div class="cart-btns">
-									<a href="Cart.jsp">Xem giỏ hàng</a>
+									<a href="/cart">Xem giỏ hàng</a>
 									<a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
