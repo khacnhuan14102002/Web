@@ -74,7 +74,7 @@ public class StoreService {
             rs = ps.executeQuery();
             while (rs.next()) {
 
-                pro.setIdProduct(rs.getString(1));
+                pro.setIdProduct(rs.getInt(1));
                 pro.setIdCategory(rs.getString(2));
                 pro.setNameProduct(rs.getString(3));
                 pro.setImage(rs.getString(4));
@@ -104,35 +104,36 @@ public class StoreService {
 
     }
     public  List<products> searchbyName(String txtsearch){
-        List<products> lpro = new ArrayList<>();
+        List<products> lis = new ArrayList<>();
         products pro = new products();
         String query = "select * from products where nameProduct like ?";
         try {
             conn = new connect().getconConnection();
             ps = conn.prepareStatement(query);
-            ps.setString(1,"%"+txtsearch+"%");
+            ps.setString(1,"%"+ txtsearch+"%");
             rs = ps.executeQuery();
             while (rs.next()) {
 
-                pro.setIdProduct(rs.getString(1));
-                pro.setIdCategory(rs.getString(2));
-                pro.setNameProduct(rs.getString(3));
-                pro.setImage(rs.getString(4));
-                pro.setPriceNew(rs.getInt(5));
-                pro.setPriceOld(rs.getInt(6));
-                pro.setQuantityStock(rs.getInt(7));
-                pro.setDescription(rs.getString(8));
-                pro.setIdReview(rs.getString(9));
-                pro.setIsnew(rs.getInt(10));
-                pro.setDiscount(rs.getInt(11));
+                lis.add(new products(
+                      rs.getInt(1),
+                rs.getString(2),
+                rs.getString(3),
+                rs.getString(4),
+                rs.getInt(5),
+                rs.getInt(6),
+                rs.getInt(7),
+                rs.getString(8),
+                rs.getString(9),
+                rs.getInt(10),
+                rs.getInt(11)));
 
-                lpro.add(pro);
+
             }
 
         } catch (Exception e) {
             System.out.println("fail");
         }
-        return lpro;
+        return lis;
 
     }
 
@@ -180,7 +181,7 @@ public class StoreService {
         System.out.println(pro.getListProductByCategory("TH"));
 //        System.out.println(pro.getListProductALL().size());
        System.out.println(pro.getchitiet("DC01"));
-        System.out.println(pro.searchbyName("Đại"));
+        System.out.println(pro.searchbyName("Đ"));
         System.out.println(pro.getListCat());
     }
 

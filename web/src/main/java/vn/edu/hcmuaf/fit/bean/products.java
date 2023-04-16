@@ -2,8 +2,8 @@ package vn.edu.hcmuaf.fit.bean;
 
 import java.io.Serializable;
 
-public class products implements Serializable, Comparable<products> {
-    private String idProduct;
+public class products implements Serializable {
+    private int idProduct;
     private String idCategory;
     private String nameProduct;
     private String image;
@@ -19,7 +19,7 @@ public class products implements Serializable, Comparable<products> {
 
     }
 
-    public products(String idProduct, String idCategory, String nameProduct, String image, Integer priceNew, Integer priceOld, Integer quantityStock, String description, String idReview, int isnew, int discount) {
+    public products(int idProduct, String idCategory, String nameProduct, String image, Integer priceNew, Integer priceOld, Integer quantityStock, String description, String idReview, int isnew, int discount) {
         this.idProduct = idProduct;
         this.idCategory = idCategory;
         this.nameProduct = nameProduct;
@@ -33,11 +33,11 @@ public class products implements Serializable, Comparable<products> {
         this.discount = discount;
     }
 
-    public String getIdProduct() {
+    public int getIdProduct() {
         return idProduct;
     }
 
-    public void setIdProduct(String idProduct) {
+    public void setIdProduct(int idProduct) {
         this.idProduct = idProduct;
     }
 
@@ -138,11 +138,7 @@ public class products implements Serializable, Comparable<products> {
                 '}';
     }
 
-    @Override
-    public int compareTo(products o) {
 
-        return Integer.parseInt(this.idProduct) - Integer.parseInt(o.idProduct);
-    }
 
 
 }

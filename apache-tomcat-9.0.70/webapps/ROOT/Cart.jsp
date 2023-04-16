@@ -1,7 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.Cart" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -54,29 +53,8 @@
                 <li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
             </ul>
             <ul class="header-links pull-right">
-                <%
-                    User user = (User) session.getAttribute("user");
-                    if (user != null) {
-                %>
-                <li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
-                <%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
-                <%
-                    if (user.getRoleUs() == 1) {
-                %>
-                <li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
-                <%
-                    }
-                %>
-                <%--					--%>
-                <li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 
-                <%
-                } else {
-                %>
-                <li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
-                <%
-                    }
-                %>
+                <li><a href="Login.html"><i class="fa fa-user-o"></i> Tài khoản</a></li>
             </ul>
         </div>
     </div>

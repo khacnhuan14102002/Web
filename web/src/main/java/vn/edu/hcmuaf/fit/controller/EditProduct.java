@@ -20,7 +20,7 @@ public class EditProduct extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         request.setCharacterEncoding("utf8");
 
-        String pid = request.getParameter("id");
+      int pid = Integer.parseInt(request.getParameter("id"));
         String pname = request.getParameter("name");
         String pimage = request.getParameter("image");
         String pprice_new = request.getParameter("price_new");

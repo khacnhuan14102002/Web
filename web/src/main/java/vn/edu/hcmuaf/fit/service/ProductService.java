@@ -63,7 +63,7 @@ public class    ProductService {
         });
     }
 
-    public static products getchitiet(String idProduct){
+    public static products getchitiet(int idProduct){
         products pro = new products();
         String query = "select * from products where IdProduct='" +idProduct+ "'";
         try {
@@ -72,7 +72,37 @@ public class    ProductService {
             rs = ps.executeQuery();
             while (rs.next()) {
 
-                pro.setIdProduct(rs.getString(1));
+                pro.setIdProduct(rs.getInt(1));
+                pro.setIdCategory(rs.getString(2));
+                pro.setNameProduct(rs.getString(3));
+                pro.setImage(rs.getString(4));
+                pro.setPriceNew(rs.getInt(5));
+                pro.setPriceOld(rs.getInt(6));
+                pro.setQuantityStock(rs.getInt(7));
+                pro.setDescription(rs.getString(8));
+                pro.setIdReview(rs.getString(9));
+                pro.setIsnew(rs.getInt(10));
+                pro.setDiscount(rs.getInt(11));
+
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return pro;
+
+    }
+    public static products getprobyId(int idProduct){
+        products pro = new products();
+        String query = "select * from products where IdProduct='" +idProduct+ "'";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+
+                pro.setIdProduct(rs.getInt(1));
                 pro.setIdCategory(rs.getString(2));
                 pro.setNameProduct(rs.getString(3));
                 pro.setImage(rs.getString(4));
@@ -112,7 +142,7 @@ public class    ProductService {
             rs = ps.executeQuery();
             while (rs.next()) {
 
-                pro.setIdProduct(rs.getString(1));
+                pro.setIdProduct(rs.getInt(1));
                 pro.setIdCategory(rs.getString(2));
                 pro.setNameProduct(rs.getString(3));
                 pro.setImage(rs.getString(4));
@@ -159,8 +189,7 @@ public class    ProductService {
         ProductService pro = new ProductService();
 
         System.out.println(pro.getListProductByCategory("DC"));
-        System.out.println(pro.getListProductALL().size());
-        System.out.println(pro.getchitiet("DC01"));
+        System.out.println(pro.getListProductALL().size());;
         System.out.println(pro.searchbyName("Đ"));
         System.out.println(pro.listCate());
     }

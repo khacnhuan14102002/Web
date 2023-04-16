@@ -6,7 +6,7 @@
 <%@ page import="java.util.Objects" %>
 <%@ page import="java.lang.reflect.Array" %>
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.Giohang" %>
+
 <%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
@@ -134,7 +134,7 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 								<i class="fa fa-shopping-cart"></i>
 								<span>Giỏ hàng</span>
-								<div class="qty">2</div>
+								<div class="qty">${cart.size() > 0 ? cart.size() : 0}</div>
 							</a>
 							<div class="cart-dropdown">
 								<div class="cart-list">
@@ -166,7 +166,7 @@
 									<h5>Giá tiền: 390.000</h5>
 								</div>
 								<div class="cart-btns">
-									<a href="Cart.jsp">Xem giỏ hàng</a>
+									<a href="/cart">Xem giỏ hàng</a>
 									<a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
