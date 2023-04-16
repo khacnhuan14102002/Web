@@ -1759,15 +1759,15 @@ About_us
 	09 -> CHECKOUT PAGE
 ===========================================================*/
 
-.billing-details {
+.section_check .billing-details {
   margin-bottom: 30px;
 }
 
-.shiping-details {
+.section_check .shiping-details {
   margin-bottom: 30px;
 }
 
-.order-details {
+.section_check .order-details {
   position: relative;
   padding: 0px 30px 30px;
   border-right: 1px solid #E4E7ED;
@@ -1775,7 +1775,7 @@ About_us
   border-bottom: 1px solid #E4E7ED;
 }
 
-.order-details:before {
+.section_check .order-details:before {
   content: "";
   position: absolute;
   left: -1px;
@@ -1787,45 +1787,45 @@ About_us
   border-right: 1px solid #E4E7ED;
 }
 
-.order-summary {
+.section_check .order-summary {
   margin: 15px 0px;
 }
 
-.order-summary .order-col {
+.section_check .order-summary .order-col {
   display: table;
   width: 100%;
 }
 
-.order-summary .order-col:after {
+.section_check .order-summary .order-col:after {
   content: "";
   display: block;
   clear: both;
 }
 
-.order-summary .order-col>div {
+.section_check .order-summary .order-col>div {
   display: table-cell;
   padding: 10px 0px;
 }
 
-.order-summary .order-col>div:first-child {
+.section_check .order-summary .order-col>div:first-child {
   width: calc(100% - 150px);
 }
 
-.order-summary .order-col>div:last-child {
+.section_check .order-summary .order-col>div:last-child {
   width: 150px;
   text-align: right;
 }
 
-.order-summary .order-col .order-total {
+.section_check .order-summary .order-col .order-total {
   font-size: 24px;
   color: #a97c47;
 }
 
-.order-details .payment-method {
+.section_check .order-details .payment-method {
   margin: 30px 0px;
 }
 
-.order-details .order-submit {
+.section_check.order-details .order-submit {
   display: block;
   margin-top: 30px;
 }

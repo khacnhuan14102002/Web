@@ -167,7 +167,7 @@
 								</div>
 								<div class="cart-btns">
 									<a href="/cart">Xem giỏ hàng</a>
-									<a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+									<a href="checkout.jsp">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
 						</div>
@@ -450,10 +450,13 @@
 										<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
 									</div>
 								</div>
+
 								<div class="add-to-cart">
 
-									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a herf="#">Thêm vào giỏ hàng</a></button>
+<%--									<a herf="addcart?proid=${detail.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>--%>
+										<a href="addcart?proid=${p.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào gio hàng</a>
 								</div>
+
 							</div>
 						</div>
 						<%--					<%}%>--%>

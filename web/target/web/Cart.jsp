@@ -11,7 +11,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<head>
+
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,7 +45,7 @@
           <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
           <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
-<body>
+<body >
 
 <!-- HEADER -->
 <header>
@@ -169,9 +169,12 @@
                         </thead>
                         <c:if test="${cart != null}">
                         <% HashMap<Integer,ProductCart> cart = (HashMap<Integer, ProductCart>) request.getAttribute("cart");
+
                         for(Map.Entry<Integer,ProductCart> entry : cart.entrySet()){
                             Integer key = entry.getKey();
-                            ProductCart productcart = entry.getValue();%>
+                            ProductCart productcart = entry.getValue();
+
+                        %>
 
                         <tbody>
                                 <tr>
@@ -199,7 +202,7 @@
                             </td>
                             <td class="price"><%=productcart.pro.getPriceNew()%></td>
                             <td class="text-center">
-                                <a href="#" class="remove_cart" rel="1">
+                                <a href="removecart?idpro=<%=productcart.pro.getIdProduct()%>" class="remove_cart" rel="1">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </td>
@@ -208,19 +211,33 @@
                         </tr>
                                 <%}%>
                             </c:if>
-<%--                        <tr>--%>
-<%--                            <td colspan="6" align="right">Tổng tiền</td>--%>
-<%--                            <td class="total" colspan="1"><b>390.000</b>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
+
+
 
                         </tbody>
                     </table>
                 </div>
+                <div class="row py-5 p-4 bg-white rounded shadow-sm">
+
+<%--                    <div class="col-lg-6">--%>
+<%--                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thành tiền</div>--%>
+
+<%--                        <div class="p-4">--%>
+<%--                            <ul class="list-unstyled mb-4" id="contentTotalMoney">--%>
+<%--                                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền hàng</strong><strong>${totalPrice}</strong></li>--%>
+<%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Phí vận chuyển</strong><strong>Free ship</strong></li>--%>
+<%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">VAT</strong><strong>10 $</strong></li>--%>
+<%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng thanh toán</strong>--%>
+<%--                                     <h5 class="font-weight-bold">110 $</h5>--%>
+<%--                                 </li>--%>
+<%--                            </ul>--%>
+<%--                        </div>--%>
+<%--                    </div>--%>
+                </div>
                 <div class="btn-group btns-cart">
                     <button type="button" class="bt btn btn-primary"><i class="fa fa-arrow-circle-left"></i><a href="/store"> Tiếp tục mua sắm</a></button>
 
-                    <button type="button" class="bt btn btn-primary"><a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a></button>
+                    <button type="button" class="bt btn btn-primary"><a href="checkout.jsp">Thanh toán<i class="fa fa-arrow-circle-right"></i></a></button>
                 </div>
             </div>
         </div>
@@ -234,6 +251,11 @@
 <script src="js/nouislider.min.js"></script>
 <script src="js/jquery.zoom.min.js"></script>
 <script src="js/main.js"></script>
+
+
+
+
+
 </body>
 
 </html>

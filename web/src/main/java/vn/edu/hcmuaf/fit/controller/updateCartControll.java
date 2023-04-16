@@ -16,10 +16,10 @@ public class updateCartControll extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int quan = Integer.parseInt(request.getParameter("quantity"));
         int id = Integer.parseInt(request.getParameter("idprocart"));
-    System.out.println(id);
-    System.out.println(quan);
-    HttpSession session = request.getSession();
-    products pro = ProductService.getprobyId(id);
+        System.out.println(id);
+        System.out.println(quan);
+        HttpSession session = request.getSession();
+        products pro = ProductService.getprobyId(id);
         ProductCart procart;
         HashMap<Integer,ProductCart> cart = (HashMap<Integer, ProductCart>) session.getAttribute("cart");
         if(cart == null){

@@ -159,7 +159,7 @@
 								</div>
 								<div class="cart-btns">
 									<a href="Cart.jsp">Xem giỏ hàng</a>
-									<a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+									<a href="checkout.jsp">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
 						</div>

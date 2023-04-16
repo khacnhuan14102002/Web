@@ -15,6 +15,22 @@ public class User {
 	private int RoleUs;
 	private int Active;
 	private String Keyactive;
+
+	public User() {
+	}
+
+	public User(int idUser, String nameUser, String emailUs, String pass, String phone, Date registrationDate, int roleUs, int active, String keyactive) {
+		IdUser = idUser;
+		NameUser = nameUser;
+		EmailUs = emailUs;
+		Pass = pass;
+		Phone = phone;
+		RegistrationDate = registrationDate;
+		RoleUs = roleUs;
+		Active = active;
+		Keyactive = keyactive;
+	}
+
 	public int getIdUser() {
 		return IdUser;
 	}
