@@ -6,8 +6,7 @@
 <%@ page import="java.util.Objects" %>
 <%@ page import="java.lang.reflect.Array" %>
 <%@ page import="java.util.ArrayList" %>
-
-<%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.Giohang" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -60,29 +59,8 @@
 				<li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
 			</ul>
 			<ul class="header-links pull-right">
-				<%
-					User user = (User) session.getAttribute("user");
-					if (user != null) {
-				%>
-				<li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
-				<%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
-				<%
-					if (user.getRoleUs() == 1) {
-				%>
-				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
-				<%
-					}
-				%>
-				<%--					--%>
-				<li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 
-				<%
-				} else {
-				%>
-				<li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
-				<%
-					}
-				%>
+				<li><a href="Login.html"><i class="fa fa-user-o"></i> Tài khoản</a></li>
 			</ul>
 		</div>
 	</div>
@@ -134,7 +112,7 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 								<i class="fa fa-shopping-cart"></i>
 								<span>Giỏ hàng</span>
-								<div class="qty">${cart.size() > 0 ? cart.size() : 0}</div>
+								<div class="qty">2</div>
 							</a>
 							<div class="cart-dropdown">
 								<div class="cart-list">
@@ -166,8 +144,8 @@
 									<h5>Giá tiền: 390.000</h5>
 								</div>
 								<div class="cart-btns">
-									<a href="/cart">Xem giỏ hàng</a>
-									<a href="checkout.jsp">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+									<a href="Cart.jsp">Xem giỏ hàng</a>
+									<a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
 						</div>
@@ -226,7 +204,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
-					<
+<
 					<li><a href="index.jsp">Trang chủ</a></li>
 					<li><a href="#">Sản phẩm</a></li>
 
@@ -258,17 +236,17 @@
 
 
 
-							<c:forEach items="${requestScope.listCC}" var="c">
-								<li><a href="category?cid=${c.idCat}">${c.nameCat}</a></li>
-							</c:forEach>
+									<c:forEach items="${requestScope.listCC}" var="c">
+										<li><a href="category?cid=${c.idCat}">${c.nameCat}</a></li>
+									</c:forEach>
 
-							<%--									<%--%>
-							<%--										List<category> listCC = (List<category>) request.getAttribute("listCC");--%>
-							<%--										for (category cat : listCC) {--%>
-							<%--									%>--%>
+<%--									<%--%>
+<%--										List<category> listCC = (List<category>) request.getAttribute("listCC");--%>
+<%--										for (category cat : listCC) {--%>
+<%--									%>--%>
 
-							<%--									<li><a href="<%=cat.getIdCat()%>"><%=cat.getNameCat()%></a></li>--%>
-							<%--									<%}%>--%>
+<%--									<li><a href="<%=cat.getIdCat()%>"><%=cat.getNameCat()%></a></li>--%>
+<%--									<%}%>--%>
 
 
 						</ul>
@@ -425,106 +403,103 @@
 
 
 
-					<div class="row">
-						<c:forEach var="p" items="${requestScope.listP}">
-							<div class="col-md-4 col-xs-6">
-								<div class="product">
-									<div class="product-img">
-										<img src="${p.image}" alt="">
-										<div class="product-label">
-											<c:if test="${p.discount != 0}">
-												<span class="sale">-${p.discount}%</span>
-											</c:if>
-											<c:if test="${p.isnew != 0}">
-												<span class="new">Mới</span>
-											</c:if>
+				<div class="row">
+					<c:forEach var="p" items="${requestScope.listP}">
+						<div class="col-md-4 col-xs-6">
+							<div class="product">
+								<div class="product-img">
+									<img src="${p.image}" alt="">
+									<div class="product-label">
+										<c:if test="${p.discount != 0}">
+											<span class="sale">-${p.discount}%</span>
+										</c:if>
+										<c:if test="${p.isnew != 0}">
+											<span class="new">Mới</span>
+										</c:if>
 
-										</div>
 									</div>
-									<div class="product-body">
+								</div>
+								<div class="product-body">
 
-										<h3 class="product-name"><a href="detail?pid=${p.idProduct}">${p.nameProduct}</a></h3>
-										<h4 class="product-price"> <del class="product-old-price"></del></h4>
+									<h3 class="product-name"><a href="detail?pid=${p.idProduct}">${p.nameProduct}</a></h3>
+									<h4 class="product-price"> <del class="product-old-price"></del></h4>
 
-										<div class="product-btns"><button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-										</div>
+									<div class="product-btns"><button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
+										<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
 									</div>
+								</div>
+								<div class="add-to-cart">
 
-									<div class="add-to-cart">
-
-											<%--									<a herf="addcart?proid=${detail.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>--%>
-										<a href="addcart?proid=${p.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào gio hàng</a>
-									</div>
-
+									<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a herf="#">Thêm vào giỏ hàng</a></button>
 								</div>
 							</div>
-							<%--					<%}%>--%>
-						</c:forEach>
-						<%--					<!-- product -->--%>
-						<%--					<% if(catid==null){--%>
-						<%--						for(products listpro : pro.getListProductALL()){%>--%>
+						</div>
+						<%--					<%}%>--%>
+					</c:forEach>
+<%--					<!-- product -->--%>
+<%--					<% if(catid==null){--%>
+<%--						for(products listpro : pro.getListProductALL()){%>--%>
 
-						<%--					<div class="col-md-4 col-xs-6">--%>
-						<%--						<div class="product">--%>
-						<%--							<div class="product-img">--%>
-						<%--								<img src="<%=listpro.getHinhanh()%>" alt="">--%>
-						<%--								<div class="product-label">--%>
-						<%--									<span class="sale">-40%</span>--%>
-						<%--									<span class="new">Mới</span>--%>
-						<%--								</div>--%>
-						<%--							</div>--%>
-						<%--							<div class="product-body">--%>
+<%--					<div class="col-md-4 col-xs-6">--%>
+<%--						<div class="product">--%>
+<%--							<div class="product-img">--%>
+<%--								<img src="<%=listpro.getHinhanh()%>" alt="">--%>
+<%--								<div class="product-label">--%>
+<%--									<span class="sale">-40%</span>--%>
+<%--									<span class="new">Mới</span>--%>
+<%--								</div>--%>
+<%--							</div>--%>
+<%--							<div class="product-body">--%>
 
-						<%--								<h3 class="product-name"><a href="detail.jsp?masp=<%=listpro.getMasp()%>"><%=listpro.getTensp()%></a></h3>--%>
-						<%--								<h4 class="product-price"><%=listpro.getGiamoi()%> <del class="product-old-price"><%=listpro.getGiacu()%></del></h4>--%>
+<%--								<h3 class="product-name"><a href="detail.jsp?masp=<%=listpro.getMasp()%>"><%=listpro.getTensp()%></a></h3>--%>
+<%--								<h4 class="product-price"><%=listpro.getGiamoi()%> <del class="product-old-price"><%=listpro.getGiacu()%></del></h4>--%>
 
-						<%--								<div class="product-btns"><button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>--%>
-						<%--									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
-						<%--								</div>--%>
-						<%--							</div>--%>
-						<%--							<div class="add-to-cart">--%>
+<%--								<div class="product-btns"><button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>--%>
+<%--									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
+<%--								</div>--%>
+<%--							</div>--%>
+<%--							<div class="add-to-cart">--%>
 
-						<%--								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a herf="GiohangcontrolGiohangcontrol?command=insert@msp=<%=listpro.getMasp()%>&cartid=<%=System.currentTimeMillis()%>">Thêm vào giỏ hàng</a></button>--%>
-						<%--							</div>--%>
-						<%--						</div>--%>
-						<%--					</div>--%>
+<%--								<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i><a herf="GiohangcontrolGiohangcontrol?command=insert@msp=<%=listpro.getMasp()%>&cartid=<%=System.currentTimeMillis()%>">Thêm vào giỏ hàng</a></button>--%>
+<%--							</div>--%>
+<%--						</div>--%>
+<%--					</div>--%>
 
-						<%--					<% }--%>
-						<%--					}else{--%>
-						<%--						for(products pr : ProductService.getListProductByLoai(catid)){--%>
-						<%--					%>--%>
-						<%--					<div class="col-md-4 col-xs-6">--%>
-						<%--						<div class="product">--%>
-						<%--							<div class="product-img">--%>
-						<%--								<img src="<%=pr.getHinhanh()%>" alt="">--%>
-						<%--								<div class="product-label">--%>
-						<%--									<span class="sale">-40%</span>--%>
-						<%--									<span class="new">Mới</span>--%>
-						<%--								</div>--%>
-						<%--						</div>--%>
-						<%--							<div class="product-body">--%>
+<%--					<% }--%>
+<%--					}else{--%>
+<%--						for(products pr : ProductService.getListProductByLoai(catid)){--%>
+<%--					%>--%>
+<%--					<div class="col-md-4 col-xs-6">--%>
+<%--						<div class="product">--%>
+<%--							<div class="product-img">--%>
+<%--								<img src="<%=pr.getHinhanh()%>" alt="">--%>
+<%--								<div class="product-label">--%>
+<%--									<span class="sale">-40%</span>--%>
+<%--									<span class="new">Mới</span>--%>
+<%--								</div>--%>
+<%--						</div>--%>
+<%--							<div class="product-body">--%>
 
-						<%--								<h3 class="product-name"><a href="detail.jsp?masp=<%=pr.getMasp()%>"><%=pr.getTensp()%></a></h3>--%>
-						<%--								<h4 class="product-price"><%=pr.getGiamoi()%><del class="product-old-price"><%=pr.getGiacu()%></del></h4>--%>
+<%--								<h3 class="product-name"><a href="detail.jsp?masp=<%=pr.getMasp()%>"><%=pr.getTensp()%></a></h3>--%>
+<%--								<h4 class="product-price"><%=pr.getGiamoi()%><del class="product-old-price"><%=pr.getGiacu()%></del></h4>--%>
 
-						<%--								<div class="product-btns"><button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>--%>
-						<%--									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
+<%--								<div class="product-btns"><button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>--%>
+<%--									<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
 
-						<%--								</div>--%>
-						<%--							</div>--%>
-						<%--							<div class="add-to-cart">--%>
+<%--								</div>--%>
+<%--							</div>--%>
+<%--							<div class="add-to-cart">--%>
 
-						<%--								<button onclick="location.href='store.jsp=+<%=pr.getMasp()%>';" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>--%>
+<%--								<button onclick="location.href='store.jsp=+<%=pr.getMasp()%>';" class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>--%>
 
-						<%--							</div>--%>
-						<%--						</div>--%>
-						<%--					</div>--%>
-						<%--					<%}--%>
+<%--							</div>--%>
+<%--						</div>--%>
+<%--					</div>--%>
+<%--					<%}--%>
 
 
-						<%--					}%>--%>
-					</div>
+<%--					}%>--%>
+		</div>
 				</div>
 				<!-- /store products -->
 

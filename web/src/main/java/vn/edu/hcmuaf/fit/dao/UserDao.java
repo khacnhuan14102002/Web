@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.util.ArrayList;
 import vn.edu.hcmuaf.fit.db.Connects;
 import vn.edu.hcmuaf.fit.bean.User;
 
@@ -128,31 +129,44 @@ public class UserDao {
 		return user;		
 	}
 
-//	xoa nguoi dung
-public void deleteUser(int id) {
-	Connection conn = null;
-	PreparedStatement stmt = null;
-	try {
-		conn = getConnect();
-		String sql = "DELETE FROM users WHERE IdUser=?";
-		stmt = conn.prepareStatement(sql);
-		stmt.setInt(1, id);
-		stmt.executeUpdate();
-	} catch (SQLException ex) {
-		ex.printStackTrace();
-	} finally {
-		try {
-			if (stmt != null) {
-				stmt.close();
+	// Lấy thông tin tất cả người dùng
+	public static ArrayList<User> getAllUsers() {
+		String sql = "SELECT * FROM Users";
+		ArrayList<User> users = new ArrayList<>();
+		try (Connection conn = Connects.getConnect();
+			 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				User user = new User();
+				user.setIdUser(rs.getInt("IdUser"));
+				user.setNameUser(rs.getString("NameUser"));
+				user.setEmailUs(rs.getString("EmailUs"));
+				user.setRoleUs(rs.getInt("RoleUs"));
+				user.setActive(rs.getInt("Active"));
+				user.setPhone(rs.getString("Phone"));
+				user.setRegistrationDate(rs.getDate("RegistrationDate"));
+				user.setKeyactive(rs.getString("Keyactive"));
+				users.add(user);
 			}
-			if (conn != null && !conn.isClosed()) {
-				conn.close();
-			}
-		} catch (SQLException ex) {
-			ex.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		return users;
 	}
-}
+
+	// Xóa người dùng
+	public static int deleteUser(int id) {
+		String sql = "DELETE FROM Users WHERE IdUser = ?";
+		int result = 0;
+		try (Connection conn = Connects.getConnect();
+			 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 
 
 }
