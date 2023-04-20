@@ -42,10 +42,10 @@
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>-->
-          <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
-<body>
+<body >
 
 <!-- HEADER -->
 <header>
@@ -95,7 +95,7 @@
                 <!-- LOGO -->
                 <div class="col-md-4">
                     <div class="header-logo">
-                        <a href="index.jsp" class="logo">
+                        <a href="/index" class="logo">
                             <img src="./image/ntt.png" alt="">
                         </a>
                     </div>
@@ -119,15 +119,15 @@
 
                 <!-- ACCOUNT -->
 
-                        <!-- Wishlist -->
+                <!-- Wishlist -->
 
-                        <!-- /Wishlist -->
+                <!-- /Wishlist -->
 
-                        <!-- Cart -->
+                <!-- Cart -->
 
 
 
-                        <!-- /Menu Toogle -->
+                <!-- /Menu Toogle -->
 
 
                 <!-- /ACCOUNT -->
@@ -165,16 +165,18 @@
                             <td class="mn">XÓA HÀNG</td>
 
 
+
                         </tr>
                         </thead>
                         <c:if test="${cart != null}">
                         <% HashMap<Integer,ProductCart> cart = (HashMap<Integer, ProductCart>) request.getAttribute("cart");
-                        for(Map.Entry<Integer,ProductCart> entry : cart.entrySet()){
-                            Integer key = entry.getKey();
-                            ProductCart productcart = entry.getValue();%>
+                            for(Map.Entry<Integer,ProductCart> entry : cart.entrySet()){
+                                Integer key = entry.getKey();
+                                ProductCart productcart = entry.getValue();
+                        %>
 
                         <tbody>
-                                <tr>
+                        <tr>
                             <td class="hidden-xs">
                                 <a href="#">
                                     <img src="<%=productcart.pro.getImage()%>" alt="ĐẠI DƯƠNG" title="" width="47" height="47">
@@ -184,43 +186,64 @@
                             </td>
 
 
-                                <td>
-                                    <div class="input-number">
-                                        <form action="/updateCart" method=POST">
+                            <td>
+                                <div class="input-number">
+                                    <form action="/updateCart" method=POST">
                                         <input type="number" value="<%=productcart.quantity%>" name="quantity">
-                                            <input value="<%=productcart.pro.getIdProduct()%>" type="hidden" name="idprocart"/>
+                                        <input value="<%=productcart.pro.getIdProduct()%>" type="hidden" name="idprocart"/>
                                         <span class="qty-up">+</span>
                                         <span class="qty-down">-</span>
-                                            <button type="submit" class="bt btn btn-primary"><i class="fa fa-pencil"></i>Cập nhật giỏ hàng</button>
-<%--                                            <button type="button" class="bt btn btn-primary"><i class="fa fa-pencil"></i><a href="/updateCart"> Cập nhật giỏ hàng</a></button>--%>
-                                        </form>
-                                    </div>
-<!--                                <div class="input-group bootstrap-touchspin"><span class="input-group-btn"></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"></span></div>-->
+                                        <button type="submit" class="bt btn btn-primary"><i class="fa fa-pencil"></i>Cập nhật giỏ hàng</button>
+                                            <%--                                            <button type="button" class="bt btn btn-primary"><i class="fa fa-pencil"></i><a href="/updateCart"> Cập nhật giỏ hàng</a></button>--%>
+                                    </form>
+                                </div>
+                                <!--                                <div class="input-group bootstrap-touchspin"><span class="input-group-btn"></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"></span></div>-->
                             </td>
                             <td class="price"><%=productcart.pro.getPriceNew()%></td>
                             <td class="text-center">
-                                <a href="#" class="remove_cart" rel="1">
+                                <a href="removecart?idpro=<%=productcart.pro.getIdProduct()%>" class="remove_cart" rel="1">
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </td>
 
 
+
                         </tr>
-                                <%}%>
-                            </c:if>
-<%--                        <tr>--%>
-<%--                            <td colspan="6" align="right">Tổng tiền</td>--%>
-<%--                            <td class="total" colspan="1"><b>390.000</b>--%>
-<%--                            </td>--%>
-<%--                        </tr>--%>
+
+                        <%}%>
+                        </c:if>
+
+                        <tr>
+                            <th colspan="3">TỔNG TIỀN:</th>
+                            <th colspan="2">${total}</th>>
+                        </tr>
 
                         </tbody>
                     </table>
                 </div>
+
+                <c:if test="${cart == null}" >
+                Không có sản phẩm trong giỏ hàng
+                </c:if>
+                    <%--                    <div class="col-lg-6">--%>
+                    <%--                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thành tiền</div>--%>
+
+                    <%--                        <div class="p-4">--%>
+                    <%--                            <ul class="list-unstyled mb-4" id="contentTotalMoney">--%>
+                    <%--                                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền hàng</strong><strong>${totalPrice}</strong></li>--%>
+                    <%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Phí vận chuyển</strong><strong>Free ship</strong></li>--%>
+                    <%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">VAT</strong><strong>10 $</strong></li>--%>
+                    <%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng thanh toán</strong>--%>
+                    <%--                                     <h5 class="font-weight-bold">110 $</h5>--%>
+                    <%--                                 </li>--%>
+                    <%--                            </ul>--%>
+                    <%--                        </div>--%>
+                    <%--                    </div>--%>
+                </div>
                 <div class="btn-group btns-cart">
                     <button type="button" class="bt btn btn-primary"><i class="fa fa-arrow-circle-left"></i><a href="/store"> Tiếp tục mua sắm</a></button>
 
-                    <button type="button" class="bt btn btn-primary"><a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a></button>
+                    <button type="button" class="bt btn btn-primary"><a href="/invoice">Thanh toán<i class="fa fa-arrow-circle-right"></i></a></button>
                 </div>
             </div>
         </div>
@@ -234,6 +257,11 @@
 <script src="js/nouislider.min.js"></script>
 <script src="js/jquery.zoom.min.js"></script>
 <script src="js/main.js"></script>
+
+
+
+
+
 </body>
 
 </html>
