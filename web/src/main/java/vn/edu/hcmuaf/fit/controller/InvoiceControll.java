@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-@WebServlet(name = "Cart", value = "/cart")
-public class CartControll extends HttpServlet {
+@WebServlet(name = "invoice", value = "/invoice")
+public class InvoiceControll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
@@ -24,11 +24,12 @@ public class CartControll extends HttpServlet {
         }
         session.setAttribute("total", price);
         request.setAttribute("cart", cart);
-        request.getRequestDispatcher("Cart.jsp").forward(request, response);
+        request.getRequestDispatcher("checkout.jsp").forward(request, response);
 
 
 
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
