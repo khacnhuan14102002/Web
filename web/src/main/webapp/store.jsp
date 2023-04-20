@@ -97,7 +97,7 @@
 				<!-- LOGO -->
 				<div class="col-md-3">
 					<div class="header-logo">
-						<a href="index.jsp" class="logo">
+						<a href="/index" class="logo">
 							<img src="./image/ntt.png" alt="">
 						</a>
 					</div>
@@ -167,7 +167,7 @@
 								</div>
 								<div class="cart-btns">
 									<a href="/cart">Xem giỏ hàng</a>
-									<a href="checkout.jsp">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+									<a href="/invoice">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
 						</div>
@@ -203,8 +203,8 @@
 
 
 			<ul class="main-nav nav navbar-nav">
-				<li ><a href="#">Trang chủ</a></li>
-				<li class="active"><a href="store.jsp">Sản phẩm</a></li>
+				<li ><a href="/index">Trang chủ</a></li>
+				<li class="active"><a href="/store">Sản phẩm</a></li>
 				<li><a href="#">Về chúng tôi</a> </li>
 				<li><a href="#">Liên hệ</a></li>
 
@@ -226,9 +226,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
-					<
-					<li><a href="index.jsp">Trang chủ</a></li>
-					<li><a href="#">Sản phẩm</a></li>
+
+					<li><a href="/index">Trang chủ</a></li>
+					<li><a href="/store">Sản phẩm</a></li>
 
 
 				</ul>
@@ -454,7 +454,7 @@
 									<div class="add-to-cart">
 
 											<%--									<a herf="addcart?proid=${detail.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>--%>
-										<a href="addcart?proid=${p.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào gio hàng</a>
+										<a href="addcart?proid=${p.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 									</div>
 
 								</div>

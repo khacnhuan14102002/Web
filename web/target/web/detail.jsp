@@ -90,7 +90,7 @@
 				<!-- LOGO -->
 				<div class="col-md-3">
 					<div class="header-logo">
-						<a href="index.html" class="logo">
+						<a href="/index" class="logo">
 							<img src="./image/ntt.png" alt="">
 						</a>
 					</div>
@@ -158,8 +158,8 @@
 									<h5>Giá tiền: 390.000</h5>
 								</div>
 								<div class="cart-btns">
-									<a href="Cart.jsp">Xem giỏ hàng</a>
-									<a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+									<a href="/cart">Xem giỏ hàng</a>
+									<a href="/invoice">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
 						</div>
@@ -191,16 +191,16 @@
 	<div class="container">
 		<!-- responsive-nav -->
 		<div id="responsive-nav">
-			<!-- NAV -->
+			<!-- NAV --><ul class="main-nav nav navbar-nav">
 			<ul class="main-nav nav navbar-nav">
-				<ul class="main-nav nav navbar-nav">
-					<li ><a href="index.jsp">Trang chủ</a></li>
-					<li class="active"><a href="store.jsp">Sản phẩm</a></li>
-					<li><a href="#">Về chúng tôi</a> </li>
-					<li><a href="#">Liên hệ</a></li>
+				<li ><a href="/index">Trang chủ</a></li>
+				<li class="active"><a href="/store">Sản phẩm</a></li>
+				<li><a href="#">Về chúng tôi</a> </li>
+				<li><a href="#">Liên hệ</a></li>
 
-				</ul>
 			</ul>
+		</ul>
+
 			<!-- /NAV -->
 		</div>
 		<!-- /responsive-nav -->
@@ -218,8 +218,8 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
-					<li><a href="index.jsp">Trang chủ</a></li>
-					<li><a href="store.jsp">Sản phẩm</a></li>
+					<li><a href="/index">Trang chủ</a></li>
+					<li><a href="/store">Sản phẩm</a></li>
 					<li class="active">${detail.nameProduct}</li>
 				</ul>
 			</div>

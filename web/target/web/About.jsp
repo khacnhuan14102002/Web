@@ -159,7 +159,7 @@
                 </div>
                 <div class="cart-btns">
                   <a href="ViewCart.html">Xem giỏ hàng</a>
-                  <a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="checkout.jsp">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div>
             </div>
@@ -193,8 +193,8 @@
     <div id="responsive-nav">
       <!-- NAV -->
       <ul class="main-nav nav navbar-nav">
-        <li class="active"><a href="#">Trang chủ</a></li>
-        <li ><a href="store.jsp">Sản phẩm</a></li>
+        <li class="active"><a href="/index">Trang chủ</a></li>
+        <li ><a href="/store">Sản phẩm</a></li>
         <li><a href="About.jsp">Về chúng tôi</a> </li>
         <li><a href="#">Liên hệ</a></li>
 

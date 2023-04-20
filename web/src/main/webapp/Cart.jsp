@@ -95,7 +95,7 @@
                 <!-- LOGO -->
                 <div class="col-md-4">
                     <div class="header-logo">
-                        <a href="index.jsp" class="logo">
+                        <a href="/index" class="logo">
                             <img src="./image/ntt.png" alt="">
                         </a>
                     </div>
@@ -165,6 +165,7 @@
                             <td class="mn">XÓA HÀNG</td>
 
 
+
                         </tr>
                         </thead>
                         <c:if test="${cart != null}">
@@ -206,17 +207,24 @@
                             </td>
 
 
+
                         </tr>
+
                         <%}%>
                         </c:if>
 
-
+                        <tr>
+                            <th colspan="3">TỔNG TIỀN:</th>
+                            <th colspan="2">${total}</th>>
+                        </tr>
 
                         </tbody>
                     </table>
                 </div>
-                <div class="row py-5 p-4 bg-white rounded shadow-sm">
 
+                <c:if test="${cart == null}" >
+                Không có sản phẩm trong giỏ hàng
+                </c:if>
                     <%--                    <div class="col-lg-6">--%>
                     <%--                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thành tiền</div>--%>
 
@@ -235,7 +243,7 @@
                 <div class="btn-group btns-cart">
                     <button type="button" class="bt btn btn-primary"><i class="fa fa-arrow-circle-left"></i><a href="/store"> Tiếp tục mua sắm</a></button>
 
-                    <button type="button" class="bt btn btn-primary"><a href="checkout.jsp">Thanh toán<i class="fa fa-arrow-circle-right"></i></a></button>
+                    <button type="button" class="bt btn btn-primary"><a href="/invoice">Thanh toán<i class="fa fa-arrow-circle-right"></i></a></button>
                 </div>
             </div>
         </div>
