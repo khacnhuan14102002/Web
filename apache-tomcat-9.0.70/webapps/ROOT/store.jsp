@@ -529,15 +529,15 @@
 				<!-- /store products -->
 
 				<!-- store bottom filter -->
+
 				<div class="store-filter clearfix">
 
 					<ul class="store-pagination">
-
-						<li class="active"><a href="#">1</a></li>
-						<li class="active"><a href="#">2</a></li>
-						<li class="active"><a href="#">3</a></li>
-						<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+					<c:forEach begin="1" end="${requestScope.endP}" var="i">
+						<li class="${tag==i?"active":""}"><a href="store?page=${i}">${i}</a></li>
+					</c:forEach>
 					</ul>
+
 				</div>
 
 				<!-- /store bottom filter -->

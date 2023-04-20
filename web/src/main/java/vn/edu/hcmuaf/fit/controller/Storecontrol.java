@@ -20,10 +20,21 @@ public class Storecontrol extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StoreService pro = new StoreService();
-
-        List<products> listP = pro.getListProductALL();
+        String indexPage =  request.getParameter("page");
+        if(indexPage==null){
+            indexPage="1";
+        }
+        int index=Integer.parseInt(indexPage);
+        int count = pro.gettotalpro();
+        int endPage = count/5;
+        if(count % 5 != 0){
+            endPage ++;
+        }
+        List<products> listP = pro.paging(index);
 
         List<category> listC = pro.getListCat();
+        request.setAttribute("endP",endPage);
+        request.setAttribute("tag",index);
         request.setAttribute("listCC",listC);
         request.setAttribute("listP",listP);
 
@@ -39,9 +50,7 @@ public class Storecontrol extends HttpServlet {
 
     public static void main(String[] args) {
 
-        List<products> listp = ProductService.getListProductALL();
-        for(products o : listp){
-            System.out.println(o);
+
         }
-    }
+
 }

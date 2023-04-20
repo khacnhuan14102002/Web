@@ -13,7 +13,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>ShopHandMade</title>
-
+    <meta http-equiv="refresh" content="10;url=/index">
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -229,7 +229,8 @@
             <!-- shop -->
             <!-- /shop -->
             <!-- /shop -->
-            <h1>ĐẶT HÀNg THÀNH CÔNG</h1>
+            <h1>ĐÃ ĐẶT HÀNG THÀNH CÔNG</h1>
+            <h1>XIN CÁM ƠN BẠN ĐÃ MUA SẢN PHẨM CỦA SHOP</h1>
         </div>
         <!-- /row -->
     </div>
