@@ -168,7 +168,25 @@ public class UserDao {
 		return result;
 	}
 
-
+	//them user
+	public void addUser(User u) {
+		con = getConnect();
+		String sql = "insert into users(NameUser, EmailUs, Pass, Phone, RegistrationDate, RoleUs, Active, Keyactive) values (?,?,?,?,?,?,?,?)";
+		try {
+			pre = con.prepareStatement(sql);
+			pre.setString(1, u.getNameUser());
+			pre.setString(2, u.getEmailUs());
+			pre.setString(3, u.getPass());
+			pre.setString(4, u.getPhone());
+			pre.setDate(5, u.getRegistrationDate());
+			pre.setInt(6, u.getRoleUs());
+			pre.setInt(7, u.getActive());
+			pre.setString(8, u.getKeyactive());
+			pre.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 }
 
 
