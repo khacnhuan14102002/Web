@@ -187,6 +187,53 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
+//
+public User getUserById(int id) {
+	User user = null;
+	try {
+		Connection conn = pre.getConnection();
+		PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE IdUser = ?");
+		stmt.setInt(1, id);
+		ResultSet rs = stmt.executeQuery();
+		if (rs.next()) {
+			user = new User();
+			user.setIdUser(rs.getInt("IdUser"));
+			user.setNameUser(rs.getString("NameUser"));
+			user.setEmailUs(rs.getString("EmailUs"));
+			user.setPass(rs.getString("pass"));
+			user.setPhone(rs.getString("phone"));
+			user.setRegistrationDate(rs.getDate("registrationDate"));
+			user.setRoleUs(rs.getInt("roleUs"));
+			user.setActive(rs.getInt("active"));
+			user.setKeyactive(rs.getString("keyactive"));
+		}
+		rs.close();
+		stmt.close();
+		conn.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return user;
+}
+// edit user
+public void EditUser(User u) {
+	con = getConnect();
+	String sql = "update users set NameUser=? , EmailUs=?, Pass=?, Phone =? , RegistrationDate=? , RoleUs=? , Active=? where IdUser = ?";
+	try {
+		pre = con.prepareStatement(sql);
+		pre.setString(1, u.getNameUser());
+		pre.setString(2, u.getEmailUs());
+		pre.setString(3, u.getPass());
+		pre.setString(4, u.getPhone());
+		pre.setDate(5, u.getRegistrationDate());
+		pre.setInt(6, u.getRoleUs());
+		pre.setInt(7, u.getActive());
+		pre.setString(8, u.getKeyactive());
+		pre.execute();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+}
 }
 
 
