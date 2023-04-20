@@ -145,7 +145,9 @@
   <div id="clock"></div>
   <Br>
   <p class="timkiemnhanvien"><b>TÌM KIẾM TÊN :</b></p><Br><Br>
-  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Nhập tên TÊN cần tìm...">
+<%--  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Nhập tên TÊN cần tìm...">--%>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Tìm kiếm theo tên người dùng...">
+<%--  <button type="button">Tìm kiếm</button>--%>
   <i class="fa fa-search" aria-hidden="true"></i>
 
   <b>CHỨC NĂNG CHÍNH:</b><Br>
@@ -200,14 +202,9 @@
       <td><%= user.getActive() ==1 ?  "Hoạt động" : "Không hoạt động" %></td>
 
       <td>
-        <%--    <form method="post" action="editUser">--%>
-        <%--      <input type="hidden" name="idUser" value="<%= user.getIdUser() %>" />--%>
-        <%--      <input type="hidden" name="command" value="edit" />--%>
-        <%--      <button type="submit">Sửa</button>--%>
-        <%--    </form>--%>
-        <a href="EditUser.jsp"> <input type="hidden" name="command" value="edit" />
-          <button type="submit">Sửa</button> </a>
-
+          <form action="EditUser.jsp" method="post">
+            <button type="submit" name="user">Sửa</button>
+          </form>
 
         <form method="post" action="deleteUser">
           <input type="hidden" name="idUser" value="<%= user.getIdUser() %>" />
@@ -224,6 +221,7 @@
     </tbody>
   </table>
   <div id="pageNavPosition" class="text-right"></div>
+<%--  thực hiện phân trang--%>
   <script type="text/javascript">
     var pager = new Pager('myTable', 3);
     pager.init();
@@ -234,7 +232,73 @@
 
 <script src="jquery.min.js"></script>
 <script type="text/javascript">
-  //Tìm kiếm
+
+  //Thời Gian
+  function time() {
+    var today = new Date();
+    var weekday = new Array(7);
+    weekday[0] = "Chủ Nhật";
+    weekday[1] = "Thứ Hai";
+    weekday[2] = "Thứ Ba";
+    weekday[3] = "Thứ Tư";
+    weekday[4] = "Thứ Năm";
+    weekday[5] = "Thứ Sáu";
+    weekday[6] = "Thứ Bảy";
+    var day = weekday[today.getDay()];
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1;
+    var yyyy = today.getFullYear();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    nowTime = h + ":" + m + ":" + s;
+    if (dd < 10) {
+      dd = '0' + dd
+    }
+    if (mm < 10) {
+      mm = '0' + mm
+    }
+    today = day + ', ' + dd + '/' + mm + '/' + yyyy;
+    tmp = '<i class="fa fa-clock-o" aria-hidden="true"></i> <span class="date">' + today + ' | ' + nowTime +
+            '</span>';
+    document.getElementById("clock").innerHTML = tmp;
+    clocktime = setTimeout("time()", "1000", "Javascript");
+
+    function checkTime(i) {
+      if (i < 10) {
+        i = "0" + i;
+      }
+      return i;
+    }
+  }
+// tim kiem
+  function searchUser() {
+    // Lấy giá trị từ ô tìm kiếm
+    var input = document.getElementById("myInput");
+    var filter = input.value.toUpperCase();
+
+    // Lấy bảng và các hàng trong bảng
+    var table = document.getElementById("myTable");
+    var tr = table.getElementsByTagName("tr");
+
+    // Duyệt qua các hàng trong bảng và ẩn các hàng không khớp với giá trị tìm kiếm
+    for (var i = 0; i < tr.length; i++) {
+      var td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        var txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+
+
+  // Lấy danh sách tất cả các hàng trong bảng
   function myFunction() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
@@ -242,57 +306,18 @@
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr");
     for (i = 0; i < tr.length; i++) {
-      td = tr[i].getElementsByTagName("td")[0];
+      td = tr[i].getElementsByTagName("td")[1];
       if (td) {
         txtValue = td.textContent || td.innerText;
         if (txtValue.toUpperCase().indexOf(filter) > -1) {
           tr[i].style.display = "";
         } else {
-
-          //Thời Gian
-          function time() {
-            var today = new Date();
-            var weekday = new Array(7);
-            weekday[0] = "Chủ Nhật";
-            weekday[1] = "Thứ Hai";
-            weekday[2] = "Thứ Ba";
-            weekday[3] = "Thứ Tư";
-            weekday[4] = "Thứ Năm";
-            weekday[5] = "Thứ Sáu";
-            weekday[6] = "Thứ Bảy";
-            var day = weekday[today.getDay()];
-            var dd = today.getDate();
-            var mm = today.getMonth() + 1;
-            var yyyy = today.getFullYear();
-            var h = today.getHours();
-            var m = today.getMinutes();
-            var s = today.getSeconds();
-            m = checkTime(m);
-            s = checkTime(s);
-            nowTime = h + ":" + m + ":" + s;
-            if (dd < 10) {
-              dd = '0' + dd
-            }
-            if (mm < 10) {
-              mm = '0' + mm
-            }
-            today = day + ', ' + dd + '/' + mm + '/' + yyyy;
-            tmp = '<i class="fa fa-clock-o" aria-hidden="true"></i> <span class="date">' + today + ' | ' + nowTime +
-                    '</span>';
-            document.getElementById("clock").innerHTML = tmp;
-            clocktime = setTimeout("time()", "1000", "Javascript");
-
-            function checkTime(i) {
-              if (i < 10) {
-                i = "0" + i;
-              }
-              return i;
-            }
-          }
+          tr[i].style.display = "none";
         }
       }
     }
   }
+
 
 </script>
 

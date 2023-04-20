@@ -34,11 +34,13 @@ public class UserController extends HttpServlet{
 		String email = req.getParameter("email");
 		String sdt = req.getParameter("sdt");
 		String pass = req.getParameter("pass");
+
 		User u = new User();
 		u.setNameUser(ten);
 		u.setEmailUs(email);
 		u.setPhone(sdt);
 		u.setPass(pass);
+
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		u.setIdUser(user.getIdUser());
