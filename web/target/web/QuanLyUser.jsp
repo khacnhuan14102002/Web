@@ -297,8 +297,7 @@
     }
   }
 
-
-  // Lấy danh sách tất cả các hàng trong bảng
+  // tim kiem theo ten
   function myFunction() {
     var input, filter, table, tr, td, i, txtValue;
     input = document.getElementById("myInput");
@@ -317,7 +316,6 @@
       }
     }
   }
-
 
 </script>
 
