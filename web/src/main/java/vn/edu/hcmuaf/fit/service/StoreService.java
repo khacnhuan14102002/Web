@@ -229,6 +229,246 @@ public class StoreService {
     }
 
 
+    public List<products> maxtomin(){
+        List<products> list = new ArrayList<>();
+        String query = "select * from products ORDER BY PriceNew desc";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new products(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getInt(10),
+                        rs.getInt(11)));
+
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return list;
+
+    }
+    public List<products> mintomax(){
+        List<products> list = new ArrayList<>();
+        String query = "select * from products ORDER BY PriceNew asc";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new products(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getInt(10),
+                        rs.getInt(11)));
+
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return list;
+
+    }
+    public List<products> ZtoA(){
+        List<products> list = new ArrayList<>();
+        String query = "select * from products ORDER BY NameProduct desc";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new products(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getInt(10),
+                        rs.getInt(11)));
+
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return list;
+
+    }
+    public List<products> AtoZ(){
+        List<products> list = new ArrayList<>();
+        String query = "select * from products ORDER BY NameProduct asc";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new products(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getInt(10),
+                        rs.getInt(11)));
+
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return list;
+
+    }
+    public List<products> To11(){
+        List<products> list = new ArrayList<>();
+        String query = "select * from products WHERE PriceNew BETWEEN 10000 AND 100000;";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new products(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getInt(10),
+                        rs.getInt(11)));
+
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return list;
+
+    }
+    public List<products> To12(){
+        List<products> list = new ArrayList<>();
+        String query = "select * from products WHERE PriceNew BETWEEN 100000 AND 200000;";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new products(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getInt(10),
+                        rs.getInt(11)));
+
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return list;
+
+    }
+    public List<products> To23(){
+        List<products> list = new ArrayList<>();
+        String query = "select * from products WHERE PriceNew BETWEEN 200000 AND 300000;";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new products(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getInt(10),
+                        rs.getInt(11)));
+
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return list;
+
+    }
+    public List<products> To34(){
+        List<products> list = new ArrayList<>();
+        String query = "select * from products WHERE PriceNew BETWEEN 300000 AND 400000;";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new products(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getString(9),
+                        rs.getInt(10),
+                        rs.getInt(11)));
+
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return list;
+
+    }
 
     public static void main(String[] args) {
         StoreService pro = new StoreService();
@@ -238,7 +478,8 @@ public class StoreService {
 //        System.out.println(pro.searchbyName("Đ"));
 //        System.out.println(pro.getListCat());
 //        System.out.println(pro.gettotalpro());
-        List<products> prod = pro.paging(5);
+
+        List<products> prod = pro.To11();
         for(products o : prod){
             System.out.println(o);
         }

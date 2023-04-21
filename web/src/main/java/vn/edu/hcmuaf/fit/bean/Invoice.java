@@ -4,7 +4,7 @@ package vn.edu.hcmuaf.fit.bean;
 import java.sql.Timestamp;
 
 public class Invoice {
-
+    private int idIn;
     private String nameuser;
     private String address;
     private String type;
@@ -12,29 +12,50 @@ public class Invoice {
     private double Total;
     private Timestamp datecreate;
     private String phone;
+    private int IdUs;
 
     public Invoice() {
     }
 
-
-    public Invoice( String nameuser, String address, String type, String statusIn, double total, Timestamp datecreate, String phone) {
+    public Invoice(String nameuser, String address, String type, String statusIn, double total, Timestamp datecreate, String phone,int idUs) {
 
         this.nameuser = nameuser;
         this.address = address;
         this.type = type;
-        StatusIn = statusIn;
-        Total = total;
+        this.StatusIn = statusIn;
+        this.Total = total;
         this.datecreate = datecreate;
         this.phone = phone;
+        IdUs = idUs;
     }
 
-//    public int getIdIn() {
-//        return idIn;
-//    }
-//
-//    public void setIdIn(int idIn) {
-//        this.idIn = idIn;
-//    }
+    public Invoice(int idIn, String nameuser, String address, String type, String statusIn, double total, Timestamp datecreate, String phone, int idUs) {
+        this.idIn = idIn;
+        this.nameuser = nameuser;
+        this.address = address;
+        this.type = type;
+        this.StatusIn = statusIn;
+        this.Total = total;
+        this.datecreate = datecreate;
+        this.phone = phone;
+        IdUs = idUs;
+    }
+
+    public int getIdIn() {
+        return idIn;
+    }
+
+    public void setIdIn(int idIn) {
+        this.idIn = idIn;
+    }
+
+    public int getIdUs() {
+        return IdUs;
+    }
+
+    public void setIdUs(int idUs) {
+        IdUs = idUs;
+    }
 
     public String getNameuser() {
         return nameuser;
@@ -95,6 +116,7 @@ public class Invoice {
     @Override
     public String toString() {
         return "Invoice{" +
+                "idIn=" + idIn +
                 ", nameuser='" + nameuser + '\'' +
                 ", address='" + address + '\'' +
                 ", type='" + type + '\'' +
@@ -102,6 +124,7 @@ public class Invoice {
                 ", Total=" + Total +
                 ", datecreate=" + datecreate +
                 ", phone='" + phone + '\'' +
+                ", IdUs=" + IdUs +
                 '}';
     }
 }

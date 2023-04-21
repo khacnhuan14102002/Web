@@ -189,9 +189,9 @@ public class    ProductService {
         ProductService pro = new ProductService();
 
         System.out.println(pro.getListProductByCategory("DC"));
-        System.out.println(pro.getListProductALL().size());;
-        System.out.println(pro.searchbyName("Đ"));
-        System.out.println(pro.listCate());
+//        System.out.println(pro.getListProductALL().size());;
+//        System.out.println(pro.searchbyName("Đ"));
+//        System.out.println(pro.listCate());
     }
 
 }

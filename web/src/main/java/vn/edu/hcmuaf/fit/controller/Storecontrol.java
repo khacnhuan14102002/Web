@@ -26,8 +26,8 @@ public class Storecontrol extends HttpServlet {
         }
         int index=Integer.parseInt(indexPage);
         int count = pro.gettotalpro();
-        int endPage = count/5;
-        if(count % 5 != 0){
+        int endPage = count/12;
+        if(count % 12!= 0){
             endPage ++;
         }
         List<products> listP = pro.paging(index);
