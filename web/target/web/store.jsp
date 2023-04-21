@@ -65,6 +65,7 @@
 					if (user != null) {
 				%>
 				<li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+				<li><a href="/historyinvoice"><i class="fa fa-bars"></i>Lịch sử mua hàng</a></li>
 				<%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
 				<%
 					if (user.getRoleUs() == 1) {
@@ -259,7 +260,7 @@
 
 
 							<c:forEach items="${requestScope.listCC}" var="c">
-								<li><a href="category?cid=${c.idCat}">${c.nameCat}</a></li>
+								<li style="border-style: groove;text-align:center;"><a href="category?cid=${c.idCat}">${c.nameCat}</a></li>
 							</c:forEach>
 
 							<%--									<%--%>
@@ -284,22 +285,26 @@
 
 				<!-- aside Widget -->
 				<div class="aside">
-					<h3 class="aside-title">   Giá </h3>
-					<div class="price-filter">
-						<div id="price-slider"></div>
-						<div class="input-number price-min">
-							<input id="price-min" type="number" >
-							<span class="qty-up">+</span>
-							<span class="qty-down">-</span>
-						</div>
-						<span>-</span>
-						<div class="input-number price-max">
-							<input id="price-max" type="number">
-							<span class="qty-up">+</span>
-							<span class="qty-down">-</span>
-						</div>
-					</div>
+					<h3 class="aside-title">Giá</h3>
+					<ul >
+
+						<li style="border-style: groove;text-align:center;"><a href="/to11">Từ 10000 đến 100000</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/to12">Từ 100000 đến 200000</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/to23">Từ 200000 đến 300000</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/to34">Từ 300000 đến 400000</a></li>
+					</ul>
 				</div>
+				<div class="aside">
+					<h3 class="aside-title">Sắp xếp sản phẩm theo</h3>
+					<ul >
+
+						<li style="border-style: groove;text-align:center;"><a href="/AtoZ">Từ A -> Z</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/ZtoA">Từ Z -> A</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/sortDown">Giá tăng dần</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/sortHigh">Giá giảm dần</a></li>
+					</ul>
+				</div>
+
 				<!-- /aside Widget -->
 
 				<!-- aside Widget -->
@@ -401,23 +406,7 @@
 			<!-- STORE -->
 			<div id="store" class="col-md-9">
 				<!-- store top filter -->
-				<div class="store-filter clearfix">
-					<div class="store-sort">
-						<label>
-							Sắp xếp theo:
-							<select class="input-select">
-								<option value="0">Phổ biến</option>
-								<option value="1">Vị trí</option>
-							</select>
-						</label>
 
-
-					</div>
-					<ul class="store-grid">
-						<li class="active"><i class="fa fa-th"></i></li>
-						<li><a href="#"><i class="fa fa-th-list"></i></a></li>
-					</ul>
-				</div>
 				<!-- /store top filter -->
 
 				<!-- store products -->
