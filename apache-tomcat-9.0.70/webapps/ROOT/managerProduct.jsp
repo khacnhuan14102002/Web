@@ -63,7 +63,6 @@
                 <th>Giá mới</th>
                 <th>Giá cũ</th>
                 <th>Số lượng</th>
-                <th>Mô tả</th>
                 <th>Tùy chỉnh</th>
             </tr>
             </thead>
@@ -93,8 +92,6 @@
                 <td class="product-gia-cu-<%=pr.getIdProduct()%>"><%=pr.getPriceOld()%>
                 </td>
                 <td class="product-so-luong-<%=pr.getIdProduct()%>"><%=pr.getQuantityStock()%>
-                </td>
-                <td class="product-mo-ta-<%=pr.getIdProduct()%>"><%=pr.getDescription()%>
                 </td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal">

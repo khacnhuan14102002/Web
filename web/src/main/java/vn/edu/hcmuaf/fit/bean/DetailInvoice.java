@@ -10,16 +10,16 @@ public class DetailInvoice {
     }
 
     public DetailInvoice(int idinvoice, int idpro, int quantity, int price) {
-        Idinvoice = idinvoice;
-        Idpro = idpro;
+        this.Idinvoice = idinvoice;
+        this.Idpro = idpro;
         this.quantity = quantity;
         this.price = price;
     }
 
     public DetailInvoice(int iddIn, int idinvoice, int idpro, int quantity, int price) {
         this.iddIn = iddIn;
-        Idinvoice = idinvoice;
-        Idpro = idpro;
+        this.Idinvoice = idinvoice;
+        this.Idpro = idpro;
         this.quantity = quantity;
         this.price = price;
     }

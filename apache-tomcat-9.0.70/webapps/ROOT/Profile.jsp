@@ -185,12 +185,14 @@
                             </td>
 <%--                            trạng thái--%>
                             <td >${l.getStatusIn()}</td>
+            <td ><a href="detailinvoice?Idinvoice=${l.idIn}" >XEM CHI TIẾT</a></td>
                         </tr>
 
 
 
+                        </c:forEach>
                         </tbody>
-                    </c:forEach>
+
                     </table>
                 </div>
 
@@ -218,6 +220,10 @@
     <!-- End Cart -->
 </div>
 </div>
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+
 <script src="js/main.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
