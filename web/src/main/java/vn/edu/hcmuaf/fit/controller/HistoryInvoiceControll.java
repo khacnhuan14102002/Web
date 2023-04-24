@@ -1,5 +1,6 @@
 package vn.edu.hcmuaf.fit.controller;
 
+import vn.edu.hcmuaf.fit.bean.DetailInvoice;
 import vn.edu.hcmuaf.fit.bean.Invoice;
 import vn.edu.hcmuaf.fit.bean.User;
 import vn.edu.hcmuaf.fit.service.InvoiceService;
@@ -19,6 +20,8 @@ public class HistoryInvoiceControll extends HttpServlet {
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
        List<Invoice> list = invoice.getAllIn(user.getIdUser());
+
+
      request.setAttribute("listIn",list);
         request.getRequestDispatcher("Profile.jsp").forward(request,response);
     }
