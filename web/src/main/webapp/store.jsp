@@ -1,4 +1,4 @@
-<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
+a<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.LoaiService" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
@@ -125,7 +125,6 @@
 							<a href="/wishlist">
 								<i class="fa fa-heart-o"></i>
 								<span>Yêu thích</span>
-								<div class="qty">2</div>
 							</a>
 						</div>
 						<!-- /Wishlist -->
