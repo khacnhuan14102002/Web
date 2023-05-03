@@ -1,4 +1,4 @@
-<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
+a<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.LoaiService" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>

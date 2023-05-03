@@ -191,7 +191,7 @@
                   </a>
                 </td>
                 <td class="text-center">
-                  <a href="#" class="remove_cart" rel="1">
+                  <a href="addcart?proid=${l.getIdpro()}" class="remove_cart" rel="1">
                     <i class="fa fa-cart-plus" aria-hidden="true"></i>
                   </a>
                 </td>

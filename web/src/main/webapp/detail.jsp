@@ -117,7 +117,6 @@
 							<a href="/wishlist">
 								<i class="fa fa-heart-o"></i>
 								<span>Yêu thích</span>
-								<div class="qty">2</div>
 							</a>
 						</div>
 						<!-- /Wishlist -->
