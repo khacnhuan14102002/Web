@@ -156,11 +156,11 @@
                         <thead>
                         <tr>
                             <td>STT</td>
-                            <td class="">Id</td>
-                            <td class="" >Id sản phẩm</td>
+                            <td class="">MÃ CHI TIẾT</td>
+                            <td class="" >MÃ SẢN PHẨM</td>
 
-                            <td class="" >số lượng</td>
-                            <td class="">Giá</td>
+                            <td class="" >SỐ LƯỢNG</td>
+                            <td class="">GIÁ</td>
 
 
                         </tr>
