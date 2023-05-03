@@ -122,7 +122,7 @@
 					<div class="header-ctn">
 						<!-- Wishlist -->
 						<div>
-							<a href="#">
+							<a href="/wishlist">
 								<i class="fa fa-heart-o"></i>
 								<span>Yêu thích</span>
 								<div class="qty">2</div>
@@ -138,34 +138,6 @@
 								<div class="qty">${cart.size() > 0 ? cart.size() : 0}</div>
 							</a>
 							<div class="cart-dropdown">
-								<div class="cart-list">
-									<div class="product-widget">
-										<div class="product-img">
-											<img src="./image/dc2.jpg" alt="">
-										</div>
-										<div class="product-body">
-											<h3 class="product-name"><a href="productdream3.html">Đại dương</a></h3>
-											<h4 class="product-price"> 150.000<del class="product-old-price">250.000</del></h4>
-										</div>
-										<button class="delete"><i class="fa fa-close"></i></button>
-									</div>
-
-									<div class="product-widget">
-										<div class="product-img">
-											<img src="./image/dc6.jpg" alt="">
-										</div>
-										<div class="product-body">
-
-											<h3 class="product-name"><a href="productdream1.html">Mị</a></h3>
-											<h4 class="product-price">240.000<del class="product-old-price">260.000</del></h4>
-										</div>
-										<button class="delete"><i class="fa fa-close"></i></button>
-									</div>
-								</div>
-								<div class="cart-summary">
-									<small>2 sản phẩm đã chon</small>
-									<h5>Giá tiền: 390.000</h5>
-								</div>
 								<div class="cart-btns">
 									<a href="/cart">Xem giỏ hàng</a>
 									<a href="/invoice">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
@@ -435,7 +407,9 @@
 										<h3 class="product-name"><a href="detail?pid=${p.idProduct}">${p.nameProduct}</a></h3>
 										<h4 class="product-price"> <del class="product-old-price"></del></h4>
 
-										<div class="product-btns"><button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
+										<div class="product-btns">
+
+											<button class="add-to-wishlist"><a href="addwish?proid=${p.idProduct}" ><i class="fa fa-heart-o"></i></a><span class="tooltipp">Thêm vào yêu thích</span></button>
 											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
 										</div>
 									</div>
