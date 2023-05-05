@@ -1,6 +1,8 @@
 package vn.edu.hcmuaf.fit.controller;
 
 import vn.edu.hcmuaf.fit.bean.ProductCart;
+import vn.edu.hcmuaf.fit.bean.Soluongbanra;
+import vn.edu.hcmuaf.fit.service.SoluongService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -14,12 +16,24 @@ public class InvoiceControll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
+        SoluongService sls = new SoluongService();
         HashMap<Integer, ProductCart> cart = (HashMap<Integer, ProductCart>) session.getAttribute("cart");
         int price = 0;
         for (Map.Entry<Integer, ProductCart> entry : cart.entrySet()) {
             Integer key = entry.getKey();
             ProductCart productcart = entry.getValue();
             price += productcart.quantity * productcart.pro.getPriceNew();
+
+            Soluongbanra sl =sls.checkSoLuongDaBanExist(entry.getValue().pro.getIdProduct());
+
+            if(sl==null){
+                sls.insertSoLuongDaBan(productcart.pro.getIdProduct(),productcart.quantity);
+            }else{
+                int sl1 =0;
+                sl1 +=productcart.quantity +sl.getSoLuongDaBan() ;
+
+                sls.updateSoluong(new Soluongbanra(productcart.pro.getIdProduct(),sl1));
+            }
 
         }
         session.setAttribute("total", price);

@@ -34,21 +34,21 @@
                 <label>Điện thoại:</label>
                 <input type="text" name="phone" value="${ user.getPhone() }"><br>
                 </div>
-                <div class="form-group">
-                <label>Ngày đăng ký:</label>
-                <input type="text" name="registrationDate" value="${ user.getRegistrationDate() }"><br>
-                </div>
+<%--                <div class="form-group">--%>
+<%--                <label>Ngày đăng ký:</label>--%>
+<%--                <input type="text" name="registrationDate" value="${ user.getRegistrationDate() }"><br>--%>
+<%--                </div>--%>
                 <div class="form-group">
                 <label>Vai trò:</label>
                 <select name="roleUs">
-                    <option value="1" ${ (user.getRoleUs() == 1) ? "selected" : "" }>Admin</option>
-                    <option value="0" ${ (user.getRoleUs() == 0) ? "selected" : "" }>User</option>
+                    <option value="1" >1</option>
+                    <option value="0" >0</option>
                 </select><br>
                 </div>
                 <div class="form-group">
                 <label>Hoạt động:</label>
-                <input type="radio" name="active" value="1" ${ (user.getActive() == 1) ? "checked" : "" }>Có
-                <input type="radio" name="active" value="0" ${ (user.getActive() == 0) ? "checked" : "" }>Không<br>
+                <input type="radio" name="active" value="1" ${ (user.getActive() == 1) ? "checked" : "" }>1
+                <input type="radio" name="active" value="0" ${ (user.getActive() == 0) ? "checked" : "" }>0<br>
                 </div>
 
 

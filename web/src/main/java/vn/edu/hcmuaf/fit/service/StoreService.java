@@ -474,15 +474,15 @@ public class StoreService {
         StoreService pro = new StoreService();
 //        System.out.println(pro.getListProductByCategory("TH"));
 //        System.out.println(pro.getListProductALL().size());
-//       System.out.println(pro.getchitiet("DC01"));
+     System.out.println(pro.getchitiet("1"));
 //        System.out.println(pro.searchbyName("Đ"));
 //        System.out.println(pro.getListCat());
 //        System.out.println(pro.gettotalpro());
 
-        List<products> prod = pro.To11();
-        for(products o : prod){
-            System.out.println(o);
-        }
+//        List<products> prod = pro.To11();
+//        for(products o : prod){
+//            System.out.println(o);
+        //}
     }
 
 

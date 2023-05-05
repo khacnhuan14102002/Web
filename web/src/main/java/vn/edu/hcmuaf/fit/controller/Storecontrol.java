@@ -1,9 +1,11 @@
 package vn.edu.hcmuaf.fit.controller;
 
 import com.google.protobuf.Internal;
+import vn.edu.hcmuaf.fit.bean.Soluongbanra;
 import vn.edu.hcmuaf.fit.bean.category;
 import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.service.ProductService;
+import vn.edu.hcmuaf.fit.service.SoluongService;
 import vn.edu.hcmuaf.fit.service.StoreService;
 
 import javax.servlet.*;
@@ -31,8 +33,15 @@ public class Storecontrol extends HttpServlet {
             endPage ++;
         }
         List<products> listP = pro.paging(index);
+        List<products> listAllProduct = ProductService.getListProductALL();
+        List<Soluongbanra> listTop10Product = SoluongService.get10Soluongbanra();
+
 
         List<category> listC = pro.getListCat();
+
+        request.setAttribute("listAllProduct", listAllProduct);
+        request.setAttribute("listTop10Product", listTop10Product);
+
         request.setAttribute("endP",endPage);
         request.setAttribute("tag",index);
         request.setAttribute("listCC",listC);
