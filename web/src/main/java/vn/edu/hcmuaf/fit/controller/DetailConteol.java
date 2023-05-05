@@ -11,6 +11,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.util.List;
 
 @WebServlet(name = "detail", value = "/detail")
@@ -23,8 +24,20 @@ public class DetailConteol extends HttpServlet {
         products p = store.getchitiet(id);
 
         List<Review> listAllReview = rw.getAllReviewByProductID((id));
+        float  total = 0;
+       float avg = 0;
+        int countAllReview = listAllReview.size();
+        for(Review r : listAllReview){
+            total += r.getScore();
+
+        }
+        DecimalFormat decimalFormat = new DecimalFormat("#.##");
+        avg= Float.parseFloat(decimalFormat.format(total/rw.countAllReview()));
+
         request.setAttribute("listAllReview", listAllReview);
         request.setAttribute("detail",p);
+        request.setAttribute("avg",avg);
+        request.setAttribute("countAllReview", countAllReview);
         request.getRequestDispatcher("detail.jsp").forward(request,response);
     }
 

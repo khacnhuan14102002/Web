@@ -295,7 +295,7 @@
 					<!-- product tab nav -->
 					<ul class="tab-nav">
 						<li class="active"><a data-toggle="tab" href="#tab1">Mô tả</a></li>
-						<li><a data-toggle="tab" href="#tab3">Nhận xét(3)</a></li>
+						<li><a data-toggle="tab" href="#tab3">Nhận xét(${countAllReview })</a></li>
 					</ul>
 					<!-- /product tab nav -->
 
@@ -320,13 +320,10 @@
 								<div class="col-md-3">
 									<div id="rating">
 										<div class="rating-avg">
-											<span>4.5</span>
+
+											<span>Điểm trung bình : ${avg}</span>
 											<div class="rating-stars">
 												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star-o"></i>
 											</div>
 										</div>
 										<ul class="rating">
@@ -436,28 +433,26 @@
 
 <%--								</c:forEach>--%>
 								<!-- /Reviews -->
-
+								<form action="/addReview" method="post">
 								<!-- Review Form -->
 								<div class="col-md-3">
 									<div id="review-form">
 										<form class="review-form">
-											<input class="input" type="text" placeholder="Nhập tên của bạn">
-											<input class="input" type="email" placeholder="Nhập email của bạn">
-											<textarea class="input" placeholder="Đánh giá của bạn"></textarea>
+
+											<textarea name="content"class="input" placeholder="Đánh giá của bạn"></textarea>
+											<input type="hidden" name="idpro" value="${detail.getIdProduct()}">
 											<div class="input-rating">
 												<span>Đánh giá của bạn: </span>
 												<div class="stars">
-													<input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
-													<input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
-													<input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
-													<input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
-													<input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
+													<input name="score" class="input" type="text" placeholder="Nhập điểm trên thang điểm 5">
 												</div>
+
 											</div>
-											<button class="primary-btn">Nộp</button>
+											<button class="primary-btn">GỬI</button>
 										</form>
 									</div>
 								</div>
+								</form>
 								<!-- /Review Form -->
 							</div>
 						</div>

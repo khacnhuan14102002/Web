@@ -1,16 +1,26 @@
 package vn.edu.hcmuaf.fit.bean;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Review {
     private int accountID;
     private int productID;
     private String contentReview;
-    private Date dateReview;
+    private Timestamp dateReview;
 
     private String nameID;
     private int score;
-    public Review(int accountID, int productID, String contentReview, Date dateReview, String nameID, int score) {
+
+    public Review(int accountID, String contentReview, Timestamp dateReview, String nameID, int score) {
+        this.accountID = accountID;
+        this.contentReview = contentReview;
+        this.dateReview = dateReview;
+        this.nameID = nameID;
+        this.score = score;
+    }
+
+    public Review(int accountID, int productID, String contentReview, Timestamp dateReview, String nameID, int score) {
         this.accountID = accountID;
         this.productID = productID;
         this.contentReview = contentReview;
@@ -53,10 +63,12 @@ public class Review {
     public void setContentReview(String contentReview) {
         this.contentReview = contentReview;
     }
-    public Date getDateReview() {
+
+    public Timestamp getDateReview() {
         return dateReview;
     }
-    public void setDateReview(Date dateReview) {
+
+    public void setDateReview(Timestamp dateReview) {
         this.dateReview = dateReview;
     }
 
