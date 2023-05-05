@@ -185,13 +185,45 @@ public class    ProductService {
             return handle.createQuery("select * from category").mapToBean(category.class).stream().collect(Collectors.toList());
         });
     }
+    public List<products> getTop10SanPhamBanChay() {
+        List<products> list = new ArrayList<>();
+        products pro = new products();
+        String query = "Select sp.IdProduct,sp.NameProduct, Sum(cthd.Quantity) as SL, sp.PriceNew From products sp, detailsinvoices cthd Where sp.IdProduct=cthd.Idpro Group by sp.IdProduct,sp.NameProduct,sp.PriceNew Order by Sum(cthd.Quantity) DESC limit 10";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+
+                pro.setIdProduct(rs.getInt(1));
+                pro.setIdCategory(rs.getString(2));
+                pro.setNameProduct(rs.getString(3));
+                pro.setImage(rs.getString(4));
+                pro.setPriceNew(rs.getInt(5));
+                pro.setPriceOld(rs.getInt(6));
+                pro.setQuantityStock(rs.getInt(7));
+                pro.setDescription(rs.getString(8));
+                pro.setIdReview(rs.getString(9));
+                pro.setIsnew(rs.getInt(10));
+                pro.setDiscount(rs.getInt(11));
+                list.add(pro);
+
+            }
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+
+        return list;
+    }
     public static void main(String[] args) {
         ProductService pro = new ProductService();
 
-        System.out.println(pro.getListProductByCategory("DC"));
+       // System.out.println(pro.getListProductByCategory("DC"));
 //        System.out.println(pro.getListProductALL().size());;
 //        System.out.println(pro.searchbyName("Đ"));
 //        System.out.println(pro.listCate());
+        System.out.println(pro.getTop10SanPhamBanChay());
     }
 
 }

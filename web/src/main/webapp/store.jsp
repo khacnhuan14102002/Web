@@ -335,41 +335,7 @@ a<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 				<!-- /aside Widget -->
 
 				<!-- aside Widget -->
-				<div class="aside">
-					<h3 class="aside-title">Bán chạy nhất</h3>
-					<div class="product-widget">
-						<div class="product-img">
-							<img src="./image/dc8.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<p class="product-category">Dreamcatcher</p>
-							<h3 class="product-name"><a href="#">Ánh sáng</a></h3>
-							<h4 class="product-price">250.000<del class="product-old-price">280.000</del></h4>
-						</div>
-					</div>
 
-					<div class="product-widget">
-						<div class="product-img">
-							<img src="./image/dc11.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<p class="product-category">Dreamcatcher</p>
-							<h3 class="product-name"><a href="#">Đêm trăng</a></h3>
-							<h4 class="product-price">240.000<del class="product-old-price">250.000</del></h4>
-						</div>
-					</div>
-
-					<div class="product-widget">
-						<div class="product-img">
-							<img src="./image/dc6.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<p class="product-category">Dreamcatcher</p>
-							<h3 class="product-name"><a href="productdream1.html">Mị</a></h3>
-							<h4 class="product-price">240.000<del class="product-old-price">260.000</del></h4>
-						</div>
-					</div>
-				</div>
 				<!-- /aside Widget -->
 			</div>
 			<!-- /ASIDE -->

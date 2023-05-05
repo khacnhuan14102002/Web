@@ -76,5 +76,6 @@ public class CatalogService {
     public static void main(String[] args) {
         CatalogService cata = new CatalogService();
         System.out.println(cata.ListCategory());
+       cata.updateCatalog(new category("Mv","V"));
     }
 }

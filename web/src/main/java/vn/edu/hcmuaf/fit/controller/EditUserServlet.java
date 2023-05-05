@@ -33,7 +33,6 @@ public class EditUserServlet extends HttpServlet {
         UserDao uDao = new UserDao();
         User user = new User();
 
-        user.setIdUser(userId);
         user.setNameUser(nameUser);
         user.setEmailUs(emailUs);
         user.setPass(pass);

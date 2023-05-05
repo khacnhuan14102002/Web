@@ -2,6 +2,8 @@
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
 
 <%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.Review" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -117,7 +119,6 @@
 							<a href="/wishlist">
 								<i class="fa fa-heart-o"></i>
 								<span>Yêu thích</span>
-								<div class="qty">2</div>
 							</a>
 						</div>
 						<!-- /Wishlist -->
@@ -398,60 +399,31 @@
 									</div>
 								</div>
 								<!-- /Rating -->
-
+<%--								<c:forEach items="${requestScope.listAllReview}" var="r">--%>
 								<!-- Reviews -->
+
 								<div class="col-md-6">
 									<div id="reviews">
-										<ul class="reviews">
+										<ul class="reviews"><%
+											List<Review> listR = (List<Review>) request.getAttribute("listAllReview");
+											for (Review re : listR) {
+										%>
 											<li>
 												<div class="review-heading">
-													<h5 class="name">TuyetNhi</h5>
-													<p class="date">11/23/2022,10:00AM</p>
+													<h5 class="name"><%=re.getNameID()%></h5>
+													<p class="date"><%=re.getDateReview()%></p>
 													<div class="review-rating">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o empty"></i>
+														<p><%=re.getScore()%>/5   <i class="fa fa-star"></i></p>
+
 													</div>
 												</div>
 												<div class="review-body">
-													<p>Sản phẩm đẹp tôi rất thích</p>
+													<p><%=re.getContentReview()%></p>
 												</div>
 											</li>
-											<li>
-												<div class="review-heading">
-													<h5 class="name">HangNga</h5>
-													<p class="date">10/23/2022,7:00AM</p>
-													<div class="review-rating">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o empty"></i>
-													</div>
-												</div>
-												<div class="review-body">
-													<p>Sản phẩm đẹp</p>
-												</div>
-											</li>
-											<li>
-												<div class="review-heading">
-													<h5 class="name">MaiPhuong</h5>
-													<p class="date">10/21/2022,10:00AM</p>
-													<div class="review-rating">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o empty"></i>
-													</div>
-												</div>
-												<div class="review-body">
-													<p>Người dùng không đánh giá</p>
-												</div>
-											</li>
+											<% }%>
 										</ul>
+
 										<ul class="reviews-pagination">
 											<li class="active">1</li>
 											<li><a href="#">2</a></li>
@@ -461,6 +433,8 @@
 										</ul>
 									</div>
 								</div>
+
+<%--								</c:forEach>--%>
 								<!-- /Reviews -->
 
 								<!-- Review Form -->

@@ -162,7 +162,7 @@
 
               <td class="mn">GIÁ</td>
 
-              <td class="mn">XÓA HÀNG</td>
+              <td class="mn">XÓA KHỎI WISH</td>
               <td class="mn">Thêm vào giỏ hàng</td>
 
 
