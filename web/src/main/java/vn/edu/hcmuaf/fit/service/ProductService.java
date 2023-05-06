@@ -80,9 +80,8 @@ public class    ProductService {
                 pro.setPriceOld(rs.getInt(6));
                 pro.setQuantityStock(rs.getInt(7));
                 pro.setDescription(rs.getString(8));
-                pro.setIdReview(rs.getString(9));
-                pro.setIsnew(rs.getInt(10));
-                pro.setDiscount(rs.getInt(11));
+                pro.setIsnew(rs.getInt(9));
+                pro.setDiscount(rs.getInt(10));
 
 
             }
@@ -110,9 +109,8 @@ public class    ProductService {
                 pro.setPriceOld(rs.getInt(6));
                 pro.setQuantityStock(rs.getInt(7));
                 pro.setDescription(rs.getString(8));
-                pro.setIdReview(rs.getString(9));
-                pro.setIsnew(rs.getInt(10));
-                pro.setDiscount(rs.getInt(11));
+                pro.setIsnew(rs.getInt(9));
+                pro.setDiscount(rs.getInt(10));
 
 
             }
@@ -150,9 +148,8 @@ public class    ProductService {
                 pro.setPriceOld(rs.getInt(6));
                 pro.setQuantityStock(rs.getInt(7));
                 pro.setDescription(rs.getString(8));
-                pro.setIdReview(rs.getString(9));
-                pro.setIsnew(rs.getInt(10));
-                pro.setDiscount(rs.getInt(11));
+                pro.setIsnew(rs.getInt(9));
+                pro.setDiscount(rs.getInt(10));
 
                 lpro.add(pro);
             }
@@ -203,9 +200,8 @@ public class    ProductService {
                 pro.setPriceOld(rs.getInt(6));
                 pro.setQuantityStock(rs.getInt(7));
                 pro.setDescription(rs.getString(8));
-                pro.setIdReview(rs.getString(9));
-                pro.setIsnew(rs.getInt(10));
-                pro.setDiscount(rs.getInt(11));
+                pro.setIsnew(rs.getInt(9));
+                pro.setDiscount(rs.getInt(10));
                 list.add(pro);
 
             }

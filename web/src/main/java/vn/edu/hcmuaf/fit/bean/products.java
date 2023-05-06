@@ -11,7 +11,7 @@ public class products implements Serializable {
     private Integer priceOld;
     private Integer quantityStock;
     private String description;
-    private String idReview;
+
     private int isnew;
     private int discount;
 
@@ -19,7 +19,7 @@ public class products implements Serializable {
 
     }
 
-    public products(int idProduct, String idCategory, String nameProduct, String image, Integer priceNew, Integer priceOld, Integer quantityStock, String description, String idReview, int isnew, int discount) {
+    public products(int idProduct, String idCategory, String nameProduct, String image, Integer priceNew, Integer priceOld, Integer quantityStock, String description, int isnew, int discount) {
         this.idProduct = idProduct;
         this.idCategory = idCategory;
         this.nameProduct = nameProduct;
@@ -28,10 +28,10 @@ public class products implements Serializable {
         this.priceOld = priceOld;
         this.quantityStock = quantityStock;
         this.description = description;
-        this.idReview = idReview;
         this.isnew = isnew;
         this.discount = discount;
     }
+
 
     public int getIdProduct() {
         return idProduct;
@@ -113,18 +113,19 @@ public class products implements Serializable {
         this.discount = discount;
     }
 
-    public String getIdReview() {
-        return idReview;
-    }
+//    public String getIdReview() {
+//        return idReview;
+//    }
+//
+//    public void setIdReview(String idReview) {
+//        this.idReview = idReview;
+//    }
 
-    public void setIdReview(String idReview) {
-        this.idReview = idReview;
-    }
 
     @Override
     public String toString() {
         return "products{" +
-                "idProduct='" + idProduct + '\'' +
+                "idProduct=" + idProduct +
                 ", idCategory='" + idCategory + '\'' +
                 ", nameProduct='" + nameProduct + '\'' +
                 ", image='" + image + '\'' +
@@ -132,13 +133,8 @@ public class products implements Serializable {
                 ", priceOld=" + priceOld +
                 ", quantityStock=" + quantityStock +
                 ", description='" + description + '\'' +
-                ", idReview='" + idReview + '\'' +
                 ", isnew=" + isnew +
                 ", discount=" + discount +
                 '}';
     }
-
-
-
-
 }

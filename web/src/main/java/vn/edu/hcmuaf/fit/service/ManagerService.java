@@ -31,9 +31,8 @@ public class ManagerService {
                         rs.getInt(6),
                         rs.getInt(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getInt(10),
-                        rs.getInt(11));
+                        rs.getInt(9),
+                        rs.getInt(10));
                 list.add(pro);
             }
         } catch (Exception e) {

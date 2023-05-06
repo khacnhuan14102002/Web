@@ -1,6 +1,9 @@
 <%@ page import="vn.edu.hcmuaf.fit.service.LoaiService" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.Soluongbanra" %>
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="project" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
@@ -121,7 +124,7 @@
 							<a href="/wishlist">
 								<i class="fa fa-heart-o"></i>
 								<span>Yêu thích</span>
-
+								<div class="qty"><%=request.getAttribute("sizeW")%></div>
 							</a>
 						</div>
 						<!-- /Wishlist -->
@@ -181,7 +184,7 @@
 			<ul class="main-nav nav navbar-nav">
 				<li class="active"><a href="#">Trang chủ</a></li>
 				<li ><a href="${project}/store">Sản phẩm</a></li>
-				<li><a href="#">Về chúng tôi</a> </li>
+				<li><a href="/about">Về chúng tôi</a> </li>
 				<li><a href="#">Liên hệ</a></li>
 
 				<!-- /NAV -->
@@ -273,18 +276,26 @@
 						<div id="tab1" class="tab-pane active">
 							<div class="products-slick" data-nav="#slick-nav-1">
 								<!-- product -->
+								<%
+									List<products> listnew= (List<products>) request.getAttribute("isNew");
+									for (products pr: listnew) {
+								%>
 								<div class="product">
 									<div class="product-img">
-										<img src="./image/oplunn.jpg" alt="">
+										<img src="<%=pr.getImage()%>" alt="">
 										<div class="product-label">
+											<%if(pr.getDiscount()>0){%>
+
 											<span class="sale">-10%</span>
+											<%}%>
+											<% if(pr.getIsnew()==1){%>
 											<span class="new">Mới</span>
+														<%}%>
 										</div>
 									</div>
 									<div class="product-body">
-										<p class="product-category">ốp lưng</p>
-										<h3 class="product-name"><a href="#">Ốp lưng trong suốt</a></h3>
-										<h4 class="product-price">80.000<del class="product-old-price">90.000</del></h4>
+										<h3 class="product-name"><a href="detail?pid=<%=pr.getIdProduct()%>"><%=pr.getNameProduct()%></a></h3>
+										<h4 class="product-price"><%=pr.getPriceNew()%><del class="product-old-price"><%=pr.getPriceOld()%></del></h4>
 										<div class="product-rating">
 											<i class="fa fa-star"></i>
 											<i class="fa fa-star"></i>
@@ -293,145 +304,147 @@
 											<i class="fa fa-star"></i>
 										</div>
 										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">Thêm vào để so sánh</span></button>
+											<button class="add-to-wishlist"><a href="addwish?proid=<%=pr.getIdProduct()%>" ><i class="fa fa-heart-o"></i></a><span class="tooltipp">Thêm vào yêu thích</span></button>
 											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 										</div>
 									</div>
 									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
+
+										<%--									<a herf="addcart?proid=${detail.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>--%>
+										<a href="addcart?proid=<%=pr.getIdProduct()%>"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 									</div>
 								</div>
+								<%}%>
 								<!-- /product -->
 
-								<!-- product -->
-								<div class="product">
-									<div class="product-img">
-										<img src="./image/dc2.jpg" alt="">
-										<div class="product-label">
-											<span class="sale">-40%</span>
-											<span class="new">Mới</span>
-										</div>
-									</div>
-									<div class="product-body">
-										<p class="product-category">Dreamcatcher</p>
-										<h3 class="product-name"><a href="productdream3.html">Đại dương</a></h3>
-										<h4 class="product-price"> 150.000<del class="product-old-price">250.000</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem qua</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
-									</div>
-								</div>
+<%--								<!-- product -->--%>
+<%--								<div class="product">--%>
+<%--									<div class="product-img">--%>
+<%--										<img src="./image/dc2.jpg" alt="">--%>
+<%--										<div class="product-label">--%>
+<%--											<span class="sale">-40%</span>--%>
+<%--											<span class="new">Mới</span>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="product-body">--%>
+<%--										<p class="product-category">Dreamcatcher</p>--%>
+<%--										<h3 class="product-name"><a href="productdream3.html">Đại dương</a></h3>--%>
+<%--										<h4 class="product-price"> 150.000<del class="product-old-price">250.000</del></h4>--%>
+<%--										<div class="product-rating">--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--										</div>--%>
+<%--										<div class="product-btns">--%>
+<%--											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>--%>
+<%--											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
+<%--											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem qua</span></button>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="add-to-cart">--%>
+<%--										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>--%>
+<%--									</div>--%>
+<%--								</div>--%>
 
-								<!-- /product -->
+<%--								<!-- /product -->--%>
 
-								<!-- product -->
-								<div class="product">
+<%--								<!-- product -->--%>
+<%--								<div class="product">--%>
 
-									<div class="product-img">
-										<img src="./image/quillingcaythong.jpg" alt="">
-										<div class="product-label">
-											<span class="new">Mới</span>
-										</div>
-									</div>
-									<div class="product-body">
-										<p class="product-category">Thiệp</p>
-										<h3 class="product-name"><a href="productthiep.html">thiệp cây thông</a></h3>
-										<h4 class="product-price">30.000 <del class="product-old-price">50.000</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem nhanh</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
-									</div>
-								</div>
+<%--									<div class="product-img">--%>
+<%--										<img src="./image/quillingcaythong.jpg" alt="">--%>
+<%--										<div class="product-label">--%>
+<%--											<span class="new">Mới</span>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="product-body">--%>
+<%--										<p class="product-category">Thiệp</p>--%>
+<%--										<h3 class="product-name"><a href="productthiep.html">thiệp cây thông</a></h3>--%>
+<%--										<h4 class="product-price">30.000 <del class="product-old-price">50.000</del></h4>--%>
+<%--										<div class="product-rating">--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star-o"></i>--%>
+<%--										</div>--%>
+<%--										<div class="product-btns">--%>
+<%--											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>--%>
+<%--											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
+<%--											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem nhanh</span></button>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="add-to-cart">--%>
+<%--										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>--%>
+<%--									</div>--%>
+<%--								</div>--%>
 
-								<!-- /product -->
+<%--								<!-- /product -->--%>
 
-								<!-- product -->
-								<div class="product">
-									<div class="product-img">
-										<img src="./image/mockhoago.jpg" alt="">
-										<div class="product-label">
-											<span class="sale">-10%</span>
-											<span class="new">Mới</span>
-										</div>
-									</div>
-									<div class="product-body">
-										<p class="product-category">Móc khóa</p>
-										<h3 class="product-name"><a href="productmockhoa3.html">Móc khóa gỗ</a></h3>
-										<h4 class="product-price">42.000 <del class="product-old-price">58.000</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem nhanh</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng </button>
-									</div>
-								</div>
+<%--								<!-- product -->--%>
+<%--								<div class="product">--%>
+<%--									<div class="product-img">--%>
+<%--										<img src="./image/mockhoago.jpg" alt="">--%>
+<%--										<div class="product-label">--%>
+<%--											<span class="sale">-10%</span>--%>
+<%--											<span class="new">Mới</span>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="product-body">--%>
+<%--										<p class="product-category">Móc khóa</p>--%>
+<%--										<h3 class="product-name"><a href="productmockhoa3.html">Móc khóa gỗ</a></h3>--%>
+<%--										<h4 class="product-price">42.000 <del class="product-old-price">58.000</del></h4>--%>
+<%--										<div class="product-rating">--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--										</div>--%>
+<%--										<div class="product-btns">--%>
+<%--											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>--%>
+<%--											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
+<%--											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem nhanh</span></button>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="add-to-cart">--%>
+<%--										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng </button>--%>
+<%--									</div>--%>
+<%--								</div>--%>
 
-								<!-- /product -->
+<%--								<!-- /product -->--%>
 
-								<!-- product -->
-								<div class="product">
-									<div class="product-img">
-										<img src="./image/bokitlammockhoa.jpg" alt="">
-										<div class="product-label">
-											<span class="new">Mới</span>
-										</div>
-									</div>
-									<div class="product-body">
-										<p class="product-category">sản phẩm khác</p>
-										<h3 class="product-name"><a href="#">bộ kit làm móc khóa</a></h3>
-										<h4 class="product-price">50.000 <del class="product-old-price">60.000</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem nhanh</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
-									</div>
-								</div>
+<%--								<!-- product -->--%>
+<%--								<div class="product">--%>
+<%--									<div class="product-img">--%>
+<%--										<img src="./image/bokitlammockhoa.jpg" alt="">--%>
+<%--										<div class="product-label">--%>
+<%--											<span class="new">Mới</span>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="product-body">--%>
+<%--										<p class="product-category">sản phẩm khác</p>--%>
+<%--										<h3 class="product-name"><a href="#">bộ kit làm móc khóa</a></h3>--%>
+<%--										<h4 class="product-price">50.000 <del class="product-old-price">60.000</del></h4>--%>
+<%--										<div class="product-rating">--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star-o"></i>--%>
+<%--										</div>--%>
+<%--										<div class="product-btns">--%>
+<%--											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>--%>
+<%--											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
+<%--											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem nhanh</span></button>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="add-to-cart">--%>
+<%--										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>--%>
+<%--									</div>--%>
+<%--								</div>--%>
 
 								<!-- /product -->
 							</div>
@@ -502,148 +515,162 @@
 						<div id="tab2" class="tab-pane fade in active">
 							<div class="products-slick" data-nav="#slick-nav-2">
 								<!-- product -->
+								<%
+									List<Soluongbanra> list10 = (List<Soluongbanra>) request.getAttribute("top10");
+									for (Soluongbanra sl: list10) {
+								%>
+								<%
+									List<products> listpro= (List<products>) request.getAttribute("pro");
+									for (products pr: listpro) {
+								%>
+								<% if(sl.getProductID()==pr.getIdProduct()){%>
+
 								<div class="product">
 									<div class="product-img">
-										<img src="./image/oplungbighero.jpg" alt="">
+										<img src="<%=pr.getImage()%>" alt="">
 									</div>
 									<div class="product-body">
-										<p class="product-category">Ốp lưng</p>
-										<h3 class="product-name"><a href="productspop1.html">BIGHERO</a></h3>
-										<h4 class="product-price">150.000 <del class="product-old-price">180.000</del></h4>
+										<h3 class="product-name"><a href="productspop1.html"><%=pr.getNameProduct()%></a></h3>
+										<h4 class="product-price"><%=pr.getPriceNew()%><del class="product-old-price"><%=pr.getPriceOld()%></del></h4>
 										<div class="product-rating">
 										</div>
 										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem nhanh</span></button>
+											<button class="add-to-wishlist"><a href="addwish?proid=<%=pr.getIdProduct()%>" ><i class="fa fa-heart-o"></i></a><span class="tooltipp">Thêm vào yêu thích</span></button>
+											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 										</div>
 									</div>
 									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
+
+										<%--									<a herf="addcart?proid=${detail.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>--%>
+										<a href="addcart?proid=<%=pr.getIdProduct()%>"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 									</div>
 								</div>
+							<%}%>
+								<%}%>
+								<%}%>
+
 
 								<!-- /product -->
 
 								<!-- product -->
-								<div class="product">
-									<div class="product-img">
-										<img src="./image/dc6.jpg" alt="">
-										<div class="product-label">
-											<!--													<span class="new">Mới</span>-->
-										</div>
-									</div>
-									<div class="product-body">
-										<p class="product-category">Dreamcatcher</p>
-										<h3 class="product-name"><a href="productdream1.html">Mị</a></h3>
-										<h4 class="product-price">240.000 <del class="product-old-price">260.0000</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star-o"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem qua</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>
-									</div>
-								</div>
+<%--								<div class="product">--%>
+<%--									<div class="product-img">--%>
+<%--										<img src="./image/dc6.jpg" alt="">--%>
+<%--										<div class="product-label">--%>
+<%--											<!--													<span class="new">Mới</span>-->--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="product-body">--%>
+<%--										<p class="product-category">Dreamcatcher</p>--%>
+<%--										<h3 class="product-name"><a href="productdream1.html">Mị</a></h3>--%>
+<%--										<h4 class="product-price">240.000 <del class="product-old-price">260.0000</del></h4>--%>
+<%--										<div class="product-rating">--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star-o"></i>--%>
+<%--										</div>--%>
+<%--										<div class="product-btns">--%>
+<%--											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>--%>
+<%--											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
+<%--											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem qua</span></button>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="add-to-cart">--%>
+<%--										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng</button>--%>
+<%--									</div>--%>
+<%--								</div>--%>
+<%--								<!-- /product -->--%>
+
+<%--								<!-- product -->--%>
+<%--								<div class="product">--%>
+<%--									<div class="product-img">--%>
+<%--										<img src="./image/dc8.jpg" alt="">--%>
+<%--									</div>--%>
+<%--									<div class="product-body">--%>
+<%--										<p class="product-category">dreamcatcher</p>--%>
+<%--										<h3 class="product-name"><a href="detail.jsp">Ánh sáng</a></h3>--%>
+<%--										<h4 class="product-price">250.00 <del class="product-old-price">280.00</del></h4>--%>
+<%--										<div class="product-rating">--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--										</div>--%>
+<%--										<div class="product-btns">--%>
+<%--											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>--%>
+<%--											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
+<%--											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem qua</span></button>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="add-to-cart">--%>
+<%--										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>--%>
+<%--									</div>--%>
+<%--								</div>--%>
+<%--								<!-- /product -->--%>
+
+<%--								<!-- product -->--%>
+<%--								<div class="product">--%>
+<%--									<div class="product-img">--%>
+<%--										<img src="./image/quillingbohoa.jpg" alt="">--%>
+<%--										<div class="product-label">--%>
+<%--											<span class="sale">-30%</span>--%>
+<%--											<span class="new">Mới</span>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="product-body">--%>
+<%--										<p class="product-category">thiệp</p>--%>
+<%--										<h3 class="product-name"><a href="productthiep1.html">thiệp bó hoa</a></h3>--%>
+<%--										<h4 class="product-price">48.000 <del class="product-old-price">58.000</del></h4>--%>
+<%--										<div class="product-rating">--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--										</div>--%>
+<%--										<div class="product-btns">--%>
+<%--											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>--%>
+<%--											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
+<%--											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem nhanh</span></button>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="add-to-cart">--%>
+<%--										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng </button>--%>
+<%--									</div>--%>
+<%--								</div>--%>
+
 								<!-- /product -->
 
 								<!-- product -->
-								<div class="product">
-									<div class="product-img">
-										<img src="./image/dc8.jpg" alt="">
-									</div>
-									<div class="product-body">
-										<p class="product-category">dreamcatcher</p>
-										<h3 class="product-name"><a href="detail.jsp">Ánh sáng</a></h3>
-										<h4 class="product-price">250.00 <del class="product-old-price">280.00</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem qua</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
-									</div>
-								</div>
-								<!-- /product -->
+<%--								<div class="product">--%>
+<%--									<div class="product-img">--%>
+<%--										<img src="./image/keolamop.jpg" alt="">--%>
 
-								<!-- product -->
-								<div class="product">
-									<div class="product-img">
-										<img src="./image/quillingbohoa.jpg" alt="">
-										<div class="product-label">
-											<span class="sale">-30%</span>
-											<span class="new">Mới</span>
-										</div>
-									</div>
-									<div class="product-body">
-										<p class="product-category">thiệp</p>
-										<h3 class="product-name"><a href="productthiep1.html">thiệp bó hoa</a></h3>
-										<h4 class="product-price">48.000 <del class="product-old-price">58.000</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem nhanh</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng </button>
-									</div>
-								</div>
-
-								<!-- /product -->
-
-								<!-- product -->
-								<div class="product">
-									<div class="product-img">
-										<img src="./image/keolamop.jpg" alt="">
-
-									</div>
-									<div class="product-body">
-										<p class="product-category">sản phẩm khác</p>
-										<h3 class="product-name"><a href="productsp1.html">keo làm ốp</a></h3>
-										<h4 class="product-price">48.000 <del class="product-old-price">58.000</del></h4>
-										<div class="product-rating">
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-											<i class="fa fa-star"></i>
-										</div>
-										<div class="product-btns">
-											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>
-											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem nhanh</span></button>
-										</div>
-									</div>
-									<div class="add-to-cart">
-										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng </button>
-									</div>
-								</div>
+<%--									</div>--%>
+<%--									<div class="product-body">--%>
+<%--										<p class="product-category">sản phẩm khác</p>--%>
+<%--										<h3 class="product-name"><a href="productsp1.html">keo làm ốp</a></h3>--%>
+<%--										<h4 class="product-price">48.000 <del class="product-old-price">58.000</del></h4>--%>
+<%--										<div class="product-rating">--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--											<i class="fa fa-star"></i>--%>
+<%--										</div>--%>
+<%--										<div class="product-btns">--%>
+<%--											<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Yêu thích</span></button>--%>
+<%--											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>--%>
+<%--											<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem nhanh</span></button>--%>
+<%--										</div>--%>
+<%--									</div>--%>
+<%--									<div class="add-to-cart">--%>
+<%--										<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> Thêm vào giỏ hàng </button>--%>
+<%--									</div>--%>
+<%--								</div>--%>
 
 								<!-- /product -->
 							</div>

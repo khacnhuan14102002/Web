@@ -46,22 +46,12 @@
                 <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
                     <div class="menu_section">
                         <ul class="nav side-menu">
-                            <li><a><i class="fa fa-home"></i>Trang chủ<span class="fa fa-chevron-down"></span></a>
-                                <ul class="nav child_menu">
-                                    <li><a href="productdream.html">Dreamcatcher</a></li>
-                                    <li><a href="productsp.html">Móc khóa</a></li>
-                                    <li><a href="productmockhoa.html">Ốp lưng</a></li>
-                                    <li><a href="productmockhoa.html">Sản phẩm khác</a></li>
-                                    <li><a href="productmockhoa.html">Thiệp</a></li>
-                                </ul>
-                            </li>
                             <li><a><i class="fa fa-edit"></i>Quản lý<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="QuanLyUser.jsp">Quản lý User</a></li>
                                     <li><a href="http://localhost:8080/manageControl">Quản lý sản phẩm</a></li>
                                     <li><a href="typography.html">Quản lý hóa đơn</a></li>
-                                    <li><a href="icons.html">Quản lý khách hàng</a></li>
-                                    <li><a href="glyphicons.html">Quản lý nguyên liệu</a></li>
+                                    <li><a href="http://localhost:8080/managerCatalogControl">Quản lý danh mục</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i>Báo cáo<span class="fa fa-chevron-down"></span></a>
@@ -72,7 +62,6 @@
                             </li>
                             <li><a><i class="fa fa-user"></i>Tài khoản<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="#">Thay đổi thông tin</a></li>
                                     <li><a href="index.jsp">Thoát</a></li>
                                 </ul>
                             </li>

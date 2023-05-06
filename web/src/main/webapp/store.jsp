@@ -1,4 +1,4 @@
-a<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.LoaiService" %>
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
@@ -125,6 +125,7 @@ a<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 							<a href="/wishlist">
 								<i class="fa fa-heart-o"></i>
 								<span>Yêu thích</span>
+								<div class="qty"><%=request.getAttribute("sizeW")%></div>
 							</a>
 						</div>
 						<!-- /Wishlist -->
@@ -177,7 +178,7 @@ a<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 			<ul class="main-nav nav navbar-nav">
 				<li ><a href="/index">Trang chủ</a></li>
 				<li class="active"><a href="/store">Sản phẩm</a></li>
-				<li><a href="#">Về chúng tôi</a> </li>
+				<li><a href="/about">Về chúng tôi</a> </li>
 				<li><a href="#">Liên hệ</a></li>
 
 				<!-- /NAV -->
