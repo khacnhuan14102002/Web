@@ -119,6 +119,7 @@
 							<a href="/wishlist">
 								<i class="fa fa-heart-o"></i>
 								<span>Yêu thích</span>
+								<div class="qty"><%=request.getAttribute("sizeW")%></div>
 							</a>
 						</div>
 						<!-- /Wishlist -->
@@ -169,7 +170,7 @@
 			<ul class="main-nav nav navbar-nav">
 				<li ><a href="/index">Trang chủ</a></li>
 				<li class="active"><a href="/store">Sản phẩm</a></li>
-				<li><a href="#">Về chúng tôi</a> </li>
+				<li><a href="/about">Về chúng tôi</a> </li>
 				<li><a href="#">Liên hệ</a></li>
 
 			</ul>
@@ -271,7 +272,7 @@
 
 					<ul class="product-btns">
 						<li><a href="addcart?proid=${detail.idProduct}"><i class="fa-solid fa-cart-shopping"></i>Thêm vào gio hàng</a></li>
-						<li><a href="#"><i class="fa fa-heart-o"></i>Thêm vào yêu thích</a></li>
+						<li><a href="addwish?proid=${detail.idProduct}"><i class="fa fa-heart-o"></i>Thêm vào yêu thích</a></li>
 						<li><a href="#"><i class="fa fa-exchange"></i>Thêm để so sánh</a></li>
 					</ul>
 

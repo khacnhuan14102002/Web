@@ -81,9 +81,9 @@ public class StoreService {
                 pro.setPriceOld(rs.getInt(6));
                 pro.setQuantityStock(rs.getInt(7));
                 pro.setDescription(rs.getString(8));
-                pro.setIdReview(rs.getString(9));
-                pro.setIsnew(rs.getInt(10));
-                pro.setDiscount(rs.getInt(11));
+                pro.setIsnew(rs.getInt(9));
+                pro.setDiscount(rs.getInt(10));
+                ;
 
 
             }
@@ -122,9 +122,8 @@ public class StoreService {
                 rs.getInt(6),
                 rs.getInt(7),
                 rs.getString(8),
-                rs.getString(9),
-                rs.getInt(10),
-                rs.getInt(11)));
+                rs.getInt(9),
+                rs.getInt(10)));
 
 
             }
@@ -214,9 +213,8 @@ public class StoreService {
                         rs.getInt(6),
                         rs.getInt(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getInt(10),
-                        rs.getInt(11)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
 
             }
 
@@ -246,9 +244,8 @@ public class StoreService {
                         rs.getInt(6),
                         rs.getInt(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getInt(10),
-                        rs.getInt(11)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
 
             }
 
@@ -276,9 +273,8 @@ public class StoreService {
                         rs.getInt(6),
                         rs.getInt(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getInt(10),
-                        rs.getInt(11)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
 
             }
 
@@ -306,9 +302,8 @@ public class StoreService {
                         rs.getInt(6),
                         rs.getInt(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getInt(10),
-                        rs.getInt(11)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
 
             }
 
@@ -336,9 +331,8 @@ public class StoreService {
                         rs.getInt(6),
                         rs.getInt(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getInt(10),
-                        rs.getInt(11)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
 
             }
 
@@ -366,9 +360,8 @@ public class StoreService {
                         rs.getInt(6),
                         rs.getInt(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getInt(10),
-                        rs.getInt(11)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
 
             }
 
@@ -396,9 +389,8 @@ public class StoreService {
                         rs.getInt(6),
                         rs.getInt(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getInt(10),
-                        rs.getInt(11)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
 
             }
 
@@ -426,9 +418,8 @@ public class StoreService {
                         rs.getInt(6),
                         rs.getInt(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getInt(10),
-                        rs.getInt(11)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
 
             }
 
@@ -439,6 +430,7 @@ public class StoreService {
         return list;
 
     }
+
     public List<products> To34(){
         List<products> list = new ArrayList<>();
         String query = "select * from products WHERE PriceNew BETWEEN 300000 AND 400000;";
@@ -456,9 +448,8 @@ public class StoreService {
                         rs.getInt(6),
                         rs.getInt(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getInt(10),
-                        rs.getInt(11)));
+                        rs.getInt(9),
+                        rs.getInt(10)));
 
             }
 
@@ -469,7 +460,35 @@ public class StoreService {
         return list;
 
     }
+    public List<products> isNew(){
+        List<products> list = new ArrayList<>();
+        String query = "select * from products WHERE Isnew = '1';";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new products(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getInt(9),
+                        rs.getInt(10)));
 
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return list;
+
+    }
     public static void main(String[] args) {
         StoreService pro = new StoreService();
 //        System.out.println(pro.getListProductByCategory("TH"));
@@ -479,10 +498,10 @@ public class StoreService {
 //        System.out.println(pro.getListCat());
 //        System.out.println(pro.gettotalpro());
 
-//        List<products> prod = pro.To11();
-//        for(products o : prod){
-//            System.out.println(o);
-        //}
+        List<products> prod = pro.isNew();
+        for(products o : prod){
+            System.out.println(o);
+        }
     }
 
 

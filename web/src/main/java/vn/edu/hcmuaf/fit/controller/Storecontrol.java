@@ -1,17 +1,17 @@
 package vn.edu.hcmuaf.fit.controller;
 
 import com.google.protobuf.Internal;
-import vn.edu.hcmuaf.fit.bean.Soluongbanra;
-import vn.edu.hcmuaf.fit.bean.category;
-import vn.edu.hcmuaf.fit.bean.products;
+import vn.edu.hcmuaf.fit.bean.*;
 import vn.edu.hcmuaf.fit.service.ProductService;
 import vn.edu.hcmuaf.fit.service.SoluongService;
 import vn.edu.hcmuaf.fit.service.StoreService;
+import vn.edu.hcmuaf.fit.service.WishListService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "Storecontrol", value = "/store")
@@ -35,7 +35,11 @@ public class Storecontrol extends HttpServlet {
         List<products> listP = pro.paging(index);
         List<products> listAllProduct = ProductService.getListProductALL();
         List<Soluongbanra> listTop10Product = SoluongService.get10Soluongbanra();
-
+        WishListService service = new WishListService();
+        HttpSession session = request.getSession();
+        User user = (User) session.getAttribute("user");
+        ArrayList<Wishlist> list =service.getAllWish(user.getIdUser());
+        int sizeW= list.size();
 
         List<category> listC = pro.getListCat();
 
@@ -46,7 +50,7 @@ public class Storecontrol extends HttpServlet {
         request.setAttribute("tag",index);
         request.setAttribute("listCC",listC);
         request.setAttribute("listP",listP);
-
+        request.setAttribute("sizeW",sizeW);
 
 
         request.getRequestDispatcher("store.jsp").forward(request,response);
