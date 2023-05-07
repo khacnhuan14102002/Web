@@ -212,6 +212,20 @@ public class    ProductService {
 
         return list;
     }
+    public static void updateProduct(products pro) {
+        String query = "update products set QuantityStock = ?  WHERE IdProduct = ?";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+
+            ps.setInt(1, pro.getQuantityStock());
+            ps.setInt(2, pro.getIdProduct());
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("fail");
+        }
+    }
     public static void main(String[] args) {
         ProductService pro = new ProductService();
 
@@ -219,6 +233,8 @@ public class    ProductService {
 //        System.out.println(pro.getListProductALL().size());;
 //        System.out.println(pro.searchbyName("Đ"));
 //        System.out.println(pro.listCate());
+        products p = new products(1,"DC", "Đại Dương", "./image/dc2.jpg", 150000, 250000, 55, "Sản phẩm được lấy ý tưởng từ hình ảnh màu xanh của nước biển kết hợp với lông vũ màu xanh khiến cho sản phẩm đẹp hơn bao giờ hết", 1, 40);
+        pro.updateProduct(p);
         System.out.println(pro.getTop10SanPhamBanChay());
     }
 
