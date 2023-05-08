@@ -33,7 +33,9 @@ public class DetailConteol extends HttpServlet {
         int sizeW= list.size();
         List<Review> listAllReview = rw.getAllReviewByProductID((id));
         float  total = 0;
-       float avg = 0;
+        float avg = 0;
+        ProductService ps = new ProductService();
+        ArrayList<products> listlq = (ArrayList<products>) ps.getListProductlq(p.getIdCategory());
         int countAllReview = listAllReview.size();
         for(Review r : listAllReview){
             total += r.getScore();
@@ -41,7 +43,7 @@ public class DetailConteol extends HttpServlet {
         }
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         avg= Float.parseFloat(decimalFormat.format(total/rw.countAllReview()));
-
+        request.setAttribute("listlq",listlq);
         request.setAttribute("listAllReview", listAllReview);
         request.setAttribute("detail",p);
         request.setAttribute("avg",avg);
@@ -49,6 +51,7 @@ public class DetailConteol extends HttpServlet {
         request.setAttribute("sizeW",sizeW);
         request.getRequestDispatcher("detail.jsp").forward(request,response);
     }
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -70,7 +70,7 @@
 				<%
 					if (user.getRoleUs() == 1) {
 				%>
-				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
+				<li><a href="/adminpage"><i class="fa fa-cog"></i>Quản lý</a></li>
 				<%
 					}
 				%>

@@ -226,6 +226,29 @@ public class    ProductService {
             System.out.println("fail");
         }
     }
+    public static List<products> getListProductlq(String IdCa) {
+//        ArrayList<products> list = new ArrayList<>();
+//        String query = "select * from products where IdCategory='" +IdCategory+ "'";
+//        try{
+//            conn = new connect().getconConnection();
+//            ps = conn.prepareStatement(query);
+//            rs=ps.executeQuery();
+//            while(rs.next()){
+//                products pro= new products(rs.getString(1),
+//                        rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getString(8),rs.getInt(9),rs.getInt(10),rs.getInt(11));
+//                list.add(pro);
+//
+//            }
+//            return list;
+//        } catch (Exception e) {
+//            System.out.println("fail");
+//        }
+//        return null;
+        return JDBiConnector.me().withHandle(handle -> {
+            return handle.createQuery("SELECT * FROM products where IdCategory= '" +IdCa+ "' ORDER BY RAND() LIMIT 3").mapToBean(vn.edu.hcmuaf.fit.bean.products.class).stream().collect(Collectors.toList());
+        });
+    }
+
     public static void main(String[] args) {
         ProductService pro = new ProductService();
 

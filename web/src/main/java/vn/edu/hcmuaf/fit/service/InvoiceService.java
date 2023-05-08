@@ -72,6 +72,20 @@ public class InvoiceService {
 
 
 
+    public double totalMoneyDay(int day) {
+        String query = "select  SUM(Total) from invoices where Day(Exportdate)=? Group by Day(Exportdate);";
+        try {
+            conn = new connect().getconConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, day);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getDouble(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
 
     public static void main(String[] args) {
     InvoiceService in = new InvoiceService();
