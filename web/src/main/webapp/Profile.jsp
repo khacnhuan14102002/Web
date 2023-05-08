@@ -63,11 +63,12 @@
                     if (user != null) {
                 %>
                 <li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+                <li><a href="/historyinvoice"><i class="fa fa-bars"></i>Lịch sử mua hàng</a></li>
                 <%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
                 <%
                     if (user.getRoleUs() == 1) {
                 %>
-                <li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
+                <li><a href="/adminpage"><i class="fa fa-cog"></i>Quản lý</a></li>
                 <%
                     }
                 %>

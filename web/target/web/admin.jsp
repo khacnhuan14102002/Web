@@ -56,7 +56,7 @@
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i>Báo cáo<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="chartjs.html">Báo cáo bán hàng</a></li>
+                                    <li><a href="/doanhthutheoThu">Báo cáo bán hàng theo thứ</a></li>
                                     <li><a href="chartjs2.html">Báo cáo nhân viên</a></li>
                                 </ul>
                             </li>
