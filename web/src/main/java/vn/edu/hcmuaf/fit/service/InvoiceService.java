@@ -86,11 +86,25 @@ public class InvoiceService {
         }
         return 0;
     }
+    public double totalMoneyMonth(int month) {
+        String query = "select SUM(Total) from invoices where MONTH(Exportdate)=? Group by MONTH(Exportdate)";
+        try {
+            conn = new connect().getconConnection();//mo ket noi voi sql
+            ps = conn.prepareStatement(query);
+            ps.setInt(1, month);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getDouble(1);
+            }
+        } catch (Exception e) {
+        }
+        return 0;
+    }
 
     public static void main(String[] args) {
     InvoiceService in = new InvoiceService();
     System.out.println(in.getAllIn(3));
-
+    System.out.println(in.totalMoneyMonth(5));
 
 }
     }
