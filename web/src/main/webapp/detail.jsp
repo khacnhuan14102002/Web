@@ -251,7 +251,8 @@
 					</div>
 					<div>
 						<h4 class="product-price">${detail.priceNew}<del class="product-old-price">${detail.priceOld}</del></h4>
-						<span class="product-available">số lượng còn lại : ${detail.quantityStock}</span>
+						<c:if test="${detail.quantityStock == 0}"> <span class="product-available" style="color:darkred">Sản phẩm hết hàng</span></c:if>
+						<c:if test="${detail.quantityStock != 0}"> <span class="product-available">số lượng còn lại : ${detail.quantityStock}</span></c:if>
 					</div>
 					<p>${detail.description}</p>
 
@@ -271,7 +272,8 @@
 					</div>
 
 					<ul class="product-btns">
-						<li><a href="addcart?proid=${detail.idProduct}"><i class="fa-solid fa-cart-shopping"></i>Thêm vào gio hàng</a></li>
+						<c:if test="${detail.quantityStock != 0}">
+							<li><a href="addcart?proid=${detail.idProduct}"><i class="fa-solid fa-cart-shopping"></i>Thêm vào gio hàng</a></li></c:if>
 						<li><a href="addwish?proid=${detail.idProduct}"><i class="fa fa-heart-o"></i>Thêm vào yêu thích</a></li>
 						<li><a href="#"><i class="fa fa-exchange"></i>Thêm để so sánh</a></li>
 					</ul>
