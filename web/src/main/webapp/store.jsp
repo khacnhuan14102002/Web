@@ -371,7 +371,7 @@
 									<div class="product-body">
 
 										<h3 class="product-name"><a href="detail?pid=${p.idProduct}">${p.nameProduct}</a></h3>
-										<h4 class="product-price"> <del class="product-old-price"></del></h4>
+										<c:if test="${p.quantityStock ==0}"><h4 class="product-price" style="color:darkred">Sản phẩm hết hàng</h4></c:if>
 
 										<div class="product-btns">
 
@@ -381,9 +381,9 @@
 									</div>
 
 									<div class="add-to-cart">
-
+										 <c:if test="${p.quantityStock ==0}"><a href="addwish?proid=${p.idProduct}" ><i class="fa fa-heart-o"></i>Thêm vào wishlist</a></c:if>
 											<%--									<a herf="addcart?proid=${detail.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>--%>
-										<a href="addcart?proid=${p.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+										<c:if test="${p.quantityStock !=0}"> <a href="addcart?proid=${p.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a></c:if>
 									</div>
 
 								</div>
