@@ -29,8 +29,12 @@ public class DetailConteol extends HttpServlet {
         WishListService service = new WishListService();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        ArrayList<Wishlist> list =service.getAllWish(user.getIdUser());
-        int sizeW= list.size();
+        int sizeW =0;
+        if (user != null) {
+            ArrayList<Wishlist> list = service.getAllWish(user.getIdUser());
+            sizeW = list.size();
+        }
+
         List<Review> listAllReview = rw.getAllReviewByProductID((id));
         float  total = 0;
         float avg = 0;

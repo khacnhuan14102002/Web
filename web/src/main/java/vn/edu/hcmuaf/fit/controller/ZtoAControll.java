@@ -28,8 +28,11 @@ public class ZtoAControll extends HttpServlet {
         WishListService service = new WishListService();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        ArrayList<Wishlist> list =service.getAllWish(user.getIdUser());
-        int sizeW= list.size();
+        int sizeW =0;
+        if (user != null) {
+            ArrayList<Wishlist> list = service.getAllWish(user.getIdUser());
+            sizeW = list.size();
+        }
         request.setAttribute("sizeW",sizeW);
 
         request.getRequestDispatcher("store.jsp").forward(request,response);

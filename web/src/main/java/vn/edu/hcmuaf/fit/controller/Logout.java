@@ -14,7 +14,7 @@ public class Logout extends HttpServlet {
         session.removeAttribute("user");
 
         // Chuyển hướng về trang index.jsp
-        response.sendRedirect(request.getContextPath() + "/index.jsp");
+        response.sendRedirect(request.getContextPath() + "/index");
     }
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
