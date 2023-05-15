@@ -1,5 +1,3 @@
-<%@ page import="vn.edu.hcmuaf.fit.service.LoaiService" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="project" value="${pageContext.request.contextPath}" />
@@ -60,7 +58,7 @@
                     User user = (User) session.getAttribute("user");
                     if (user != null) {
                 %>
-                <li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+                <li><a href="/successAccount"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
                 <li><a href="/historyinvoice"><i class="fa fa-bars"></i>Lịch sử mua hàng</a></li>
                 <%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
                 <%
@@ -164,7 +162,7 @@
                                 </div>
                                 <div class="cart-btns">
                                     <a href="/cart">Xem giỏ hàng</a>
-                                    <a href="checkout.jsp">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+                                    <a href="/invoice">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -207,7 +205,7 @@
         <div id="responsive-nav">
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="#">Trang chủ</a></li>
+                <li class="active"><a href="/index">Trang chủ</a></li>
                 <li ><a href="${project}/store">Sản phẩm</a></li>
                 <li><a href="#">Về chúng tôi</a> </li>
                 <li><a href="#">Liên hệ</a></li>

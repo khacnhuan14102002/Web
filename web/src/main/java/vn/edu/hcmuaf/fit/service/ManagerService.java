@@ -31,9 +31,8 @@ public class ManagerService {
                         rs.getInt(6),
                         rs.getInt(7),
                         rs.getString(8),
-                        rs.getString(9),
-                        rs.getInt(10),
-                        rs.getInt(11));
+                        rs.getInt(9),
+                        rs.getInt(10));
                 list.add(pro);
             }
         } catch (Exception e) {
@@ -59,21 +58,6 @@ public class ManagerService {
         }
         return list;
     }
-
-//    public void deleteProduct(String pid) {
-//        String query = "UPDATE products\n" +
-//                "SET HideProduct = 1\n" +
-//                "WHERE IdProduct = ?";
-//        try {
-//            conn = new connect().getconConnection();
-//            ps = conn.prepareStatement(query);
-//            ps.setString(1, pid);
-//            ps.executeUpdate();
-//        } catch (Exception e) {
-//            System.out.println("fail");
-//        }
-//    }
-
     public void removeProduct(int pid) {
         String query = "UPDATE products\n" +
                 "SET HideProduct = 1\n" +
@@ -133,11 +117,5 @@ public class ManagerService {
         ManagerService mana = new ManagerService();
 
         System.out.println(mana.getAllCategory());
-
-    // List<product> list = getAllProduct();
-//        for (Loai o : listC){
-//            System.out.println(o);
-//        }
-
     }
 }

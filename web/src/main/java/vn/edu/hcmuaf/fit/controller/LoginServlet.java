@@ -41,6 +41,7 @@ public class LoginServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		String email = req.getParameter("email");
 		String pass = req.getParameter("pass");
 		User u = userDao.login(email, pass);
@@ -48,7 +49,7 @@ public class LoginServlet extends HttpServlet{
 			HttpSession session = req.getSession();
 			User user = userDao.findUserByMaUser(u.getIdUser());
 			session.setAttribute("user", user);
-			resp.sendRedirect(req.getContextPath() + "/user");
+			resp.sendRedirect(req.getContextPath() + "/index");
 		}
 		else {
 			req.setAttribute("errorlogin", "tai khoan hoac mat khau khong dung");

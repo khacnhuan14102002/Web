@@ -63,7 +63,6 @@
                 <th>Giá mới</th>
                 <th>Giá cũ</th>
                 <th>Số lượng</th>
-                <th>Mô tả</th>
                 <th>Tùy chỉnh</th>
             </tr>
             </thead>
@@ -94,13 +93,11 @@
                 </td>
                 <td class="product-so-luong-<%=pr.getIdProduct()%>"><%=pr.getQuantityStock()%>
                 </td>
-                <td class="product-mo-ta-<%=pr.getIdProduct()%>"><%=pr.getDescription()%>
-                </td>
                 <td>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal">
                         <button value="<%=pr.getIdProduct()%>" style="display: none"></button>
                         <i class="material-icons" data-toggle="tooltip" title="Sửa">&#xE254;</i></a>
-                    <a href="http://localhost:8080/delete?pid=<%=pr.getIdProduct()%>" class="delete"
+                    <a href="/delete?pid=<%=pr.getIdProduct()%>" class="delete"
                        data-toggle="modal">
                         <i class="material-icons" data-toggle="tooltip" title="Xóa">&#xE872;</i></a>
                 </td>
@@ -114,7 +111,7 @@
             </ul>
         </div>
     </div>
-    <a href="admin.jsp">
+    <a href="/adminpage">
         <button type="button" class="btn btn-primary">Trở về</button>
     </a>
 </div>

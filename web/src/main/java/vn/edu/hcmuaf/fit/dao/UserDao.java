@@ -1,11 +1,10 @@
 package vn.edu.hcmuaf.fit.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 import java.util.ArrayList;
+
+
 import vn.edu.hcmuaf.fit.db.Connects;
 import vn.edu.hcmuaf.fit.bean.User;
 
@@ -234,6 +233,13 @@ public void EditUser(User u) {
 		e.printStackTrace();
 	}
 }
+
+	public static void main(String[] args) {
+		Date date1 = new Date(2022,10,2);
+		 UserDao dao = new UserDao();
+		User u = new User("nhuan","khacnhuan@gmail.com","123","013348" ,date1,1,1);
+		dao.addUser(u);
+	}
 }
 
 

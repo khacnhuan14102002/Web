@@ -18,6 +18,41 @@ public class User {
 //	public User(){
 //	}
 
+	public User(String nameUser, String emailUs, String pass, String phone, Date registrationDate, int roleUs, int active, String keyactive) {
+		NameUser = nameUser;
+		EmailUs = emailUs;
+		Pass = pass;
+		Phone = phone;
+		RegistrationDate = registrationDate;
+		RoleUs = roleUs;
+		Active = active;
+		Keyactive = keyactive;
+	}
+
+	public User(String nameUser, String emailUs, String pass, String phone, Date registrationDate, int roleUs, int active) {
+		NameUser = nameUser;
+		EmailUs = emailUs;
+		Pass = pass;
+		Phone = phone;
+		RegistrationDate = registrationDate;
+		RoleUs = roleUs;
+		Active = active;
+	}
+
+	public User(String nameUser, String emailUs, String pass, String phone, int roleUs, int active, String keyactive) {
+		NameUser = nameUser;
+		EmailUs = emailUs;
+		Pass = pass;
+		Phone = phone;
+		RoleUs = roleUs;
+		Active = active;
+		Keyactive = keyactive;
+	}
+
+	public User() {
+
+	}
+
 	public int getIdUser() {
 		return IdUser;
 	}
