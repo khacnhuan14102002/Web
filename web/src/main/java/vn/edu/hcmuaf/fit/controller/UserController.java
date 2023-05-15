@@ -21,7 +21,7 @@ public class UserController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = null;
-		rd = req.getRequestDispatcher("/index.jsp");
+		rd = req.getRequestDispatcher("/index");
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		req.setAttribute("user", user);
