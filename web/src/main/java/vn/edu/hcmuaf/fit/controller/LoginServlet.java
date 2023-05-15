@@ -41,6 +41,7 @@ public class LoginServlet extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
 		String email = req.getParameter("email");
 		String pass = req.getParameter("pass");
 		User u = userDao.login(email, pass);

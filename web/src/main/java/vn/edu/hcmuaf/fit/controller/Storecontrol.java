@@ -22,15 +22,15 @@ public class Storecontrol extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StoreService pro = new StoreService();
-        String indexPage =  request.getParameter("page");
-        if(indexPage==null){
-            indexPage="1";
+        String indexPage = request.getParameter("page");
+        if (indexPage == null) {
+            indexPage = "1";
         }
-        int index=Integer.parseInt(indexPage);
+        int index = Integer.parseInt(indexPage);
         int count = pro.gettotalpro();
-        int endPage = count/12;
-        if(count % 12!= 0){
-            endPage ++;
+        int endPage = count / 12;
+        if (count % 12 != 0) {
+            endPage++;
         }
         List<products> listP = pro.paging(index);
         List<products> listAllProduct = ProductService.getListProductALL();
@@ -38,22 +38,24 @@ public class Storecontrol extends HttpServlet {
         WishListService service = new WishListService();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
-        ArrayList<Wishlist> list =service.getAllWish(user.getIdUser());
-        int sizeW= list.size();
-
+        int sizeW = 0;
+        if (user != null) {
+            ArrayList<Wishlist> list = service.getAllWish(user.getIdUser());
+            sizeW = list.size();
+        }
         List<category> listC = pro.getListCat();
 
         request.setAttribute("listAllProduct", listAllProduct);
         request.setAttribute("listTop10Product", listTop10Product);
 
-        request.setAttribute("endP",endPage);
-        request.setAttribute("tag",index);
-        request.setAttribute("listCC",listC);
-        request.setAttribute("listP",listP);
-        request.setAttribute("sizeW",sizeW);
+        request.setAttribute("endP", endPage);
+        request.setAttribute("tag", index);
+        request.setAttribute("listCC", listC);
+        request.setAttribute("listP", listP);
+        request.setAttribute("sizeW", sizeW);
 
 
-        request.getRequestDispatcher("store.jsp").forward(request,response);
+        request.getRequestDispatcher("store.jsp").forward(request, response);
     }
 
     @Override

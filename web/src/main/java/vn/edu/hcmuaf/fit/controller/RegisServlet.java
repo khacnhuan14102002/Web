@@ -49,6 +49,8 @@ public class RegisServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String activationKey = MailService.randomKey();
 		String ten = req.getParameter("fullname");
 		String email = req.getParameter("email");
@@ -67,7 +69,7 @@ public class RegisServlet extends HttpServlet {
 		User u = new User();
 		//u.setIdUser(null);
 		u.setKeyactive(activationKey);
-		u.setActive(0);
+		u.setActive(1);
 		u.setEmailUs(email);
 		u.setRoleUs(0);
 		u.setRegistrationDate(new Date(System.currentTimeMillis()));

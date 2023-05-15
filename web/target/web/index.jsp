@@ -124,7 +124,12 @@
 							<a href="/wishlist">
 								<i class="fa fa-heart-o"></i>
 								<span>Yêu thích</span>
+								<%
+									User user1 = (User) session.getAttribute("user");
+									if (user1 != null) {
+								%>
 								<div class="qty"><%=request.getAttribute("sizeW")%></div>
+								<%}%>
 							</a>
 						</div>
 						<!-- /Wishlist -->
