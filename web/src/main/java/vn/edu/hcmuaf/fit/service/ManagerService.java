@@ -58,21 +58,6 @@ public class ManagerService {
         }
         return list;
     }
-
-//    public void deleteProduct(String pid) {
-//        String query = "UPDATE products\n" +
-//                "SET HideProduct = 1\n" +
-//                "WHERE IdProduct = ?";
-//        try {
-//            conn = new connect().getconConnection();
-//            ps = conn.prepareStatement(query);
-//            ps.setString(1, pid);
-//            ps.executeUpdate();
-//        } catch (Exception e) {
-//            System.out.println("fail");
-//        }
-//    }
-
     public void removeProduct(int pid) {
         String query = "UPDATE products\n" +
                 "SET HideProduct = 1\n" +
@@ -132,11 +117,5 @@ public class ManagerService {
         ManagerService mana = new ManagerService();
 
         System.out.println(mana.getAllCategory());
-
-    // List<product> list = getAllProduct();
-//        for (Loai o : listC){
-//            System.out.println(o);
-//        }
-
     }
 }

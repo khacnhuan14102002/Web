@@ -53,7 +53,7 @@
 					User user = (User) session.getAttribute("user");
 					if (user != null) {
 				%>
-				<li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+				<li><a href="/successAccount"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
 				<li><a href="/historyinvoice"><i class="fa fa-bars"></i>Lịch sử mua hàng</a></li>
 				<%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
 				<%
@@ -101,7 +101,7 @@
 
 
 
-							<input class="input" placeholder="Tiềm kiếm tại đây">
+							<input class="input" placeholder="Tìm kiếm tại đây">
 							<button class="search-btn">Tìm kiếm</button>
 						</form>
 						</form>
@@ -229,51 +229,6 @@
 					</div>
 				</div>
 				<!-- /Billing Details -->
-
-				<!--						&lt;!&ndash; Shiping Details &ndash;&gt;-->
-				<!--						<div class="shiping-details">-->
-				<!--							<div class="section-title">-->
-				<!--								<h3 class="title">Địa chỉ giao hàng</h3>-->
-				<!--							</div>-->
-				<!--							<div class="input-checkbox">-->
-				<!--								<input type="checkbox" id="shiping-address">-->
-				<!--								<label for="shiping-address">-->
-				<!--									<span></span>-->
-				<!--									Gửi đến địa chỉ khác?-->
-				<!--								</label>-->
-				<!--								<div class="caption">-->
-				<!--									<div class="form-group">-->
-				<!--										<input class="input" type="text" name="first-name" placeholder="Họ">-->
-				<!--									</div>-->
-				<!--									<div class="form-group">-->
-				<!--										<input class="input" type="text" name="last-name" placeholder="Tên">-->
-				<!--									</div>-->
-				<!--									<div class="form-group">-->
-				<!--										<input class="input" type="email" name="email" placeholder="Email">-->
-				<!--									</div>-->
-				<!--									<div class="form-group">-->
-				<!--										<input class="input" type="text" name="address" placeholder="Địa chỉ">-->
-				<!--									</div>-->
-				<!--									<div class="form-group">-->
-				<!--										<input class="input" type="text" name="city" placeholder="Thành Phố">-->
-				<!--									</div>-->
-				<!--									<div class="form-group">-->
-				<!--										<input class="input" type="text" name="country" placeholder="Quốc Gia">-->
-				<!--									</div>-->
-				<!--									<div class="form-group">-->
-				<!--										<input class="input" type="text" name="zip-code" placeholder="Mã bưu điện">-->
-				<!--									</div>-->
-				<!--									<div class="form-group">-->
-				<!--										<input class="input" type="tel" name="tel" placeholder="Điện thoại">-->
-				<!--									</div>-->
-				<!--								</div>-->
-				<!--							</div>-->
-				<!--						</div>-->
-				<!-- /Shiping Details -->
-
-				<!-- Order notes -->
-
-				<!-- /Order notes -->
 			</div>
 
 			<!-- Order Details -->

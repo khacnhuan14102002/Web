@@ -51,7 +51,7 @@
           User user = (User) session.getAttribute("user");
           if (user != null) {
         %>
-        <li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+        <li><a href="/successAccount"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
         <li><a href="/historyinvoice"><i class="fa fa-bars"></i>Lịch sử mua hàng</a></li>
         <%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
         <%
@@ -99,7 +99,7 @@
 
 
 
-              <input class="input" placeholder="Tiềm kiếm tại đây">
+              <input class="input" placeholder="Tìm kiếm tại đây">
               <button class="search-btn">Tìm kiếm</button>
             </form>
             </form>
@@ -188,7 +188,7 @@
       <div class="col-md-12">
 
         <ul class="breadcrumb-tree">
-          <li><a href="index.jsp">Trang chủ</a></li>
+          <li><a href="/index">Trang chủ</a></li>
           <li class="active">Về chúng tôi</li>
         </ul>
       </div>

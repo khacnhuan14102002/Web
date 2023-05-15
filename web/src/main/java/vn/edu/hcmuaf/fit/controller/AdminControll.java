@@ -9,9 +9,10 @@ import java.io.IOException;
 public class AdminControll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+
         request.getRequestDispatcher("admin.jsp").forward(request,response);
     }
-
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

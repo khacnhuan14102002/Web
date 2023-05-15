@@ -71,7 +71,7 @@
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal">
                         <button value="<%=cat.getIdCat()%>" style="display: none"></button>
                         <i class="material-icons" data-toggle="tooltip" title="Sửa">&#xE254;</i></a>
-                    <a href="http://localhost:8080/deleteCatalog?cid=<%=cat.getIdCat()%>" class="delete"
+                    <a href="/deleteCatalog?cid=<%=cat.getIdCat()%>" class="delete"
                        data-toggle="modal">
                         <i class="material-icons" data-toggle="tooltip" title="Xóa">&#xE872;</i></a>
                 </td>
@@ -80,7 +80,7 @@
             </tbody>
         </table>
     </div>
-    <a href="admin.jsp">
+    <a href="/adminpage">
         <button type="button" class="btn btn-primary">Trở về</button>
     </a>
 </div>
