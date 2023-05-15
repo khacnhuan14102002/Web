@@ -202,14 +202,19 @@
       <td><%= user.getActive() ==1 ?  "Hoạt động" : "Không hoạt động" %></td>
 
       <td>
-          <form action="EditUser.jsp" method="post">
-            <button type="submit" name="user">Sửa</button>
-          </form>
+<%--          <form action="editUs?uid=<%=user.getIdUser()%>" method="post">--%>
+<%--            <button type="submit" name="user">Sửa</button>--%>
+
+<%--          </form>--%>
+  <button class="add-to-wishlist"><a
+          href="editUs?uid=<%=user.getIdUser()%>"><i
+          class="fa fa-wrench"></i></a>
+  </button>
 
         <form method="post" action="deleteUser">
           <input type="hidden" name="idUser" value="<%= user.getIdUser() %>" />
           <input type="hidden" name="command" value="delete" />
-          <button type="submit" onclick="return confirm('Bạn có chắc muốn xóa user này không?')">Xóa</button>
+          <button style="width:48px" type="submit" onclick="return confirm('Bạn có chắc muốn xóa user này không?')"><i class="fa fa-trash"></i></button>
 
         </form>
       </td>
