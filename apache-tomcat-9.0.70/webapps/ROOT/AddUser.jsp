@@ -53,8 +53,10 @@
                         <option value="0">No</option>
                     </select>
                 </div>
+
+
                 <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="/adminUser"> <button href="" type="reset" class="btn btn-primary">Cancel</button> </a>
+                <a href="QuanLyUser.jsp"> <button href="" type="reset" class="btn btn-primary">Cancel</button> </a>
 
             </form>
         </div>
