@@ -49,9 +49,9 @@
                             <li><a><i class="fa fa-edit"></i>Quản lý<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="QuanLyUser.jsp">Quản lý User</a></li>
-                                    <li><a href="http://localhost:8080/manageControl">Quản lý sản phẩm</a></li>
-                                    <li><a href="typography.html">Quản lý hóa đơn</a></li>
-                                    <li><a href="http://localhost:8080/managerCatalogControl">Quản lý danh mục</a></li>
+                                    <li><a href="/manageControl">Quản lý sản phẩm</a></li>
+                                    <li><a href="/managerOrder">Quản lý hóa đơn</a></li>
+                                    <li><a href="/managerCatalogControl">Quản lý danh mục</a></li>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i>Báo cáo<span class="fa fa-chevron-down"></span></a>
@@ -61,31 +61,12 @@
                                 </ul>
                             </li>
                             <li><a href="/index"><i class="fa fa-reply"></i>Trở về trang chủ</a>
-                                <ul class="nav child_menu">
-                                    <li><a href="index.jsp">Thoát</a></li>
-                                </ul>
                             </li>
                         </ul>
 
                     </div>
                 </div>
                 <!-- /sidebar menu -->
-                <!-- /menu footer buttons -->
-                <div class="sidebar-footer hidden-small">
-                    <a data-toggle="tooltip" data-placement="top" title="Cài đặt">
-                        <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Toàn màn hình">
-                        <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Khóa">
-                        <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-                    </a>
-                    <a data-toggle="tooltip" data-placement="top" title="Đăng xuất" href="">
-                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-                    </a>
-                </div>
-                <!-- /menu footer buttons -->
             </div>
         </div>
         <!-- top navigation -->
@@ -102,13 +83,9 @@
                                 <img src="image/ntt.png" alt="">ShopNtt
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="javascript:;">Hồ sơ</a>
-                                <a class="dropdown-item" href="javascript:;">
-                                    <span class="badge bg-red pull-right">50%</span>
-                                    <span>Cài đặt</span>
-                                </a>
+                                <a class="dropdown-item" href="/successAccount">Hồ sơ</a>
                                 <a class="dropdown-item" href="javascript:;">Trợ giúp</a>
-                                <a class="dropdown-item" href=""><i class="fa fa-sign-out pull-right"></i>Đăng
+                                <a class="dropdown-item" href="/index"><i class="fa fa-sign-out pull-right"></i>Đăng
                                     xuất</a>
                             </div>
                         </li>
@@ -294,9 +271,6 @@
             </div>
         </div>
     </div>
-</div>
-<!-- /page content -->
-</div>
 </div>
 
 <!-- jQuery -->

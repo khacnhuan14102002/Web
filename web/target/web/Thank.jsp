@@ -60,7 +60,7 @@
                     User user = (User) session.getAttribute("user");
                     if (user != null) {
                 %>
-                <li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+                <li><a href="/successAccount"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
                 <li><a href="/historyinvoice"><i class="fa fa-bars"></i>Lịch sử mua hàng</a></li>
                 <%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
                 <%

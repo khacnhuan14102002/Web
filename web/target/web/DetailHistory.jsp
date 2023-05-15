@@ -62,7 +62,7 @@
                     User user = (User) session.getAttribute("user");
                     if (user != null) {
                 %>
-                <li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+                <li><a href="/successAccount"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
                 <li><a href="/historyinvoice"><i class="fa fa-bars"></i>Lịch sử mua hàng</a></li>
                 <%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
                 <%
@@ -180,21 +180,6 @@
                         </c:forEach>
                     </table>
                 </div>
-
-
-                <%--                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thành tiền</div>--%>
-
-                <%--                        <div class="p-4">--%>
-                    <%--                            <ul class="list-unstyled mb-4" id="contentTotalMoney">--%>
-                        <%--                                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền hàng</strong><strong>${totalPrice}</strong></li>--%>
-                        <%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Phí vận chuyển</strong><strong>Free ship</strong></li>--%>
-                        <%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">VAT</strong><strong>10 $</strong></li>--%>
-                        <%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng thanh toán</strong>--%>
-                            <%--                                     <h5 class="font-weight-bold">110 $</h5>--%>
-                            <%--                                 </li>--%>
-                        <%--                            </ul>--%>
-                    <%--                        </div>--%>
-                <%--                    </div>--%>
             </div>
             <div class="btn-group btns-cart">
                 <button type="button" class="bt btn btn-primary"><i class="fa fa-arrow-circle-left"></i><a href="/index">Trở về trang chủ</a></button>
@@ -213,10 +198,6 @@
 <script src="js/nouislider.min.js"></script>
 <script src="js/jquery.zoom.min.js"></script>
 <script src="js/main.js"></script>
-
-
-
-
 
 </body>
 

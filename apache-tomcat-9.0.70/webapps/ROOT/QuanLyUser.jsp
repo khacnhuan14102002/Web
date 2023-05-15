@@ -17,7 +17,7 @@
 <%--<!--  <meta property="og:title" content="Website TruongBin" />-->--%>
 <%--<!--  <meta property="og:description" content="Wellcome to my Website" />-->--%>
 
-<title> Quan Ly User</title>
+<title>Admin - Quản lý User</title>
 <!--  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"-->
 <!--        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -135,8 +135,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="#home" >USER</a></li>
         </li>
-        <li><a href="/index.jsp"><b>Đăng xuất <i class="fas fa-sign-out-alt"></i></b></a></li>
-        <li><a href="/admin.jsp" >Admin</a></li>
+        <li><a href="/index"><b>Đăng xuất <i class="fas fa-sign-out-alt"></i></b></a></li>
+        <li><a href="/adminpage" >Admin</a></li>
       </ul>
     </div>
   </div>

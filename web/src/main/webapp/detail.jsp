@@ -59,13 +59,13 @@
 					User user = (User) session.getAttribute("user");
 					if (user != null) {
 				%>
-				<li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+				<li><a href="/successAccount"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
 				<li><a href="/historyinvoice"><i class="fa fa-bars"></i>Lịch sử mua hàng</a></li>
 				<%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
 				<%
 					if (user.getRoleUs() == 1) {
 				%>
-				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
+				<li><a href="/adminpage"><i class="fa fa-cog"></i>Quản lý</a></li>
 				<%
 					}
 				%>
@@ -104,7 +104,7 @@
 				<div class="col-md-6">
 					<div class="header-search">
 						<form>
-							<input class="input" placeholder="Tiềm kiếm tại đây">
+							<input class="input" placeholder="Tìm kiếm tại đây">
 							<button class="search-btn">Tìm kiếm</button>
 						</form>
 					</div>
@@ -313,9 +313,6 @@
 							</div>
 						</div>
 						<!-- /tab1  -->
-
-
-
 						<!-- tab3  -->
 						<div id="tab3" class="tab-pane fade in">
 							<div class="row">
