@@ -65,11 +65,12 @@
 					if (user != null) {
 				%>
 				<li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+				<li><a href="/historyinvoice"><i class="fa fa-bars"></i>Lịch sử mua hàng</a></li>
 				<%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
 				<%
 					if (user.getRoleUs() == 1) {
 				%>
-				<li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
+				<li><a href="/adminpage"><i class="fa fa-cog"></i>Quản lý</a></li>
 				<%
 					}
 				%>
@@ -121,10 +122,10 @@
 					<div class="header-ctn">
 						<!-- Wishlist -->
 						<div>
-							<a href="#">
+							<a href="/wishlist">
 								<i class="fa fa-heart-o"></i>
 								<span>Yêu thích</span>
-								<div class="qty">2</div>
+								<div class="qty"><%=request.getAttribute("sizeW")%></div>
 							</a>
 						</div>
 						<!-- /Wishlist -->
@@ -137,34 +138,6 @@
 								<div class="qty">${cart.size() > 0 ? cart.size() : 0}</div>
 							</a>
 							<div class="cart-dropdown">
-								<div class="cart-list">
-									<div class="product-widget">
-										<div class="product-img">
-											<img src="./image/dc2.jpg" alt="">
-										</div>
-										<div class="product-body">
-											<h3 class="product-name"><a href="productdream3.html">Đại dương</a></h3>
-											<h4 class="product-price"> 150.000<del class="product-old-price">250.000</del></h4>
-										</div>
-										<button class="delete"><i class="fa fa-close"></i></button>
-									</div>
-
-									<div class="product-widget">
-										<div class="product-img">
-											<img src="./image/dc6.jpg" alt="">
-										</div>
-										<div class="product-body">
-
-											<h3 class="product-name"><a href="productdream1.html">Mị</a></h3>
-											<h4 class="product-price">240.000<del class="product-old-price">260.000</del></h4>
-										</div>
-										<button class="delete"><i class="fa fa-close"></i></button>
-									</div>
-								</div>
-								<div class="cart-summary">
-									<small>2 sản phẩm đã chon</small>
-									<h5>Giá tiền: 390.000</h5>
-								</div>
 								<div class="cart-btns">
 									<a href="/cart">Xem giỏ hàng</a>
 									<a href="/invoice">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
@@ -205,7 +178,7 @@
 			<ul class="main-nav nav navbar-nav">
 				<li ><a href="/index">Trang chủ</a></li>
 				<li class="active"><a href="/store">Sản phẩm</a></li>
-				<li><a href="#">Về chúng tôi</a> </li>
+				<li><a href="/about">Về chúng tôi</a> </li>
 				<li><a href="#">Liên hệ</a></li>
 
 				<!-- /NAV -->
@@ -259,7 +232,7 @@
 
 
 							<c:forEach items="${requestScope.listCC}" var="c">
-								<li><a href="category?cid=${c.idCat}">${c.nameCat}</a></li>
+								<li style="border-style: groove;text-align:center;"><a href="category?cid=${c.idCat}">${c.nameCat}</a></li>
 							</c:forEach>
 
 							<%--									<%--%>
@@ -284,22 +257,26 @@
 
 				<!-- aside Widget -->
 				<div class="aside">
-					<h3 class="aside-title">   Giá </h3>
-					<div class="price-filter">
-						<div id="price-slider"></div>
-						<div class="input-number price-min">
-							<input id="price-min" type="number" >
-							<span class="qty-up">+</span>
-							<span class="qty-down">-</span>
-						</div>
-						<span>-</span>
-						<div class="input-number price-max">
-							<input id="price-max" type="number">
-							<span class="qty-up">+</span>
-							<span class="qty-down">-</span>
-						</div>
-					</div>
+					<h3 class="aside-title">Giá</h3>
+					<ul >
+
+						<li style="border-style: groove;text-align:center;"><a href="/to11">Từ 10000 đến 100000</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/to12">Từ 100000 đến 200000</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/to23">Từ 200000 đến 300000</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/to34">Từ 300000 đến 400000</a></li>
+					</ul>
 				</div>
+				<div class="aside">
+					<h3 class="aside-title">Sắp xếp sản phẩm theo</h3>
+					<ul >
+
+						<li style="border-style: groove;text-align:center;"><a href="/AtoZ">Từ A -> Z</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/ZtoA">Từ Z -> A</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/sortDown">Giá tăng dần</a></li>
+						<li style="border-style: groove;text-align:center;"><a href="/sortHigh">Giá giảm dần</a></li>
+					</ul>
+				</div>
+
 				<!-- /aside Widget -->
 
 				<!-- aside Widget -->
@@ -359,41 +336,7 @@
 				<!-- /aside Widget -->
 
 				<!-- aside Widget -->
-				<div class="aside">
-					<h3 class="aside-title">Bán chạy nhất</h3>
-					<div class="product-widget">
-						<div class="product-img">
-							<img src="./image/dc8.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<p class="product-category">Dreamcatcher</p>
-							<h3 class="product-name"><a href="#">Ánh sáng</a></h3>
-							<h4 class="product-price">250.000<del class="product-old-price">280.000</del></h4>
-						</div>
-					</div>
 
-					<div class="product-widget">
-						<div class="product-img">
-							<img src="./image/dc11.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<p class="product-category">Dreamcatcher</p>
-							<h3 class="product-name"><a href="#">Đêm trăng</a></h3>
-							<h4 class="product-price">240.000<del class="product-old-price">250.000</del></h4>
-						</div>
-					</div>
-
-					<div class="product-widget">
-						<div class="product-img">
-							<img src="./image/dc6.jpg" alt="">
-						</div>
-						<div class="product-body">
-							<p class="product-category">Dreamcatcher</p>
-							<h3 class="product-name"><a href="productdream1.html">Mị</a></h3>
-							<h4 class="product-price">240.000<del class="product-old-price">260.000</del></h4>
-						</div>
-					</div>
-				</div>
 				<!-- /aside Widget -->
 			</div>
 			<!-- /ASIDE -->
@@ -401,23 +344,7 @@
 			<!-- STORE -->
 			<div id="store" class="col-md-9">
 				<!-- store top filter -->
-				<div class="store-filter clearfix">
-					<div class="store-sort">
-						<label>
-							Sắp xếp theo:
-							<select class="input-select">
-								<option value="0">Phổ biến</option>
-								<option value="1">Vị trí</option>
-							</select>
-						</label>
 
-
-					</div>
-					<ul class="store-grid">
-						<li class="active"><i class="fa fa-th"></i></li>
-						<li><a href="#"><i class="fa fa-th-list"></i></a></li>
-					</ul>
-				</div>
 				<!-- /store top filter -->
 
 				<!-- store products -->
@@ -444,17 +371,19 @@
 									<div class="product-body">
 
 										<h3 class="product-name"><a href="detail?pid=${p.idProduct}">${p.nameProduct}</a></h3>
-										<h4 class="product-price"> <del class="product-old-price"></del></h4>
+										<c:if test="${p.quantityStock ==0}"><h4 class="product-price" style="color:darkred">Sản phẩm hết hàng</h4></c:if>
 
-										<div class="product-btns"><button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
+										<div class="product-btns">
+
+											<button class="add-to-wishlist"><a href="addwish?proid=${p.idProduct}" ><i class="fa fa-heart-o"></i></a><span class="tooltipp">Thêm vào yêu thích</span></button>
 											<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
 										</div>
 									</div>
 
 									<div class="add-to-cart">
-
+										 <c:if test="${p.quantityStock ==0}"><a href="addwish?proid=${p.idProduct}" ><i class="fa fa-heart-o"></i>Thêm vào wishlist</a></c:if>
 											<%--									<a herf="addcart?proid=${detail.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>--%>
-										<a href="addcart?proid=${p.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
+										<c:if test="${p.quantityStock !=0}"> <a href="addcart?proid=${p.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a></c:if>
 									</div>
 
 								</div>
@@ -529,15 +458,15 @@
 				<!-- /store products -->
 
 				<!-- store bottom filter -->
+
 				<div class="store-filter clearfix">
 
 					<ul class="store-pagination">
-
-						<li class="active"><a href="#">1</a></li>
-						<li class="active"><a href="#">2</a></li>
-						<li class="active"><a href="#">3</a></li>
-						<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+						<c:forEach begin="1" end="${requestScope.endP}" var="i">
+							<li class="${tag==i?"active":""}"><a href="store?page=${i}">${i}</a></li>
+						</c:forEach>
 					</ul>
+
 				</div>
 
 				<!-- /store bottom filter -->

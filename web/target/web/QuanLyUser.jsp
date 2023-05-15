@@ -135,8 +135,8 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="#home" >USER</a></li>
         </li>
-        <li><a href="/index.jsp"><b>Đăng xuất <i class="fas fa-sign-out-alt"></i></b></a></li>
-        <li><a href="/admin.jsp" >Admin</a></li>
+        <li><a href="/index"><b>Đăng xuất <i class="fas fa-sign-out-alt"></i></b></a></li>
+        <li><a href="/adminpage" >Admin</a></li>
       </ul>
     </div>
   </div>

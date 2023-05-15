@@ -13,7 +13,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <title>ShopHandMade</title>
-
+    <meta http-equiv="refresh" content="8;url=/index">
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
 
@@ -61,11 +61,12 @@
                     if (user != null) {
                 %>
                 <li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+                <li><a href="/historyinvoice"><i class="fa fa-bars"></i>Lịch sử mua hàng</a></li>
                 <%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
                 <%
                     if (user.getRoleUs() == 1) {
                 %>
-                <li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
+                <li><a href="/adminpage"><i class="fa fa-cog"></i>Quản lý</a></li>
                 <%
                     }
                 %>
@@ -229,7 +230,8 @@
             <!-- shop -->
             <!-- /shop -->
             <!-- /shop -->
-            <h1>ĐẶT HÀNg THÀNH CÔNG</h1>
+            <h1>ĐÃ ĐẶT HÀNG THÀNH CÔNG</h1>
+            <h1>XIN CÁM ƠN BẠN ĐÃ MUA SẢN PHẨM CỦA SHOP</h1>
         </div>
         <!-- /row -->
     </div>
