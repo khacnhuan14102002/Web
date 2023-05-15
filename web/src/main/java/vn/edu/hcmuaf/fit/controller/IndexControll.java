@@ -20,6 +20,7 @@ import java.util.List;
 public class IndexControll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         SoluongService sl = new SoluongService();
         StoreService store = new StoreService();
         List<products> pro = store.getListProductALL();
