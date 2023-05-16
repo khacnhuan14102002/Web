@@ -175,6 +175,8 @@ public class UserDao {
 				user.setRoleUs(rs.getInt("RoleUs"));
 				user.setActive(rs.getInt("Active"));
 				user.setPhone(rs.getString("Phone"));
+				user.setPass(rs.getString("Pass"));
+
 				user.setRegistrationDate(rs.getDate("RegistrationDate"));
 				user.setKeyactive(rs.getString("Keyactive"));
 				users.add(user);
