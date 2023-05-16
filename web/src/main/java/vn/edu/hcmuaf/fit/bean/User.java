@@ -15,6 +15,55 @@ public class User {
 	private int RoleUs;
 	private int Active;
 	private String Keyactive;
+//	public User(){
+//	}
+
+	public User(String nameUser, String emailUs, String pass, String phone, Date registrationDate, int roleUs, int active, String keyactive) {
+		NameUser = nameUser;
+		EmailUs = emailUs;
+		Pass = pass;
+		Phone = phone;
+		RegistrationDate = registrationDate;
+		RoleUs = roleUs;
+		Active = active;
+		Keyactive = keyactive;
+	}
+
+	public User(String nameUser, String emailUs, String pass, String phone, Date registrationDate, int roleUs, int active) {
+		NameUser = nameUser;
+		EmailUs = emailUs;
+		Pass = pass;
+		Phone = phone;
+		RegistrationDate = registrationDate;
+		RoleUs = roleUs;
+		Active = active;
+	}
+
+	public User(int idUser, String nameUser, String emailUs, String pass, String phone, Date registrationDate, int roleUs, int active) {
+		IdUser = idUser;
+		NameUser = nameUser;
+		EmailUs = emailUs;
+		Pass = pass;
+		Phone = phone;
+		RegistrationDate = registrationDate;
+		RoleUs = roleUs;
+		Active = active;
+	}
+
+	public User(String nameUser, String emailUs, String pass, String phone, int roleUs, int active, String keyactive) {
+		NameUser = nameUser;
+		EmailUs = emailUs;
+		Pass = pass;
+		Phone = phone;
+		RoleUs = roleUs;
+		Active = active;
+		Keyactive = keyactive;
+	}
+
+	public User() {
+
+	}
+
 	public int getIdUser() {
 		return IdUser;
 	}
@@ -74,6 +123,4 @@ public class User {
 		return "User [IdUser=" + IdUser + ", NameUser=" + NameUser + ", EmailUs=" + EmailUs + ", Pass=" + Pass
 				+ ", Phone=" + Phone + ", RoleUs=" + RoleUs + ", Active=" + Active + ", Keyactive=" + Keyactive + "]";
 	}
-
-
 }

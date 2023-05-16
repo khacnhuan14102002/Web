@@ -2,8 +2,8 @@ package vn.edu.hcmuaf.fit.bean;
 
 import java.io.Serializable;
 
-public class products implements Serializable, Comparable<products> {
-    private String idProduct;
+public class products implements Serializable {
+    private int idProduct;
     private String idCategory;
     private String nameProduct;
     private String image;
@@ -11,7 +11,7 @@ public class products implements Serializable, Comparable<products> {
     private Integer priceOld;
     private Integer quantityStock;
     private String description;
-    private String idReview;
+
     private int isnew;
     private int discount;
 
@@ -19,7 +19,7 @@ public class products implements Serializable, Comparable<products> {
 
     }
 
-    public products(String idProduct, String idCategory, String nameProduct, String image, Integer priceNew, Integer priceOld, Integer quantityStock, String description, String idReview, int isnew, int discount) {
+    public products(int idProduct, String idCategory, String nameProduct, String image, Integer priceNew, Integer priceOld, Integer quantityStock, String description, int isnew, int discount) {
         this.idProduct = idProduct;
         this.idCategory = idCategory;
         this.nameProduct = nameProduct;
@@ -28,16 +28,16 @@ public class products implements Serializable, Comparable<products> {
         this.priceOld = priceOld;
         this.quantityStock = quantityStock;
         this.description = description;
-        this.idReview = idReview;
         this.isnew = isnew;
         this.discount = discount;
     }
 
-    public String getIdProduct() {
+
+    public int getIdProduct() {
         return idProduct;
     }
 
-    public void setIdProduct(String idProduct) {
+    public void setIdProduct(int idProduct) {
         this.idProduct = idProduct;
     }
 
@@ -113,18 +113,19 @@ public class products implements Serializable, Comparable<products> {
         this.discount = discount;
     }
 
-    public String getIdReview() {
-        return idReview;
-    }
+//    public String getIdReview() {
+//        return idReview;
+//    }
+//
+//    public void setIdReview(String idReview) {
+//        this.idReview = idReview;
+//    }
 
-    public void setIdReview(String idReview) {
-        this.idReview = idReview;
-    }
 
     @Override
     public String toString() {
         return "products{" +
-                "idProduct='" + idProduct + '\'' +
+                "idProduct=" + idProduct +
                 ", idCategory='" + idCategory + '\'' +
                 ", nameProduct='" + nameProduct + '\'' +
                 ", image='" + image + '\'' +
@@ -132,17 +133,8 @@ public class products implements Serializable, Comparable<products> {
                 ", priceOld=" + priceOld +
                 ", quantityStock=" + quantityStock +
                 ", description='" + description + '\'' +
-                ", idReview='" + idReview + '\'' +
                 ", isnew=" + isnew +
                 ", discount=" + discount +
                 '}';
     }
-
-    @Override
-    public int compareTo(products o) {
-
-        return Integer.parseInt(this.idProduct) - Integer.parseInt(o.idProduct);
-    }
-
-
 }

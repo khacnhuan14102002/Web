@@ -1,3 +1,4 @@
+<%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <!DOCTYPE html>
 <%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <html lang="en">
@@ -46,8 +47,29 @@
         <li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
       </ul>
       <ul class="header-links pull-right">
+        <%
+          User user = (User) session.getAttribute("user");
+          if (user != null) {
+        %>
+        <li><a href="success.jsp"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+        <%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
+        <%
+          if (user.getRoleUs() == 1) {
+        %>
+        <li><a href="admin.jsp"><i class="fa fa-cog"></i>Quản lý</a></li>
+        <%
+          }
+        %>
+        <%--					--%>
+        <li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 
-        <li><a href="#"><i class="fa fa-user-o"></i> Tài khoản</a></li>
+        <%
+        } else {
+        %>
+        <li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
+        <%
+          }
+        %>
       </ul>
     </div>
   </div>
@@ -137,7 +159,7 @@
                 </div>
                 <div class="cart-btns">
                   <a href="ViewCart.html">Xem giỏ hàng</a>
-                  <a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+                  <a href="checkout.jsp">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
                 </div>
               </div>
             </div>
@@ -171,8 +193,8 @@
     <div id="responsive-nav">
       <!-- NAV -->
       <ul class="main-nav nav navbar-nav">
-        <li class="active"><a href="#">Trang chủ</a></li>
-        <li ><a href="store.jsp">Sản phẩm</a></li>
+        <li class="active"><a href="/index">Trang chủ</a></li>
+        <li ><a href="/store">Sản phẩm</a></li>
         <li><a href="About.jsp">Về chúng tôi</a> </li>
         <li><a href="#">Liên hệ</a></li>
 

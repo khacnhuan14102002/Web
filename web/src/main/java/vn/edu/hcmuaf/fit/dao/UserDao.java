@@ -1,21 +1,28 @@
 package vn.edu.hcmuaf.fit.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+
+import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.db.Connects;
 import vn.edu.hcmuaf.fit.bean.User;
+import vn.edu.hcmuaf.fit.db.JDBiConnector;
+import vn.edu.hcmuaf.fit.db.connect;
+
+import static vn.edu.hcmuaf.fit.db.Connects.getConnect;
 
 public class UserDao {
 
-	private Connection con = null;
-	private PreparedStatement pre = null;
-	private ResultSet res = null;
+	static Connection con = null;
+	static PreparedStatement pre = null;
+	static ResultSet res = null;
 
 	public void saveUser(User u) {
-		con = Connects.getConnect();
+		con = getConnect();
 		String sql = "insert into users(NameUser, EmailUs, Pass, Phone, RegistrationDate, RoleUs, Active, Keyactive) values (?,?,?,?,?,?,?,?)";
 		try {
 			pre = con.prepareStatement(sql);
@@ -34,7 +41,7 @@ public class UserDao {
 	}
 	
 	public boolean activeByActivationKey(String Keyactive) {
-		con = Connects.getConnect();
+		con = getConnect();
 		String sql = "update users set Active = ? where Keyactive =?";
 		try {
 			pre = con.prepareStatement(sql);
@@ -48,7 +55,7 @@ public class UserDao {
 	}
 	
 	public User login(String email, String pass) {
-		con = Connects.getConnect();
+		con = getConnect();
 		User user = null;
 		String sql = "select * from users where EmailUs = ? and Pass= ? and Active = ?";
 		try {
@@ -74,7 +81,7 @@ public class UserDao {
 	}
 
 	public void updatePassword(String newpass, String email) {
-		con = Connects.getConnect();
+		con = getConnect();
 		String sql = "update users set Pass = ? where EmailUs = ?";
 		try {
 			pre = con.prepareStatement(sql);
@@ -87,7 +94,7 @@ public class UserDao {
 	}
 	
 	public void updateUser(User u) {
-		con = Connects.getConnect();
+		con = getConnect();
 		String sql = "update users set NameUser=?, EmailUs=?, Pass=?, Phone=? where IdUser = ?";
 		try {
 			pre = con.prepareStatement(sql);
@@ -101,7 +108,34 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
-	
+	public static User getUser(int id){
+		User user = new User();
+		String query = "select * from users where IdUser='" +id+ "'";
+		try {
+			con = new connect().getconConnection();
+			pre = con.prepareStatement(query);
+			res = pre.executeQuery();
+			while (res.next()) {
+
+				user.setActive(res.getInt("Active"));
+				user.setEmailUs(res.getString("EmailUs"));
+				user.setRoleUs(res.getInt("RoleUs"));
+				user.setNameUser(res.getString("NameUser"));
+				user.setIdUser(res.getInt("IdUser"));
+				user.setRegistrationDate(res.getDate("RegistrationDate"));
+				user.setPhone(res.getString("Phone"));
+				user.setPass(res.getString("Pass"));
+
+
+
+			}
+
+		} catch (Exception e) {
+			System.out.println("fail");
+		}
+		return user;
+
+	}
 	public User findUserByMaUser(Integer IdUser) {
 		User user = null;
 		String sql = "select * from users where IdUser = ?";
@@ -125,4 +159,117 @@ public class UserDao {
 		}
 		return user;		
 	}
+
+	// Lấy thông tin tất cả người dùng
+	public static ArrayList<User> getAllUsers() {
+		String sql = "SELECT * FROM Users";
+		ArrayList<User> users = new ArrayList<>();
+		try (Connection conn = Connects.getConnect();
+			 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				User user = new User();
+				user.setIdUser(rs.getInt("IdUser"));
+				user.setNameUser(rs.getString("NameUser"));
+				user.setEmailUs(rs.getString("EmailUs"));
+				user.setRoleUs(rs.getInt("RoleUs"));
+				user.setActive(rs.getInt("Active"));
+				user.setPhone(rs.getString("Phone"));
+				user.setRegistrationDate(rs.getDate("RegistrationDate"));
+				user.setKeyactive(rs.getString("Keyactive"));
+				users.add(user);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return users;
+	}
+
+	// Xóa người dùng
+	public static int deleteUser(int id) {
+		String sql = "DELETE FROM Users WHERE IdUser = ?";
+		int result = 0;
+		try (Connection conn = Connects.getConnect();
+			 PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+
+	//them user
+	public void addUser(User u) {
+		con = getConnect();
+		String sql = "insert into users(NameUser, EmailUs, Pass, Phone, RegistrationDate, RoleUs, Active, Keyactive) values (?,?,?,?,?,?,?,?)";
+		try {
+			pre = con.prepareStatement(sql);
+			pre.setString(1, u.getNameUser());
+			pre.setString(2, u.getEmailUs());
+			pre.setString(3, u.getPass());
+			pre.setString(4, u.getPhone());
+			pre.setDate(5, u.getRegistrationDate());
+			pre.setInt(6, u.getRoleUs());
+			pre.setInt(7, u.getActive());
+			pre.setString(8, u.getKeyactive());
+			pre.execute();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+//
+//public User getUserById(int id) {
+//	User user = null;
+//	try {
+//		Connection conn = pre.getConnection();
+//		PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE IdUser = ?");
+//		stmt.setInt(1, id);
+//		ResultSet rs = stmt.executeQuery();
+//		try (rs.next()) {
+//			user = new User();
+//			user.setIdUser(rs.getInt("IdUser"));
+//			user.setNameUser(rs.getString("NameUser"));
+//			user.setEmailUs(rs.getString("EmailUs"));
+//			user.setPass(rs.getString("pass"));
+//			user.setPhone(rs.getString("phone"));
+//			user.setRegistrationDate(rs.getDate("registrationDate"));
+//			user.setRoleUs(rs.getInt("roleUs"));
+//			user.setActive(rs.getInt("active"));
+//			user.setKeyactive(rs.getString("keyactive"));
+//		}
+//
+//	} catch (SQLException e) {
+//		e.printStackTrace();
+//	}
+//	return user;
+//}
+// edit user
+public void EditUser(User u) {
+	con = getConnect();
+	String sql = "update users set NameUser=? , EmailUs=?, Pass=?, Phone =? , RoleUs=? , Active=? where IdUser = ?";
+	try {
+		pre = con.prepareStatement(sql);
+		pre.setString(1, u.getNameUser());
+		pre.setString(2, u.getEmailUs());
+		pre.setString(3, u.getPass());
+		pre.setString(4, u.getPhone());
+		pre.setInt(5, u.getRoleUs());
+		pre.setInt(6, u.getActive());
+		pre.setInt(7, u.getIdUser());
+		pre.execute();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
 }
+
+	public static void main(String[] args) {
+		Date date1 = new Date(2022,10,2);
+		 UserDao dao = new UserDao();
+//		User u = new User(13,"nhuan","khacnhuan@gmail.com","1243","013348" ,date1,0,1);
+//		dao.EditUser(u);
+		System.out.println(dao.getUser(18));
+	}
+}
+
+

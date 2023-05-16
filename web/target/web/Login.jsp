@@ -34,7 +34,10 @@
       </fb:login-button>
 <%--</button>--%>
 
-  <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Đăng nhập với Google+</span> </button>
+<%--  <button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Đăng nhập với Google+</span> </button>--%>
+    <a href="https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/Web/login-google&response_type=code
+    &client_id=352140522561-vpmetjr6bjce1vod9b0cppihhbcgdesh.apps.googleusercontent.com&approval_prompt=force"><button class="btn google-btn social-btn" type="button"><span><i class="fab fa-google-plus-g"></i> Đăng nhập với Google+</span> </button></a>
+
     </div>
     <p style="text-align:center"> Hoặc  </p>
 
@@ -49,9 +52,9 @@
   </form>
 
   <form action="/reset/password/" class="form-reset">
-    <input type="email" id="resetEmail" class="form-control" placeholder="Nhập email" required="" autofocus="">
+<%--    <input type="email" id="resetEmail" class="form-control" placeholder="Nhập email" required="" autofocus="">--%>
     <a class="btn btn-primary btn-block" href="forget">quên mật khẩu</a>
-    <a href="#" id="cancel_reset"><i class="fas fa-angle-left"></i> Trở về</a>
+    <a href="/index" id="cancel_reset"><i class="fas fa-angle-left"></i> Trở về</a>
   </form>
 
   

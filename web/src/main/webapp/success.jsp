@@ -1,12 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="project" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Đăng nhập thành công</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
@@ -15,10 +13,11 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="css/Success.css">
 </head>
 <body>
 <div class="col-sm-5 container">
-<h1>login success!</h1>
 <form action="user" method="post">
 	<h4>Cập nhật thông tin</h4>
 	<label>Họ tên</label>
@@ -30,6 +29,7 @@
 	<label>Số điện thoại</label>
 	<input name="sdt" type="text" class="form-control" value="${user.getPhone()}">
 	<button class="btn btn-success">Cập nhật</button>
+
 </form>
 </div>
 </body>

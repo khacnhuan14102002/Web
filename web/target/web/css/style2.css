@@ -298,7 +298,7 @@ textarea.input {
 
 .input-number .qty-down {
     right: 0;
-    bottom: 0;
+    bottom: -105px;
 }
 
 .input-number .qty-up:hover, .input-number .qty-down:hover {

@@ -1,6 +1,9 @@
 <%@ page import="vn.edu.hcmuaf.fit.service.ProductService" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.Giohang" %>
+
+<%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.Review" %>
+<%@ page import="java.util.List" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -52,8 +55,30 @@
 				<li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
 			</ul>
 			<ul class="header-links pull-right">
+				<%
+					User user = (User) session.getAttribute("user");
+					if (user != null) {
+				%>
+				<li><a href="/successAccount"><i class="fa fa-user-o"></i> <%= user.getNameUser() %></a></li>
+				<li><a href="/historyinvoice"><i class="fa fa-bars"></i>Lịch sử mua hàng</a></li>
+				<%--    Nếu Roleus = 1 thì là admin hiện chữ tài khoản     --%>
+				<%
+					if (user.getRoleUs() == 1) {
+				%>
+				<li><a href="/adminpage"><i class="fa fa-cog"></i>Quản lý</a></li>
+				<%
+					}
+				%>
+				<%--					--%>
+				<li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 
-				<li><a href="Login.html"><i class="fa fa-user-o"></i> Tài khoản</a></li>
+				<%
+				} else {
+				%>
+				<li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
+				<%
+					}
+				%>
 			</ul>
 		</div>
 	</div>
@@ -68,7 +93,7 @@
 				<!-- LOGO -->
 				<div class="col-md-3">
 					<div class="header-logo">
-						<a href="index.html" class="logo">
+						<a href="/index" class="logo">
 							<img src="./image/ntt.png" alt="">
 						</a>
 					</div>
@@ -79,7 +104,7 @@
 				<div class="col-md-6">
 					<div class="header-search">
 						<form>
-							<input class="input" placeholder="Tiềm kiếm tại đây">
+							<input class="input" placeholder="Tìm kiếm tại đây">
 							<button class="search-btn">Tìm kiếm</button>
 						</form>
 					</div>
@@ -91,10 +116,10 @@
 					<div class="header-ctn">
 						<!-- Wishlist -->
 						<div>
-							<a href="#">
+							<a href="/wishlist">
 								<i class="fa fa-heart-o"></i>
 								<span>Yêu thích</span>
-								<div class="qty">2</div>
+								<div class="qty"><%=request.getAttribute("sizeW")%></div>
 							</a>
 						</div>
 						<!-- /Wishlist -->
@@ -104,40 +129,12 @@
 							<a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
 								<i class="fa fa-shopping-cart"></i>
 								<span>Giỏ hàng</span>
-								<div class="qty">2</div>
+								<div class="qty">${cart.size() > 0 ? cart.size() : 0}</div>
 							</a>
 							<div class="cart-dropdown">
-								<div class="cart-list">
-									<div class="product-widget">
-										<div class="product-img">
-											<img src="./image/dc2.jpg" alt="">
-										</div>
-										<div class="product-body">
-											<h3 class="product-name"><a href="productdream3.html">Đại dương</a></h3>
-											<h4 class="product-price"> 150.000<del class="product-old-price">250.000</del></h4>
-										</div>
-										<button class="delete"><i class="fa fa-close"></i></button>
-									</div>
-
-									<div class="product-widget">
-										<div class="product-img">
-											<img src="./image/dc6.jpg" alt="">
-										</div>
-										<div class="product-body">
-
-											<h3 class="product-name"><a href="productdream1.html">Mị</a></h3>
-											<h4 class="product-price">240.000<del class="product-old-price">260.000</del></h4>
-										</div>
-										<button class="delete"><i class="fa fa-close"></i></button>
-									</div>
-								</div>
-								<div class="cart-summary">
-									<small>2 sản phẩm đã chon</small>
-									<h5>Giá tiền: 390.000</h5>
-								</div>
 								<div class="cart-btns">
-									<a href="Cart.jsp">Xem giỏ hàng</a>
-									<a href="checkout.html">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
+									<a href="/cart">Xem giỏ hàng</a>
+									<a href="/invoice">Thanh toán<i class="fa fa-arrow-circle-right"></i></a>
 								</div>
 							</div>
 						</div>
@@ -169,16 +166,16 @@
 	<div class="container">
 		<!-- responsive-nav -->
 		<div id="responsive-nav">
-			<!-- NAV -->
+			<!-- NAV --><ul class="main-nav nav navbar-nav">
 			<ul class="main-nav nav navbar-nav">
-				<ul class="main-nav nav navbar-nav">
-					<li ><a href="index.jsp">Trang chủ</a></li>
-					<li class="active"><a href="store.jsp">Sản phẩm</a></li>
-					<li><a href="#">Về chúng tôi</a> </li>
-					<li><a href="#">Liên hệ</a></li>
+				<li ><a href="/index">Trang chủ</a></li>
+				<li class="active"><a href="/store">Sản phẩm</a></li>
+				<li><a href="/about">Về chúng tôi</a> </li>
+				<li><a href="#">Liên hệ</a></li>
 
-				</ul>
 			</ul>
+		</ul>
+
 			<!-- /NAV -->
 		</div>
 		<!-- /responsive-nav -->
@@ -188,12 +185,7 @@
 <!-- /NAVIGATION -->
 
 <!-- BREADCRUMB -->
-<% ProductService pro = new ProductService();
-	products pd = pro.getchitiet(request.getParameter("masp"));
 
-
-
-%>
 <div id="breadcrumb" class="section">
 	<!-- container -->
 	<div class="container">
@@ -201,9 +193,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
-					<li><a href="index.jsp">Trang chủ</a></li>
-					<li><a href="store.jsp">Sản phẩm</a></li>
-					<li class="active"><%=pd.getTensp()%></li>
+					<li><a href="/index">Trang chủ</a></li>
+					<li><a href="/store">Sản phẩm</a></li>
+					<li class="active">${detail.nameProduct}</li>
 				</ul>
 			</div>
 		</div>
@@ -225,7 +217,7 @@
 
 
 					<div class="product-preview">
-						<img src="<%=pd.getHinhanh()%>" alt="">
+						<img src="${detail.image}" alt="">
 					</div>
 				</div>
 			</div>
@@ -237,7 +229,7 @@
 
 
 					<div class="product-preview">
-						<img src="<%=pd.getHinhanh()%>" alt="">
+						<img src="${detail.image}" alt="">
 					</div>
 				</div>
 			</div>
@@ -246,7 +238,7 @@
 			<!-- Product details -->
 			<div class="col-md-5">
 				<div class="product-details">
-					<h2 class="product-name">ÁNH SÁNG</h2>
+					<h2 class="product-name">${detail.nameProduct}</h2>
 					<div>
 						<div class="product-rating">
 							<i class="fa fa-star"></i>
@@ -258,10 +250,11 @@
 						<a class="review-link" href="#">10 đánh giá | Thêm đánh giá của bạn</a>
 					</div>
 					<div>
-						<h4 class="product-price"><%=pd.getGiamoi()%>><del class="product-old-price"><%=pd.getGiacu()%></del></h4>
-						<span class="product-available"><%=pd.getTinhtrang()%></span>
+						<h4 class="product-price">${detail.priceNew}<del class="product-old-price">${detail.priceOld}</del></h4>
+						<c:if test="${detail.quantityStock == 0}"> <span class="product-available" style="color:darkred">Sản phẩm hết hàng</span></c:if>
+						<c:if test="${detail.quantityStock != 0}"> <span class="product-available">số lượng còn lại : ${detail.quantityStock}</span></c:if>
 					</div>
-					<p><%=pd.getMota()%></p>
+					<p>${detail.description}</p>
 
 
 
@@ -276,11 +269,12 @@
 								<span class="qty-down">-</span>
 							</div>
 						</div>
-						</div>
+					</div>
 
 					<ul class="product-btns">
-						<li><a href="Addcart?masp=<%=pd.getMasp()%>"><i class="fa-solid fa-cart-shopping"></i>Thêm vào gio hàng</a></li>
-						<li><a href="#"><i class="fa fa-heart-o"></i>Thêm vào yêu thích</a></li>
+						<c:if test="${detail.quantityStock != 0}">
+							<li><a href="addcart?proid=${detail.idProduct}"><i class="fa-solid fa-cart-shopping"></i>Thêm vào gio hàng</a></li></c:if>
+						<li><a href="addwish?proid=${detail.idProduct}"><i class="fa fa-heart-o"></i>Thêm vào yêu thích</a></li>
 						<li><a href="#"><i class="fa fa-exchange"></i>Thêm để so sánh</a></li>
 					</ul>
 
@@ -304,7 +298,7 @@
 					<!-- product tab nav -->
 					<ul class="tab-nav">
 						<li class="active"><a data-toggle="tab" href="#tab1">Mô tả</a></li>
-						<li><a data-toggle="tab" href="#tab3">Nhận xét(3)</a></li>
+						<li><a data-toggle="tab" href="#tab3">Nhận xét(${countAllReview })</a></li>
 					</ul>
 					<!-- /product tab nav -->
 
@@ -314,14 +308,11 @@
 						<div id="tab1" class="tab-pane fade in active">
 							<div class="row">
 								<div class="col-md-12">
-									<p><%=pd.getMota()%></p>
+									<p>${detail.description}</p>
 								</div>
 							</div>
 						</div>
 						<!-- /tab1  -->
-
-
-
 						<!-- tab3  -->
 						<div id="tab3" class="tab-pane fade in">
 							<div class="row">
@@ -329,13 +320,10 @@
 								<div class="col-md-3">
 									<div id="rating">
 										<div class="rating-avg">
-											<span>4.5</span>
+
+											<span>Điểm trung bình : ${avg}</span>
 											<div class="rating-stars">
 												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star"></i>
-												<i class="fa fa-star-o"></i>
 											</div>
 										</div>
 										<ul class="rating">
@@ -408,60 +396,31 @@
 									</div>
 								</div>
 								<!-- /Rating -->
-
+<%--								<c:forEach items="${requestScope.listAllReview}" var="r">--%>
 								<!-- Reviews -->
+
 								<div class="col-md-6">
 									<div id="reviews">
-										<ul class="reviews">
+										<ul class="reviews"><%
+											List<Review> listR = (List<Review>) request.getAttribute("listAllReview");
+											for (Review re : listR) {
+										%>
 											<li>
 												<div class="review-heading">
-													<h5 class="name">TuyetNhi</h5>
-													<p class="date">11/23/2022,10:00AM</p>
+													<h5 class="name"><%=re.getNameID()%></h5>
+													<p class="date"><%=re.getDateReview()%></p>
 													<div class="review-rating">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o empty"></i>
+														<p><%=re.getScore()%>/5   <i class="fa fa-star"></i></p>
+
 													</div>
 												</div>
 												<div class="review-body">
-													<p>Sản phẩm đẹp tôi rất thích</p>
+													<p><%=re.getContentReview()%></p>
 												</div>
 											</li>
-											<li>
-												<div class="review-heading">
-													<h5 class="name">HangNga</h5>
-													<p class="date">10/23/2022,7:00AM</p>
-													<div class="review-rating">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o empty"></i>
-													</div>
-												</div>
-												<div class="review-body">
-													<p>Sản phẩm đẹp</p>
-												</div>
-											</li>
-											<li>
-												<div class="review-heading">
-													<h5 class="name">MaiPhuong</h5>
-													<p class="date">10/21/2022,10:00AM</p>
-													<div class="review-rating">
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star"></i>
-														<i class="fa fa-star-o empty"></i>
-													</div>
-												</div>
-												<div class="review-body">
-													<p>Người dùng không đánh giá</p>
-												</div>
-											</li>
+											<% }%>
 										</ul>
+
 										<ul class="reviews-pagination">
 											<li class="active">1</li>
 											<li><a href="#">2</a></li>
@@ -471,29 +430,29 @@
 										</ul>
 									</div>
 								</div>
-								<!-- /Reviews -->
 
+<%--								</c:forEach>--%>
+								<!-- /Reviews -->
+								<form action="/addReview" method="post">
 								<!-- Review Form -->
 								<div class="col-md-3">
 									<div id="review-form">
 										<form class="review-form">
-											<input class="input" type="text" placeholder="Nhập tên của bạn">
-											<input class="input" type="email" placeholder="Nhập email của bạn">
-											<textarea class="input" placeholder="Đánh giá của bạn"></textarea>
+
+											<textarea name="content"class="input" placeholder="Đánh giá của bạn"></textarea>
+											<input type="hidden" name="idpro" value="${detail.getIdProduct()}">
 											<div class="input-rating">
 												<span>Đánh giá của bạn: </span>
 												<div class="stars">
-													<input id="star5" name="rating" value="5" type="radio"><label for="star5"></label>
-													<input id="star4" name="rating" value="4" type="radio"><label for="star4"></label>
-													<input id="star3" name="rating" value="3" type="radio"><label for="star3"></label>
-													<input id="star2" name="rating" value="2" type="radio"><label for="star2"></label>
-													<input id="star1" name="rating" value="1" type="radio"><label for="star1"></label>
+													<input name="score" class="input" type="text" placeholder="Nhập điểm trên thang điểm 5">
 												</div>
+
 											</div>
-											<button class="primary-btn">Nộp</button>
+											<button class="primary-btn">GỬI</button>
 										</form>
 									</div>
 								</div>
+								</form>
 								<!-- /Review Form -->
 							</div>
 						</div>
@@ -524,110 +483,48 @@
 			</div>
 
 			<!-- product -->
-			<div class="col-md-4 col-xs-6">
-				<div class="product">
-					<div class="product-img">
-						<img src="./image/dc2.jpg" alt="">
-						<div class="product-label">
-							<span class="sale">-30%</span>
-							<span class="new">Mới</span>
-						</div>
-					</div>
-					<div class="product-body">
-						<p class="product-category">Dreamcatcher</p>
-						<h3 class="product-name"><a href="productdream3.html">Đại dương</a></h3>
-						<h4 class="product-price"> 150.000<del class="product-old-price">250.000</del></h4>
-						<div class="product-rating">
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-						</div>
-						<div class="product-btns">
-							<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
-							<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-							<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem qua</span></button>
-						</div>
-					</div>
-					<div class="add-to-cart">
-						<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
-					</div>
-				</div>
-			</div>
+
 			<!-- /product -->
 
+			<!-- product -->
+
+			<!-- /product -->
+
+			<%
+
+				List<products> listlq = (List<products>) request.getAttribute("listlq");
+				for (products re : listlq) {
+			%>
 			<!-- product -->
 			<div class="col-md-4 col-xs-6">
 				<div class="product">
 					<div class="product-img">
-						<img src="./image/dc6.jpg" alt="">
+						<img src="<%=re.getImage()%>" alt="">
 
 					</div>
 					<div class="product-body">
-						<p class="product-category">Dreamcatcher</p>
-						<h3 class="product-name"><a href="productdream3.html">Mị</a></h3>
-						<h4 class="product-price">240.000<del class="product-old-price">260.000</del></h4>
-						<div class="product-rating">
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star-o"></i>
-						</div>
+						<h3 class="product-name"><a href="detail?pid=<%=re.getIdProduct()%>"><%=re.getNameProduct()%></a></h3>
+						<h4 class="product-price"><%=re.getPriceNew()%><del class="product-old-price"><%=re.getPriceOld()%></del></h4>
 						<div class="product-btns">
-							<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
-							<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-							<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem qua</span></button>
+							<button class="add-to-wishlist"><a href="addwish?proid=<%=re.getIdProduct()%>" ><i class="fa fa-heart-o"></i></a><span class="tooltipp">Thêm vào yêu thích</span></button>
+							<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
 						</div>
 					</div>
 					<div class="add-to-cart">
-						<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
+
+						<%--                           <a herf="addcart?proid=${detail.idProduct}"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>--%>
+						<a href="addcart?proid=<%=re.getIdProduct()%>"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</a>
 					</div>
 				</div>
 			</div>
 			<!-- /product -->
-
-			<div class="clearfix visible-sm visible-xs"></div>
-
-
-
-			<!-- product -->
-			<div class="col-md-4 col-xs-6">
-				<div class="product">
-					<div class="product-img">
-						<img src="./image/dc11.jpg" alt="">
-
-					</div>
-					<div class="product-body">
-						<p class="product-category">Dreamcatcher</p>
-						<h3 class="product-name"><a href="productdream2.html">Đêm trăng</a></h3>
-						<h4 class="product-price"> 240.000<del class="product-old-price">250.000</del></h4>
-						<div class="product-rating">
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-							<i class="fa fa-star"></i>
-						</div>
-						<div class="product-btns">
-							<button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">Thêm vào yêu thích</span></button>
-							<button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">So sánh</span></button>
-							<button class="quick-view"><i class="fa fa-eye"></i><span class="tooltipp">Xem qua</span></button>
-						</div>
-					</div>
-					<div class="add-to-cart">
-						<button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i>Thêm vào giỏ hàng</button>
-					</div>
-				</div>
-			</div>
-			<!-- /product -->
-
+			<%}%>
 		</div>
 		<!-- /row -->
 	</div>
 	<!-- /container -->
 </div>
+
 <!-- /Section -->
 
 <!-- NEWSLETTER -->

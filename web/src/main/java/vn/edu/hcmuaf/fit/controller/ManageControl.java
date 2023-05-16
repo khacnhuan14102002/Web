@@ -19,11 +19,11 @@ public class ManageControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         ManagerService mana = new ManagerService();
-        List<products> list = mana.getAllProduct();
+        List<products> listP = mana.getAllProduct();
         List<category> listC = mana.getAllCategory();
 
         request.setAttribute("listC", listC);
-        request.setAttribute("listP", list);
+        request.setAttribute("listP", listP);
         request.getRequestDispatcher("managerProduct.jsp").forward(request, response);
     }
 
