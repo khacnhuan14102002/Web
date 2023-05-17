@@ -29,7 +29,6 @@ public class JDBiConnector {
         if(connector==null) connector = new JDBiConnector();
         return connector.jdbi;
     }
-
     public static void main(String[] args) {
         List<products> products = JDBiConnector.me().withHandle(handle -> {
             return handle.createQuery("select * from products").mapToBean(vn.edu.hcmuaf.fit.bean.products.class).stream().collect(Collectors.toList());
