@@ -94,9 +94,21 @@
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
-        <datasource-mapping />
+        <datasource-mapping>
+          <factory-entry name="WebsiteBanGiay" />
+        </datasource-mapping>
         <naming-strategy-map />
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/apache-tomcat-9.0.70/webapps/WebsiteBanGiay_war/WEB-INF/classes/META-INF/persistence.xml" />
+      </configuration>
+    </facet>
+    <facet type="web" name="Web10">
+      <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/apache-tomcat-9.0.70/webapps/web/WEB-INF/web.xml" />
+        </descriptors>
+        <webroots>
+          <root url="file://$MODULE_DIR$/apache-tomcat-9.0.70/webapps/web" relative="/" />
+        </webroots>
       </configuration>
     </facet>
   </component>
@@ -112,6 +124,24 @@
         </CLASSES>
         <JAVADOC />
         <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../AccessGoogle-lib/httpcore-4.4.9.jar!/" />
+          <root url="jar://$MODULE_DIR$/../AccessGoogle-lib/httpclient-4.5.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/../AccessGoogle-lib/gson-2.8.2.jar!/" />
+          <root url="jar://$MODULE_DIR$/../AccessGoogle-lib/fluent-hc-4.5.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/../AccessGoogle-lib/commons-logging-1.2.jar!/" />
+          <root url="file://$MODULE_DIR$" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/apache-tomcat-9.0.70/webapps/docs/appdev/sample/src" />
+          <root url="file://$MODULE_DIR$/apache-tomcat-9.0.70/webapps/examples/WEB-INF/classes" />
+          <root url="file://$MODULE_DIR$/web/src/main/java" />
+        </SOURCES>
       </library>
     </orderEntry>
   </component>

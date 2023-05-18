@@ -14,6 +14,9 @@ public class AddUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Lấy các thông tin từ request
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+
         String nameUser = request.getParameter("NamUser");
         String emailUs = request.getParameter("EmailUs");
         String pass = request.getParameter("Pass");
@@ -37,6 +40,6 @@ public class AddUserServlet extends HttpServlet {
         userDao.addUser(user);
 
         // Chuyển hướng về trang danh sách user
-        response.sendRedirect("QuanLyUser.jsp");
+        response.sendRedirect("/adminUser");
     }
 }

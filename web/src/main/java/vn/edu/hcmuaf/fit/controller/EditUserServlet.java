@@ -20,15 +20,16 @@ public class EditUserServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         // Lấy các thông tin từ request
-        Integer userId = Integer.parseInt(request.getParameter("IdUser"));
-        String nameUser = request.getParameter("NameUser");
-        String emailUs = request.getParameter("EmailUs");
-        String pass = request.getParameter("Pass");
-        String phone = request.getParameter("Phone");
-        Date registrationDate = Date.valueOf(request.getParameter("RegistrationDate"));
-        Integer roleUs = Integer.parseInt(request.getParameter("RoleUs"));
-        Integer active = Integer.parseInt(request.getParameter("Active"));
-
+        response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
+        String nameUser = request.getParameter("nameUser");
+        String emailUs = request.getParameter("emailUs");
+        String pass = request.getParameter("pass");
+        String phone = request.getParameter("phone");
+//        Date registrationDate = Date.valueOf(request.getParameter("RegistrationDate"));
+        Integer roleUs = Integer.parseInt(request.getParameter("roleUs"));
+        Integer active = Integer.parseInt(request.getParameter("active"));
+        Integer userId = Integer.parseInt(request.getParameter("idU"));
         // Tạo một đối tượng User mới với các thông tin vừa lấy
         UserDao uDao = new UserDao();
         User user = new User();
@@ -37,19 +38,20 @@ public class EditUserServlet extends HttpServlet {
         user.setEmailUs(emailUs);
         user.setPass(pass);
         user.setPhone(phone);
-        user.setRegistrationDate(registrationDate);
+//        user.setRegistrationDate(registrationDate);
         user.setRoleUs(roleUs);
         user.setActive(active);
-        uDao.updateUser(user);
+        user.setIdUser(userId);
+//        uDao.updateUser(user);
 
-        user.setRegistrationDate(new Date(System.currentTimeMillis())); // Lấy ngày hiện tại làm ngày đăng ký
+        //user.setRegistrationDate(new Date(System.currentTimeMillis())); // Lấy ngày hiện tại làm ngày đăng ký
 
         // Thực hiện thêm user vào cơ sở dữ liệu
         UserDao userDao = new UserDao();
         userDao.EditUser(user);
 
         // Chuyển hướng về trang danh sách user
-        response.sendRedirect("QuanLyUser.jsp");
+        response.sendRedirect("/adminUser");
     }
 
 }

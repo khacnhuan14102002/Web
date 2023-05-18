@@ -21,7 +21,7 @@ public class UserController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		RequestDispatcher rd = null;
-		rd = req.getRequestDispatcher("/index.jsp");
+		rd = req.getRequestDispatcher("/index");
 		HttpSession session = req.getSession();
 		User user = (User) session.getAttribute("user");
 		req.setAttribute("user", user);
@@ -30,6 +30,8 @@ public class UserController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html;charset=UTF-8");
+		req.setCharacterEncoding("UTF-8");
 		String ten = req.getParameter("fullname");
 		String email = req.getParameter("email");
 		String sdt = req.getParameter("sdt");
