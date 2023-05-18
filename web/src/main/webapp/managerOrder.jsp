@@ -98,7 +98,7 @@
             </ul>
         </div>
     </div>
-    <a href="http://localhost:8080/adminpage">
+    <a href="/adminpage">
         <button type="button" class="btn btn-primary">Trở về</button>
     </a>
 </div>

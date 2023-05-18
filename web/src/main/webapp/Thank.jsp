@@ -51,7 +51,6 @@
                 <li><a href="#"><i class="fa fa-phone"></i> +8423658910</a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
-
             </ul>
 
             <%--			Đăng nhập thành công thay thế dòng chữ TÀI KHOẢN--%>
@@ -72,7 +71,6 @@
                 %>
                 <%--					--%>
                 <li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
-
                 <%
                 } else {
                 %>
@@ -105,7 +103,6 @@
                 <div class="col-md-6">
                     <div class="header-search">
                         <form>
-
                             <input name="txt" type="text" class="input" placeholder="Tìm kiếm tại đây">
                             <button type="submit" class="search-btn">Tìm kiếm</button>
                         </form>
@@ -145,13 +142,11 @@
                                         </div>
                                         <button class="delete"><i class="fa fa-close"></i></button>
                                     </div>
-
                                     <div class="product-widget">
                                         <div class="product-img">
                                             <img src="./image/dc6.jpg" alt="">
                                         </div>
                                         <div class="product-body">
-
                                             <h3 class="product-name"><a href="productdream1.html">Mị</a></h3>
                                             <h4 class="product-price">240.000<del class="product-old-price">260.000</del></h4>
                                         </div>

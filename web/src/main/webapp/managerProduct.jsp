@@ -115,7 +115,7 @@
         <button type="button" class="btn btn-primary">Trở về</button>
     </a>
 </div>
-<!-- Edit Modal HTML -->
+<!-- Add Modal HTML -->
 <div id="addEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
