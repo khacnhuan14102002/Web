@@ -1,4 +1,3 @@
-<%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -38,12 +37,7 @@
                     </div>
                     <div class="profile_info">
                         <span>Xin chào,</span>
-                        <h2>
-                            <%
-                                User user = (User) session.getAttribute("user");
-                            %>
-                            <%= user.getNameUser() %>
-                        </h2>
+                        <h2>ShopNtt</h2>
                     </div>
                 </div>
                 <!-- /menu profile quick info -->
