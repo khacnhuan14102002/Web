@@ -98,9 +98,44 @@
             </ul>
         </div>
     </div>
-    <a href="/adminpage">
+    <div>
+    <a href="/adminpage" style="width: 20%; float:left">
         <button type="button" class="btn btn-primary">Trở về</button>
+
     </a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Xuất file Excel
+    </button>
+    </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>           <form action="/xuatexcelHoadon" method="get" >
+            <div class="modal-body">
+
+
+                        <p>chọn thời gian bắt đầu</p>
+                        <input name="dateHoaDons" class="input" type="text" placeholder="nhập tháng muốn xuất">
+                        <p>chọn thời gian kết thúc</p>
+                        <input name="dateHoaDone" class="input" type="text" placeholder="nhập năm muốn xuất">
+
+
+            </div>
+            <div class="modal-footer">
+                <button class="primary-btn">Xuất</button>
+            </div>
+        </form>
+        </div>
+    </div>
 </div>
 <script src="build/js/manager.js" type="text/javascript"></script>
 </body>

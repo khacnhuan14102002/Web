@@ -112,6 +112,51 @@ public class ManagerService {
             System.out.println("fail");
         }
     }
+    public  int gettotalpro() {
+        String query = "select count(*) from products";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                return rs.getInt(1);
+
+            }
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return 0;
+    }
+    public List<products> paging(int index){
+        List<products> list = new ArrayList<>();
+        String query = "SELECT * FROM products ORDER BY IdProduct LIMIT 12 OFFSET ?";
+        try {
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            ps.setInt(1,(index-1)*12);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                list.add(new products(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5),
+                        rs.getInt(6),
+                        rs.getInt(7),
+                        rs.getString(8),
+                        rs.getInt(9),
+                        rs.getInt(10)));
+
+            }
+
+
+        } catch (Exception e) {
+            System.out.println("fail");
+        }
+        return list;
+
+    }
 
     public static void main(String[] args) {
         ManagerService mana = new ManagerService();

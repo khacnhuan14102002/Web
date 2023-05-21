@@ -107,7 +107,9 @@
         </table>
         <div class="clearfix">
             <ul class="pagination">
-                <li class="page-item active"><a href="#" class="page-link">1</a></li>
+            <c:forEach begin="1" end="${requestScope.endP}" var="i">
+                <li class="${tag==i?"active":""}"><a href="manageControl?page=${i}">${i}</a></li>
+            </c:forEach>
             </ul>
         </div>
     </div>
