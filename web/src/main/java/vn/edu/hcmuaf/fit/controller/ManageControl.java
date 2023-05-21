@@ -3,6 +3,7 @@ package vn.edu.hcmuaf.fit.controller;
 import vn.edu.hcmuaf.fit.bean.category;
 import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.service.ManagerService;
+import vn.edu.hcmuaf.fit.service.StoreService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,10 +19,22 @@ public class ManageControl extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
-        ManagerService mana = new ManagerService();
-        List<products> listP = mana.getAllProduct();
-        List<category> listC = mana.getAllCategory();
-
+        ManagerService mana1 = new ManagerService();
+        StoreService mana =new StoreService();
+        String indexPage = request.getParameter("page");
+        if (indexPage == null) {
+            indexPage = "1";
+        }
+        int index = Integer.parseInt(indexPage);
+       int count = mana.gettotalpro();
+        int endPage = count / 12;
+        if (count % 12 != 0) {
+            endPage++;
+        }
+        List<products> listP = mana.paging(index);
+        List<category> listC = mana1.getAllCategory();
+        request.setAttribute("tag", index);
+        request.setAttribute("endP", endPage);
         request.setAttribute("listC", listC);
         request.setAttribute("listP", listP);
         request.getRequestDispatcher("managerProduct.jsp").forward(request, response);
