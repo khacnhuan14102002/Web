@@ -18,7 +18,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-        <title>ShopHandMade</title>
+        <title>Lịch sử mua hàng</title>
 
         <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -53,7 +53,7 @@
     <div id="top-header">
         <div class="container">
             <ul class="header-links pull-left">
-                <li><a href="#"><i class="fa fa-phone"></i> +8423658910</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
             </ul>
@@ -102,7 +102,7 @@
                     </div>
 
                     <div class="page">
-                        <p>|LỊCH SỬ MUA HÀNG</p>
+                        <p>LỊCH SỬ MUA HÀNG</p>
                     </div>
                 </div>
                 <!-- /LOGO -->
@@ -116,22 +116,6 @@
                         </form>
                     </div>
                 </div>
-                <!-- /SEARCH BAR -->
-
-                <!-- ACCOUNT -->
-
-                <!-- Wishlist -->
-
-                <!-- /Wishlist -->
-
-                <!-- Cart -->
-
-
-
-                <!-- /Menu Toogle -->
-
-
-                <!-- /ACCOUNT -->
             </div>
             <!-- row -->
         </div>
@@ -142,9 +126,6 @@
 
 <div class="container bootdey">
     <div class="row bootstrap snippets">
-
-
-
         <!-- Cart -->
         <div class="col-lg-9 col-md-9 col-sm-12">
             <div class="col-lg-12 col-sm-12">
@@ -155,21 +136,13 @@
                     <table class="table table-bordered tbl-cart">
                         <thead>
                         <tr>
-
-
-                            <td class="hidden-xs mn">Id</td>
+                            <td class="hidden-xs mn">Mã</td>
                             <td class="mn" >Tổng tiền</td>
-
                             <td class="td-qty mn" >Ngày mua</td>
                             <td class="mn">Trạng thái</td>
-
-
-
-
                         </tr>
                         </thead>
                     <c:forEach items="${requestScope.listIn}" var="l">
-
                         <tbody>
                         <tr>
 <%--                            id--%>
@@ -180,7 +153,7 @@
                             <td class="npr">${l.getTotal()}
 
                             </td>
-<%--                            ngay miu--%>
+<%--                            ngay mua--%>
                             <td>
                                 ${l.datecreate}
                             </td>
@@ -188,30 +161,10 @@
                             <td >${l.getStatusIn()}</td>
             <td ><a href="detailinvoice?Idinvoice=${l.idIn}" >XEM CHI TIẾT</a></td>
                         </tr>
-
-
-
                         </c:forEach>
                         </tbody>
-
                     </table>
                 </div>
-
-
-                <%--                    <div class="col-lg-6">--%>
-                <%--                        <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Thành tiền</div>--%>
-
-                <%--                        <div class="p-4">--%>
-                <%--                            <ul class="list-unstyled mb-4" id="contentTotalMoney">--%>
-                <%--                                  <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng tiền hàng</strong><strong>${totalPrice}</strong></li>--%>
-                <%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Phí vận chuyển</strong><strong>Free ship</strong></li>--%>
-                <%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">VAT</strong><strong>10 $</strong></li>--%>
-                <%--                                 <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Tổng thanh toán</strong>--%>
-                <%--                                     <h5 class="font-weight-bold">110 $</h5>--%>
-                <%--                                 </li>--%>
-                <%--                            </ul>--%>
-                <%--                        </div>--%>
-                <%--                    </div>--%>
             </div>
             <div class="btn-group btns-cart">
                 <button type="button" class="bt btn btn-primary"><i class="fa fa-arrow-circle-left"></i><a href="/index"> Trở về trang chủ</a></button>
@@ -232,10 +185,6 @@
 <script src="js/nouislider.min.js"></script>
 <script src="js/jquery.zoom.min.js"></script>
 <script src="js/main.js"></script>
-
-
-
-
 
 </body>
 
