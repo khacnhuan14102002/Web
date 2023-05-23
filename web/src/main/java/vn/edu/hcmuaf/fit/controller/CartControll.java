@@ -26,8 +26,6 @@ public class CartControll extends HttpServlet {
         request.setAttribute("cart", cart);
         request.getRequestDispatcher("Cart.jsp").forward(request, response);
 
-
-
     }
 
     @Override
