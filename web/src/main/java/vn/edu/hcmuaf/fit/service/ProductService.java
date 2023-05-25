@@ -18,46 +18,12 @@ public class    ProductService {
     static PreparedStatement ps = null;
     static ResultSet rs = null;
     public static List<products> getListProductByCategory(String IdCategory) {
-//        ArrayList<products> list = new ArrayList<>();
-//        String query = "select * from products where IdCategory='" +IdCategory+ "'";
-//        try{
-//            conn = new connect().getconConnection();
-//            ps = conn.prepareStatement(query);
-//            rs=ps.executeQuery();
-//            while(rs.next()){
-//                products pro= new products(rs.getString(1),
-//                        rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getString(8),rs.getInt(9),rs.getInt(10),rs.getInt(11));
-//                list.add(pro);
-//
-//            }
-//            return list;
-//        } catch (Exception e) {
-//            System.out.println("fail");
-//        }
-//        return null;
         return JDBiConnector.me().withHandle(handle -> {
             return handle.createQuery("select * from products where IdCategory='" +IdCategory+ "'").mapToBean(vn.edu.hcmuaf.fit.bean.products.class).stream().collect(Collectors.toList());
         });
     }
 
     public static List<products> getListProductALL() {
-//        ArrayList<products> list = new ArrayList<>();
-////        String query = "select * from products";
-////        try {
-////            conn = new connect().getconConnection();
-////            ps = conn.prepareStatement(query);
-////            rs = ps.executeQuery();
-////            while (rs.next()) {
-////                products pro = new products(rs.getString(1),
-////                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getInt(11));
-////                list.add(pro);
-////
-////            }
-////
-////        } catch (Exception e) {
-////            System.out.println("fail");
-////        }
-////        return list;
         return JDBiConnector.me().withHandle(handle -> {
             return handle.createQuery("select * from products").mapToBean(products.class).stream().collect(Collectors.toList());
         });
@@ -161,23 +127,6 @@ public class    ProductService {
 
     }
     public static List<category> listCate() {
-//        ArrayList<products> list = new ArrayList<>();
-////        String query = "select * from products";
-////        try {
-////            conn = new connect().getconConnection();
-////            ps = conn.prepareStatement(query);
-////            rs = ps.executeQuery();
-////            while (rs.next()) {
-////                products pro = new products(rs.getString(1),
-////                        rs.getString(2), rs.getString(3), rs.getString(4), rs.getInt(5), rs.getInt(6), rs.getInt(7), rs.getString(8), rs.getInt(9), rs.getInt(10), rs.getInt(11));
-////                list.add(pro);
-////
-////            }
-////
-////        } catch (Exception e) {
-////            System.out.println("fail");
-////        }
-////        return list;
         return JDBiConnector.me().withHandle(handle -> {
             return handle.createQuery("select * from category").mapToBean(category.class).stream().collect(Collectors.toList());
         });
@@ -227,23 +176,6 @@ public class    ProductService {
         }
     }
     public static List<products> getListProductlq(String IdCa) {
-//        ArrayList<products> list = new ArrayList<>();
-//        String query = "select * from products where IdCategory='" +IdCategory+ "'";
-//        try{
-//            conn = new connect().getconConnection();
-//            ps = conn.prepareStatement(query);
-//            rs=ps.executeQuery();
-//            while(rs.next()){
-//                products pro= new products(rs.getString(1),
-//                        rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getString(8),rs.getInt(9),rs.getInt(10),rs.getInt(11));
-//                list.add(pro);
-//
-//            }
-//            return list;
-//        } catch (Exception e) {
-//            System.out.println("fail");
-//        }
-//        return null;
         return JDBiConnector.me().withHandle(handle -> {
             return handle.createQuery("SELECT * FROM products where IdCategory= '" +IdCa+ "' ORDER BY RAND() LIMIT 3").mapToBean(vn.edu.hcmuaf.fit.bean.products.class).stream().collect(Collectors.toList());
         });
@@ -252,10 +184,6 @@ public class    ProductService {
     public static void main(String[] args) {
         ProductService pro = new ProductService();
 
-       // System.out.println(pro.getListProductByCategory("DC"));
-//        System.out.println(pro.getListProductALL().size());;
-//        System.out.println(pro.searchbyName("Đ"));
-//        System.out.println(pro.listCate());
         products p = new products(1,"DC", "Đại Dương", "./image/dc2.jpg", 150000, 250000, 55, "Sản phẩm được lấy ý tưởng từ hình ảnh màu xanh của nước biển kết hợp với lông vũ màu xanh khiến cho sản phẩm đẹp hơn bao giờ hết", 1, 40);
         pro.updateProduct(p);
         System.out.println(pro.getTop10SanPhamBanChay());

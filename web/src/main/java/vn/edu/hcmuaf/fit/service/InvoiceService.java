@@ -71,7 +71,33 @@ public class InvoiceService {
     }
 
 
-
+    public ArrayList<Invoice> getAllInbyMonth(String  month,String year){
+        ArrayList<Invoice> list = new ArrayList<>();
+        String query="select * from invoices where  MONTH(Exportdate)=? and YEAR(Exportdate) =?";
+        try{
+            conn = new connect().getconConnection();
+            ps = conn.prepareStatement(query);
+            ps.setString(1,month);
+            ps.setString(2,year);
+            rs=ps.executeQuery();
+            while(rs.next()){
+                Invoice invoice = new Invoice(rs.getInt("IdInvoice"),
+                        rs.getString("NameUs"),
+                        rs.getString("Address"),
+                        rs.getString("PayType"),
+                        rs.getString("StatusIn"),
+                        rs.getDouble("Total"),
+                        rs.getTimestamp("Exportdate"),
+                        rs.getString("Phone"),
+                        rs.getInt("IdUs"));
+                list.add(invoice);
+            }
+        }catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("fail");
+        }
+        return list;
+    }
     public double totalMoneyDay(int day) {
         String query = "select  SUM(Total) from invoices where Day(Exportdate)=? Group by Day(Exportdate);";
         try {
@@ -104,7 +130,8 @@ public class InvoiceService {
     public static void main(String[] args) {
     InvoiceService in = new InvoiceService();
     System.out.println(in.getAllIn(3));
-    System.out.println(in.totalMoneyMonth(5));
+    //System.out.println(in.getAllInbyMonth("2023-05-01 00:00:00","2023-05-31 23:59:59"));
+
 
 }
     }

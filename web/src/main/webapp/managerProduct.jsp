@@ -107,7 +107,9 @@
         </table>
         <div class="clearfix">
             <ul class="pagination">
-                <li class="page-item active"><a href="#" class="page-link">1</a></li>
+            <c:forEach begin="1" end="${requestScope.endP}" var="i">
+                <li class="${tag==i?"active":""}"><a href="manageControl?page=${i}">${i}</a></li>
+            </c:forEach>
             </ul>
         </div>
     </div>
@@ -115,7 +117,7 @@
         <button type="button" class="btn btn-primary">Trở về</button>
     </a>
 </div>
-<!-- Edit Modal HTML -->
+<!-- Add Modal HTML -->
 <div id="addEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
