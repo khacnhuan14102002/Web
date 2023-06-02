@@ -163,7 +163,11 @@
         <li><a href="/index">Trang chủ</a></li>
         <li><a href="/store">Sản phẩm</a></li>
         <li class="active"><a href="/about">Về chúng tôi</a> </li>
+<<<<<<< HEAD
+        <li><a href="/contactController">Liên hệ</a></li>
+=======
         <li><a href="/contactControl">Liên hệ</a></li>
+>>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
 
         <!-- /NAV -->
       </ul>
@@ -182,7 +186,6 @@
     <!-- row -->
     <div class="row">
       <div class="col-md-12">
-
         <ul class="breadcrumb-tree">
           <li><a href="/index">Trang chủ</a></li>
           <li class="active">Về chúng tôi</li>
@@ -201,9 +204,7 @@
   <div class="container">
     <!-- row -->
     <div class="row">
-
-
-        <!-- Billing Details -->
+ <!-- Billing Details -->
         <div class="billing-details">
           <div class="section-title">
             <h2 class="title" style="text-align: center">Về cửa hàng của chúng tôi</h2></div></br>
@@ -300,9 +301,15 @@
             <h3 class="footer-title">Về chúng tôi</h3>
             <p>Đây là shop có tên là shop</p>
             <ul class="footer-links">
+<<<<<<< HEAD
+              <li><a href="#"><i class="fa fa-map-marker"></i>Ling Trung, Thủ Đức</a></li>
+              <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
+              <li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
+=======
               <li><a><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
               <li><a><i class="fa fa-phone"></i>0723658910</a></li>
               <li><a><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
+>>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
             </ul>
           </div>
         </div>

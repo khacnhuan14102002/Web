@@ -89,8 +89,12 @@
                                 <img src="image/ntt.png" alt="">ShopNtt
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
+                                <a class="dropdown-item" href="/index"><i class="fa fa-sign-out pull-right"></i>Đăng
+=======
                                 <a class="dropdown-item" href="/successAccount">Hồ sơ</a>
                                 <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right"></i>Đăng
+>>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
                                     xuất</a>
                             </div>
                         </li>
