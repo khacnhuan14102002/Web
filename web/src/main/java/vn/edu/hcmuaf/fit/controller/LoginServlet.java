@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.controller;
 
 import java.io.IOException;
 
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,7 +42,6 @@ public class LoginServlet extends HttpServlet {
 		rd.forward(req, resp);
 	}
 
-
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -68,6 +68,7 @@ public class LoginServlet extends HttpServlet {
 			log.setSrc(this.name + "LOGIN FALSE");
 			log.setContent("LOGIN FALSE:- " + email);
 			log.setLevel(Log.WARNING);
+
 		} else {
 			resp.getWriter().println("User scess");
 			log.setSrc(this.name + "LOGIN");
