@@ -191,7 +191,6 @@
                 <li><a href="${project}/store">Sản phẩm</a></li>
                 <li><a href="/about">Về chúng tôi</a></li>
                 <li><a href="/contactController">Liên hệ</a></li>
-                <li><a href="/contactControl">Liên hệ</a></li>
                 <!-- /NAV -->
             </ul>
         </div>
@@ -518,7 +517,7 @@
                         <h3 class="footer-title">Về chúng tôi</h3>
                         <p>ShopHandMade</p>
                         <ul class="footer-links">
-                            <li><a href="#"><i class="fa fa-map-marker"></i>Ling Trung, Thủ Đức</a></li>
+                            <li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
                             <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
                             <li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
                         </ul>
