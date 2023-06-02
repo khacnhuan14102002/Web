@@ -15,7 +15,7 @@ import vn.edu.hcmuaf.fit.dao.UserDao;
 import vn.edu.hcmuaf.fit.bean.User;
 import vn.edu.hcmuaf.fit.db.DB;
 
-@WebServlet(value = {"", "/login"})
+@WebServlet(value = {"/login"})
 public class LoginServlet extends HttpServlet {
 	String name = "AUTH";
 	private UserDao userDao = new UserDao();
@@ -33,13 +33,14 @@ public class LoginServlet extends HttpServlet {
 				rd = req.getRequestDispatcher("/index.jsp");
 				break;
 			case "/login":
-				rd = req.getRequestDispatcher("/index.jsp");
+				rd = req.getRequestDispatcher("/login.jsp");
 				break;
 			default:
 				break;
 		}
 		rd.forward(req, resp);
 	}
+
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

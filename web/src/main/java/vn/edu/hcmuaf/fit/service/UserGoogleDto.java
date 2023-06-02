@@ -16,9 +16,6 @@ public class UserGoogleDto {
 
     private String picture;
 
-    public UserGoogleDto() {
-    }
-
     public UserGoogleDto(String id, String email, boolean verified_email, String name, String given_name, String family_name, String picture) {
         this.id = id;
         this.email = email;
