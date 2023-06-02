@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="ISO-8859-1">
-    <title>Statistic</title>
+    <title>Doanh Thu Theo Thứ</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -104,13 +104,6 @@
             </div>
         </section>
         <!-- Section: Main chart -->
-
-
-
-
-
-
-
     </div>
 
 </main>

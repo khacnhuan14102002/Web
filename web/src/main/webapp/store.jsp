@@ -19,7 +19,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-	<title>ShopHandMade</title>
+	<title>Sản phẩm</title>
 
 	<!-- Google font -->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -55,9 +55,15 @@
 	<div id="top-header">
 		<div class="container">
 			<ul class="header-links pull-left">
+<<<<<<< HEAD
 				<li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
 				<li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
 				<li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
+=======
+				<li><a><i class="fa fa-phone"></i>0723658910</a></li>
+				<li><a><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
+				<li><a><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
+>>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
 			</ul>
 			<ul class="header-links pull-right">
 				<%
@@ -75,7 +81,7 @@
 					}
 				%>
 				<%--					--%>
-				<li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
+				<li><a href="logout"><i class="fa fa-sign-out"></i>Đăng xuất</a></li>
 
 				<%
 				} else {
@@ -179,7 +185,11 @@
 				<li><a href="/index">Trang chủ</a></li>
 				<li class="active"><a href="/store">Sản phẩm</a></li>
 				<li><a href="/about">Về chúng tôi</a> </li>
+<<<<<<< HEAD
 				<li><a href="/contactController">Liên hệ</a></li>
+=======
+				<li><a href="/contactControl">Liên hệ</a></li>
+>>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
 
 				<!-- /NAV -->
 			</ul>
@@ -200,7 +210,13 @@
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
 					<li><a href="/index">Trang chủ</a></li>
+<<<<<<< HEAD
 					<li><a href="/store">Sản phẩm</a></li>
+=======
+					<li class="active">Sản phẩm</li>
+
+
+>>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
 				</ul>
 			</div>
 		</div>
@@ -377,9 +393,15 @@
 						<h3 class="footer-title">Về chúng tôi</h3>
 						<p>Đây là shop có tên là NTT</p>
 						<ul class="footer-links">
+<<<<<<< HEAD
 							<li><a href="#"><i class="fa fa-map-marker"></i>Ling Trung, Thủ Đức</a></li>
 							<li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
 							<li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
+=======
+							<li><a><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
+							<li><a><i class="fa fa-phone"></i>0723658910</a></li>
+							<li><a><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
+>>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
 						</ul>
 					</div>
 				</div>
@@ -388,11 +410,11 @@
 					<div class="footer">
 						<h3 class="footer-title">Thể loại</h3>
 						<ul class="footer-links">
-							<li><a href="#">Giảm giá sốc</a></li>
-							<li><a href="#">Ốp lưng</a></li>
-							<li><a href="#">Móc khóa</a></li>
-							<li><a href="#">Thiệp</a></li>
-							<li><a href="#">Dreamcatcher</a></li>
+							<li><a>Giảm giá sốc</a></li>
+							<li><a>Ốp lưng</a></li>
+							<li><a>Móc khóa</a></li>
+							<li><a>Thiệp</a></li>
+							<li><a>Dreamcatcher</a></li>
 						</ul>
 					</div>
 				</div>
@@ -403,11 +425,11 @@
 					<div class="footer">
 						<h3 class="footer-title">Thông tin</h3>
 						<ul class="footer-links">
-							<li><a href="#">Về chúng tôi</a></li>
-							<li><a href="#">Liên hệ với chúng tôi</a></li>
-							<li><a href="#">Chính sách bảo mật</a></li>
-							<li><a href="#">Đặt và trả hàng</a></li>
-							<li><a href="#">Điều khoản và điều kiện</a></li>
+							<li><a>Về chúng tôi</a></li>
+							<li><a>Liên hệ với chúng tôi</a></li>
+							<li><a>Chính sách bảo mật</a></li>
+							<li><a>Đặt và trả hàng</a></li>
+							<li><a>Điều khoản và điều kiện</a></li>
 						</ul>
 					</div>
 				</div>

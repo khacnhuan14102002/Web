@@ -42,9 +42,9 @@
   <div id="top-header">
     <div class="container">
       <ul class="header-links pull-left">
-        <li><a href="#"><i class="fa fa-phone"></i> +8423658910</a></li>
-        <li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
-        <li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
+        <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
+        <li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
+        <li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
       </ul>
       <ul class="header-links pull-right">
         <%
@@ -96,12 +96,8 @@
         <div class="col-md-6">
           <div class="header-search">
             <form>
-
-
-
               <input class="input" placeholder="Tìm kiếm tại đây">
               <button class="search-btn">Tìm kiếm</button>
-            </form>
             </form>
           </div>
         </div>
@@ -167,7 +163,11 @@
         <li><a href="/index">Trang chủ</a></li>
         <li><a href="/store">Sản phẩm</a></li>
         <li class="active"><a href="/about">Về chúng tôi</a> </li>
+<<<<<<< HEAD
         <li><a href="/contactController">Liên hệ</a></li>
+=======
+        <li><a href="/contactControl">Liên hệ</a></li>
+>>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
 
         <!-- /NAV -->
       </ul>
@@ -301,9 +301,15 @@
             <h3 class="footer-title">Về chúng tôi</h3>
             <p>Đây là shop có tên là shop</p>
             <ul class="footer-links">
+<<<<<<< HEAD
               <li><a href="#"><i class="fa fa-map-marker"></i>Ling Trung, Thủ Đức</a></li>
               <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
               <li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
+=======
+              <li><a><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
+              <li><a><i class="fa fa-phone"></i>0723658910</a></li>
+              <li><a><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
+>>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
             </ul>
           </div>
         </div>
@@ -327,11 +333,11 @@
           <div class="footer">
             <h3 class="footer-title">Thông tin</h3>
             <ul class="footer-links">
-              <li><a href="#">Về chúng tôi</a></li>
-              <li><a href="#">Liên hệ với chúng tôi</a></li>
-              <li><a href="#">Chính sách bảo mật</a></li>
-              <li><a href="#">Đặt và trả hàng</a></li>
-              <li><a href="#">Điều khoản và điều kiện</a></li>
+              <li><a>Về chúng tôi</a></li>
+              <li><a>Liên hệ với chúng tôi</a></li>
+              <li><a>Chính sách bảo mật</a></li>
+              <li><a>Đặt và trả hàng</a></li>
+              <li><a>Điều khoản và điều kiện</a></li>
             </ul>
           </div>
         </div>

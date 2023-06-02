@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>ShopHandMade</title>
+    <title>Quản lý</title>
     <!-- Bootstrap -->
     <link href="vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
@@ -28,7 +28,7 @@
         <div class="col-md-3 left_col">
             <div class="left_col scroll-view">
                 <div class="navbar nav_title" style="border: 0;">
-                    <a class="site_title"><i class="fa fa-angellist"></i> <span>ShopHandMade</span></a>
+                    <a class="site_title"><i class="fa fa-angellist"></i><span>ShopHandMade</span></a>
                 </div>
                 <div class="clearfix"></div>
                 <!-- menu profile quick info -->
@@ -54,7 +54,7 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-edit"></i>Quản lý<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="QuanLyUser.jsp">Quản lý User</a></li>
+                                    <li><a href="/adminUser">Quản lý User</a></li>
                                     <li><a href="/manageControl">Quản lý sản phẩm</a></li>
                                     <li><a href="/managerOrder">Quản lý hóa đơn</a></li>
                                     <li><a href="/managerCatalogControl">Quản lý danh mục</a></li>
@@ -84,18 +84,23 @@
                 <nav class="nav navbar-nav">
                     <ul class=" navbar-right">
                         <li class="nav-item dropdown open" style="padding-left: 15px;">
-                            <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true"
+                            <a class="user-profile dropdown-toggle" aria-haspopup="true"
                                id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                                 <img src="image/ntt.png" alt="">ShopNtt
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+<<<<<<< HEAD
                                 <a class="dropdown-item" href="/index"><i class="fa fa-sign-out pull-right"></i>Đăng
+=======
+                                <a class="dropdown-item" href="/successAccount">Hồ sơ</a>
+                                <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right"></i>Đăng
+>>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
                                     xuất</a>
                             </div>
                         </li>
 
                         <li role="presentation" class="nav-item dropdown open">
-                            <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1"
+                            <a class="dropdown-toggle info-number" id="navbarDropdown1"
                                data-toggle="dropdown" aria-expanded="false">
                                 <i class="fa fa-envelope-o"></i>
                                 <span class="badge bg-green">6</span>

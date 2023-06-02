@@ -1,11 +1,13 @@
 package vn.edu.hcmuaf.fit.bean;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.HashMap;
 import java.util.Map;
 import org.jdbi.v3.core.Jdbi;
+import org.jdbi.v3.core.Handle;
 
-public class Log {
+public class Log extends AbBean implements Serializable {
     int id;
     int level;
     String src;
@@ -31,10 +33,10 @@ public class Log {
     public Log() {
     }
 
-    public Log(int level, String src, int userId, String content, Date createAt, int status) {
+    public Log(int level, int userId, String src, String content, Date createAt, int status) {
         this.level = level;
-        this.src = src;
         this.userId = userId;
+        this.src = src;
         this.content = content;
         this.createAt = createAt;
         this.status = status;
@@ -104,16 +106,20 @@ public class Log {
         this.status = status;
     }
 
-//    public String getLevelWithName() {
-//        return levelMapping.get(levelMapping.containsKey(this.level) ? this.level);
-//    }
+    public String getLevelWithName() {
+        if (levelMapping.containsKey(level)) {
+            return levelMapping.get(level);
+        }
+        return null;
+    }
 
-    public boolean  insert(Jdbi db) {
+    public boolean insert(Jdbi db) {
         Integer i = db.withHandle(handle ->
-                handle.execute("INSERT INTO log( \"level\", \"user\", \"src\", \"content\", \"createAt\", \"status\") VALUES(?,?,?,?,NOW(),?)",
-                        this.level, getUserId() == -1 ? null : getUserId(), this.src, this.content, this.status)
-
+                handle.execute("INSERT INTO log(`level`, `userId`, `src`, `content`, `createAt`, `status`) VALUES (?, ?, ?, ?, NOW(), ?)",
+                        this.level, getUserId() == -1 , this.src, this.content, this.status)
         );
+
         return i == 1;
     }
+
 }

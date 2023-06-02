@@ -11,6 +11,11 @@ import vn.edu.hcmuaf.fit.bean.User;
 public class AddUserServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("AddUser.jsp");
+        requestDispatcher.forward(request, response);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Lấy các thông tin từ request
@@ -32,7 +37,6 @@ public class AddUserServlet extends HttpServlet {
         user.setPhone(phone);
         user.setRoleUs(roleus);
         user.setActive(active);
-
         user.setRegistrationDate(new Date(System.currentTimeMillis())); // Lấy ngày hiện tại làm ngày đăng ký
 
         // Thực hiện thêm user vào cơ sở dữ liệu
@@ -40,6 +44,7 @@ public class AddUserServlet extends HttpServlet {
         userDao.addUser(user);
 
         // Chuyển hướng về trang danh sách user
+        System.out.println(user);
         response.sendRedirect("/adminUser");
     }
 }

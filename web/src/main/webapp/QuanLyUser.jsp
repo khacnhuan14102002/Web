@@ -17,7 +17,7 @@
 <%--<!--  <meta property="og:title" content="Website TruongBin" />-->--%>
 <%--<!--  <meta property="og:description" content="Wellcome to my Website" />-->--%>
 
-<title>Admin - Quản lý User</title>
+<title>Quản lý User</title>
 <!--  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"-->
 <!--        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -128,15 +128,12 @@
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <i class="fas fa-bars"></i>
       </button>
-      <a class="navbar-brand" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i> QUẢN
+      <a class="navbar-brand"><i class="fa fa-user-circle" aria-hidden="true"></i> QUẢN
         LÝ USER</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="#home" >USER</a></li>
-        </li>
-        <li><a href="/index"><b>Đăng xuất <i class="fas fa-sign-out-alt"></i></b></a></li>
-        <li><a href="/adminpage" >Admin</a></li>
+        <li><a href="/logout"><b>Đăng xuất<i class="fas fa-sign-out-alt"></i></b></a></li>
       </ul>
     </div>
   </div>
@@ -144,7 +141,7 @@
 <div class="container-fluid al">
   <div id="clock"></div>
   <Br>
-  <p class="timkiemnhanvien"><b>TÌM KIẾM TÊN :</b></p><Br><Br>
+  <p class="timkiemnhanvien"><b>TÌM KIẾM TÊN:</b></p><Br><Br>
 <%--  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Nhập tên TÊN cần tìm...">--%>
   <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Tìm kiếm theo tên người dùng...">
 <%--  <button type="button">Tìm kiếm</button>--%>
@@ -154,7 +151,7 @@
   <button class="nv xuat" data-toggle="tooltip" data-placement="top" title="Xuất File"><i
           class="fas fa-file-import"></i></button>
 
-  <a href="AddUser.jsp"> <button class="nv nhap" data-toggle="tooltip" data-placement="top" title="Add User"
+  <a href="/AddUserServlet"> <button class="nv nhap" data-toggle="tooltip" data-placement="top" title="Thêm User"
                                  onclick="document.getElementById('add-user-form').style.display='block'">
     <i class="fa-solid fa-plus"></i></button> </a>
 
@@ -168,7 +165,7 @@
     <thead>
     <tr class="ex">
 
-      <th>ID</th>
+      <th>Mã</th>
       <th>Tên người dùng</th>
       <th>Email</th>
       <th>Mật khẩu</th>

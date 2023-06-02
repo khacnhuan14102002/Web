@@ -53,7 +53,7 @@
     <div id="top-header">
         <div class="container">
             <ul class="header-links pull-left">
-                <li><a href="#"><i class="fa fa-phone"></i> +8423658910</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
             </ul>

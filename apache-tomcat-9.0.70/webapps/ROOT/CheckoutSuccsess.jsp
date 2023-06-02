@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>ShopHandMade</title>
+    <title>Thanh Toán</title>
     <meta http-equiv="refresh" content="8;url=/index">
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -46,7 +46,7 @@
     <div id="top-header">
         <div class="container">
             <ul class="header-links pull-left">
-                <li><a href="#"><i class="fa fa-phone"></i> +8423658910</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
 
@@ -207,8 +207,8 @@
             <ul class="main-nav nav navbar-nav">
                 <li class="active"><a href="/index">Trang chủ</a></li>
                 <li ><a href="${project}/store">Sản phẩm</a></li>
-                <li><a href="#">Về chúng tôi</a> </li>
-                <li><a href="#">Liên hệ</a></li>
+                <li><a href="/about">Về chúng tôi</a> </li>
+                <li><a href="/contactControl">Liên hệ</a></li>
 
                 <!-- /NAV -->
             </ul>
@@ -303,8 +303,8 @@
                         <h3 class="footer-title">Về chúng tôi</h3>
                         <p>ShopHandMade</p>
                         <ul class="footer-links">
-                            <li><a href="#"><i class="fa fa-map-marker"></i>Ling Trung, Thủ Đức</a></li>
-                            <li><a href="#"><i class="fa fa-phone"></i>+8423658910</a></li>
+                            <li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
                             <li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
                         </ul>
                     </div>
