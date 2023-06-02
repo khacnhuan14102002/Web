@@ -49,7 +49,7 @@
     <div id="top-header">
         <div class="container">
             <ul class="header-links pull-left">
-                <li><a href="#"><i class="fa fa-phone"></i> +8423658910</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
                 <li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
 
@@ -96,7 +96,7 @@
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="#" class="logo">
+                        <a class="logo">
                             <img src="./image/ntt.png" alt="">
                         </a>
                     </div>
@@ -190,7 +190,7 @@
                 <li class="active"><a href="#">Trang chủ</a></li>
                 <li><a href="${project}/store">Sản phẩm</a></li>
                 <li><a href="/about">Về chúng tôi</a></li>
-                <li><a href="#">Liên hệ</a></li>
+                <li><a href="/contactController">Liên hệ</a></li>
 
                 <!-- /NAV -->
             </ul>
@@ -519,7 +519,7 @@
                         <p>ShopHandMade</p>
                         <ul class="footer-links">
                             <li><a href="#"><i class="fa fa-map-marker"></i>Ling Trung, Thủ Đức</a></li>
-                            <li><a href="#"><i class="fa fa-phone"></i>+8423658910</a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
                             <li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
                         </ul>
                     </div>

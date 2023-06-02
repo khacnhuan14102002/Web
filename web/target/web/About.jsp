@@ -164,10 +164,10 @@
     <div id="responsive-nav">
       <!-- NAV -->
       <ul class="main-nav nav navbar-nav">
-        <li class="active"><a href="/index">Trang chủ</a></li>
-        <li ><a href="/store">Sản phẩm</a></li>
-        <li><a href="/about">Về chúng tôi</a> </li>
-        <li><a href="#">Liên hệ</a></li>
+        <li><a href="/index">Trang chủ</a></li>
+        <li><a href="/store">Sản phẩm</a></li>
+        <li class="active"><a href="/about">Về chúng tôi</a> </li>
+        <li><a href="/contactController">Liên hệ</a></li>
 
         <!-- /NAV -->
       </ul>
@@ -186,7 +186,6 @@
     <!-- row -->
     <div class="row">
       <div class="col-md-12">
-
         <ul class="breadcrumb-tree">
           <li><a href="/index">Trang chủ</a></li>
           <li class="active">Về chúng tôi</li>
@@ -205,9 +204,7 @@
   <div class="container">
     <!-- row -->
     <div class="row">
-
-
-        <!-- Billing Details -->
+ <!-- Billing Details -->
         <div class="billing-details">
           <div class="section-title">
             <h2 class="title" style="text-align: center">Về cửa hàng của chúng tôi</h2></div></br>
@@ -305,7 +302,7 @@
             <p>Đây là shop có tên là shop</p>
             <ul class="footer-links">
               <li><a href="#"><i class="fa fa-map-marker"></i>Ling Trung, Thủ Đức</a></li>
-              <li><a href="#"><i class="fa fa-phone"></i>+8423658910</a></li>
+              <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
               <li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
             </ul>
           </div>

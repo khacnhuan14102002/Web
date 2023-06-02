@@ -55,7 +55,7 @@
 	<div id="top-header">
 		<div class="container">
 			<ul class="header-links pull-left">
-				<li><a href="#"><i class="fa fa-phone"></i> +8423658910</a></li>
+				<li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
 				<li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
 				<li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
 			</ul>
@@ -176,10 +176,10 @@
 
 
 			<ul class="main-nav nav navbar-nav">
-				<li ><a href="/index">Trang chủ</a></li>
+				<li><a href="/index">Trang chủ</a></li>
 				<li class="active"><a href="/store">Sản phẩm</a></li>
 				<li><a href="/about">Về chúng tôi</a> </li>
-				<li><a href="#">Liên hệ</a></li>
+				<li><a href="/contactController">Liên hệ</a></li>
 
 				<!-- /NAV -->
 			</ul>
@@ -199,11 +199,8 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
-
 					<li><a href="/index">Trang chủ</a></li>
 					<li><a href="/store">Sản phẩm</a></li>
-
-
 				</ul>
 			</div>
 		</div>
@@ -226,22 +223,13 @@
 					<h3 class="aside-title">Danh mục</h3>
 
 					<div class="checkbox-filter">
-
 						<ul >
-
-
-
 							<c:forEach items="${requestScope.listCC}" var="c">
 								<li style="border-style: groove;text-align:center;"><a href="category?cid=${c.idCat}">${c.nameCat}</a></li>
 							</c:forEach>
-
 						</ul>
-
 						<div class="input-checkbox">
-
-
 						</div>
-
 					</div>
 				</div>
 				<!-- /aside Widget -->
@@ -250,7 +238,6 @@
 				<div class="aside">
 					<h3 class="aside-title">Giá</h3>
 					<ul >
-
 						<li style="border-style: groove;text-align:center;"><a href="/to11">Từ 10000 đến 100000</a></li>
 						<li style="border-style: groove;text-align:center;"><a href="/to12">Từ 100000 đến 200000</a></li>
 						<li style="border-style: groove;text-align:center;"><a href="/to23">Từ 200000 đến 300000</a></li>
@@ -260,7 +247,6 @@
 				<div class="aside">
 					<h3 class="aside-title">Sắp xếp sản phẩm theo</h3>
 					<ul >
-
 						<li style="border-style: groove;text-align:center;"><a href="/AtoZ">Từ A -> Z</a></li>
 						<li style="border-style: groove;text-align:center;"><a href="/ZtoA">Từ Z -> A</a></li>
 						<li style="border-style: groove;text-align:center;"><a href="/sortDown">Giá tăng dần</a></li>
@@ -279,7 +265,6 @@
 
 				<!-- store products -->
 				<div class="row">
-
 					<div class="row">
 						<c:forEach var="p" items="${requestScope.listP}">
 							<div class="col-md-4 col-xs-6">
@@ -393,7 +378,7 @@
 						<p>Đây là shop có tên là NTT</p>
 						<ul class="footer-links">
 							<li><a href="#"><i class="fa fa-map-marker"></i>Ling Trung, Thủ Đức</a></li>
-							<li><a href="#"><i class="fa fa-phone"></i>+8423658910</a></li>
+							<li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
 							<li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
 						</ul>
 					</div>
