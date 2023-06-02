@@ -2,6 +2,7 @@ package vn.edu.hcmuaf.fit.controller;
 
 import java.io.IOException;
 
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,7 +16,7 @@ import vn.edu.hcmuaf.fit.dao.UserDao;
 import vn.edu.hcmuaf.fit.bean.User;
 import vn.edu.hcmuaf.fit.db.DB;
 
-@WebServlet(value = {"", "/login"})
+@WebServlet(value = {"/login"})
 public class LoginServlet extends HttpServlet {
 	String name = "AUTH";
 	private UserDao userDao = new UserDao();
@@ -33,7 +34,7 @@ public class LoginServlet extends HttpServlet {
 				rd = req.getRequestDispatcher("/index.jsp");
 				break;
 			case "/login":
-				rd = req.getRequestDispatcher("/index.jsp");
+				rd = req.getRequestDispatcher("/login.jsp");
 				break;
 			default:
 				break;
@@ -67,6 +68,7 @@ public class LoginServlet extends HttpServlet {
 			log.setSrc(this.name + "LOGIN FALSE");
 			log.setContent("LOGIN FALSE:- " + email);
 			log.setLevel(Log.WARNING);
+
 		} else {
 			resp.getWriter().println("User scess");
 			log.setSrc(this.name + "LOGIN");
