@@ -173,7 +173,7 @@
                 <li><a href="/index">Trang chủ</a></li>
                 <li><a href="${project}/store">Sản phẩm</a></li>
                 <li><a href="/about">Về chúng tôi</a></li>
-                <li class="active"><a href="/contactControl">Liên hệ</a></li>
+                <li class="active"><a href="/contactController">Liên hệ</a></li>
                 <!-- /NAV -->
             </ul>
         </div>

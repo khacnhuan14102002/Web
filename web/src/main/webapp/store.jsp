@@ -55,15 +55,9 @@
 	<div id="top-header">
 		<div class="container">
 			<ul class="header-links pull-left">
-<<<<<<< HEAD
 				<li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
 				<li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
 				<li><a href="#"><i class="fa fa-map-marker"></i> Linh Trung, Thủ Đức</a></li>
-=======
-				<li><a><i class="fa fa-phone"></i>0723658910</a></li>
-				<li><a><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
-				<li><a><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
->>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
 			</ul>
 			<ul class="header-links pull-right">
 				<%
@@ -185,11 +179,7 @@
 				<li><a href="/index">Trang chủ</a></li>
 				<li class="active"><a href="/store">Sản phẩm</a></li>
 				<li><a href="/about">Về chúng tôi</a> </li>
-<<<<<<< HEAD
 				<li><a href="/contactController">Liên hệ</a></li>
-=======
-				<li><a href="/contactControl">Liên hệ</a></li>
->>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
 
 				<!-- /NAV -->
 			</ul>
@@ -210,13 +200,7 @@
 			<div class="col-md-12">
 				<ul class="breadcrumb-tree">
 					<li><a href="/index">Trang chủ</a></li>
-<<<<<<< HEAD
-					<li><a href="/store">Sản phẩm</a></li>
-=======
 					<li class="active">Sản phẩm</li>
-
-
->>>>>>> cc417519f6965402d2be47d1b9994695ce1d60c4
 				</ul>
 			</div>
 		</div>

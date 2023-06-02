@@ -101,7 +101,6 @@
                             <img src="./image/ntt.png" alt="">
                         </a>
                     </div>
-
                     <div class="page">
                         <p>|GIỎ HÀNG</p>
                     </div>

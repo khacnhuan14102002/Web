@@ -157,7 +157,7 @@
                         <tr>
 
 
-                            <td class="hidden-xs mn"   > ẢNH</td>
+                            <td class="hidden-xs mn"> ẢNH</td>
                             <td class="mn" >TÊN</td>
 
                             <td class="td-qty mn" >SỐ LƯỢNG</td>
