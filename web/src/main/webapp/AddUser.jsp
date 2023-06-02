@@ -20,41 +20,41 @@
 <div class="container" style="margin-top: 10px;">
     <div class="row" style="border: 1px darkgrey solid; border-radius: 10px;width: 50%; margin: 0 auto; padding: 20px;" >
         <div class="col-sm-12">
-            <h2>Dang Ky</h2>
+            <h2>Đăng ký</h2>
             <form action="AddUserServlet" method="post">
                 <input type="hidden" class="form-control" name="action" value="" >
                 <div class="form-group">
-                    <label>UserName</label>
-                    <input type="text" class="form-control" name="NamUser" value=""  placeholder="Enter UserName">
+                    <label>Tên đăng nhập</label>
+                    <input type="text" class="form-control" name="NamUser" value=""  placeholder="">
                 </div>
                 <div class="form-group">
                     <label>Email</label>
-                    <input  class="form-control" name="EmailUs" value="" placeholder="Enter email">
+                    <input  class="form-control" name="EmailUs" value="" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label>Password:</label>
-                    <input type="password" class="form-control" name="Pass" value="" placeholder="Enter password">
+                    <label>Mật khẩu</label>
+                    <input type="password" class="form-control" name="Pass" value="" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label>Phone: </label>
-                    <input class="form-control" name="Phone" value="" placeholder="Enter Phone">
+                    <label>Số điện thoại</label>
+                    <input class="form-control" name="Phone" value="" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label>Role:</label>
+                    <label>Vai trò</label>
                     <select class="form-control" name="RoleUs">
                         <option value="1">Admin</option>
-                        <option value="0">User</option>
+                        <option value="0">Người dùng</option>
                     </select>
                 </div>
                 <div class="form-group">
-                    <label>Active:</label>
+                    <label>Trạng thái hoạt động</label>
                     <select class="form-control" name="Active">
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a href="/adminUser"> <button href="" type="reset" class="btn btn-primary">Cancel</button> </a>
+                <button type="submit" class="btn btn-primary">Lưu</button>
+                <a href="/adminUser"> <button href="" type="reset" class="btn btn-primary">Hủy</button> </a>
 
             </form>
         </div>

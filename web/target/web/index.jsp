@@ -13,7 +13,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <title>ShopHandMade</title>
+    <title>Trang chủ</title>
 
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
@@ -49,8 +49,8 @@
     <div id="top-header">
         <div class="container">
             <ul class="header-links pull-left">
-                <li><a href="#"><i class="fa fa-phone"></i> +8423658910</a></li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
+                <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
 
             </ul>
@@ -78,7 +78,7 @@
                 <%
                 } else {
                 %>
-                <li><a href="/login"><i class="fa fa-user-o"></i> Tài Khoản</a></li>
+                <li><a href="/login"><i class="fa fa-user-o"></i>Tài Khoản</a></li>
                 <%
                     }
                 %>
@@ -96,7 +96,7 @@
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="#" class="logo">
+                        <a class="logo">
                             <img src="./image/ntt.png" alt="">
                         </a>
                     </div>
@@ -152,7 +152,7 @@
 
                         <!-- Menu Toogle -->
                         <div class="menu-toggle">
-                            <a href="#">
+                            <a>
                                 <i class="fa fa-bars"></i>
                                 <span>Menu</span>
                             </a>
@@ -161,7 +161,7 @@
 
                         <!-- Menu Toogle -->
                         <div class="menu-toggle">
-                            <a href="#">
+                            <a>
                                 <i class="fa fa-bars"></i>
                                 <span>Menu</span>
                             </a>
@@ -187,11 +187,10 @@
         <div id="responsive-nav">
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="#">Trang chủ</a></li>
+                <li class="active"><a>Trang chủ</a></li>
                 <li><a href="${project}/store">Sản phẩm</a></li>
                 <li><a href="/about">Về chúng tôi</a></li>
-                <li><a href="#">Liên hệ</a></li>
-
+                <li><a href="/contactControl">Liên hệ</a></li>
                 <!-- /NAV -->
             </ul>
         </div>
@@ -518,9 +517,9 @@
                         <h3 class="footer-title">Về chúng tôi</h3>
                         <p>ShopHandMade</p>
                         <ul class="footer-links">
-                            <li><a href="#"><i class="fa fa-map-marker"></i>Ling Trung, Thủ Đức</a></li>
-                            <li><a href="#"><i class="fa fa-phone"></i>+8423658910</a></li>
-                            <li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
+                            <li><a><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
+                            <li><a><i class="fa fa-phone"></i>0723658910</a></li>
+                            <li><a><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
                         </ul>
                     </div>
                 </div>
@@ -535,8 +534,6 @@
                             <li><a href="#">Thiệp</a></li>
                             <li><a href="#">Dreamcatcher</a></li>
                         </ul>
-
-
                     </div>
                 </div>
 
@@ -546,11 +543,11 @@
                     <div class="footer">
                         <h3 class="footer-title">Thông tin</h3>
                         <ul class="footer-links">
-                            <li><a href="#">Về chúng tôi</a></li>
-                            <li><a href="#">Liên hệ với chúng tôi</a></li>
-                            <li><a href="#">Chính sách bảo mật</a></li>
-                            <li><a href="#">Đặt và trả hàng</a></li>
-                            <li><a href="#">Điều khoản và điều kiện</a></li>
+                            <li><a>Về chúng tôi</a></li>
+                            <li><a>Liên hệ với chúng tôi</a></li>
+                            <li><a>Chính sách bảo mật</a></li>
+                            <li><a>Đặt và trả hàng</a></li>
+                            <li><a>Điều khoản và điều kiện</a></li>
                         </ul>
                     </div>
                 </div>
@@ -559,11 +556,11 @@
                     <div class="footer">
                         <h3 class="footer-title">Dịch vụ</h3>
                         <ul class="footer-links">
-                            <li><a href="#">Tài khoản</a></li>
-                            <li><a href="#">Giỏ hàng</a></li>
-                            <li><a href="#">Yêu thích</a></li>
-                            <li><a href="#">Theo dõi đơn hàng</a></li>
-                            <li><a href="#">Trợ giúp</a></li>
+                            <li><a>Giảm giá sốc</a></li>
+                            <li><a>Ốp lưng</a></li>
+                            <li><a>Móc khóa</a></li>
+                            <li><a>Thiệp</a></li>
+                            <li><a>Dreamcatcher</a></li>
                         </ul>
                     </div>
                 </div>
