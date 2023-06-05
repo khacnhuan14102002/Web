@@ -272,7 +272,7 @@
                 <!-- store products -->
                 <div class="row">
                     <div class="row">
-                        <c:forEach var="p" items="${requestScope.listP}">
+                        <c:forEach var="p" items="${requestScope.list_page}">
                             <div class="col-md-4 col-xs-6">
                                 <div class="product">
                                     <div class="product-img">

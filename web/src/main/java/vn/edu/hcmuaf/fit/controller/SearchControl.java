@@ -17,10 +17,10 @@ public class SearchControl extends HttpServlet {
         String search = request.getParameter("txt");//giay chay bo
 
         StoreService store = new StoreService();
-        List<products> list = store.searchbyName(search);
+        List<products> list_search = store.searchbyName(search);
         List<category> listC = store.getListCat();
         request.setAttribute("listCC",listC);
-        request.setAttribute("listP",list);
+        request.setAttribute("list_search",list_search);
 
         request.getRequestDispatcher("store.jsp").forward(request, response);
     }

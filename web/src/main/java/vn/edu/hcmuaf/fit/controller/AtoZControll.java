@@ -19,11 +19,11 @@ public class AtoZControll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StoreService pro = new StoreService();
-        List<products> listP = pro.AtoZ();
+        List<products> list_page = pro.AtoZ();
         List<category> listC = pro.getListCat();
 
         request.setAttribute("listCC",listC);
-        request.setAttribute("listP",listP);
+        request.setAttribute("list_page",list_page);
         WishListService service = new WishListService();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");

@@ -19,11 +19,11 @@ public class To12Controll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StoreService pro = new StoreService();
-        List<products> listP = pro.To12();
+        List<products> list_to12 = pro.To12();
         List<category> listC = pro.getListCat();
 
         request.setAttribute("listCC",listC);
-        request.setAttribute("listP",listP);
+        request.setAttribute("list_to12",list_to12);
         WishListService service = new WishListService();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");

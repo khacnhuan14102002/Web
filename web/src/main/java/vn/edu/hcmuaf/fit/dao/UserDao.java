@@ -220,33 +220,6 @@ public class UserDao {
 			e.printStackTrace();
 		}
 	}
-//
-//public User getUserById(int id) {
-//	User user = null;
-//	try {
-//		Connection conn = pre.getConnection();
-//		PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE IdUser = ?");
-//		stmt.setInt(1, id);
-//		ResultSet rs = stmt.executeQuery();
-//		try (rs.next()) {
-//			user = new User();
-//			user.setIdUser(rs.getInt("IdUser"));
-//			user.setNameUser(rs.getString("NameUser"));
-//			user.setEmailUs(rs.getString("EmailUs"));
-//			user.setPass(rs.getString("pass"));
-//			user.setPhone(rs.getString("phone"));
-//			user.setRegistrationDate(rs.getDate("registrationDate"));
-//			user.setRoleUs(rs.getInt("roleUs"));
-//			user.setActive(rs.getInt("active"));
-//			user.setKeyactive(rs.getString("keyactive"));
-//		}
-//
-//	} catch (SQLException e) {
-//		e.printStackTrace();
-//	}
-//	return user;
-//}
-// edit user
 public void EditUser(User u) {
 	con = getConnect();
 	String sql = "update users set NameUser=? , EmailUs=?, Pass=?, Phone =? , RoleUs=? , Active=? where IdUser = ?";
