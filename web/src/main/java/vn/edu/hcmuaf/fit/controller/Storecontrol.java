@@ -43,14 +43,14 @@ public class Storecontrol extends HttpServlet {
             ArrayList<Wishlist> list = service.getAllWish(user.getIdUser());
             sizeW = list.size();
         }
-        List<category> listC = pro.getListCat();
+        List<category> listCC = pro.getListCat();
 
         request.setAttribute("listAllProduct", listAllProduct);
         request.setAttribute("listTop10Product", listTop10Product);
 
         request.setAttribute("endP", endPage);
         request.setAttribute("tag", index);
-        request.setAttribute("listCC", listC);
+        request.setAttribute("listCC", listCC);
         request.setAttribute("list_page", list_page);
         request.setAttribute("sizeW", sizeW);
 

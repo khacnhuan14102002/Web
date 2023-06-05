@@ -19,11 +19,11 @@ public class StoreSort extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StoreService pro = new StoreService();
-        List<products> list_maxmin = pro.maxtomin();
-        List<category> listC = pro.getListCat();
+        List<products> list_page = pro.maxtomin();
+        List<category> listCC = pro.getListCat();
 
-        request.setAttribute("listCC",listC);
-        request.setAttribute("list_maxmin",list_maxmin);
+        request.setAttribute("listCC",listCC);
+        request.setAttribute("list_page",list_page);
 
         WishListService service = new WishListService();
         HttpSession session = request.getSession();

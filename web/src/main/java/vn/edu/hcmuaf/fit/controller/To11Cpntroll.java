@@ -19,11 +19,11 @@ public class To11Cpntroll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StoreService pro = new StoreService();
-        List<products> list_to11 = pro.To11();
-        List<category> listC = pro.getListCat();
+        List<products> list_page = pro.To11();
+        List<category> listCC = pro.getListCat();
 
-        request.setAttribute("listCC",listC);
-        request.setAttribute("list_to11",list_to11);
+        request.setAttribute("listCC",listCC);
+        request.setAttribute("list_page",list_page);
         WishListService service = new WishListService();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
