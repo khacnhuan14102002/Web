@@ -15,11 +15,11 @@ public class SortDownControll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StoreService pro = new StoreService();
-        List<products> list_minmax = pro.mintomax();
-        List<category> listC = pro.getListCat();
+        List<products> list_page = pro.mintomax();
+        List<category> listCC = pro.getListCat();
 
-        request.setAttribute("listCC",listC);
-        request.setAttribute("list_minmax",list_minmax);
+        request.setAttribute("listCC",listCC);
+        request.setAttribute("list_page",list_page);
 
 
 

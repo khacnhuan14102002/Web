@@ -19,11 +19,11 @@ public class To23Controll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StoreService pro = new StoreService();
-        List<products> list_to23 = pro.To23();
-        List<category> listC = pro.getListCat();
+        List<products> list_page = pro.To23();
+        List<category> listCC = pro.getListCat();
 
-        request.setAttribute("listCC",listC);
-        request.setAttribute("list_to23",list_to23);
+        request.setAttribute("listCC",listCC);
+        request.setAttribute("list_page",list_page);
         WishListService service = new WishListService();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
