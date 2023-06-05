@@ -17,23 +17,6 @@ public class LoaiService {
     static PreparedStatement ps = null;
     static ResultSet rs = null;
     public static List<category> getLoai() {
-//        ArrayList<Loai> list = new ArrayList<>();
-//        String query = "select * from category";
-//        try{
-//            conn = new connect().getconConnection();
-//            ps = conn.prepareStatement(query);
-//            rs=ps.executeQuery();
-//            while(rs.next()){
-//                category cat =new category(rs.getString(1),
-//                        rs.getString(2));
-//            list.add(cat);
-//
-//            }
-//            return list;
-//        } catch (Exception e) {
-//            System.out.println("fail");
-//        }
-//        return null;
         return JDBiConnector.me().withHandle(handle -> {
             return handle.createQuery("select * from category").mapToBean(vn.edu.hcmuaf.fit.bean.category.class).stream().collect(Collectors.toList());
         });

@@ -19,11 +19,11 @@ public class ZtoAControll extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         StoreService pro = new StoreService();
-        List<products> listP = pro.ZtoA();
+        List<products> list_page = pro.ZtoA();
         List<category> listC = pro.getListCat();
 
         request.setAttribute("listCC",listC);
-        request.setAttribute("listP",listP);
+        request.setAttribute("list_page",list_page);
 
         WishListService service = new WishListService();
         HttpSession session = request.getSession();

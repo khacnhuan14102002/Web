@@ -32,7 +32,7 @@ public class Storecontrol extends HttpServlet {
         if (count % 12 != 0) {
             endPage++;
         }
-        List<products> listP = pro.paging(index);
+        List<products> list_page = pro.paging(index);
         List<products> listAllProduct = ProductService.getListProductALL();
         List<Soluongbanra> listTop10Product = SoluongService.get10Soluongbanra();
         WishListService service = new WishListService();
@@ -51,7 +51,7 @@ public class Storecontrol extends HttpServlet {
         request.setAttribute("endP", endPage);
         request.setAttribute("tag", index);
         request.setAttribute("listCC", listC);
-        request.setAttribute("listP", listP);
+        request.setAttribute("list_page", list_page);
         request.setAttribute("sizeW", sizeW);
 
 

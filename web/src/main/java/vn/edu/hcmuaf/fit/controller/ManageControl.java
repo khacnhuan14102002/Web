@@ -20,23 +20,25 @@ public class ManageControl extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         ManagerService mana1 = new ManagerService();
-        StoreService mana =new StoreService();
+        StoreService mana = new StoreService();
         String indexPage = request.getParameter("page");
         if (indexPage == null) {
             indexPage = "1";
         }
         int index = Integer.parseInt(indexPage);
-       int count = mana.gettotalpro();
+        int count = mana.gettotalpro();
         int endPage = count / 12;
         if (count % 12 != 0) {
             endPage++;
         }
-        List<products> listP = mana.paging(index);
+        List<products> list_page = mana.paging(index);
+        List<products> listP = mana1.getAllProduct();
         List<category> listC = mana1.getAllCategory();
         request.setAttribute("tag", index);
         request.setAttribute("endP", endPage);
         request.setAttribute("listC", listC);
         request.setAttribute("listP", listP);
+        request.setAttribute("list_page", list_page);
         request.getRequestDispatcher("managerProduct.jsp").forward(request, response);
     }
 
