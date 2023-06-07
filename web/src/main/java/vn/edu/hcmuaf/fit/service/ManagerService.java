@@ -81,7 +81,7 @@ public class ManagerService {
             ps.setInt(1, pro.getIdProduct());
             ps.setString(2, pro.getIdCategory());
             ps.setString(3, pro.getNameProduct());
-            ps.setString(4, pro.getImage());
+            ps.setString(4, "./image/"+pro.getImage());
             ps.setInt(5, pro.getPriceNew());
             ps.setInt(6, pro.getPriceOld());
             ps.setInt(7, pro.getQuantityStock());
@@ -129,7 +129,7 @@ public class ManagerService {
     }
     public List<products> paging(int index){
         List<products> list = new ArrayList<>();
-        String query = "SELECT * FROM products ORDER BY IdProduct LIMIT 12 OFFSET ?";
+        String query = "SELECT * FROM products  where HideProduct = 0 ORDER BY IdProduct LIMIT 12 OFFSET ?";
         try {
             conn = new connect().getconConnection();
             ps = conn.prepareStatement(query);

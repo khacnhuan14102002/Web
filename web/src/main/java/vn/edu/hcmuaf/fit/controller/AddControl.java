@@ -18,6 +18,7 @@ public class AddControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
+        request.setCharacterEncoding("UTF-8");
         int pid = Integer.parseInt(request.getParameter("id"));
         String pname = request.getParameter("name");
         String pimage = request.getParameter("image");
