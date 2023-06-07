@@ -50,7 +50,7 @@
         <div class="container">
             <ul class="header-links pull-left">
                 <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
-                <li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
+                <li><a href="#"><i class="fa fa-envelope-o"></i> shopntt@email.com</a></li>
                 <li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
 
             </ul>
@@ -106,7 +106,7 @@
                 <!-- SEARCH BAR -->
                 <div class="col-md-6">
                     <div class="header-search">
-                        <form>
+                        <form action="search" meathod="get">
 
                             <input name="txt" type="text" class="input" placeholder="Tìm kiếm tại đây">
                             <button type="submit" class="search-btn">Tìm kiếm</button>
@@ -190,7 +190,7 @@
                 <li class="active"><a>Trang chủ</a></li>
                 <li><a href="${project}/store">Sản phẩm</a></li>
                 <li><a href="/about">Về chúng tôi</a></li>
-                <li><a href="/contactControl">Liên hệ</a></li>
+                <li><a href="/contactController">Liên hệ</a></li>
                 <!-- /NAV -->
             </ul>
         </div>
@@ -517,9 +517,9 @@
                         <h3 class="footer-title">Về chúng tôi</h3>
                         <p>ShopHandMade</p>
                         <ul class="footer-links">
-                            <li><a><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
-                            <li><a><i class="fa fa-phone"></i>0723658910</a></li>
-                            <li><a><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
+                            <li><a href="#"><i class="fa fa-map-marker"></i>Linh Trung, Thủ Đức</a></li>
+                            <li><a href="#"><i class="fa fa-phone"></i>0723658910</a></li>
+                            <li><a href="#"><i class="fa fa-envelope-o"></i>shopntt@email.com</a></li>
                         </ul>
                     </div>
                 </div>

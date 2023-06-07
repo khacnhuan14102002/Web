@@ -54,10 +54,16 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-edit"></i>Quản lý<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
+                                    <%--                                    <li><a href="/adminUser">Quản lý User</a></li>--%>
+                                    <% if (user.getManager() == 1) { %>
                                     <li><a href="/adminUser">Quản lý User</a></li>
+                                    <% } else if (user.getManager() == 2) { %>
                                     <li><a href="/manageControl">Quản lý sản phẩm</a></li>
+                                    <% } else if (user.getManager() == 3) { %>
                                     <li><a href="/managerOrder">Quản lý hóa đơn</a></li>
+                                    <% } else if (user.getManager() == 4) { %>
                                     <li><a href="/managerCatalogControl">Quản lý danh mục</a></li>
+                                    <% }%>
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i>Báo cáo<span class="fa fa-chevron-down"></span></a>
@@ -94,7 +100,6 @@
                                     xuất</a>
                             </div>
                         </li>
-
                         <li role="presentation" class="nav-item dropdown open">
                             <a class="dropdown-toggle info-number" id="navbarDropdown1"
                                data-toggle="dropdown" aria-expanded="false">
