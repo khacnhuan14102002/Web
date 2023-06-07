@@ -163,8 +163,7 @@
         <li><a href="/index">Trang chủ</a></li>
         <li><a href="/store">Sản phẩm</a></li>
         <li class="active"><a href="/about">Về chúng tôi</a> </li>
-        <li><a href="/contactControl">Liên hệ</a></li>
-
+        <li><a href="/contactController">Liên hệ</a></li>
         <!-- /NAV -->
       </ul>
       <!-- /NAV -->
@@ -182,7 +181,6 @@
     <!-- row -->
     <div class="row">
       <div class="col-md-12">
-
         <ul class="breadcrumb-tree">
           <li><a href="/index">Trang chủ</a></li>
           <li class="active">Về chúng tôi</li>
@@ -201,9 +199,7 @@
   <div class="container">
     <!-- row -->
     <div class="row">
-
-
-        <!-- Billing Details -->
+ <!-- Billing Details -->
         <div class="billing-details">
           <div class="section-title">
             <h2 class="title" style="text-align: center">Về cửa hàng của chúng tôi</h2></div></br>

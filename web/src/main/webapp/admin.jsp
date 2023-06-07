@@ -54,10 +54,24 @@
                         <ul class="nav side-menu">
                             <li><a><i class="fa fa-edit"></i>Quản lý<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
+                                    <%--                                    nếu manager = 1 thì chỉ quản lý user được hiển thị, tương tự = 234..--%>
+                                    <% if (user.getManager() == 1) { %>
+                                    <li><a href="/adminUser">Quản lý User</a></li>
+                                    <% } else if (user.getManager() == 2) { %>
+                                    <li><a href="/manageControl">Quản lý sản phẩm</a></li>
+                                    <% } else if (user.getManager() == 3) { %>
+                                    <li><a href="/managerOrder">Quản lý hóa đơn</a></li>
+                                    <% } else if (user.getManager() == 4) { %>
+                                    <li><a href="/managerCatalogControl">Quản lý danh mục</a></li>
+                                    <% } else { %>
+                                    <%--    Nếu không phải manager trogn các trường hợp trên sẽ hiển thị tất cả,
+                                     Nếu bỏ thẻ <li> ra khỏi else thì sẽ HIỂN THỊ CHO TẤT CẢ TRƯỜNG HỢP--%>
                                     <li><a href="/adminUser">Quản lý User</a></li>
                                     <li><a href="/manageControl">Quản lý sản phẩm</a></li>
                                     <li><a href="/managerOrder">Quản lý hóa đơn</a></li>
                                     <li><a href="/managerCatalogControl">Quản lý danh mục</a></li>
+                                    <% } %>
+
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i>Báo cáo<span class="fa fa-chevron-down"></span></a>
@@ -90,7 +104,8 @@
                             </a>
                             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="/successAccount">Hồ sơ</a>
-                                <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right"></i>Đăng xuất</a>
+                                <a class="dropdown-item" href="/logout"><i class="fa fa-sign-out pull-right"></i>Đăng
+                                    xuất</a>
                             </div>
                         </li>
                         <li role="presentation" class="nav-item dropdown open">

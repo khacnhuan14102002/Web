@@ -2,7 +2,6 @@ package vn.edu.hcmuaf.fit.controller;
 
 import java.io.IOException;
 
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,6 +19,7 @@ import vn.edu.hcmuaf.fit.db.DB;
 public class LoginServlet extends HttpServlet {
 	String name = "AUTH";
 	private UserDao userDao = new UserDao();
+
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -48,39 +48,63 @@ public class LoginServlet extends HttpServlet {
 		String email = req.getParameter("email");
 		String pass = req.getParameter("pass");
 		User u = userDao.login(email, pass);
+//		if (u != null) {
+//			HttpSession session = req.getSession();
+//			User user = userDao.findUserByMaUser(u.getIdUser());
+//			session.setAttribute("user", user);
+//			resp.sendRedirect(req.getContextPath() + "/index");
+//		} else {
+//			req.setAttribute("errorlogin", "tai khoan hoac mat khau khong dung");
+//			RequestDispatcher rd = req.getRequestDispatcher("" +
+//					"/login.jsp");
+//			rd.forward(req, resp);
+//		}
+//
+////		moi them log user
+//		Log log = new Log(Log.INFO, -1, this.name, "", 0);
+//
+//		if (email == null || !checkLogin(email, pass)) {
+////            req.getWriter().println("User Login flase");
+//			log.setSrc(this.name + "LOGIN FALSE");
+//			log.setContent("LOGIN FALSE:- " + email);
+//			log.setLevel(Log.WARNING);
+//
+//		} else {
+//			resp.getWriter().println("User scess");
+//			log.setSrc(this.name + "LOGIN");
+//			log.setContent("LOGIN SECCESS: Email - " + email);
+//		}
+//		DB.me().insert(log);
+//	}
+
 		if (u != null) {
 			HttpSession session = req.getSession();
 			User user = userDao.findUserByMaUser(u.getIdUser());
 			session.setAttribute("user", user);
+
+			// Tạo bản ghi log
+			Log log = new Log(Log.INFO, -1, this.name, "", 0);
+			log.setSrc(this.name + "LOGIN");
+			log.setContent("LOGIN SUCCESS: " + email);
+			DB.me().insert(log);
+
 			resp.sendRedirect(req.getContextPath() + "/index");
 		} else {
 			req.setAttribute("errorlogin", "tai khoan hoac mat khau khong dung");
-			RequestDispatcher rd = req.getRequestDispatcher("" +
-					"/login.jsp");
+			RequestDispatcher rd = req.getRequestDispatcher("/login.jsp");
 			rd.forward(req, resp);
-		}
 
-//		moi them log user
-		Log log = new Log(Log.INFO, -1, this.name, "", 0);
-
-		if (email == null || !checkLogin(email, pass)) {
-//            req.getWriter().println("User Login flase");
+			// Tạo bản ghi log
+			Log log = new Log(Log.INFO, -1, this.name, "", 0);
 			log.setSrc(this.name + "LOGIN FALSE");
 			log.setContent("LOGIN FALSE:- " + email);
 			log.setLevel(Log.WARNING);
-
-		} else {
-			resp.getWriter().println("User scess");
-			log.setSrc(this.name + "LOGIN");
-			log.setContent("LOGIN SECCESS: Email - " + email);
+			DB.me().insert(log);
 		}
-		DB.me().insert(log);
 	}
-
 
 //}
-
-	private boolean checkLogin(String email, String pass) {
-		return false;
-	}
+    private boolean checkLogin(String email, String pass) {
+        return false;
+    }
 }
