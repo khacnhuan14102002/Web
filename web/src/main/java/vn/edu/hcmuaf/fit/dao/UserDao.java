@@ -245,7 +245,7 @@ public class UserDao {
     }
 
     public static void main(String[] args) {
-        int userId = 1; // IdUser của người dùng cần kiểm tra
+        int userId = 3; // IdUser của người dùng cần kiểm tra
 
         UserDao userDao = new UserDao();
         User user = userDao.getUser(userId);

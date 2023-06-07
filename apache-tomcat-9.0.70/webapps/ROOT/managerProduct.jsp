@@ -137,7 +137,7 @@
                     </div>
                     <div class="form-group">
                         <label>Hình ảnh</label>
-                        <input name="image" type="text" class="form-control" required>
+                        <input type="file" name="image"/>
                     </div>
                     <div class="form-group">
                         <label>Giá mới</label>
@@ -242,5 +242,6 @@
 </div>
 </a>
 <script src="build/js/manager.js" type="text/javascript"></script>
+
 </body>
 </html>

@@ -37,8 +37,8 @@ public class ManageControl extends HttpServlet {
         request.setAttribute("tag", index);
         request.setAttribute("endP", endPage);
         request.setAttribute("listC", listC);
-        request.setAttribute("listP", listP);
-        request.setAttribute("list_page", list_page);
+//        request.setAttribute("listP", listP);
+        request.setAttribute("listP", list_page);
         request.getRequestDispatcher("managerProduct.jsp").forward(request, response);
     }
 

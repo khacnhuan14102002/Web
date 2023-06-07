@@ -148,7 +148,7 @@ public class StoreService {
 
     public List<products> paging(int index) {
         List<products> list = new ArrayList<>();
-        String query = "SELECT * FROM products ORDER BY IdProduct LIMIT 12 OFFSET ?";
+        String query = "SELECT * FROM products  where HideProduct = 0 ORDER BY IdProduct LIMIT 12 OFFSET ?";
         try {
             conn = new connect().getconConnection();
             ps = conn.prepareStatement(query);
