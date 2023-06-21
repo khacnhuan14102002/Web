@@ -78,6 +78,7 @@
                                 <ul class="nav child_menu">
                                     <li><a href="/doanhthutheoThu">Báo cáo doanh thu theo thứ</a></li>
                                     <li><a href="/doanhthutheoThang">Báo cáo doanh thu theo tháng</a></li>
+                                    <li><a href="/doanhthu">Báo cáo doanh thu theo tháng</a></li>
                                 </ul>
                             </li>
                             <li><a href="/index"><i class="fa fa-reply"></i>Trở về trang chủ</a>
