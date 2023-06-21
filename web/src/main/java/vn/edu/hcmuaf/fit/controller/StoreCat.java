@@ -23,7 +23,7 @@ public class StoreCat extends HttpServlet {
         List<products> listproid = store.getListProductByCategory(cateId);
         List<category> listCC = store.getListCat();
         request.setAttribute("listCC",listCC);
-        request.setAttribute("listproid",listproid);
+        request.setAttribute("list_page",listproid);
         WishListService service = new WishListService();
         HttpSession session = request.getSession();
         User user = (User) session.getAttribute("user");
