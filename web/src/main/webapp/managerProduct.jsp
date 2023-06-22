@@ -33,6 +33,7 @@
 </style>
 <body>
 <div class="container">
+
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
@@ -42,8 +43,7 @@
                 <div class="col-sm-6">
                     <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i>
                         <span>Thêm sản phẩm mới</span></a>
-                    <a href="#deleteEmployeeModal" class="btn btn-danger" data-toggle="modal"><i class="material-icons">&#xE15C;</i>
-                        <span>Xóa sản phẩm</span></a>
+
                 </div>
             </div>
         </div>
@@ -74,7 +74,7 @@
             <tr>
                 <td>
                         <span class="custom-checkbox">
-                            <input type="checkbox" id="checkbox1" name="options[]" value="1">
+                            <input type="checkbox"  name="id" value="<%=pr.getIdProduct()%>">
                             <label for="checkbox1"></label>
                         </span>
                 </td>
@@ -116,6 +116,7 @@
     <a href="/adminpage">
         <button type="button" class="btn btn-primary">Trở về</button>
     </a>
+
 </div>
 <!-- Add Modal HTML -->
 <div id="addEmployeeModal" class="modal fade">
@@ -223,7 +224,7 @@
 <div id="deleteEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form>
+            <form action="deleteall">
                 <div class="modal-header">
                     <h4 class="modal-title">Xóa sản phẩm</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>

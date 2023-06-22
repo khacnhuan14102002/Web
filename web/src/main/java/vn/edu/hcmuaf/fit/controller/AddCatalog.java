@@ -1,6 +1,8 @@
 package vn.edu.hcmuaf.fit.controller;
 
+import vn.edu.hcmuaf.fit.bean.Log;
 import vn.edu.hcmuaf.fit.bean.category;
+import vn.edu.hcmuaf.fit.db.DB;
 import vn.edu.hcmuaf.fit.service.CatalogService;
 
 import javax.servlet.*;
@@ -10,6 +12,7 @@ import java.io.IOException;
 
 @WebServlet(name = "AddCatalog", value = "/addCatalog")
 public class AddCatalog extends HttpServlet {
+    String name = "AUTH";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -27,6 +30,11 @@ public class AddCatalog extends HttpServlet {
         cate.setIdCat(cid);
         cate.setNameCat(cname);
         CatalogService.addCatalog(cate);
+        Log log = new Log(Log.INFO, -1, this.name, "", 0);
+        log.setSrc(this.name + "ADD CATEGORY SUCCESS");
+        log.setContent("ADD CATEGORY SUCCESS:- " + cname);
+        log.setLevel(Log.INFO);
+        DB.me().insert(log);
         System.out.println(cate);
         response.sendRedirect("/managerCatalogControl");
     }

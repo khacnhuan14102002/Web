@@ -1,6 +1,8 @@
 package vn.edu.hcmuaf.fit.controller;
 
+import vn.edu.hcmuaf.fit.bean.Log;
 import vn.edu.hcmuaf.fit.bean.products;
+import vn.edu.hcmuaf.fit.db.DB;
 import vn.edu.hcmuaf.fit.service.ManagerService;
 
 import javax.servlet.*;
@@ -10,6 +12,7 @@ import java.io.IOException;
 
 @WebServlet(name = "AddControl", value = "/addProduct")
 public class AddControl extends HttpServlet {
+    String name = "AUTH";
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -39,6 +42,11 @@ public class AddControl extends HttpServlet {
         product.setDescription(pdescription);
         product.setIdCategory(pcategory);
         ManagerService.addProduct(product);
+        Log log = new Log(Log.INFO, -1, this.name, "", 0);
+        log.setSrc(this.name + "Add product sussec");
+        log.setContent("Add product sussec:- " + pname);
+        log.setLevel(Log.INFO);
+        DB.me().insert(log);
         System.out.println(product);
         response.sendRedirect("/manageControl");
 
