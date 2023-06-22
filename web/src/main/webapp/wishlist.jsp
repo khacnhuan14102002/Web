@@ -102,7 +102,7 @@
                         </a>
                     </div>
                     <div class="page">
-                        <p>|GIỎ HÀNG</p>
+                        <p>|YÊU THÍCH</p>
                     </div>
                 </div>
                 <!-- /LOGO -->
@@ -130,7 +130,7 @@
         <!-- Cart -->
         <div class="col-lg-9 col-md-9 col-sm-12">
             <div class="col-lg-12 col-sm-12">
-                <h1 class="title">WISH LIST</h1>
+                <h1 class="title">DANH SÁCH YÊU THÍCH</h1>
             </div>
             <div class="col-lg-12 col-sm-12 hero-feature">
                 <div class="table-responsive">
@@ -140,8 +140,8 @@
                             <td class="hidden-xs mn"> ẢNH</td>
                             <td class="mn">TÊN</td>
                             <td class="mn">GIÁ</td>
-                            <td class="mn">XÓA KHỎI WISH</td>
-                            <td class="mn">Thêm vào giỏ hàng</td>
+                            <td class="mn">XÓA KHỎI DANH SÁCH</td>
+                            <td class="mn">THÊM VÀO GIỎ HÀNG</td>
                         </tr>
                         </thead>
                         <c:forEach items="${requestScope.listW}" var="l">
