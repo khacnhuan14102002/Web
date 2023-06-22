@@ -214,7 +214,7 @@
                     </div>
                     <div class="shop-body">
                         <h3>Móc khóa<br>Bộ sưu tập</h3>
-                        <a href="storemockhoa.html" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="/category?cid=MK" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -228,7 +228,7 @@
                     </div>
                     <div class="shop-body">
                         <h3>Dreamcatcher<br>Bộ sưu tập</h3>
-                        <a href="/store" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="/category?cid=DC" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -242,7 +242,7 @@
                     </div>
                     <div class="shop-body">
                         <h3>Ốp lưng<br>Bộ sưu tập</h3>
-                        <a href="storeop.html" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
+                        <a href="/category?cid=OP" class="cta-btn">Mua ngay<i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
