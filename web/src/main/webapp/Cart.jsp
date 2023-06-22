@@ -155,18 +155,11 @@
                     <table class="table table-bordered tbl-cart">
                         <thead>
                         <tr>
-
-
                             <td class="hidden-xs mn"> ẢNH</td>
                             <td class="mn" >TÊN</td>
-
                             <td class="td-qty mn" >SỐ LƯỢNG</td>
                             <td class="mn">GIÁ</td>
-
                             <td class="mn">XÓA HÀNG</td>
-
-
-
                         </tr>
                         </thead>
                         <c:if test="${cart != null}">
@@ -175,7 +168,6 @@
                                 Integer key = entry.getKey();
                                 ProductCart productcart = entry.getValue();
                         %>
-
                         <tbody>
                         <tr>
                             <td class="hidden-xs">
@@ -185,8 +177,6 @@
                             </td>
                             <td class="npr"><%=productcart.pro.getNameProduct()%><a href="#"></a>
                             </td>
-
-
                             <td>
                                 <div class="input-number">
                                     <form action="/updateCart" method=POST">
@@ -206,19 +196,13 @@
                                     <i class="fa fa-trash" aria-hidden="true"></i>
                                 </a>
                             </td>
-
-
-
                         </tr>
-
                         <%}%>
                         </c:if>
-
                         <tr>
                             <th colspan="3">TỔNG TIỀN:</th>
-                            <th colspan="2">${total}</th>>
+                            <th colspan="2">${total}</th>
                         </tr>
-
                         </tbody>
                     </table>
                 </div>
