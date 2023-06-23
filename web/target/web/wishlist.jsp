@@ -141,7 +141,7 @@
                             <td class="mn">TÊN</td>
                             <td class="mn">GIÁ</td>
                             <td class="mn">XÓA KHỎI DANH SÁCH</td>
-                            <td class="mn">Thêm vào giỏ hàng</td>
+                            <td class="mn">THÊM VÀO GIỎ HÀNG</td>
                         </tr>
                         </thead>
                         <c:forEach items="${requestScope.listW}" var="l">

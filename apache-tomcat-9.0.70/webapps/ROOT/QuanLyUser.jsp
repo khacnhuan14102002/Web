@@ -17,7 +17,7 @@
 <%--<!--  <meta property="og:title" content="Website TruongBin" />-->--%>
 <%--<!--  <meta property="og:description" content="Wellcome to my Website" />-->--%>
 
-<title>Quản lý User</title>
+<title>Quản lý tài khoản</title>
 <!--  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"-->
 <!--        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -129,7 +129,7 @@
         <i class="fas fa-bars"></i>
       </button>
       <a class="navbar-brand"><i class="fa fa-user-circle" aria-hidden="true"></i> QUẢN
-        LÝ USER</a>
+        LÝ TÀI KHOẢN</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
