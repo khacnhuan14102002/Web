@@ -77,7 +77,7 @@
                             <li><a><i class="fa fa-bar-chart-o"></i>Báo cáo<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
                                     <li><a href="/doanhthutheoThu">Báo cáo log</a></li>
-                                    <li><a href="/doanhthutheoThang">Báo cáo sản phẩm</a></li>
+                                    <li><a href="/doanhsosanpham">Báo cáo sản phẩm</a></li>
                                     <li><a href="/doanhthu">Báo cáo doanh thu</a></li>
                                 </ul>
                             </li>
