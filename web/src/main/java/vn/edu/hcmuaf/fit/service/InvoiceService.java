@@ -16,7 +16,7 @@ public class InvoiceService {
     static PreparedStatement ps = null;
     static ResultSet rs = null;
     public int addInvoice(Invoice invoice){
-        String query = "INSERT INTO invoices ( NameUs, Address ,PayType, StatusIn, Total, ExportDate, Phone,IdUs) VALUES (?,?,?,?,?,?,?,?)";
+        String query = "INSERT INTO invoices ( NameUs, Address, PayType, StatusIn, Total, ExportDate, Phone, IdUs) VALUES (?,?,?,?,?,?,?,?)";
         int IdIn = 0;
         try {
             conn = new connect().getconConnection();

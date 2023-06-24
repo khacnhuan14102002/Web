@@ -16,40 +16,18 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
         <title>Lịch sử mua hàng</title>
-
-        <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-
-        <!-- Bootstrap -->
         <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
-
-        <!-- Slick -->
         <link type="text/css" rel="stylesheet" href="css/slick.css"/>
         <link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
-
-        <!-- nouislider -->
         <link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
-
-        <!-- Font Awesome Icon -->
         <link rel="stylesheet" href="css/font-awesome.min.css">
-
-        <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="css/style2.css"/>
-
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>-->
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
-<body >
-
-<!-- HEADER -->
+<body>
 <header>
-    <!-- TOP HEADER -->
     <div id="top-header">
         <div class="container">
             <ul class="header-links pull-left">
@@ -72,9 +50,7 @@
                 <%
                     }
                 %>
-                <%--					--%>
                 <li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
-
                 <%
                 } else {
                 %>
@@ -85,29 +61,18 @@
             </ul>
         </div>
     </div>
-    <!-- /TOP HEADER -->
-
-    <!-- MAIN HEADER -->
-    <div id="header">
-        <!-- container -->
         <div class="container">
-            <!-- row -->
             <div class="row">
-                <!-- LOGO -->
                 <div class="col-md-4">
                     <div class="header-logo">
                         <a href="/index" class="logo">
                             <img src="./image/ntt.png" alt="">
                         </a>
                     </div>
-
                     <div class="page">
                         <p>LỊCH SỬ MUA HÀNG</p>
                     </div>
                 </div>
-                <!-- /LOGO -->
-
-                <!-- SEARCH BAR -->
                 <div class="col-md-6">
                     <div class="header-search">
                         <form>
@@ -117,16 +82,12 @@
                     </div>
                 </div>
             </div>
-            <!-- row -->
         </div>
-        <!-- container -->
     </div>
-    <!-- /MAIN HEADER -->
 </header>
 
 <div class="container bootdey">
     <div class="row bootstrap snippets">
-        <!-- Cart -->
         <div class="col-lg-9 col-md-9 col-sm-12">
             <div class="col-lg-12 col-sm-12">
                 <h1 class="title">LỊCH SỬ MUA HÀNG</h1>
@@ -158,7 +119,7 @@
                                 ${l.datecreate}
                             </td>
 <%--                            trạng thái--%>
-                            <td >${l.getStatusIn()}</td>
+                            <td >Đang chờ xác nhận</td>
             <td ><a href="detailinvoice?Idinvoice=${l.idIn}" >XEM CHI TIẾT</a></td>
                         </tr>
                         </c:forEach>
@@ -171,13 +132,8 @@
             </div>
         </div>
     </div>
-    <!-- End Cart -->
 </div>
 </div>
-<!-- Button trigger modal -->
-
-<!-- Modal -->
-
 <script src="js/main.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>

@@ -21,22 +21,17 @@
 </head>
 <body>
 <div id="logreg-forms">
-
   <form class="form-signin" onsubmit="checkRegis()" method="post">
     <h1 class="h3 mb-3 font-weight-normal" style="text-align: center">Đăng Ký</h1>
-
     <input type="text" name="fullname" id="fullname" class="form-control" placeholder="Họ và tên" required="" autofocus="">
     <input type="email" id="email" name="email" class="form-control" placeholder="Nhập email" required autofocus="">
     <input type="password" id="pass" name="pass" class="form-control" placeholder="Mật khẩu" required autofocus="">
     <input type="text" id="user-so" name="sodt" class="form-control" placeholder="Số điện thoại" required="" autofocus="">
     <input type="password" id="repass" class="form-control" placeholder="Nhập lại mật khẩu" required autofocus="">
-
     <button class="btn btn-success btn-block" type="submit"><i class="fas fa-user-plus"></i> Đăng kí</button>
     <hr>
-    <!-- <p>Don't have an account!</p>  -->
     <a class="bt btn btn-primary btn-block" href="login"> Đăng Nhập</a>
   </form>
-
   <br>
 </div>
 
