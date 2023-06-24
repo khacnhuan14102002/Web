@@ -35,7 +35,10 @@ public class UserDao {
             pre.setInt(7, u.getManager());
             pre.setInt(8, u.getActive());
             pre.setString(9, u.getKeyactive());
-            pre.execute();
+
+            System.out.println(u.getKeyactive());
+
+            pre.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -250,12 +253,13 @@ public class UserDao {
         UserDao userDao = new UserDao();
         User user = userDao.getUser(userId);
 //kiểm tra manager có lấy được dữ liệu hay chưa
-        if (user != null) {
-            int manager = user.getManager();
-            System.out.println("Manager: " + manager);
-        } else {
-            System.out.println("User not found.");
-        }
+//        if (user != null) {
+//            int manager = user.getManager();
+//            System.out.println("Manager: " + manager);
+//        } else {
+//            System.out.println("User not found.")
+//        }
+        userDao.saveUser(new User("thi","â@gmail.com","12","121332313",new Date(2023-06-24),1,1,1));
     }
 
 }
