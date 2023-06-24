@@ -16,40 +16,20 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-
         <title>ShopHandMade</title>
-
-        <!-- Google font -->
         <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,700" rel="stylesheet">
-
-        <!-- Bootstrap -->
         <link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"/>
-
-        <!-- Slick -->
         <link type="text/css" rel="stylesheet" href="css/slick.css"/>
         <link type="text/css" rel="stylesheet" href="css/slick-theme.css"/>
-
-        <!-- nouislider -->
         <link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
-
-        <!-- Font Awesome Icon -->
         <link rel="stylesheet" href="css/font-awesome.min.css">
-
-        <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="css/style2.css"/>
-
-        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>-->
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 
-<body >
+<body>
 
-<!-- HEADER -->
 <header>
-    <!-- TOP HEADER -->
     <div id="top-header">
         <div class="container">
             <ul class="header-links pull-left">
@@ -72,7 +52,6 @@
                 <%
                     }
                 %>
-                <%--					--%>
                 <li><a href="logout"><i class="fa fa-sign-out"></i> Đăng xuất</a></li>
 
                 <%
@@ -85,15 +64,9 @@
             </ul>
         </div>
     </div>
-    <!-- /TOP HEADER -->
-
-    <!-- MAIN HEADER -->
     <div id="header">
-        <!-- container -->
         <div class="container">
-            <!-- row -->
             <div class="row">
-                <!-- LOGO -->
                 <div class="col-md-4">
                     <div class="header-logo">
                         <a href="/index" class="logo">
@@ -105,9 +78,6 @@
                         <p>|GIỎ HÀNG</p>
                     </div>
                 </div>
-                <!-- /LOGO -->
-
-                <!-- SEARCH BAR -->
                 <div class="col-md-6">
                     <div class="header-search">
                         <form>
@@ -116,36 +86,13 @@
                         </form>
                     </div>
                 </div>
-                <!-- /SEARCH BAR -->
-
-                <!-- ACCOUNT -->
-
-                <!-- Wishlist -->
-
-                <!-- /Wishlist -->
-
-                <!-- Cart -->
-
-
-
-                <!-- /Menu Toogle -->
-
-
-                <!-- /ACCOUNT -->
             </div>
-            <!-- row -->
         </div>
-        <!-- container -->
     </div>
-    <!-- /MAIN HEADER -->
 </header>
 
 <div class="container bootdey">
     <div class="row bootstrap snippets">
-
-
-
-        <!-- Cart -->
         <div class="col-lg-9 col-md-9 col-sm-12">
             <div class="col-lg-12 col-sm-12">
                 <h1 class="title">GIỎ HÀNG</h1>
@@ -185,10 +132,8 @@
                                         <span class="qty-up">+</span>
                                         <span class="qty-down">-</span>
                                         <button type="submit" class="bt btn btn-primary"><i class="fa fa-pencil"></i>Cập nhật giỏ hàng</button>
-                                            <%--                                            <button type="button" class="bt btn btn-primary"><i class="fa fa-pencil"></i><a href="/updateCart"> Cập nhật giỏ hàng</a></button>--%>
                                     </form>
                                 </div>
-                                <!--                                <div class="input-group bootstrap-touchspin"><span class="input-group-btn"></span><span class="input-group-addon bootstrap-touchspin-prefix" style="display: none;"></span><input type="text" name="" value="1" class="input-qty form-control text-center" style="display: block;"><span class="input-group-addon bootstrap-touchspin-postfix" style="display: none;"></span><span class="input-group-btn"></span></div>-->
                             </td>
                             <td class="price"><%=productcart.pro.getPriceNew()%></td>
                             <td class="text-center">
@@ -206,7 +151,6 @@
                         </tbody>
                     </table>
                 </div>
-
                 <c:if test="${cart == null}" >
                 Không có sản phẩm trong giỏ hàng
                 </c:if>

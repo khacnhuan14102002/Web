@@ -28,29 +28,29 @@ public class RegisServlet extends HttpServlet {
 		System.out.println("=== path: " + path);
 		RequestDispatcher rd = null;
 		switch (path) {
-		case "/regis":
-			rd = req.getRequestDispatcher("/regis.jsp");
-			break;
-		case "/successRegis":
-			String key = req.getParameter("key");
-			if (key != null || key.equals("")) {
-				System.out.println(key);
-				userDao.activeByActivationKey(key);
-				req.setAttribute("mess", "dang ky thanh cong, hay dang nhap");
+			case "/regis":
+				rd = req.getRequestDispatcher("/regis.jsp");
+				break;
+			case "/successRegis":
+				String key = req.getParameter("key");
+				if (key != null || key.equals("")) {
+					System.out.println(key);
+					userDao.activeByActivationKey(key);
+					req.setAttribute("mess", "dang ky thanh cong, hay dang nhap");
+					rd = req.getRequestDispatcher("/login.jsp");
+				}
 				rd = req.getRequestDispatcher("/login.jsp");
-			}
-			rd = req.getRequestDispatcher("/login.jsp");
-			break;
-		default:
-			break;
+				break;
+			default:
+				break;
 		}
 		rd.forward(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		resp.setContentType("text/html;charset=UTF-8");
-		req.setCharacterEncoding("UTF-8");
+		req.setCharacterEncoding("utf-8");
+		resp.setCharacterEncoding("utf-8");
 		String activationKey = MailService.randomKey();
 		String ten = req.getParameter("fullname");
 		String email = req.getParameter("email");
@@ -69,15 +69,16 @@ public class RegisServlet extends HttpServlet {
 		User u = new User();
 		//u.setIdUser(null);
 		u.setKeyactive(activationKey);
-		u.setActive(1);
+		u.setActive(0);
 		u.setEmailUs(email);
 		u.setRoleUs(0);
 		u.setRegistrationDate(new Date(System.currentTimeMillis()));
 		u.setPass(pass);
 		u.setPhone(sdt);
 		u.setNameUser(ten);
+		u.setManager(0);
 
-		//System.out.println(activationKey);
+		System.out.println(activationKey);
 		userDao.saveUser(u);
 		resp.sendRedirect(req.getContextPath() + "/login");
 	}
