@@ -21,6 +21,8 @@ function login() {
     });
 }
 
+
+
 function getProvince() {
     //Lấy danh sách các tỉnh
     $.ajax({

@@ -1,9 +1,11 @@
 package vn.edu.hcmuaf.fit.controller;
 
+import vn.edu.hcmuaf.fit.bean.Manager;
 import vn.edu.hcmuaf.fit.bean.category;
 import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.service.CatalogService;
 import vn.edu.hcmuaf.fit.service.ManagerService;
+import vn.edu.hcmuaf.fit.service.RoleService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -19,7 +21,8 @@ public class ManagerCatalogControl extends HttpServlet {
 
         CatalogService cata = new CatalogService();
         List<category> listC = cata.ListCategory();
-
+        RoleService role = new RoleService();
+        List<Manager>  m = role.getRole();   request.setAttribute("m", m);
         request.setAttribute("listC", listC);
         request.getRequestDispatcher("managerCatalog.jsp").forward(request, response);
     }

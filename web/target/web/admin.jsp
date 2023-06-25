@@ -63,22 +63,29 @@
                                     <li><a href="/managerOrder">Quản lý hóa đơn</a></li>
                                     <% } else if (user.getManager() == 4) { %>
                                     <li><a href="/managerCatalogControl">Quản lý danh mục</a></li>
-                                    <% } else { %>
+                                    <% } else  if(user.getManager() ==0){ %>
+                                        <li><a href="/role">Quản lý vai trò</a></li>
+                                        <% } else {%>
                                     <%--    Nếu không phải manager trogn các trường hợp trên sẽ hiển thị tất cả,
                                      Nếu bỏ thẻ <li> ra khỏi else thì sẽ HIỂN THỊ CHO TẤT CẢ TRƯỜNG HỢP--%>
                                     <li><a href="/adminUser">Quản lý User</a></li>
                                     <li><a href="/manageControl">Quản lý sản phẩm</a></li>
                                     <li><a href="/managerOrder">Quản lý hóa đơn</a></li>
                                     <li><a href="/managerCatalogControl">Quản lý danh mục</a></li>
+                                        <li><a href="/role">Quản lý vai trò</a></li>
                                     <% } %>
 
                                 </ul>
                             </li>
                             <li><a><i class="fa fa-bar-chart-o"></i>Báo cáo<span class="fa fa-chevron-down"></span></a>
                                 <ul class="nav child_menu">
-                                    <li><a href="/doanhthutheoThu">Báo cáo log</a></li>
                                     <li><a href="/doanhsosanpham">Báo cáo sản phẩm</a></li>
                                     <li><a href="/doanhthu">Báo cáo doanh thu</a></li>
+                                </ul>
+                            </li>
+                            <li><a><i class="fa fa-bar-chart-o"></i>Log<span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="/log">Báo cáo log login</a></li>
                                 </ul>
                             </li>
                             <li><a href="/index"><i class="fa fa-reply"></i>Trở về trang chủ</a>

@@ -38,7 +38,13 @@
 
         <!-- Custom stlylesheet -->
         <link type="text/css" rel="stylesheet" href="css/style2.css"/>
-
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <link href="build/css/manager.css" rel="stylesheet" type="text/css"/>
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>-->
@@ -134,7 +140,7 @@
             </div>
             <div class="col-lg-12 col-sm-12 hero-feature">
                 <div class="table-responsive">
-                    <table class="table table-bordered tbl-cart">
+                    <table class="table table-striped table-hover">
                         <thead>
                         <tr>
                             <td class="hidden-xs mn"> ẢNH</td>
@@ -169,6 +175,7 @@
                             </tbody>
                         </c:forEach>
                     </table>
+
                 </div>
 
             </div>

@@ -63,7 +63,11 @@ public class CheckoutControll extends HttpServlet {
             System.out.println("thành công");
         }
         session.setAttribute("cart",null);
-        response.sendRedirect("/checksuccess");
+        if(phuonthucthanhtoan.equals("ck")){
+            response.sendRedirect("/ck.jsp");
+        }else {
+            response.sendRedirect("/checksuccess");
+        }
     return;
     }
 }

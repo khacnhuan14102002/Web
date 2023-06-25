@@ -25,7 +25,14 @@
         <link type="text/css" rel="stylesheet" href="css/style2.css"/>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-
+        <link type="text/css" rel="stylesheet" href="css/style2.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <link href="build/css/manager.css" rel="stylesheet" type="text/css"/>
 <body>
 <header>
     <div id="top-header">
@@ -95,31 +102,35 @@
             </div>
             <div class="col-lg-12 col-sm-12 hero-feature">
                 <div class="table-responsive">
-                    <table class="table table-bordered tbl-cart">
+                    <table class="table table-striped table-hover">
                         <thead>
                         <tr>
                             <td>STT</td>
-                            <td class="">MÃ CHI TIẾT</td>
                             <td class="" >MÃ SẢN PHẨM</td>
+                            <td class="" >HÌNH ẢNH</td>
                             <td class="" >SỐ LƯỢNG</td>
                             <td class="">GIÁ</td>
+                            <td class="">TỔNG TIỀN</td>
                         </tr>
                         </thead>
                         <c:forEach var="c" items="${requestScope.listde}" varStatus="loop">
+                            <c:forEach var="p" items="${requestScope.listp}" varStatus="loop">
+                                <c:if test="${p.getIdProduct()==c.getIdpro()}">
                             <tbody>
                             <td>${loop.index+1}</td>
-                            <td class="">${c.getIddIn()}</td>
                             <td class="" >${c.getIdpro()}</td>
+                            <td class="" ><img src="${p.getImage()}" width="47" height="47"></td>
                             <td class="" >${c.getQuantity()}</td>
                             <td class="">${c.getPrice()}</td>
-                        </tbody>
+                            <td class="">${c.getPrice()*c.getQuantity()}</td>
+                        </tbody> </c:if>
+                            </c:forEach>
                         </c:forEach>
                     </table>
                 </div>
             </div>
             <div class="btn-group btns-cart">
                 <button type="button" class="bt btn btn-primary"><i class="fa fa-arrow-circle-left"></i><a href="/index">Trở về trang chủ</a></button>
-                <button type="button" class="bt btn btn-primary"><a href="/historyinvoice"><i class="fa fa-arrow-circle-right"></i></a></button>
             </div>
         </div>
     </div>

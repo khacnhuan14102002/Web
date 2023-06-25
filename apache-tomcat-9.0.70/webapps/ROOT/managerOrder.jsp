@@ -1,5 +1,8 @@
 <%@ page import="vn.edu.hcmuaf.fit.bean.Invoice" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
+<%@ page import="javax.management.relation.Role" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.Manager" %><%--
   Created by IntelliJ IDEA.
   User: Kim_Tuyet
   Date: 5/15/2023
@@ -35,6 +38,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <h2>Quản lý Hóa Đơn</h2>
+
                 </div>
             </div>
         </div>
@@ -86,7 +90,7 @@
                 </td>
                 <td class="invoice-Date-<%=in_voice.getIdIn()%>"><%=in_voice.getDatecreate()%>
                 </td>
-                <td class="invoice-Status-<%=in_voice.getIdIn()%>"><%=in_voice.getStatusIn()%>
+                <td class="invoice-Status">Đang chờ xác nhận
                 </td>
             </tr>
             <% }%>
