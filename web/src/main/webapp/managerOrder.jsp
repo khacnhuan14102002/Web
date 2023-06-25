@@ -86,7 +86,7 @@
                 </td>
                 <td class="invoice-Date-<%=in_voice.getIdIn()%>"><%=in_voice.getDatecreate()%>
                 </td>
-                <td class="invoice-Status-<%=in_voice.getIdIn()%>"><%=in_voice.getStatusIn()%>
+                <td class="invoice-Status">Đang chờ xác nhận
                 </td>
             </tr>
             <% }%>
