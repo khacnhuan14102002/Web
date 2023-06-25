@@ -1,5 +1,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.Manager" %><%--
   Created by IntelliJ IDEA.
   User: Kim_Tuyet
   Date: 4/2/2023
@@ -29,10 +31,15 @@
                 <div class="col-sm-6">
                     <h2>Quản lý Danh Mục</h2>
                 </div>
+             <%   User user = (User) session.getAttribute("user");
+                List<Manager> ma= (List<Manager>) request.getAttribute("m");
+                for (Manager m : ma) {
+                if(m.getIdU()== user.getIdUser()){
+                if(m.getIsadd()==1){%>
                 <div class="col-sm-6">
                     <a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i>
                         <span>Thêm danh mục mới</span></a>
-                </div>
+                </div><%}%><%}%><%}%>
             </div>
         </div>
         <table class="table table-striped table-hover">
@@ -51,6 +58,8 @@
             </thead>
             <tbody>
             <%
+
+
                 List<category> listC = (List<category>) request.getAttribute("listC");
                 for (category cat : listC) {
             %>
@@ -66,12 +75,22 @@
                 <td class="category-ten-<%=cat.getNameCat()%>"><%=cat.getNameCat()%>
                 </td>
                 <td>
+                    <%   User user1 = (User) session.getAttribute("user");
+                        List<Manager> ma1= (List<Manager>) request.getAttribute("m");
+                        for (Manager m : ma1) {
+                            if(m.getIdU()== user.getIdUser()){
+                                if(m.getIsedit()==1){%>
                     <a href="#editEmployeeModal" class="edit" data-toggle="modal">
                         <button value="<%=cat.getIdCat()%>" style="display: none"></button>
-                        <i class="material-icons" data-toggle="tooltip" title="Sửa">&#xE254;</i></a>
+                        <i class="material-icons" data-toggle="tooltip" title="Sửa">&#xE254;</i></a><%}%><%}%><%}%>
+                    <%   User user2 = (User) session.getAttribute("user");
+                        List<Manager> ma2= (List<Manager>) request.getAttribute("m");
+                        for (Manager m : ma2) {
+                            if(m.getIdU()== user.getIdUser()){
+                                if(m.getIsdelete()==1){%>
                     <a href="/deleteCatalog?cid=<%=cat.getIdCat()%>" class="delete"
                        data-toggle="modal">
-                        <i class="material-icons" data-toggle="tooltip" title="Xóa">&#xE872;</i></a>
+                        <i class="material-icons" data-toggle="tooltip" title="Xóa">&#xE872;</i></a><%}%><%}%><%}%>
                 </td>
             </tr>
             <% }%>
@@ -83,6 +102,7 @@
     </a>
 </div>
 <!-- Add Modal HTML -->
+
 <div id="addEmployeeModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -109,6 +129,7 @@
         </div>
     </div>
 </div>
+
 <!-- Edit Modal HTML -->
 <div id="editEmployeeModal" class="modal fade">
     <div class="modal-dialog">
@@ -136,6 +157,7 @@
         </div>
     </div>
 </div>
+<
 <!-- Delete Modal HTML -->
 <div id="deleteEmployeeModal" class="modal fade">
     <div class="modal-dialog">

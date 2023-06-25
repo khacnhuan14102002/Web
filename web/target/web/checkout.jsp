@@ -211,11 +211,18 @@
                             <div><strong class="order-total">${total}</strong></div>
                         </div>
                     </div>
+<%--                    <% String option = request.getParameter("type"); %>--%>
+<%--                    <% if (option.equals("Chuyển khoản")) { %>--%>
+<%--                    <p>Bạn đã chọn "Có". Đang chuyển hướng...</p>--%>
+<%--                    <%--%>
+<%--                        // Chuyển hướng sang trang khác nếu cần thiết--%>
+<%--                        response.sendRedirect("ck.jsp");--%>
+<%--                   %>--%>
                     <div class="payment-method">
                         <h3>Phương thức thanh toán</h3>
                         <select name="type">
-                            <option>Chuyển khoản</option>
-                            <option>Thanh toán khi nhận hàng</option>
+                            <option value="ck">Chuyển khoản</option>
+                            <option value="tt">Thanh toán khi nhận hàng</option>
                         </select>
                     </div>
                     <div class="input-checkbox">

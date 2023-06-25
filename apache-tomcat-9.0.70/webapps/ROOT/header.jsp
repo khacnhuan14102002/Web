@@ -8,9 +8,7 @@
         <ul class="nav navbar-nav">
             <li ><a href="Thongketheongay.jsp">Theo ngày</a></li>
             <li><a href="Thongketheothang.jsp">Theo tháng</a></li>
-            <li><a href="theotuan.jsp">Theo tuần</a></li>
             <li><a href="Thongketheokhoangngay.jsp">Theo khoảng ngày</a></li>
-            <li><a href="hienthi.jsp">Bảng dữ liệu</a></li>
         </ul>
         <%--    <ul class="nav navbar-nav navbar-right">--%>
         <%--      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Đăng xuất</a></li>--%>

@@ -24,6 +24,14 @@
         <link type="text/css" rel="stylesheet" href="css/nouislider.min.css"/>
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link type="text/css" rel="stylesheet" href="css/style2.css"/>
+        <link type="text/css" rel="stylesheet" href="css/style2.css"/>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <link href="build/css/manager.css" rel="stylesheet" type="text/css"/>
         <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <body>
@@ -94,7 +102,7 @@
             </div>
             <div class="col-lg-12 col-sm-12 hero-feature">
                 <div class="table-responsive">
-                    <table class="table table-bordered tbl-cart">
+                    <table class="table table-striped table-hover">
                         <thead>
                         <tr>
                             <td class="hidden-xs mn">Mã</td>

@@ -1,6 +1,7 @@
 <%@ page import="vn.edu.hcmuaf.fit.bean.User" %>
 <%@ page import="java.util.List" %>
 <%@ page import="vn.edu.hcmuaf.fit.dao.UserDao" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.Manager" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -150,10 +151,14 @@
   <b>CHỨC NĂNG CHÍNH:</b><Br>
   <button class="nv xuat" data-toggle="tooltip" data-placement="top" title="Xuất File"><i
           class="fas fa-file-import"></i></button>
-
+  <%   User user3 = (User) session.getAttribute("user");
+    List<Manager> ma= (List<Manager>) request.getAttribute("m");
+    for (Manager m : ma) {
+      if(m.getIdU()== user3.getIdUser()){
+        if(m.getIsadd()==1){%>
   <a href="/AddUserServlet"> <button class="nv nhap" data-toggle="tooltip" data-placement="top" title="Thêm User"
                                  onclick="document.getElementById('add-user-form').style.display='block'">
-    <i class="fa-solid fa-plus"></i></button> </a>
+    <i class="fa-solid fa-plus"></i></button> </a><%}%><%}%><%}%>
 
   <div class="table-title">
     <div class="row">
@@ -203,17 +208,27 @@
 <%--            <button type="submit" name="user">Sửa</button>--%>
 
 <%--          </form>--%>
+  <%   User user1 = (User) session.getAttribute("user");
+    List<Manager> ma1= (List<Manager>) request.getAttribute("m");
+    for (Manager m : ma1) {
+      if(m.getIdU()== user.getIdUser()){
+        if(m.getIsedit()==1){%>
   <button class="add-to-wishlist"><a
           href="editUs?uid=<%=user.getIdUser()%>"><i
           class="fa fa-wrench"></i></a>
-  </button>
-
+  </button><%}%><%}%><%}%>
+  <%   User user2 = (User) session.getAttribute("user");
+    List<Manager> ma2= (List<Manager>) request.getAttribute("m");
+    for (Manager m : ma2) {
+      if(m.getIdU()== user.getIdUser()){
+        if(m.getIsdelete()==1){%>
         <form method="post" action="deleteUser">
           <input type="hidden" name="idUser" value="<%= user.getIdUser() %>" />
           <input type="hidden" name="command" value="delete" />
           <button style="width:48px" type="submit" onclick="return confirm('Bạn có chắc muốn xóa user này không?')"><i class="fa fa-trash"></i></button>
 
         </form>
+  <%}%><%}%><%}%>
       </td>
     </tr>
     <!-- Edit Modal HTML -->

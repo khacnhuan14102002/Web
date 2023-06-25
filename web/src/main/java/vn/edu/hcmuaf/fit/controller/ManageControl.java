@@ -1,8 +1,10 @@
 package vn.edu.hcmuaf.fit.controller;
 
+import vn.edu.hcmuaf.fit.bean.Manager;
 import vn.edu.hcmuaf.fit.bean.category;
 import vn.edu.hcmuaf.fit.bean.products;
 import vn.edu.hcmuaf.fit.service.ManagerService;
+import vn.edu.hcmuaf.fit.service.RoleService;
 import vn.edu.hcmuaf.fit.service.StoreService;
 
 import javax.servlet.ServletException;
@@ -31,6 +33,8 @@ public class ManageControl extends HttpServlet {
         if (count % 12 != 0) {
             endPage++;
         }
+        RoleService role = new RoleService();
+        List<Manager>  m = role.getRole();   request.setAttribute("m", m);
         List<products> list_page = mana.paging(index);
         List<products> listP = mana1.getAllProduct();
         List<category> listC = mana1.getAllCategory();

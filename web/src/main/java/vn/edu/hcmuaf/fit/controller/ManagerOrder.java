@@ -1,7 +1,9 @@
 package vn.edu.hcmuaf.fit.controller;
 
 import vn.edu.hcmuaf.fit.bean.Invoice;
+import vn.edu.hcmuaf.fit.bean.Manager;
 import vn.edu.hcmuaf.fit.service.OrderService;
+import vn.edu.hcmuaf.fit.service.RoleService;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -16,9 +18,10 @@ public class ManagerOrder extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         OrderService order = new OrderService();
-        List<Invoice> listI = order.getAllInvoice();
 
+        List<Invoice> listI = order.getAllInvoice();
         request.setAttribute("listI", listI);
+
         request.getRequestDispatcher("managerOrder.jsp").forward(request, response);
     }
 

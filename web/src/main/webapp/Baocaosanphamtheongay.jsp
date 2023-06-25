@@ -1,38 +1,56 @@
+<%@ page import="java.util.List" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.*" %>
 <%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
-<%@ page import="vn.edu.hcmuaf.fit.bean.Soluongbanra" %>
-<%@ page import="java.util.List" %><%--
+<%@ page import="vn.edu.hcmuaf.fit.bean.products" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.category" %>
+<%@ page import="vn.edu.hcmuaf.fit.bean.Log" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%--
   Created by IntelliJ IDEA.
-  User: PC
-  Date: 6/22/2023
-  Time: 8:28 PM
+  User: DELL
+  Date: 1/7/2023
+  Time: 12:38 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <title>Thống kê theo ngày</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <!-- datatable -->
-  <link href="vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
-  <link href="vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
-  <link href="vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
-  <link href="vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
-  <link href="vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Báo cáo sản phẩm theo ngày
+  </title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <link href="build/css/manager.css" rel="stylesheet" type="text/css"/>
 </head>
+<style>
+  img {
+    width: 200px;
+    height: 120px;
+  }
+</style>
 <body>
 <div class="container">
-  <%--    <div class="row">--%>
-  <%--        <jsp:include page="header.jsp"></jsp:include>--%>
-  <%--    </div>--%>
-  <br>
-  <div class="row">
 
-
+  <div class="table-wrapper">
+    <div class="table-title">
+      <div class="row">
+        <div class="col-sm-6">
+          <h2>Báo cáo sản phẩm</h2>
+        </div>
+        <div class="col-sm-6">
+          <p>Tổng doanh thu có được: ${sum} VND</p>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            Excel
+          </button>
+        </div>
+      </div>
+    </div>
     <table id="datatable-buttons" class="table table-striped table-bordered">
       <thead>
       <tr>
@@ -74,8 +92,19 @@
       <%}%>
     </table>
 
-    <p>Tổng doanh thu có được: ${sum} VND</p>
+
+
+    <%--        <div class="clearfix">--%>
+    <%--            <ul class="pagination">--%>
+    <%--                <c:forEach begin="1" end="${requestScope.endP}" var="i">--%>
+    <%--                    <li class="${tag==i?"active":""}"><a href="log?page=${i}">${i}</a></li>--%>
+    <%--                </c:forEach>--%>
+    <%--            </ul>--%>
+    <%--        </div>--%>
   </div>
+  <a href="/adminpage">
+    <button type="button" class="btn btn-primary">Trở về</button>
+  </a>
   <button id="b1">Báo cáo theo tháng</button>
   <form action="sanphamthang" id="form1" style="display:none;">
     <input type="month" name="thang">
@@ -94,43 +123,12 @@
     <input type="date" name="ngayKetThuc">
     <button class="btn btn-sm btn-defaut" type="submit">Thống kê</button>
   </form>
+  <form action="xuatexcelHoadon" id="form3" >
+  <button class="btn btn-sm btn-defaut" type="submit">Xuất</button>
+  </form>
 </div>
-</body>
-<!-- jQuery -->
-<script src="vendors/jquery/dist/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="vendors/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- datatable -->
-<script src="vendors/datatables.net/js/jquery.dataTables.min.js"></script>
-<script src="vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
-<script src="vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
-<script src="vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
-<script src="vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
-<script src="vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
-<script src="vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
-<script src="vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
-<script src="vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
-<script src="vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
-<script src="vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
-<script src="vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
-<script src="vendors/jszip/dist/jszip.min.js"></script>
-<script src="vendors/pdfmake/build/pdfmake.min.js"></script>
-<script src="vendors/pdfmake/build/vfs_fonts.js"></script>
-<%--<script>--%>
-<%--  var showFormBtn = document.getElementById("showForm");--%>
-<%--  var myForm = document.getElementById("myForm");--%>
-<%--  var isShown = false;--%>
-
-<%--  showFormBtn.onclick = function() {--%>
-<%--    if (isShown) {--%>
-<%--      myForm.style.display = "none";--%>
-<%--      isShown = false;--%>
-<%--    } else {--%>
-<%--      myForm.style.display = "block";--%>
-<%--      isShown = true;--%>
-<%--    }--%>
-<%--  };--%>
-<%--</script>--%>
+<!-- Add Modal HTML -->
+<script src="build/js/manager.js" type="text/javascript"></script>
 <script>
   const button1 = document.getElementById("b1");
   const button2 = document.getElementById("b2");
@@ -158,7 +156,29 @@
   });
 
 </script>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>           <form action="/xuatexcelHoadon" method="get" >
+      <div class="modal-body">
 
-<!-- Custom Theme Scripts -->
-<script src="build/js/custom.min.js"></script>
+
+        <p>chọn Ngày</p>
+        <input type="date" name="date">
+
+
+      </div>
+      <div class="modal-footer">
+        <button class="primary-btn">Xuất</button>
+      </div>
+    </form>
+    </div>
+  </div>
+</div>
+</body>
 </html>
